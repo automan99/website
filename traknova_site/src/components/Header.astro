@@ -1,0 +1,11 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+---
+<div class="utility"><div class="wrap utility-inner"><span>ENGINEERED FOR THE FRONTLINE. BUILT FOR BUSINESS.</span><span>Global Sales · {site.email}</span></div></div>
+<header class="header"><div class="wrap header-inner">
+  <a class="logo" href={withBase('/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>INDUSTRIAL MOBILITY</small></span></a>
+  <nav class="desktop-nav"><a href={withBase('/products/')}>Products</a><a href={withBase('/solutions/')}>Solutions</a><a href={withBase('/oem-odm/')}>OEM / ODM</a><a href={withBase('/about/')}>About</a><a href={withBase('/contact/')}>Contact</a></nav>
+  <a class="button button-accent nav-cta" href={withBase('/contact/')}>Get a Quote <span>↗</span></a>
+  <button class="menu-toggle" data-menu-toggle aria-label="Toggle navigation">☰</button>
+</div><nav class="mobile-nav" data-mobile-menu><a href={withBase('/products/')}>Products</a><a href={withBase('/solutions/')}>Solutions</a><a href={withBase('/oem-odm/')}>OEM / ODM</a><a href={withBase('/about/')}>About</a><a href={withBase('/contact/')}>Contact</a></nav></header>

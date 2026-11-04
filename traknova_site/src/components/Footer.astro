@@ -1,0 +1,11 @@
+---
+import { site } from '../data/site';
+import { withBase } from '../utils/paths';
+---
+<footer class="footer"><div class="wrap footer-grid">
+  <div><a class="logo logo-light" href={withBase('/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>INDUSTRIAL MOBILITY</small></span></a><p>Rugged mobile computers, RFID technology and intelligent data capture solutions for connected operations.</p></div>
+  <div><h4>Products</h4><a href={withBase('/products/')}>Rugged PDA</a><a href={withBase('/products/')}>RFID Devices</a><a href={withBase('/products/')}>Industrial Tablets</a></div>
+  <div><h4>Company</h4><a href={withBase('/about/')}>About Us</a><a href={withBase('/oem-odm/')}>OEM / ODM</a><a href={withBase('/solutions/')}>Industries</a><a href={withBase('/contact/')}>Contact</a></div>
+  <div><h4>Get in Touch</h4><a href={`mailto:${site.email}`}>{site.email}</a><a href={withBase('/contact/')}>Request a Quote</a><a href={site.facebook} target="_blank" rel="noreferrer">Facebook</a></div>
+</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. All rights reserved.</span><span>Privacy · Terms</span></div></footer>
+<div class="floating-contact"><a aria-label="WhatsApp" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">WA</a><a aria-label="Email" href={`mailto:${site.email}`}>✉</a></div>
