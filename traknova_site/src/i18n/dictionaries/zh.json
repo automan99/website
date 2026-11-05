@@ -34,12 +34,6 @@
       "exploreSeries": "查看系列"
     },
     "categories": {
-      "ruggedPda": "加固型 PDA",
-      "rfid": "RFID",
-      "industrialTablet": "工业平板",
-      "ruggedPdaPlural": "加固型 PDA",
-      "rfidPlural": "RFID",
-      "industrialTabletPlural": "工业平板",
       "rfidHandheld": "RFID 手持机",
       "ruggedTablet": "加固平板"
     },
@@ -100,12 +94,12 @@
     },
     "options": {
       "product": {
-        "placeholder": "选择产品类别",
-        "ruggedPda": "加固型 PDA",
-        "rfid": "RFID / NFC",
-        "industrialTablet": "工业平板",
+        "placeholder": "选择产品线",
+        "ht540": "HT540 Series",
+        "ht550": "HT550",
+        "y100": "Y100 Series",
         "oem": "OEM / ODM",
-        "notSure": "暂不确定"
+        "notSure": "不确定"
       },
       "application": {
         "placeholder": "选择应用场景",

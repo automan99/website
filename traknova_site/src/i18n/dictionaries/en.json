@@ -34,12 +34,6 @@
       "exploreSeries": "Explore the series"
     },
     "categories": {
-      "ruggedPda": "Rugged PDA",
-      "rfid": "RFID",
-      "industrialTablet": "Industrial Tablet",
-      "ruggedPdaPlural": "Rugged PDA",
-      "rfidPlural": "RFID",
-      "industrialTabletPlural": "Industrial Tablets",
       "rfidHandheld": "RFID Handheld",
       "ruggedTablet": "Rugged Tablet"
     },
@@ -100,10 +94,10 @@
     },
     "options": {
       "product": {
-        "placeholder": "Select a category",
-        "ruggedPda": "Rugged PDA",
-        "rfid": "RFID / NFC",
-        "industrialTablet": "Industrial Tablet",
+        "placeholder": "Select a product line",
+        "ht540": "HT540 Series",
+        "ht550": "HT550",
+        "y100": "Y100 Series",
         "oem": "OEM / ODM",
         "notSure": "Not sure"
       },

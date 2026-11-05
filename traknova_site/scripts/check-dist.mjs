@@ -76,7 +76,12 @@ const requiredPages = [
   'zh/contact/index.html',
   'zh/oem-odm/index.html',
   'zh/products/index.html',
-  'zh/products/ht400-rugged-barcode-pda/index.html',
+  'products/ht540-series/index.html',
+  'products/ht550/index.html',
+  'products/y100-series/index.html',
+  'zh/products/ht540-series/index.html',
+  'zh/products/ht550/index.html',
+  'zh/products/y100-series/index.html',
   'solutions/index.html',
   'solutions/logistics/index.html',
   'solutions/manufacturing/index.html',
@@ -95,9 +100,69 @@ for (const page of requiredPages) {
   if (!existsSync(join(dist, page))) errors.push(`missing page: ${page}`);
 }
 
+for (const [page, marker] of [
+  ['products/ht540-series/index.html', 'HT540 Series'],
+  ['products/ht550/index.html', 'HT550'],
+  ['products/y100-series/index.html', 'Y100 Series'],
+  ['zh/products/ht540-series/index.html', 'HT540 Series'],
+  ['zh/products/ht550/index.html', 'HT550'],
+  ['zh/products/y100-series/index.html', 'Y100 Series']
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  if (!html.includes('data-product-variants')) {
+    errors.push(`${page}: missing product variant root`);
+  }
+  if (!html.includes(marker)) errors.push(`${page}: missing product name "${marker}"`);
+}
+
+const legacyProductSlugs = [
+  'ht400-rugged-barcode-pda',
+  'ht510-rugged-pda',
+  'ht520-multifunction-pda',
+  'ht530-document-id-pda',
+  'ht800-scan-print-pda',
+  'ht540-rfid-handheld',
+  'ht550-uhf-rfid-handheld',
+  'y100-uhf-rfid-tablet',
+  'y100-rugged-android-tablet',
+  'y70-rugged-tablet',
+  'a100-windows-rugged-tablet',
+  't120a-windows-industrial-tablet'
+];
+for (const slug of legacyProductSlugs) {
+  for (const prefix of ['products', 'zh/products']) {
+    if (existsSync(join(dist, prefix, slug, 'index.html'))) {
+      errors.push(`legacy product page still built: ${prefix}/${slug}/`);
+    }
+  }
+}
+
+for (const page of [
+  'solutions/logistics/index.html',
+  'solutions/manufacturing/index.html',
+  'solutions/retail/index.html',
+  'solutions/field-service/index.html',
+  'zh/solutions/logistics/index.html',
+  'zh/solutions/manufacturing/index.html',
+  'zh/solutions/retail/index.html',
+  'zh/solutions/field-service/index.html'
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  for (const slug of legacyProductSlugs) {
+    if (html.includes(`/products/${slug}/`) || html.includes(`/products/${slug}#`)) {
+      errors.push(`${page}: still links to legacy product "${slug}"`);
+    }
+  }
+}
+
 const sentinels = [
   ['zh/index.html', 'Move Data.'],
-  ['zh/products/index.html', 'Start with the task'],
+  ['zh/index.html', 'Three platforms.'],
+  ['zh/products/index.html', 'Three platforms.'],
   ['zh/solutions/index.html', 'Built around the work.']
 ];
 for (const [page, text] of sentinels) {

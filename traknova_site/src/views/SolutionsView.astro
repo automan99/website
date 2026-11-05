@@ -6,7 +6,7 @@ import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import { localizedPath, withBase } from '../utils/paths';
 import { getSolutions } from '../data/solutions';
-import { getProduct } from '../data/products';
+import { getProductFamily, getProductHref } from '../data/products/catalog';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -25,7 +25,14 @@ const {
   deploymentSteps,
   overview
 } = getSolutions(locale);
-const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
+const resolveDevice = (slug: string, variantId?: string) => {
+  const family = getProductFamily(locale, slug);
+  if (!family) return null;
+  const variant =
+    family.variants.find((item) => item.id === (variantId ?? family.defaultVariant)) ??
+    family.variants[0];
+  return variant ? { family, variant } : null;
+};
 const heroAlt = locale === 'zh'
   ? '仓库员工使用手持终端和平板扫描库存'
   : 'Warehouse associate scanning inventory with a handheld computer and tablet';
@@ -181,9 +188,14 @@ const heroImageUrl = Astro.site ? new URL(heroImagePath, Astro.site).href : hero
               <p>{item.body}</p>
               <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
               <div class="device-list special-devices">
-                {item.devices.map((device) => (
-                  <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
-                ))}
+                {item.devices.map((device) => {
+                  const resolved = resolveDevice(device.slug, device.variant);
+                  return resolved ? (
+                    <a class="device-link" href={localizedPath(locale, getProductHref(resolved.family, resolved.variant.id))}>
+                      {resolved.variant.name} <span>›</span>
+                    </a>
+                  ) : null;
+                })}
               </div>
             </article>
           ))}

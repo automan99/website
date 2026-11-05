@@ -137,6 +137,9 @@ if (enProducts) {
   for (const slug of EXPECTED_SLUGS) {
     if (!enSlugs.includes(slug)) errors.push(`en products: missing slug "${slug}"`);
   }
+  for (const slug of enSlugs) {
+    if (!EXPECTED_SLUGS.includes(slug)) errors.push(`en products: extra slug "${slug}"`);
+  }
   for (const locale of productLocales.filter((name) => name !== 'en')) {
     const data = readJson(join(contentDir, locale, 'products.json'));
     if (!data) continue;

@@ -1,5 +1,5 @@
 import { readFileSync } from 'node:fs';
-import { fileURLToPath } from 'node:url';
+import { join } from 'node:path';
 import type { Locale } from '../../i18n/config';
 import type {
   ProductCategory,
@@ -18,22 +18,23 @@ type ProductDictionary = {
 
 const catalogFiles = ['ht540.json', 'ht550.json', 'y100.json'] as const;
 const supportedLocales: readonly Locale[] = ['en', 'zh'];
+const projectRoot = process.cwd();
 
-function readJson<T>(url: URL): T {
-  return JSON.parse(readFileSync(url, 'utf8')) as T;
+function readJson<T>(relativePath: string): T {
+  return JSON.parse(readFileSync(join(projectRoot, relativePath), 'utf8')) as T;
 }
 
 const catalog = catalogFiles.map((file) =>
-  readJson<ProductFamilyBase>(new URL(`./${file}`, import.meta.url))
+  readJson<ProductFamilyBase>(`src/data/products/${file}`)
 );
 
 const contents: Partial<Record<Locale, Record<string, ProductFamilyCopy>>> = {
-  en: readJson(new URL('../../i18n/content/en/products.json', import.meta.url)),
-  zh: readJson(new URL('../../i18n/content/zh/products.json', import.meta.url))
+  en: readJson('src/i18n/content/en/products.json'),
+  zh: readJson('src/i18n/content/zh/products.json')
 };
 
 const errors = validateProductCatalog(catalog, contents, {
-  publicDir: fileURLToPath(new URL('../../../public/', import.meta.url)),
+  publicDir: join(projectRoot, 'public'),
   locales: supportedLocales
 });
 
@@ -95,9 +96,7 @@ export function getProductVariant(
 export function getCategoryLabel(locale: Locale, category: ProductCategory): string {
   let dictionary = dictionaryCache.get(locale);
   if (!dictionary) {
-    dictionary = readJson<ProductDictionary>(
-      new URL(`../../i18n/dictionaries/${locale}.json`, import.meta.url)
-    );
+    dictionary = readJson<ProductDictionary>(`src/i18n/dictionaries/${locale}.json`);
     dictionaryCache.set(locale, dictionary);
   }
   const key = category === 'rfid-handheld' ? 'rfidHandheld' : 'ruggedTablet';
