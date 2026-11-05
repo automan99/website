@@ -1,0 +1,155 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.oem;
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.hero.eyebrow}</span>
+        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+        <p>{copy.hero.body}</p>
+        <div class="cta-actions">
+          <button class="button button-accent" data-inquiry-open>{copy.hero.primaryCta} ↗</button>
+          <a class="button button-glass" href={localizedPath(locale, '/products/')}>{copy.hero.secondaryCta} ↗</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.models.eyebrow}</span>
+            <h2>{copy.models.titleLine1}<br />{copy.models.titleLine2}</h2>
+          </div>
+          <p>{copy.models.body}</p>
+        </div>
+        <div class="model-grid">
+          {copy.models.cards.map((card, index) => (
+            <article class:list={['model-card', { featured: index === 1 }]}>
+              <span class="model-kicker">{card.kicker}{card.badge && <span class="model-badge">{card.badge}</span>}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul>{card.points.map((point) => <li>{point}</li>)}</ul>
+              <p class="model-best">{card.best}</p>
+            </article>
+          ))}
+        </div>
+        <p class="note-line">{copy.models.note}</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.customization.eyebrow}</span>
+            <h2>{copy.customization.titleLine1}<br />{copy.customization.titleLine2}</h2>
+          </div>
+          <p>{copy.customization.body}</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table custom-table">
+            <thead>
+              <tr><th>{copy.customization.headers.layer}</th><th>{copy.customization.headers.options}</th><th>{copy.customization.headers.status}</th></tr>
+            </thead>
+            <tbody>
+              {copy.customization.rows.map((row) => (
+                <tr><td>{row.layer}</td><td>{row.options}</td><td><span class:list={['status-pill', { accent: row.accent }]}>{row.status}</span></td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="note-line">{copy.customization.note}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.process.eyebrow}</span>
+            <h2>{copy.process.titleLine1}<br />{copy.process.titleLine2}</h2>
+          </div>
+          <p>{copy.process.body}</p>
+        </div>
+        <div class="process-grid">
+          {copy.process.steps.map((step) => (
+            <article class="process-step">
+              <h3>{step.title}</h3>
+              <p>{step.body}</p>
+            </article>
+          ))}
+        </div>
+        <p class="process-note">{copy.process.note}</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.quality.eyebrow}</span>
+            <h2>{copy.quality.titleLine1}<br />{copy.quality.titleLine2}</h2>
+          </div>
+          <p>{copy.quality.body}</p>
+        </div>
+        <div class="quality-grid">
+          {copy.quality.cards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.faq.eyebrow}</span>
+            <h2>{copy.faq.titleLine1}<br />{copy.faq.titleLine2}</h2>
+          </div>
+          <p>{copy.faq.body}</p>
+        </div>
+        <div class="faq-list">
+          {copy.faq.items.map((item) => (
+            <details>
+              <summary>{item.q}</summary>
+              <p>{item.a}</p>
+            </details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <button class="button button-accent" data-inquiry-open>{copy.cta.button} ↗</button>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

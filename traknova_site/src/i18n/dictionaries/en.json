@@ -867,5 +867,144 @@
       "body": "A short description of the workflow is enough to start. We will ask for the rest.",
       "button": "Send an Inquiry"
     }
+  },
+  "oem": {
+    "metaTitle": "OEM / ODM Partnership | TRAKNOVA",
+    "metaDescription": "OEM and ODM cooperation for industrial mobility: private label, configured rugged devices and project development, from prototype to mass production.",
+    "hero": {
+      "eyebrow": "OEM / ODM PARTNERSHIP",
+      "titleLine1": "Your brand.",
+      "titleLine2": "Our engineering commitment.",
+      "body": "From a branded variant of an existing platform to a project-specific device, TRAKNOVA supports distributors, solution providers and brands building their own industrial mobility portfolio.",
+      "primaryCta": "Discuss Your Project",
+      "secondaryCta": "View Platforms"
+    },
+    "models": {
+      "eyebrow": "ENGAGEMENT MODELS",
+      "titleLine1": "Choose the depth",
+      "titleLine2": "of partnership.",
+      "body": "Not every partner needs a new device. Start from where you are: an existing platform to brand, a configuration to adapt, or a product to develop.",
+      "cards": [
+        {
+          "kicker": "MODEL 01",
+          "title": "Private label",
+          "body": "Bring an existing platform to market under your brand, with your identity on the device and the packaging.",
+          "points": ["Logo, boot animation and wallpapers", "Packaging and documentation branding", "Accessory branding", "Regional configuration and serialization"],
+          "best": "Best for distributors and brands with an existing product plan."
+        },
+        {
+          "kicker": "MODEL 02",
+          "badge": "MOST COMMON",
+          "title": "Configured product",
+          "body": "Adapt the platform to your application, market and software environment before it reaches your customers.",
+          "points": ["Barcode, RFID, NFC or ID module selection", "Memory, OS and accessory configuration", "Software image, preload and MDM enrollment", "Pilot build and acceptance testing"],
+          "best": "Best for solution providers with a defined use case."
+        },
+        {
+          "kicker": "MODEL 03",
+          "title": "Project development",
+          "body": "Define, prototype and industrialize a device around a requirement that the standard range does not cover.",
+          "points": ["Requirement and market definition", "Industrial design and prototype coordination", "Validation plan and field pilot", "Pilot production, mass production and lifecycle support"],
+          "best": "Best for partners with a differentiated device roadmap."
+        }
+      ],
+      "note": "Final scope, minimum order quantity, lead time and commercial terms are confirmed per project after configuration review."
+    },
+    "customization": {
+      "eyebrow": "CUSTOMIZATION MATRIX",
+      "titleLine1": "What can be",
+      "titleLine2": "adapted.",
+      "body": "The matrix below is a working starting point. Each item is reviewed against the selected platform, the target market and the production plan.",
+      "headers": { "layer": "Layer", "options": "Options to discuss", "status": "Status" },
+      "rows": [
+        { "layer": "Brand identity", "options": "Logo, boot animation, wallpapers, device labels, packaging, manuals", "status": "Project-defined", "accent": true },
+        { "layer": "Capture modules", "options": "1D / 2D scan engine, UHF RFID, NFC, ID / document reader", "status": "SKU-dependent", "accent": false },
+        { "layer": "Compute & memory", "options": "Android or Windows variant, RAM / storage, processor option", "status": "SKU-dependent", "accent": false },
+        { "layer": "I/O & connectivity", "options": "RS232 / RS485, RJ45, USB, HDMI, cellular and Wi-Fi options", "status": "SKU-dependent", "accent": false },
+        { "layer": "Accessories", "options": "Chargers, cradles, grips, cases, straps, vehicle mounts", "status": "Tooling-dependent", "accent": false },
+        { "layer": "Software", "options": "OS image, preloaded applications, MDM enrollment, regional settings", "status": "Project-defined", "accent": true },
+        { "layer": "Documentation", "options": "Datasheet, user manual, quick guide, packaging artwork", "status": "Project-defined", "accent": true },
+        { "layer": "Production", "options": "Serialization, QC plan, packaging, spares planning", "status": "Project-defined", "accent": true }
+      ],
+      "note": "Availability is confirmed against the selected platform. Some options require tooling, minimum quantities or certification review."
+    },
+    "process": {
+      "eyebrow": "COOPERATION PROCESS",
+      "titleLine1": "From first conversation",
+      "titleLine2": "to mass production.",
+      "body": "Each stage has a defined output and an acceptance point. We do not move to the next gate until both sides agree the previous one is closed.",
+      "steps": [
+        { "title": "Discovery", "body": "Application, target market, expected volume, compliance requirements and commercial expectations are discussed in one structured intake." },
+        { "title": "Proposal", "body": "Recommended platform or development path, configuration, branding scope, MOQ and a stage-by-stage commercial framework." },
+        { "title": "Prototype", "body": "Sample build with the agreed branding, software image and accessory set. Open issues are recorded for the validation stage." },
+        { "title": "Validation", "body": "Test plan, field pilot and acceptance criteria. Documentation and outstanding engineering items are closed before pilot production." },
+        { "title": "Pilot production", "body": "Pre-production run to confirm process, packaging, serialization and QC. Both sides sign off on the production baseline." },
+        { "title": "Production & support", "body": "Mass production against the approved baseline, with spares planning, documentation control and after-sales coordination." }
+      ],
+      "note": "Sample policy, MOQ, lead time and tooling terms are defined in the proposal for the specific project."
+    },
+    "quality": {
+      "eyebrow": "QUALITY & DOCUMENTATION",
+      "titleLine1": "Built into the project,",
+      "titleLine2": "not inspected at the end.",
+      "body": "The applicable test plan, acceptance criteria and document package are agreed during the proposal. Certification scope depends on the target market and device configuration.",
+      "cards": [
+        {
+          "title": "Quality approach",
+          "items": ["Incoming material checks", "In-process checks", "Final inspection", "Test records retained per batch", "Packaging and label verification"]
+        },
+        {
+          "title": "Document package",
+          "items": ["Product datasheet", "User manual and quick guide", "Packaging artwork", "Test and conformity documentation where available", "Change-control records"]
+        },
+        {
+          "title": "Lifecycle support",
+          "items": ["Spares planning", "Accessory continuity", "Software image control", "Change notification", "After-sales coordination"]
+        }
+      ]
+    },
+    "faq": {
+      "eyebrow": "OEM / ODM FAQ",
+      "titleLine1": "Questions partners",
+      "titleLine2": "ask first.",
+      "body": "If your question is not covered here, include it in the project inquiry. We will answer it against the specific platform and market.",
+      "items": [
+        {
+          "q": "Can we put our logo on the device and packaging?",
+          "a": "Yes, within the scope agreed for the project. Logo application, boot animation, labels, packaging and manuals are reviewed together because they affect tooling, minimum quantities and artwork approval."
+        },
+        {
+          "q": "What is the minimum order quantity?",
+          "a": "It depends on the platform, configuration and branding scope. Private-label projects usually have a different threshold from full project development. The MOQ is defined in the proposal after the requirement review."
+        },
+        {
+          "q": "Can you preload our application and MDM profile?",
+          "a": "Software image and preload can be discussed as part of the configured-product model. The exact scope — preload list, MDM enrollment, regional settings and update responsibility — is documented before prototyping."
+        },
+        {
+          "q": "Do you support regional RFID bands and approvals?",
+          "a": "UHF RFID frequency bands and market approvals differ by country. We confirm the target market before selecting the module and include the applicable configuration in the proposal."
+        },
+        {
+          "q": "Can we receive samples before a production order?",
+          "a": "Sample policy and lead time are agreed per project. For configured products, a prototype or pilot build is the usual acceptance step before mass production."
+        },
+        {
+          "q": "Who owns tooling and documentation?",
+          "a": "Ownership, change notification and documentation rights are defined in the project agreement. We recommend agreeing these before tooling or artwork is released."
+        },
+        {
+          "q": "What certifications can you support?",
+          "a": "Certification scope depends on the target market, the device configuration and the applicable standard. We review the requirement during discovery and align the document package accordingly."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "START A CONVERSATION",
+      "titleLine1": "Bring us your",
+      "titleLine2": "requirement.",
+      "body": "Tell us the application, target market, expected volume and branding scope. We will come back with the right platform and a project path.",
+      "button": "Discuss Your Project"
+    }
   }
 }
