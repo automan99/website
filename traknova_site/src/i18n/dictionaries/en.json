@@ -589,5 +589,58 @@
       "body": "Tell us the workflow, target market and expected volume. We will confirm the model, options and documentation path.",
       "button": "Send an Inquiry"
     }
+  },
+  "solutions": {
+    "metaTitle": "Industry Solutions | TRAKNOVA",
+    "metaDescription": "Scenario-based industrial mobility solutions for warehouse and logistics, manufacturing, retail and field service: barcode, RFID, mobile printing and rugged tablets.",
+    "hero": {
+      "eyebrow": "INDUSTRY SOLUTIONS",
+      "titleLine1": "Built around the work.",
+      "titleLine2": "Not just the device.",
+      "body": "Four industries, twelve field scenarios. See how rugged mobile computers, RFID and industrial tablets fit into the workflows your teams run every day."
+    },
+    "anatomy": {
+      "eyebrow": "SOLUTION ANATOMY",
+      "titleLine1": "One solution.",
+      "titleLine2": "Four connected layers.",
+      "body": "Every deployment starts with a physical event — a scan, a tag read, a signature — and ends in a business system. TRAKNOVA supplies the layers in between, and works with the software stack you already run.",
+      "note": "Accessories, spares and deployment support are planned with the device, not added after it."
+    },
+    "scenarioLabel": "SCENARIO",
+    "workflowLabel": "Workflow",
+    "setupLabel": "Recommended setup",
+    "improvesLabel": "What improves",
+    "specialized": {
+      "eyebrow": "SPECIALIZED WORKFLOWS",
+      "titleLine1": "When the workflow",
+      "titleLine2": "needs a specific module.",
+      "body": "Some deployments need more than scanning. These platforms are positioned for healthcare-oriented and identity-document workflows, subject to the approved configuration and target market."
+    },
+    "matrix": {
+      "eyebrow": "SELECTION MATRIX",
+      "titleLine1": "Match the task",
+      "titleLine2": "to the capture method.",
+      "body": "A starting point for specification discussions. Final device and module selection depends on the application, environment and regional configuration.",
+      "headers": {
+        "industry": "Industry",
+        "tasks": "Typical tasks",
+        "devices": "Recommended devices",
+        "capture": "Capture"
+      },
+      "note": "UHF RFID frequency bands and market approvals vary by country. Confirm the target market before configuration."
+    },
+    "deployment": {
+      "eyebrow": "DEPLOYMENT PATH",
+      "titleLine1": "From workflow review",
+      "titleLine2": "to fleet rollout.",
+      "body": "Hardware is one part of a deployment. A short, structured process reduces rework and gives both teams a clear acceptance point."
+    },
+    "cta": {
+      "eyebrow": "NOT SEEING YOUR WORKFLOW?",
+      "titleLine1": "Tell us how your team",
+      "titleLine2": "works today.",
+      "body": "We will map the steps, the exceptions and the data — then recommend a device and configuration.",
+      "button": "Discuss Your Scenario"
+    }
   }
 }

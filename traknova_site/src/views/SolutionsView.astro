@@ -1,0 +1,180 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import { localizedPath } from '../utils/paths';
+import { getSolutions } from '../data/solutions';
+import { getProduct } from '../data/products';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.solutions;
+const { industries, solutionLayers, specializedWorkflows, solutionMatrix, deploymentSteps } = getSolutions(locale);
+const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.hero.eyebrow}</span>
+        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+        <p>{copy.hero.body}</p>
+        <div class="anchor-chips">
+          {industries.map((industry) => <a class="anchor-chip" href={`#${industry.id}`}>{industry.name}</a>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.anatomy.eyebrow}</span>
+            <h2>{copy.anatomy.titleLine1}<br />{copy.anatomy.titleLine2}</h2>
+          </div>
+          <p>{copy.anatomy.body}</p>
+        </div>
+        <div class="anatomy">
+          {solutionLayers.map((layer) => (
+            <div class="anatomy-step">
+              <span class="anatomy-num">{layer.num}</span>
+              <h3>{layer.title}</h3>
+              <p>{layer.body}</p>
+              <div class="anatomy-tags">{layer.tags.map((tag) => <span>{tag}</span>)}</div>
+            </div>
+          ))}
+        </div>
+        <p class="note-line">{copy.anatomy.note}</p>
+      </div>
+    </section>
+
+    {industries.map((industry, index) => (
+      <section id={industry.id} class:list={['industry-block', { alt: index % 2 === 1 }]}>
+        <div class="wrap">
+          <div class="industry-head">
+            <div>
+              <span class="industry-index">{industry.index} / {industry.eyebrow}</span>
+              <h2>{industry.name}</h2>
+            </div>
+            <p>{industry.intro}</p>
+          </div>
+          <div class="scenario-grid">
+            {industry.scenarios.map((scenario, scenarioIndex) => (
+              <article class="scenario-card">
+                <span class="scenario-label">{copy.scenarioLabel} {industry.index}.{scenarioIndex + 1}</span>
+                <h3>{scenario.title}</h3>
+                <p class="scenario-situation">{scenario.situation}</p>
+                <div class="scenario-section">
+                  <span class="mini-label">{copy.workflowLabel}</span>
+                  <ol class="workflow">{scenario.workflow.map((step) => <li>{step}</li>)}</ol>
+                </div>
+                <div class="scenario-section">
+                  <span class="mini-label">{copy.setupLabel}</span>
+                  <div class="device-list">
+                    {scenario.devices.map((device) => (
+                      <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
+                    ))}
+                  </div>
+                </div>
+                <div class="scenario-section">
+                  <span class="mini-label">{copy.improvesLabel}</span>
+                  <ul class="outcome-list">{scenario.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>
+                </div>
+                {scenario.note && <p class="scenario-note">{scenario.note}</p>}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.specialized.eyebrow}</span>
+            <h2>{copy.specialized.titleLine1}<br />{copy.specialized.titleLine2}</h2>
+          </div>
+          <p>{copy.specialized.body}</p>
+        </div>
+        <div class="special-grid">
+          {specializedWorkflows.map((item) => (
+            <article class="special-card">
+              <span class="mini-label">{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
+              <div class="device-list special-devices">
+                {item.devices.map((device) => (
+                  <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.matrix.eyebrow}</span>
+            <h2>{copy.matrix.titleLine1}<br />{copy.matrix.titleLine2}</h2>
+          </div>
+          <p>{copy.matrix.body}</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr><th>{copy.matrix.headers.industry}</th><th>{copy.matrix.headers.tasks}</th><th>{copy.matrix.headers.devices}</th><th>{copy.matrix.headers.capture}</th></tr>
+            </thead>
+            <tbody>
+              {solutionMatrix.map((row) => (
+                <tr><td>{row.industry}</td><td>{row.tasks}</td><td>{row.devices}</td><td>{row.capture}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="note-line">{copy.matrix.note}</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.deployment.eyebrow}</span>
+            <h2>{copy.deployment.titleLine1}<br />{copy.deployment.titleLine2}</h2>
+          </div>
+          <p>{copy.deployment.body}</p>
+        </div>
+        <div class="deploy-grid">
+          {deploymentSteps.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>
