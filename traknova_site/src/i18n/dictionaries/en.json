@@ -73,7 +73,6 @@
       "contactFacebook": "Facebook",
       "contactNote": "Global sales and project support. Specifications and availability are confirmed per configuration and region."
     },
-    "note": "Product specifications, module availability, protection ratings and regional approvals are subject to the approved datasheet and final configuration. Typical workflow scenarios on this site illustrate common deployments and are not customer references.",
     "rights": "All rights reserved.",
     "privacy": "Privacy",
     "terms": "Terms",
@@ -527,19 +526,19 @@
       "body": "These are the workflows this family is most often specified for. The final fit depends on your application, environment and target market.",
       "groups": {
         "ruggedPda": [
-          { "title": "Dock-to-stock receiving", "body": "Scan the ASN, verify counts and flag exceptions before put-away.", "href": "/solutions/#logistics" },
-          { "title": "Work-order execution", "body": "Capture production data at the station and update WIP.", "href": "/solutions/#manufacturing" },
-          { "title": "Store replenishment", "body": "Check shelf stock and price during normal store walks.", "href": "/solutions/#retail" }
+          { "title": "Dock-to-stock receiving", "body": "Scan the ASN, verify counts and flag exceptions before put-away.", "href": "/solutions/logistics/" },
+          { "title": "Work-order execution", "body": "Capture production data at the station and update WIP.", "href": "/solutions/manufacturing/" },
+          { "title": "Store replenishment", "body": "Check shelf stock and price during normal store walks.", "href": "/solutions/retail/" }
         ],
         "rfid": [
-          { "title": "RFID cycle counting", "body": "Read tags in bulk, review exceptions and post the count.", "href": "/solutions/#logistics" },
-          { "title": "RFID item-level stocktake", "body": "Sweep fixtures, resolve duplicates and recount high-variance zones.", "href": "/solutions/#retail" },
-          { "title": "Asset tagging and audits", "body": "Walk the site, capture tags and flag missing or moved assets.", "href": "/solutions/#field-service" }
+          { "title": "RFID cycle counting", "body": "Read tags in bulk, review exceptions and post the count.", "href": "/solutions/logistics/" },
+          { "title": "RFID item-level stocktake", "body": "Sweep fixtures, resolve duplicates and recount high-variance zones.", "href": "/solutions/retail/" },
+          { "title": "Asset tagging and audits", "body": "Walk the site, capture tags and flag missing or moved assets.", "href": "/solutions/field-service/" }
         ],
         "industrialTablet": [
-          { "title": "Equipment inspection rounds", "body": "Use a larger screen for checklists, readings and photo evidence.", "href": "/solutions/#manufacturing" },
-          { "title": "Field inspection and work orders", "body": "Run digital job sheets, capture signatures and sync when online.", "href": "/solutions/#field-service" },
-          { "title": "Line-side kitting", "body": "Validate components and lots against the work order at the station.", "href": "/solutions/#manufacturing" }
+          { "title": "Equipment inspection rounds", "body": "Use a larger screen for checklists, readings and photo evidence.", "href": "/solutions/manufacturing/" },
+          { "title": "Field inspection and work orders", "body": "Run digital job sheets, capture signatures and sync when online.", "href": "/solutions/field-service/" },
+          { "title": "Line-side kitting", "body": "Validate components and lots against the work order at the station.", "href": "/solutions/manufacturing/" }
         ]
       }
     },
@@ -653,6 +652,21 @@
       "titleLine2": "between the scan and the system.",
       "body": "TRAKNOVA builds and configures rugged mobile computers, RFID handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
     },
+    "profile": {
+      "eyebrow": "COMPANY PROFILE",
+      "titleLine1": "A Shenzhen-based",
+      "titleLine2": "industrial mobility manufacturer.",
+      "paragraph1": "Shenzhen Yiliya Co., Ltd. is a Shenzhen-based manufacturer and solution provider of rugged PDAs, RFID handhelds and industrial tablets. For more than 15 years, we have focused on the devices, modules and configurations that connect frontline work to the business systems behind it.",
+      "paragraph2": "We work with distributors, solution providers and enterprise teams across global markets, covering data capture, identification and mobile workflow projects from device selection and configuration to OEM / ODM cooperation. More than 1,000 companies have worked with us to solve operational problems with mobile data capture.",
+      "facts": [
+        { "value": "15+ years", "label": "Industry experience" },
+        { "value": "1,000+", "label": "Companies served worldwide" },
+        { "value": "Shenzhen, China", "label": "Headquarters" },
+        { "value": "Rugged PDA · RFID · Tablets", "label": "Product focus" }
+      ],
+      "photoAlt": "Racked inventory and pallets in a distribution warehouse.",
+      "photoCaption": "Built for warehouse and logistics operations"
+    },
     "whatWeDo": {
       "eyebrow": "WHAT WE DO",
       "titleLine1": "Hardware, configuration",
@@ -674,7 +688,9 @@
           "body": "A practical plan for piloting, documenting and sustaining the fleet.",
           "items": ["Workflow and exception mapping", "Pilot planning", "Documentation package", "Spares planning"]
         }
-      ]
+      ],
+      "photoAlt": "Engineering drawings, a caliper and hands reviewing a hardware design.",
+      "photoCaption": "Configuration and engineering review"
     },
     "principles": {
       "eyebrow": "HOW WE WORK",
@@ -760,13 +776,6 @@
         "body": "Tell us the application, target market and expected volume. We will confirm the right platform and the information you need to evaluate it.",
         "button": "Send an Inquiry"
       }
-    },
-    "cta": {
-      "eyebrow": "HAVE A PROJECT TO DISCUSS?",
-      "titleLine1": "Let's find the right",
-      "titleLine2": "starting point.",
-      "body": "Share the workflow, target market and volume. We will take it from there.",
-      "button": "Contact Our Team"
     }
   },
   "contact": {
@@ -778,7 +787,6 @@
       "titleLine2": "solution together.",
       "body": "Share your workflow, target market and configuration questions. We will come back with a device shortlist and the information you need to evaluate it."
     },
-    "visualAlt": "Illustration of the TRAKNOVA support team working with rugged devices at an office desk, with warehouse racking visible behind them.",
     "channels": {
       "eyebrow": "TALK TO OUR SALES TEAM",
       "titleLine1": "Choose the channel",
@@ -798,7 +806,9 @@
       ],
       "privacyPrefix": "We use your information only to respond to this inquiry. See our ",
       "companyLabel": "Company",
-      "companyName": "Shenzhen Yiliya Co., Ltd. (深圳市伊莉亚有限公司)"
+      "companyName": "Shenzhen Yiliya Co., Ltd. (深圳市伊莉亚有限公司)",
+      "locationLabel": "Location",
+      "location": "Shenzhen, China"
     },
     "inquiryCard": {
       "eyebrow": "PROJECT INQUIRY",
@@ -876,6 +886,12 @@
   "oem": {
     "metaTitle": "OEM / ODM Partnership | TRAKNOVA",
     "metaDescription": "OEM and ODM cooperation for industrial mobility: private label, configured rugged devices and project development, from prototype to mass production.",
+    "photos": {
+      "productionAlt": "Hands operating precision machinery during production.",
+      "productionCaption": "From prototype to production",
+      "testingAlt": "Hands assembling and testing an electronic device.",
+      "testingCaption": "Configuration, testing and packaging"
+    },
     "hero": {
       "eyebrow": "OEM / ODM PARTNERSHIP",
       "titleLine1": "Your brand.",

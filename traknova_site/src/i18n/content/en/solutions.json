@@ -4,25 +4,46 @@
       "num": "01",
       "title": "Capture",
       "body": "Match the capture method to speed, range and item type. A barcode is precise; UHF RFID is fast in bulk.",
-      "tags": ["1D / 2D barcode", "UHF RFID", "NFC", "ID / document"]
+      "tags": [
+        "1D / 2D barcode",
+        "UHF RFID",
+        "NFC",
+        "ID / document"
+      ]
     },
     {
       "num": "02",
       "title": "Compute",
       "body": "Choose a handheld for one-handed tasks, or a tablet for larger screens, Windows software and equipment I/O.",
-      "tags": ["Rugged PDA", "Android tablet", "Windows tablet"]
+      "tags": [
+        "Rugged PDA",
+        "Android tablet",
+        "Windows tablet"
+      ]
     },
     {
       "num": "03",
       "title": "Connect",
       "body": "Keep the device linked to the network, the equipment beside it and the accessories it depends on.",
-      "tags": ["Wi-Fi", "Cellular", "Bluetooth", "RS232 / RS485", "RJ45"]
+      "tags": [
+        "Wi-Fi",
+        "Cellular",
+        "Bluetooth",
+        "RS232 / RS485",
+        "RJ45"
+      ]
     },
     {
       "num": "04",
       "title": "Integrate",
       "body": "Connect the captured event to the system that runs the business. We work with your software stack.",
-      "tags": ["WMS", "ERP", "MES", "CMMS", "MDM"]
+      "tags": [
+        "WMS",
+        "ERP",
+        "MES",
+        "CMMS",
+        "MDM"
+      ]
     }
   ],
   "industries": [
@@ -44,10 +65,18 @@
             "Confirm receipt and release a put-away task to the WMS."
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" },
-            { "slug": "ht800-scan-print-pda" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            },
+            {
+              "slug": "ht800-scan-print-pda"
+            }
           ],
           "outcomes": [
             "Receiving discrepancies are caught at the dock, not after put-away.",
@@ -67,9 +96,15 @@
             "Post the count and variance report to WMS / ERP."
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "More locations counted per shift with the existing team.",
@@ -88,9 +123,15 @@
             "Confirm dispatch and hand tracking data to the WMS / TMS."
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "y100-rugged-android-tablet" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            }
           ],
           "outcomes": [
             "Order accuracy is verified before the parcel leaves.",
@@ -99,6 +140,64 @@
           ],
           "note": "Station printing requires a configured HT800 or a compatible label printer."
         }
+      ],
+      "slug": "logistics",
+      "summary": "Verify every unit at the dock, in the aisle and at dispatch — without adding a second counting step.",
+      "valueLine": "Catch receiving errors at the dock. Count the aisle in one pass. Ship the right parcel.",
+      "image": {
+        "base": "logistics",
+        "alt": "Warehouse team scanning drums and stock in an industrial aisle"
+      },
+      "seo": {
+        "title": "Warehouse & Logistics Solutions | TRAKNOVA",
+        "description": "Rugged PDA, UHF RFID and mobile printing workflows for receiving, cycle counting, picking, packing and dispatch. Built for WMS and ERP integration."
+      },
+      "challenge": {
+        "title": "Inventory accuracy is decided at the point of work.",
+        "body": "Most warehouse errors are not system errors. They are unrecorded physical exceptions: a short pallet, a mis-scanned pick, a label printed too late. The WMS can only be as accurate as the events it receives.",
+        "points": [
+          "Receiving counts drift from the ASN, and shortages surface after put-away.",
+          "Cycle counts are planned around their cost, so problem locations are counted too late.",
+          "Pick, pack and labelling happen in different places, and errors reach the customer.",
+          "Exception data is written down or remembered instead of captured where it happens."
+        ]
+      },
+      "snapshot": {
+        "title": "Warehouse & logistics",
+        "items": [
+          {
+            "label": "Environment",
+            "value": "Dock, DC, 3PL and cold-chain areas"
+          },
+          {
+            "label": "Shift pattern",
+            "value": "One to three shifts; peak-season surge"
+          },
+          {
+            "label": "Connectivity",
+            "value": "Wi-Fi inside; cellular at yard and remote sites"
+          },
+          {
+            "label": "Accessories",
+            "value": "Pistol grip, spare battery, charging cradle, vehicle mount"
+          },
+          {
+            "label": "Integration",
+            "value": "WMS / ERP through your middleware or ours"
+          }
+        ]
+      },
+      "outcomes": [
+        "Receiving discrepancies are caught before put-away.",
+        "Counts cover more locations per shift with the same team.",
+        "Order accuracy is verified before the parcel leaves.",
+        "Inventory events reach the WMS within the shift."
+      ],
+      "scope": [
+        "Confirm the barcode symbologies, tag types and read ranges in use.",
+        "Confirm Wi-Fi coverage, roaming behaviour and any dead zones.",
+        "Confirm the label media, print width and template ownership.",
+        "Confirm the WMS / ERP interface and who owns the integration."
       ]
     },
     {
@@ -119,9 +218,15 @@
             "Post production confirmation to ERP / MES."
           ],
           "devices": [
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "ht520-multifunction-pda" },
-            { "slug": "y100-rugged-android-tablet" }
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "ht520-multifunction-pda"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            }
           ],
           "outcomes": [
             "WIP visibility between operations.",
@@ -140,9 +245,15 @@
             "Keep a component-to-unit record for quality and recall."
           ],
           "devices": [
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "ht520-multifunction-pda" },
-            { "slug": "a100-windows-rugged-tablet" }
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "ht520-multifunction-pda"
+            },
+            {
+              "slug": "a100-windows-rugged-tablet"
+            }
           ],
           "outcomes": [
             "Component-to-unit traceability without paper.",
@@ -161,9 +272,15 @@
             "Sync completed rounds and findings to the CMMS / EAM."
           ],
           "devices": [
-            { "slug": "a100-windows-rugged-tablet" },
-            { "slug": "y100-rugged-android-tablet" },
-            { "slug": "ht510-rugged-pda" }
+            {
+              "slug": "a100-windows-rugged-tablet"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            }
           ],
           "outcomes": [
             "Inspection history tied to the asset, not to a clipboard.",
@@ -172,6 +289,64 @@
           ],
           "note": "RS232 / RS485 and RJ45 connectivity depends on the A100 SKU and configuration. Confirm the required ports before quotation."
         }
+      ],
+      "slug": "manufacturing",
+      "summary": "Capture work orders, material consumption and quality events at the station, not after the shift.",
+      "valueLine": "Make every work order, kit and quality event traceable at the point of work.",
+      "image": {
+        "base": "manufacturing",
+        "alt": "Production worker in safety gear using a rugged tablet on the factory floor"
+      },
+      "seo": {
+        "title": "Manufacturing Traceability Solutions | TRAKNOVA",
+        "description": "Rugged handheld and industrial tablet workflows for work orders, WIP, kitting, traceability and maintenance rounds on the production floor."
+      },
+      "challenge": {
+        "title": "Production data is only useful when it is captured at the station.",
+        "body": "Paper routings, delayed ERP entries and disconnected maintenance records create a gap between what the line did and what the system knows. Closing that gap requires capture at the point of work, not another end-of-shift form.",
+        "points": [
+          "Work orders are printed, signed and entered later, so WIP status is a guess.",
+          "Kitting errors are found when the line stops, not when the kit is built.",
+          "Lot and component records are incomplete when a quality issue triggers a search.",
+          "Maintenance findings stay on clipboards and are rediscovered next shift."
+        ]
+      },
+      "snapshot": {
+        "title": "Manufacturing",
+        "items": [
+          {
+            "label": "Environment",
+            "value": "Production floor, staging and maintenance rounds"
+          },
+          {
+            "label": "Shift pattern",
+            "value": "Two or three shifts; line-side handover"
+          },
+          {
+            "label": "Connectivity",
+            "value": "Plant Wi-Fi; wired I/O at fixed stations"
+          },
+          {
+            "label": "Accessories",
+            "value": "Holster, charging cradle, vehicle mount, serial adapters"
+          },
+          {
+            "label": "Integration",
+            "value": "MES / ERP / CMMS through your software stack"
+          }
+        ]
+      },
+      "outcomes": [
+        "WIP visibility between operations.",
+        "Kitting errors caught before the kit reaches the line.",
+        "Component-to-unit traceability without paper.",
+        "Maintenance findings reach the next shift."
+      ],
+      "scope": [
+        "Confirm the MES / ERP transaction and the data ownership model.",
+        "Confirm the machine interface: RS232, RS485, RJ45 or PLC.",
+        "Confirm label, lot and serialisation rules for the target market.",
+        "Confirm the environment: dust, coolant, vibration and temperature."
       ]
     },
     {
@@ -192,9 +367,15 @@
             "Sync counts to the store system."
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "y70-rugged-tablet" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "y70-rugged-tablet"
+            }
           ],
           "outcomes": [
             "Shelf accuracy checked during normal store walks.",
@@ -213,9 +394,15 @@
             "Post results to the merchandise system."
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "Faster stocktakes with fewer staff hours.",
@@ -234,9 +421,15 @@
             "Sync the price or markdown event to the POS."
           ],
           "devices": [
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht510-rugged-pda" }
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            }
           ],
           "outcomes": [
             "Labeling done at the point of decision.",
@@ -245,6 +438,64 @@
           ],
           "note": "HT800 mobile printing is configuration-dependent. Confirm the print module, media and print width before deployment."
         }
+      ],
+      "slug": "retail",
+      "summary": "Keep shelf, backroom and price data aligned during the trading day, not after closing.",
+      "valueLine": "Know what is on the shelf, what is in the back room and what the label says — in one walk.",
+      "image": {
+        "base": "retail",
+        "alt": "Retail associate checking inventory on a tablet in a clothing store"
+      },
+      "seo": {
+        "title": "Retail & Inventory Solutions | TRAKNOVA",
+        "description": "Handheld, RFID and mobile printing workflows for replenishment, price checks, stocktakes and in-store labelling across retail operations."
+      },
+      "challenge": {
+        "title": "Store accuracy is a customer-facing problem.",
+        "body": "An empty shelf, a wrong price label or a stocktake that closes the store early all reach the customer directly. The fix is not more paperwork; it is capturing the shelf, the backroom and the label in the same walk.",
+        "points": [
+          "Shelf gaps are reported from memory, and backroom stock is invisible during trading.",
+          "Price labels drift from the POS, and mismatches are found by the customer.",
+          "Stocktakes need extra staff and closed hours, and dense displays are still missed.",
+          "Label changes wait for a trip to the back-office printer."
+        ]
+      },
+      "snapshot": {
+        "title": "Retail & commerce",
+        "items": [
+          {
+            "label": "Environment",
+            "value": "Sales floor, backroom and stockroom"
+          },
+          {
+            "label": "Shift pattern",
+            "value": "Trading hours; overnight stocktakes"
+          },
+          {
+            "label": "Connectivity",
+            "value": "Store Wi-Fi; cellular backup"
+          },
+          {
+            "label": "Accessories",
+            "value": "Grip, charging cradle, mobile printer, spare battery"
+          },
+          {
+            "label": "Integration",
+            "value": "POS / merchandising / ERP through your software stack"
+          }
+        ]
+      },
+      "outcomes": [
+        "Shelf accuracy checked during normal store walks.",
+        "Price mismatches caught before the customer sees them.",
+        "Stocktakes completed with fewer staff hours.",
+        "Labels printed at the point of decision."
+      ],
+      "scope": [
+        "Confirm whether item-level RFID tags are applied at source or in store.",
+        "Confirm the price-change and label template workflow.",
+        "Confirm the store layout, count zones and audit rules.",
+        "Confirm the POS / merchandising interface and sync model."
       ]
     },
     {
@@ -265,9 +516,15 @@
             "Sync the completed work order when connectivity is available."
           ],
           "devices": [
-            { "slug": "y70-rugged-tablet" },
-            { "slug": "y100-rugged-android-tablet" },
-            { "slug": "a100-windows-rugged-tablet" }
+            {
+              "slug": "y70-rugged-tablet"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            },
+            {
+              "slug": "a100-windows-rugged-tablet"
+            }
           ],
           "outcomes": [
             "Job status visible while the technician is still on site.",
@@ -286,9 +543,15 @@
             "Post the audit result to the asset system."
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "Audits completed in hours, not days.",
@@ -307,9 +570,15 @@
             "Sync the record to the service platform."
           ],
           "devices": [
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "ht530-document-id-pda" },
-            { "slug": "y70-rugged-tablet" }
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "ht530-document-id-pda"
+            },
+            {
+              "slug": "y70-rugged-tablet"
+            }
           ],
           "outcomes": [
             "Service records completed during the visit.",
@@ -318,6 +587,64 @@
           ],
           "note": "HT530 document reading requires the appropriate regional module and approved document support. Confirm before deployment."
         }
+      ],
+      "slug": "field-service",
+      "summary": "Complete the job record, asset audit and on-site documentation before the technician leaves.",
+      "valueLine": "Close the job on site, with the evidence attached to the asset.",
+      "image": {
+        "base": "field-service",
+        "alt": "Field engineer using a rugged tablet at an outdoor construction site"
+      },
+      "seo": {
+        "title": "Field Service & Asset Tracking Solutions | TRAKNOVA",
+        "description": "Rugged tablet, RFID and mobile printing workflows for inspections, digital work orders, asset audits and on-site documentation."
+      },
+      "challenge": {
+        "title": "The record has to be complete before the technician leaves.",
+        "body": "When job sheets, photos and asset updates are finished after the visit, the office works from memory and the next technician starts without the full history. Mobile capture closes the job at the asset, not at the depot.",
+        "points": [
+          "Job sheets are completed on paper and keyed in at the end of the day.",
+          "Photos, signatures and readings are filed separately from the asset record.",
+          "Asset registers drift between annual audits, and missing assets are found late.",
+          "On-site labelling or identity checks wait for a return trip to the depot."
+        ]
+      },
+      "snapshot": {
+        "title": "Field service & assets",
+        "items": [
+          {
+            "label": "Environment",
+            "value": "Outdoor sites, plants, substations and customer premises"
+          },
+          {
+            "label": "Shift pattern",
+            "value": "Day shifts; on-call and emergency response"
+          },
+          {
+            "label": "Connectivity",
+            "value": "Cellular primary; Wi-Fi when available"
+          },
+          {
+            "label": "Accessories",
+            "value": "Rugged case, shoulder strap, vehicle charger, spare battery"
+          },
+          {
+            "label": "Integration",
+            "value": "CMMS / EAM / service platform through your software stack"
+          }
+        ]
+      },
+      "outcomes": [
+        "Job status visible while the technician is still on site.",
+        "Complete evidence attached to the asset record.",
+        "Audits completed in hours, not days.",
+        "Fewer return visits for missing paperwork."
+      ],
+      "scope": [
+        "Confirm network coverage and offline requirements.",
+        "Confirm the asset tag technology and audit scope.",
+        "Confirm the document / ID module and regional approvals.",
+        "Confirm the service platform interface and evidence retention rules."
       ]
     }
   ],
@@ -331,7 +658,11 @@
         "One-handed form factor for bedside tasks",
         "Cleaning and disinfection requirements confirmed with the approved configuration"
       ],
-      "devices": [{ "slug": "ht510-rugged-pda" }]
+      "devices": [
+        {
+          "slug": "ht510-rugged-pda"
+        }
+      ]
     },
     {
       "eyebrow": "DOCUMENT & IDENTITY CAPTURE",
@@ -342,7 +673,11 @@
         "Document reader module confirmed per region",
         "Positioned for controlled enterprise and public-service deployments"
       ],
-      "devices": [{ "slug": "ht530-document-id-pda" }]
+      "devices": [
+        {
+          "slug": "ht530-document-id-pda"
+        }
+      ]
     }
   ],
   "solutionMatrix": [
@@ -388,5 +723,63 @@
       "title": "Rollout & support",
       "body": "Stage devices, configure MDM, train users, plan spares and agree the support path for the fleet."
     }
-  ]
+  ],
+  "detail": {
+    "breadcrumbHome": "Home",
+    "breadcrumbSolutions": "Solutions",
+    "challengeEyebrow": "THE OPERATIONAL GAP",
+    "scenariosEyebrow": "FIELD SCENARIOS",
+    "devicesEyebrow": "RECOMMENDED SETUP",
+    "devicesBody": "A starting configuration. Final module, accessory and OS choices depend on the workflow, environment and target market.",
+    "outcomesEyebrow": "WHAT IMPROVES",
+    "snapshotEyebrow": "DEPLOYMENT SNAPSHOT",
+    "scopeEyebrow": "BEFORE QUOTATION",
+    "scopeTitle": "Four things we confirm before we recommend a configuration.",
+    "scopeBody": "A short technical review prevents most deployment surprises. These are the questions we work through with your team.",
+    "briefCta": "Print / Save as PDF",
+    "contactCta": "Discuss this workflow",
+    "viewProduct": "View product",
+    "deploymentEyebrow": "DEPLOYMENT PATH",
+    "oemEyebrow": "STANDARD OR CUSTOM",
+    "oemTitle": "Need the device configured around your workflow?",
+    "oemBody": "We support OS and software configuration, module and accessory selection, branding and packaging for channel and project deployments.",
+    "oemCta": "Explore ODM / OEM",
+    "otherIndustries": "Other industries"
+  },
+  "overview": {
+    "proofStats": [
+      {
+        "value": "04",
+        "label": "Industry workflows"
+      },
+      {
+        "value": "12",
+        "label": "Field scenarios"
+      },
+      {
+        "value": "03",
+        "label": "Device families"
+      },
+      {
+        "value": "01",
+        "label": "Integration path"
+      }
+    ],
+    "industriesEyebrow": "INDUSTRY SOLUTIONS",
+    "industriesTitleLine1": "Start with the work.",
+    "industriesTitleLine2": "Then choose the device.",
+    "industriesBody": "Each industry page maps the operating steps, the exceptions and the data each step must produce — then shows the devices and configuration that support them.",
+    "exploreLabel": "Explore the workflow",
+    "oemEyebrow": "STANDARD OR CUSTOM",
+    "oemTitleLine1": "One platform.",
+    "oemTitleLine2": "Configured around your deployment.",
+    "oemBody": "TRAKNOVA supports standard product selection and ODM/OEM programmes for channel partners, system integrators and project deployments.",
+    "oemPoints": [
+      "OS, software and MDM configuration",
+      "Capture modules and accessory kits",
+      "Branding, packaging and documentation"
+    ],
+    "oemCta": "Explore ODM / OEM",
+    "exploreIndustries": "Explore the industries"
+  }
 }

@@ -25,10 +25,10 @@ const dict = getDictionary(locale);
   </div>
   <div>
     <h4>{dict.footer.columns.solutionsTitle}</h4>
-    <a href={localizedPath(locale, '/solutions/#logistics')}>{dict.footer.columns.solutionsLogistics}</a>
-    <a href={localizedPath(locale, '/solutions/#manufacturing')}>{dict.footer.columns.solutionsManufacturing}</a>
-    <a href={localizedPath(locale, '/solutions/#retail')}>{dict.footer.columns.solutionsRetail}</a>
-    <a href={localizedPath(locale, '/solutions/#field-service')}>{dict.footer.columns.solutionsField}</a>
+    <a href={localizedPath(locale, '/solutions/logistics/')}>{dict.footer.columns.solutionsLogistics}</a>
+    <a href={localizedPath(locale, '/solutions/manufacturing/')}>{dict.footer.columns.solutionsManufacturing}</a>
+    <a href={localizedPath(locale, '/solutions/retail/')}>{dict.footer.columns.solutionsRetail}</a>
+    <a href={localizedPath(locale, '/solutions/field-service/')}>{dict.footer.columns.solutionsField}</a>
   </div>
   <div>
     <h4>{dict.footer.columns.companyTitle}</h4>
@@ -44,5 +44,5 @@ const dict = getDictionary(locale);
     <a href={site.facebook} target="_blank" rel="noreferrer">{dict.footer.columns.contactFacebook}</a>
     <p>{dict.footer.columns.contactNote}</p>
   </div>
-</div><div class="wrap footer-note">{dict.footer.note}</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. {dict.footer.rights}</span><span><a href={localizedPath(locale, '/privacy/')}>{dict.footer.privacy}</a> · <a href={localizedPath(locale, '/terms/')}>{dict.footer.terms}</a></span></div></footer>
+</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. {dict.footer.rights}</span><span><a href={localizedPath(locale, '/privacy/')}>{dict.footer.privacy}</a> · <a href={localizedPath(locale, '/terms/')}>{dict.footer.terms}</a></span></div></footer>
 <div class="floating-contact"><a aria-label={dict.footer.floatingWhatsappAria} href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">WA</a><a aria-label={dict.footer.floatingEmailAria} href={`mailto:${site.email}`}>✉</a></div>

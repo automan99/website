@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="UHF RFID handheld illustration">
+  <g fill="none" stroke="#8fa3bb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="62" y="16" width="92" height="148" rx="14"/>
+    <rect x="74" y="30" width="68" height="88" rx="6"/>
+    <path d="M86 62h44M86 76h44M86 90h28"/>
+    <circle cx="108" cy="140" r="8"/>
+    <path d="M168 54a42 42 0 0 1 0 72M184 38a62 62 0 0 1 0 104M200 22a82 82 0 0 1 0 136"/>
+  </g>
+</svg>

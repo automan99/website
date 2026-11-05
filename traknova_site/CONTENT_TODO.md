@@ -55,6 +55,31 @@ The following are currently flagged "Confirm exact configuration" in
       `ENABLED_LOCALES` plus the sitemap `i18n.locales` list
 - [ ] Confirm that product specs and legal text remain English-only by design
 
+## Imagery
+
+- [ ] Replace the About and OEM / ODM page stock photos (`public/images/about-*.webp`,
+      `public/images/oem-*.webp`) with approved company photography when available
+- [ ] Re-check the source URLs and license record in `IMAGE_CREDITS.md` before launch
+
+## Solutions pages (added 2026-11-05)
+
+The industry solution pages are built at `/solutions/` plus four detail pages. The
+items below are content dependencies; the pages currently use approved fallbacks.
+
+- [ ] Product photography for the device bundle: provide clean white or transparent
+      background product images for the models listed on each industry page. The
+      current `public/images/products/device-*.svg` silhouettes are intentional
+      fallbacks; replace them with real product images and update
+      `src/components/SolutionDeviceCard.astro`.
+- [ ] Certifications for the Solutions trust bar: confirm per model whether IP65/IP67,
+      MIL-STD-810H, Android GMS, CE, FCC and RoHS are actually held (with certificate
+      numbers where applicable). Do not publish the trust bar until verified.
+- [ ] Real deployment cases: provide named or anonymised customer cases with permission,
+      including region, device mix, deployment scale and verified outcomes. Replace or
+      supplement the qualitative "What improves" and "Deployment snapshot" sections.
+- [ ] Decide whether to generate branded static Solution Brief PDFs (English and Chinese,
+      one per industry) instead of the browser's Print / Save as PDF flow.
+
 ## OEM / ODM
 
 - [ ] Minimum order quantity policy

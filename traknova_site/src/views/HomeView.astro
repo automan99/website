@@ -5,7 +5,7 @@ import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
 import ProductCard from '../components/ProductCard.astro';
 import { getProducts } from '../data/products';
-import { localizedPath } from '../utils/paths';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -17,7 +17,8 @@ const { locale } = Astro.props;
 const dict = getDictionary(locale);
 const home = dict.home;
 const products = getProducts(locale);
-const solutionLinks = ['/solutions/#logistics', '/solutions/#manufacturing', '/solutions/#retail', '/solutions/#field-service'];
+const solutionLinks = ['/solutions/logistics/', '/solutions/manufacturing/', '/solutions/retail/', '/solutions/field-service/'];
+const solutionImages = ['hero-logistics', 'manufacturing', 'retail', 'field-service'];
 ---
 <BaseLayout title={home.metaTitle} description={home.metaDescription} locale={locale}>
   <Header locale={locale} />
@@ -52,7 +53,11 @@ const solutionLinks = ['/solutions/#logistics', '/solutions/#manufacturing', '/s
         </div>
         <div class="solution-entry-grid">
           {home.solutions.entries.map((entry, index) => (
-            <a class:list={['solution-entry', `solution-${['warehouse', 'manufacturing', 'retail', 'field'][index]}`]} href={localizedPath(locale, solutionLinks[index])}>
+            <a
+              class:list={['solution-entry', `solution-${['warehouse', 'manufacturing', 'retail', 'field'][index]}`]}
+              href={localizedPath(locale, solutionLinks[index])}
+              style={`background-image:url('${withBase(`/images/solutions/${solutionImages[index]}-1200.webp`)}')`}
+            >
               <span class="entry-index">{entry.index}</span>
               <h3>{entry.title}</h3>
               <p>{entry.body}</p>

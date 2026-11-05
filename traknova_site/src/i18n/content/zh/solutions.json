@@ -4,32 +4,53 @@
       "num": "01",
       "title": "采集",
       "body": "将采集方式匹配到速度、距离和物品类型。条码精准；UHF RFID 适合批量快速读取。",
-      "tags": ["1D / 2D 条码", "UHF RFID", "NFC", "证件 / 文档"]
+      "tags": [
+        "1D / 2D 条码",
+        "UHF RFID",
+        "NFC",
+        "证件 / 文档"
+      ]
     },
     {
       "num": "02",
       "title": "计算",
       "body": "单手任务选择手持终端；需要更大屏幕、Windows 软件和设备 I/O 时选择平板。",
-      "tags": ["加固型 PDA", "Android 平板", "Windows 平板"]
+      "tags": [
+        "加固型 PDA",
+        "Android 平板",
+        "Windows 平板"
+      ]
     },
     {
       "num": "03",
       "title": "连接",
       "body": "让设备持续连接网络、周边设备以及所依赖的配件。",
-      "tags": ["Wi-Fi", "蜂窝网络", "Bluetooth", "RS232 / RS485", "RJ45"]
+      "tags": [
+        "Wi-Fi",
+        "蜂窝网络",
+        "Bluetooth",
+        "RS232 / RS485",
+        "RJ45"
+      ]
     },
     {
       "num": "04",
       "title": "集成",
       "body": "将采集事件连接到运行业务的系统。我们与您现有的软件栈协作。",
-      "tags": ["WMS", "ERP", "MES", "CMMS", "MDM"]
+      "tags": [
+        "WMS",
+        "ERP",
+        "MES",
+        "CMMS",
+        "MDM"
+      ]
     }
   ],
   "industries": [
     {
       "id": "logistics",
       "index": "01",
-      "eyebrow": "仓储与物流",
+      "eyebrow": "仓储物流 · 收货到发运",
       "name": "仓储与物流",
       "intro": "入库、存储和出库是一连串的核验节点。每一个未被记录的异常都会随库存一起流转。这些场景在库存进入 WMS 之前采集物理事实。",
       "scenarios": [
@@ -44,10 +65,18 @@
             "确认收货并向 WMS 下发上架任务。"
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" },
-            { "slug": "ht800-scan-print-pda" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            },
+            {
+              "slug": "ht800-scan-print-pda"
+            }
           ],
           "outcomes": [
             "收货差异在码头被发现，而不是在上架之后。",
@@ -67,9 +96,15 @@
             "将盘点和差异报告提交到 WMS / ERP。"
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "在现有团队规模下每班次盘点更多库位。",
@@ -88,9 +123,15 @@
             "确认发运并将追踪数据交给 WMS / TMS。"
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "y100-rugged-android-tablet" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            }
           ],
           "outcomes": [
             "包裹离开前完成订单准确性核验。",
@@ -99,12 +140,70 @@
           ],
           "note": "工位打印需要配置好的 HT800 或兼容的标签打印机。"
         }
+      ],
+      "slug": "logistics",
+      "summary": "在码头、通道和发运环节核验每一件货物，而不增加第二次清点。",
+      "valueLine": "在码头发现收货差异，一趟走完通道盘点，发运正确的包裹。",
+      "image": {
+        "base": "logistics",
+        "alt": "仓库团队在工业通道中扫描桶装货物和库存"
+      },
+      "seo": {
+        "title": "仓储与物流解决方案 | TRAKNOVA",
+        "description": "面向收货、循环盘点、拣选、打包和发运的加固 PDA、UHF RFID 与移动打印工作流程，支持 WMS 与 ERP 集成。"
+      },
+      "challenge": {
+        "title": "库存准确性由现场作业决定。",
+        "body": "大多数仓库错误并非系统错误，而是未被记录的现场异常：短装的托盘、误扫的拣选、打印过晚的标签。WMS 的准确性，取决于它收到的事件。",
+        "points": [
+          "收货计数与 ASN 产生偏差，短缺往往在上架后才暴露。",
+          "循环盘点的计划受制于成本，问题库位总是盘点得太晚。",
+          "拣选、打包和贴标分散在不同位置，错误最终到达客户。",
+          "异常数据靠纸笔或记忆记录，而不是在发生地点采集。"
+        ]
+      },
+      "snapshot": {
+        "title": "仓储与物流",
+        "items": [
+          {
+            "label": "环境",
+            "value": "码头、配送中心、3PL 和冷链区域"
+          },
+          {
+            "label": "班次",
+            "value": "一到三班；旺季峰值"
+          },
+          {
+            "label": "连接",
+            "value": "室内 Wi-Fi；堆场和远端站点使用蜂窝网络"
+          },
+          {
+            "label": "配件",
+            "value": "枪柄、备用电池、充电底座、车载支架"
+          },
+          {
+            "label": "集成",
+            "value": "通过您的中间件或我们的方案对接 WMS / ERP"
+          }
+        ]
+      },
+      "outcomes": [
+        "收货差异在上架前被发现。",
+        "同一团队每班次覆盖更多库位。",
+        "包裹离开前完成订单准确性核验。",
+        "库存事件在当班内进入 WMS。"
+      ],
+      "scope": [
+        "确认在用的条码类型、标签类型和读取距离。",
+        "确认 Wi-Fi 覆盖、漫游行为和盲区。",
+        "确认标签介质、打印宽度和模板归属。",
+        "确认 WMS / ERP 接口及集成责任方。"
       ]
     },
     {
       "id": "manufacturing",
       "index": "02",
-      "eyebrow": "制造",
+      "eyebrow": "智能制造 · 工单到追溯",
       "name": "制造",
       "intro": "在生产线上，只有工作现场采集的数据才有价值。这些场景将物料、设备与人员连接起来，而不增加一层纸面工作。",
       "scenarios": [
@@ -119,9 +218,15 @@
             "将生产确认提交到 ERP / MES。"
           ],
           "devices": [
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "ht520-multifunction-pda" },
-            { "slug": "y100-rugged-android-tablet" }
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "ht520-multifunction-pda"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            }
           ],
           "outcomes": [
             "工序之间的在制品可见性。",
@@ -140,9 +245,15 @@
             "保留组件到成品的记录，用于质量和召回。"
           ],
           "devices": [
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "ht520-multifunction-pda" },
-            { "slug": "a100-windows-rugged-tablet" }
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "ht520-multifunction-pda"
+            },
+            {
+              "slug": "a100-windows-rugged-tablet"
+            }
           ],
           "outcomes": [
             "无纸化的组件到成品追溯。",
@@ -161,9 +272,15 @@
             "将完成的巡检和发现同步到 CMMS / EAM。"
           ],
           "devices": [
-            { "slug": "a100-windows-rugged-tablet" },
-            { "slug": "y100-rugged-android-tablet" },
-            { "slug": "ht510-rugged-pda" }
+            {
+              "slug": "a100-windows-rugged-tablet"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            }
           ],
           "outcomes": [
             "巡检历史绑定资产，而不是写字板。",
@@ -172,12 +289,70 @@
           ],
           "note": "RS232 / RS485 和 RJ45 连接取决于 A100 的 SKU 和配置。报价前请确认所需端口。"
         }
+      ],
+      "slug": "manufacturing",
+      "summary": "在工位采集工单、物料消耗和质量事件，而不是等到班后补录。",
+      "valueLine": "让每张工单、每个齐套和每次质量事件都能在作业现场追溯。",
+      "image": {
+        "base": "manufacturing",
+        "alt": "工厂车间里穿戴安全装备的工人使用加固平板"
+      },
+      "seo": {
+        "title": "制造追溯解决方案 | TRAKNOVA",
+        "description": "面向工单、在制品、齐套、追溯和巡检的加固手持终端与工业平板工作流程，覆盖生产现场。"
+      },
+      "challenge": {
+        "title": "生产数据只有在工位采集才有价值。",
+        "body": "纸质流转卡、延迟的 ERP 录入和脱节的维保记录，会在产线实际发生的事与系统掌握的信息之间形成断点。弥合这个断点，需要在作业现场采集，而不是再加一张班后表单。",
+        "points": [
+          "工单先打印、签字，再事后录入，在制品状态只能靠猜。",
+          "齐套错误往往在停线时才被发现，而不是在备料时。",
+          "质量问题触发追溯时，批次和组件记录并不完整。",
+          "维保发现停留在记录板上，下一个班次又从头查起。"
+        ]
+      },
+      "snapshot": {
+        "title": "智能制造",
+        "items": [
+          {
+            "label": "环境",
+            "value": "生产车间、备料区和巡检路线"
+          },
+          {
+            "label": "班次",
+            "value": "两到三班；线边交接"
+          },
+          {
+            "label": "连接",
+            "value": "厂区 Wi-Fi；固定工位使用有线 I/O"
+          },
+          {
+            "label": "配件",
+            "value": "腰包、充电底座、车载支架、串口适配器"
+          },
+          {
+            "label": "集成",
+            "value": "通过您的软件栈对接 MES / ERP / CMMS"
+          }
+        ]
+      },
+      "outcomes": [
+        "工序之间可见在制品状态。",
+        "齐套错误在物料到达产线前被拦截。",
+        "无需纸质记录即可实现组件到单品的追溯。",
+        "维保发现能够传递到下一个班次。"
+      ],
+      "scope": [
+        "确认 MES / ERP 事务和数据归属模型。",
+        "确认设备接口：RS232、RS485、RJ45 或 PLC。",
+        "确认目标市场的标签、批次和序列化规则。",
+        "确认环境条件：粉尘、切削液、振动和温度。"
       ]
     },
     {
       "id": "retail",
       "index": "03",
-      "eyebrow": "零售与商业",
+      "eyebrow": "零售商业 · 货架到后仓",
       "name": "零售与商业",
       "intro": "门店团队的考核指标是可得性和准确性。合适的采集工具能缩短货架实际状态与系统认知之间的差距。",
       "scenarios": [
@@ -192,9 +367,15 @@
             "将盘点数据同步到门店系统。"
           ],
           "devices": [
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht510-rugged-pda" },
-            { "slug": "y70-rugged-tablet" }
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            },
+            {
+              "slug": "y70-rugged-tablet"
+            }
           ],
           "outcomes": [
             "在日常巡店中完成货架准确性检查。",
@@ -213,9 +394,15 @@
             "将结果提交到商品系统。"
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "用更少的人力工时更快完成盘点。",
@@ -234,9 +421,15 @@
             "将调价或降价事件同步到 POS。"
           ],
           "devices": [
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "ht400-rugged-barcode-pda" },
-            { "slug": "ht510-rugged-pda" }
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "ht400-rugged-barcode-pda"
+            },
+            {
+              "slug": "ht510-rugged-pda"
+            }
           ],
           "outcomes": [
             "在决策现场完成标签打印。",
@@ -245,12 +438,70 @@
           ],
           "note": "HT800 移动打印取决于配置。部署前请确认打印模块、介质和打印宽度。"
         }
+      ],
+      "slug": "retail",
+      "summary": "在营业时间内保持货架、后仓和价格数据一致，而不是等到闭店后。",
+      "valueLine": "一次巡店，同时掌握货架、后仓和价签的真实情况。",
+      "image": {
+        "base": "retail",
+        "alt": "服装店员工使用平板核对库存"
+      },
+      "seo": {
+        "title": "零售与库存解决方案 | TRAKNOVA",
+        "description": "面向补货、价格核查、盘点和店内贴标的加固手持终端、RFID 与移动打印工作流程。"
+      },
+      "challenge": {
+        "title": "门店准确性是直接影响客户的问题。",
+        "body": "空货架、错误价签或提前闭店盘点，都会直接传导到顾客体验。解决方式不是增加表单，而是在同一次巡店中同时采集货架、后仓和价签。",
+        "points": [
+          "货架缺货靠记忆上报，营业期间后仓库存不可见。",
+          "价签与 POS 不一致，往往由顾客先发现。",
+          "盘点需要额外人力和闭店时间，密集陈列区域仍然容易漏盘。",
+          "变价标签要跑到后场打印机，补货和调价被迫等待。"
+        ]
+      },
+      "snapshot": {
+        "title": "零售与商业",
+        "items": [
+          {
+            "label": "环境",
+            "value": "卖场、后仓和库房"
+          },
+          {
+            "label": "班次",
+            "value": "营业时间；夜间盘点"
+          },
+          {
+            "label": "连接",
+            "value": "门店 Wi-Fi；蜂窝网络备份"
+          },
+          {
+            "label": "配件",
+            "value": "握柄、充电底座、移动打印机、备用电池"
+          },
+          {
+            "label": "集成",
+            "value": "通过您的软件栈对接 POS / 商品 / ERP 系统"
+          }
+        ]
+      },
+      "outcomes": [
+        "在日常巡店中完成货架准确性核查。",
+        "价格差异在顾客看到之前被发现。",
+        "以更少的人力工时完成盘点。",
+        "在决策现场打印标签。"
+      ],
+      "scope": [
+        "确认单品级 RFID 标签是在源头还是门店贴附。",
+        "确认变价和标签模板流程。",
+        "确认门店布局、盘点分区和审计规则。",
+        "确认 POS / 商品系统接口和同步模型。"
       ]
     },
     {
       "id": "field-service",
       "index": "04",
-      "eyebrow": "现场服务与资产追踪",
+      "eyebrow": "现场服务 · 工单到资产",
       "name": "现场服务与资产追踪",
       "intro": "现场团队工作在网络、天气和资产都不可预测的环境中。这些场景让记录保持完整，让资产保持可见。",
       "scenarios": [
@@ -265,9 +516,15 @@
             "在有网络连接时同步已完成的工单。"
           ],
           "devices": [
-            { "slug": "y70-rugged-tablet" },
-            { "slug": "y100-rugged-android-tablet" },
-            { "slug": "a100-windows-rugged-tablet" }
+            {
+              "slug": "y70-rugged-tablet"
+            },
+            {
+              "slug": "y100-rugged-android-tablet"
+            },
+            {
+              "slug": "a100-windows-rugged-tablet"
+            }
           ],
           "outcomes": [
             "技术员仍在现场时即可看到工单状态。",
@@ -286,9 +543,15 @@
             "将盘点结果提交到资产系统。"
           ],
           "devices": [
-            { "slug": "ht550-uhf-rfid-handheld" },
-            { "slug": "ht540-rfid-handheld" },
-            { "slug": "y100-uhf-rfid-tablet" }
+            {
+              "slug": "ht550-uhf-rfid-handheld"
+            },
+            {
+              "slug": "ht540-rfid-handheld"
+            },
+            {
+              "slug": "y100-uhf-rfid-tablet"
+            }
           ],
           "outcomes": [
             "盘点以小时而非天完成。",
@@ -307,9 +570,15 @@
             "将记录同步到服务平台。"
           ],
           "devices": [
-            { "slug": "ht800-scan-print-pda" },
-            { "slug": "ht530-document-id-pda" },
-            { "slug": "y70-rugged-tablet" }
+            {
+              "slug": "ht800-scan-print-pda"
+            },
+            {
+              "slug": "ht530-document-id-pda"
+            },
+            {
+              "slug": "y70-rugged-tablet"
+            }
           ],
           "outcomes": [
             "服务记录在访问期间完成。",
@@ -318,6 +587,64 @@
           ],
           "note": "HT530 文档读取需要相应的区域模块和获批的文档支持。部署前请确认。"
         }
+      ],
+      "slug": "field-service",
+      "summary": "在技术人员离开现场前，完成工单记录、资产盘点和现场文档。",
+      "valueLine": "在现场关闭工单，并把证据绑定到资产记录。",
+      "image": {
+        "base": "field-service",
+        "alt": "现场工程师在户外工地使用加固平板"
+      },
+      "seo": {
+        "title": "现场服务与资产追踪解决方案 | TRAKNOVA",
+        "description": "面向巡检、数字工单、资产盘点和现场文档的加固平板、RFID 与移动打印工作流程。"
+      },
+      "challenge": {
+        "title": "记录必须在技术人员离开前完成。",
+        "body": "如果工单、照片和资产更新都在离开现场后才补录，办公室只能依赖记忆，下一位技术人员也拿不到完整历史。移动采集让工单在资产现场关闭，而不是回到仓库之后。",
+        "points": [
+          "工单在纸上完成，回到办公室才录入系统。",
+          "照片、签名和读数与资产记录分开存放。",
+          "资产台账在两次年度盘点之间逐渐失真，缺失资产发现得太晚。",
+          "现场贴标或身份核验要等回仓库才能完成。"
+        ]
+      },
+      "snapshot": {
+        "title": "现场服务与资产",
+        "items": [
+          {
+            "label": "环境",
+            "value": "户外站点、工厂、变电站和客户现场"
+          },
+          {
+            "label": "班次",
+            "value": "白班；值班和应急响应"
+          },
+          {
+            "label": "连接",
+            "value": "以蜂窝网络为主；有 Wi-Fi 时优先使用"
+          },
+          {
+            "label": "配件",
+            "value": "加固保护套、肩带、车载充电器、备用电池"
+          },
+          {
+            "label": "集成",
+            "value": "通过您的软件栈对接 CMMS / EAM / 服务平台"
+          }
+        ]
+      },
+      "outcomes": [
+        "技术人员仍在现场时，工单状态即可见。",
+        "完整证据绑定到资产记录。",
+        "盘点以小时计完成，而不是以天计。",
+        "减少因缺少文档而产生的返场。"
+      ],
+      "scope": [
+        "确认网络覆盖和离线使用要求。",
+        "确认资产标签技术和盘点范围。",
+        "确认证件 / 文档模块及区域认证。",
+        "确认服务平台接口和证据留存规则。"
       ]
     }
   ],
@@ -331,7 +658,11 @@
         "适合床旁任务的单手形态",
         "清洁和消毒要求以获批配置确认"
       ],
-      "devices": [{ "slug": "ht510-rugged-pda" }]
+      "devices": [
+        {
+          "slug": "ht510-rugged-pda"
+        }
+      ]
     },
     {
       "eyebrow": "文档与身份采集",
@@ -342,7 +673,11 @@
         "文档读取模块按区域确认",
         "面向受控的企业和公共服务部署"
       ],
-      "devices": [{ "slug": "ht530-document-id-pda" }]
+      "devices": [
+        {
+          "slug": "ht530-document-id-pda"
+        }
+      ]
     }
   ],
   "solutionMatrix": [
@@ -388,5 +723,63 @@
       "title": "上线与支持",
       "body": "准备设备、配置 MDM、培训用户、规划备件并为车队确定支持路径。"
     }
-  ]
+  ],
+  "detail": {
+    "breadcrumbHome": "首页",
+    "breadcrumbSolutions": "解决方案",
+    "challengeEyebrow": "运营断点",
+    "scenariosEyebrow": "现场场景",
+    "devicesEyebrow": "推荐配置",
+    "devicesBody": "以下为起始配置。最终模块、配件和操作系统选择取决于工作流程、使用环境和目标市场。",
+    "outcomesEyebrow": "改善之处",
+    "snapshotEyebrow": "部署快照",
+    "scopeEyebrow": "报价前确认",
+    "scopeTitle": "在推荐配置之前，我们会先确认四件事。",
+    "scopeBody": "一次简短的技术复核可以避免大多数部署意外。以下是我们与您的团队共同梳理的问题。",
+    "briefCta": "打印 / 保存为 PDF",
+    "contactCta": "讨论这个场景",
+    "viewProduct": "查看产品",
+    "deploymentEyebrow": "部署路径",
+    "oemEyebrow": "标准产品或定制",
+    "oemTitle": "需要围绕您的流程配置设备？",
+    "oemBody": "我们支持操作系统与软件配置、模块与配件选型，以及面向渠道和项目部署的品牌与包装定制。",
+    "oemCta": "了解 ODM / OEM",
+    "otherIndustries": "其他行业"
+  },
+  "overview": {
+    "proofStats": [
+      {
+        "value": "04",
+        "label": "行业工作流程"
+      },
+      {
+        "value": "12",
+        "label": "现场场景"
+      },
+      {
+        "value": "03",
+        "label": "设备系列"
+      },
+      {
+        "value": "01",
+        "label": "集成路径"
+      }
+    ],
+    "industriesEyebrow": "行业解决方案",
+    "industriesTitleLine1": "从工作出发，",
+    "industriesTitleLine2": "再选择设备。",
+    "industriesBody": "每个行业页面都梳理操作步骤、异常情况以及每一步需要产生的数据，然后给出支撑这些环节的设备和配置。",
+    "exploreLabel": "查看工作流程",
+    "oemEyebrow": "标准产品或定制",
+    "oemTitleLine1": "一个平台，",
+    "oemTitleLine2": "围绕您的部署配置。",
+    "oemBody": "TRAKNOVA 支持标准产品选型，也面向渠道伙伴、系统集成商和项目部署提供 ODM/OEM 方案。",
+    "oemPoints": [
+      "操作系统、软件与 MDM 配置",
+      "采集模块与配件套件",
+      "品牌、包装与文档定制"
+    ],
+    "oemCta": "了解 ODM / OEM",
+    "exploreIndustries": "查看行业方案"
+  }
 }

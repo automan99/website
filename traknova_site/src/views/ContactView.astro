@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
 import { site } from '../data/site';
-import { localizedPath, withBase } from '../utils/paths';
+import { localizedPath } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -19,16 +19,12 @@ const copy = dict.contact;
 <BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
   <Header locale={locale} />
   <main>
-    <section class="page-hero">
+    <section class="page-hero contact-page-hero">
       <div class="wrap">
         <span class="eyebrow">{copy.hero.eyebrow}</span>
         <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
         <p>{copy.hero.body}</p>
       </div>
-    </section>
-
-    <section class="contact-visual">
-      <img src={withBase('/images/contact-team.svg')} alt={copy.visualAlt} width="1600" height="520" loading="lazy" />
     </section>
 
     <section class="section">
@@ -41,6 +37,7 @@ const copy = dict.contact;
           <a class="contact-row" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer"><b>{copy.channels.whatsappLabel}</b><span>{copy.channels.whatsappText} ↗</span></a>
           <a class="contact-row" href={site.facebook} target="_blank" rel="noreferrer"><b>{copy.channels.facebookLabel}</b><span>{copy.channels.facebookText} ↗</span></a>
           <div class="contact-row contact-company"><b>{copy.channels.companyLabel}</b><span>{copy.channels.companyName}</span></div>
+          <div class="contact-row contact-company"><b>{copy.channels.locationLabel}</b><span>{copy.channels.location}</span></div>
           <div class="mt-36">
             <span class="mini-label">{copy.channels.includeLabel}</span>
             <ul class="outcome-list">{copy.channels.items.map((item) => <li>{item}</li>)}</ul>

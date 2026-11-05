@@ -3,7 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import { localizedPath } from '../utils/paths';
+import SolutionImage from '../components/SolutionImage.astro';
+import { localizedPath, withBase } from '../utils/paths';
 import { getSolutions } from '../data/solutions';
 import { getProduct } from '../data/products';
 import type { Locale } from '../i18n/config';
@@ -16,24 +17,89 @@ interface Props {
 const { locale } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.solutions;
-const { industries, solutionLayers, specializedWorkflows, solutionMatrix, deploymentSteps } = getSolutions(locale);
+const {
+  industries,
+  solutionLayers,
+  specializedWorkflows,
+  solutionMatrix,
+  deploymentSteps,
+  overview
+} = getSolutions(locale);
 const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
+const heroAlt = locale === 'zh'
+  ? '仓库员工使用手持终端和平板扫描库存'
+  : 'Warehouse associate scanning inventory with a handheld computer and tablet';
+const heroImagePath = withBase('/images/solutions/hero-logistics-2000.webp');
+const heroImageUrl = Astro.site ? new URL(heroImagePath, Astro.site).href : heroImagePath;
 ---
-<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} image={heroImageUrl} imageAlt={heroAlt} locale={locale}>
   <Header locale={locale} />
   <main>
-    <section class="page-hero">
-      <div class="wrap">
+    <section class="sol-hero">
+      <SolutionImage
+        base="hero-logistics"
+        alt={heroAlt}
+        class="sol-hero-bg"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="sol-hero-overlay"></div>
+      <div class="wrap sol-hero-inner">
         <span class="eyebrow">{copy.hero.eyebrow}</span>
         <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
         <p>{copy.hero.body}</p>
-        <div class="anchor-chips">
-          {industries.map((industry) => <a class="anchor-chip" href={`#${industry.id}`}>{industry.name}</a>)}
+        <div class="sol-hero-actions">
+          <a class="button button-accent" href="#industries">{overview.exploreIndustries} ↓</a>
+          <a class="button button-glass" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
+        </div>
+        <div class="sol-hero-chips">
+          {industries.map((industry) => (
+            <a href={localizedPath(locale, `/solutions/${industry.slug}/`)}>{industry.name}</a>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="section">
+    <section class="sol-proof" aria-label={overview.industriesEyebrow}>
+      <div class="wrap sol-proof-grid">
+        {overview.proofStats.map((stat) => (
+          <div><b>{stat.value}</b><span>{stat.label}</span></div>
+        ))}
+      </div>
+    </section>
+
+    <section class="section" id="industries">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{overview.industriesEyebrow}</span>
+            <h2>{overview.industriesTitleLine1}<br />{overview.industriesTitleLine2}</h2>
+          </div>
+          <p>{overview.industriesBody}</p>
+        </div>
+        <div class="sol-industry-grid">
+          {industries.map((industry) => (
+            <a class="sol-industry-card" href={localizedPath(locale, `/solutions/${industry.slug}/`)}>
+              <SolutionImage
+                base={industry.image.base}
+                alt={industry.image.alt}
+                sizes="(max-width: 760px) 100vw, 50vw"
+              />
+              <div class="sol-industry-card-body">
+                <span class="sol-index">{industry.index}</span>
+                <h3>{industry.name}</h3>
+                <p>{industry.summary}</p>
+                <span class="sol-card-link">{overview.exploreLabel} <span aria-hidden="true">↗</span></span>
+              </div>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
       <div class="wrap">
         <div class="split-intro">
           <div>
@@ -53,73 +119,6 @@ const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
           ))}
         </div>
         <p class="note-line">{copy.anatomy.note}</p>
-      </div>
-    </section>
-
-    {industries.map((industry, index) => (
-      <section id={industry.id} class:list={['industry-block', { alt: index % 2 === 1 }]}>
-        <div class="wrap">
-          <div class="industry-head">
-            <div>
-              <span class="industry-index">{industry.index} / {industry.eyebrow}</span>
-              <h2>{industry.name}</h2>
-            </div>
-            <p>{industry.intro}</p>
-          </div>
-          <div class="scenario-grid">
-            {industry.scenarios.map((scenario, scenarioIndex) => (
-              <article class="scenario-card">
-                <span class="scenario-label">{copy.scenarioLabel} {industry.index}.{scenarioIndex + 1}</span>
-                <h3>{scenario.title}</h3>
-                <p class="scenario-situation">{scenario.situation}</p>
-                <div class="scenario-section">
-                  <span class="mini-label">{copy.workflowLabel}</span>
-                  <ol class="workflow">{scenario.workflow.map((step) => <li>{step}</li>)}</ol>
-                </div>
-                <div class="scenario-section">
-                  <span class="mini-label">{copy.setupLabel}</span>
-                  <div class="device-list">
-                    {scenario.devices.map((device) => (
-                      <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
-                    ))}
-                  </div>
-                </div>
-                <div class="scenario-section">
-                  <span class="mini-label">{copy.improvesLabel}</span>
-                  <ul class="outcome-list">{scenario.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>
-                </div>
-                {scenario.note && <p class="scenario-note">{scenario.note}</p>}
-              </article>
-            ))}
-          </div>
-        </div>
-      </section>
-    ))}
-
-    <section class="section section-soft">
-      <div class="wrap">
-        <div class="split-intro">
-          <div>
-            <span class="eyebrow">{copy.specialized.eyebrow}</span>
-            <h2>{copy.specialized.titleLine1}<br />{copy.specialized.titleLine2}</h2>
-          </div>
-          <p>{copy.specialized.body}</p>
-        </div>
-        <div class="special-grid">
-          {specializedWorkflows.map((item) => (
-            <article class="special-card">
-              <span class="mini-label">{item.eyebrow}</span>
-              <h3>{item.title}</h3>
-              <p>{item.body}</p>
-              <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
-              <div class="device-list special-devices">
-                {item.devices.map((device) => (
-                  <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
-                ))}
-              </div>
-            </article>
-          ))}
-        </div>
       </div>
     </section>
 
@@ -161,6 +160,47 @@ const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
           {deploymentSteps.map((step) => (
             <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
           ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.specialized.eyebrow}</span>
+            <h2>{copy.specialized.titleLine1}<br />{copy.specialized.titleLine2}</h2>
+          </div>
+          <p>{copy.specialized.body}</p>
+        </div>
+        <div class="special-grid">
+          {specializedWorkflows.map((item) => (
+            <article class="special-card">
+              <span class="mini-label">{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
+              <div class="device-list special-devices">
+                {item.devices.map((device) => (
+                  <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="sol-oem">
+          <div>
+            <span class="eyebrow">{overview.oemEyebrow}</span>
+            <h2>{overview.oemTitleLine1}<br />{overview.oemTitleLine2}</h2>
+            <p>{overview.oemBody}</p>
+            <a class="button button-glass" href={localizedPath(locale, '/oem-odm/')}>{overview.oemCta} ↗</a>
+          </div>
+          <ul>{overview.oemPoints.map((point) => <li>{point}</li>)}</ul>
         </div>
       </div>
     </section>

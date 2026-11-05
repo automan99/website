@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Rugged PDA illustration">
+  <g fill="none" stroke="#8fa3bb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="72" y="16" width="96" height="148" rx="14"/>
+    <rect x="84" y="30" width="72" height="92" rx="6"/>
+    <path d="M98 62h44M98 76h44M98 90h28"/>
+    <circle cx="120" cy="140" r="8"/>
+    <path d="M58 46v28M50 52v16" />
+  </g>
+</svg>

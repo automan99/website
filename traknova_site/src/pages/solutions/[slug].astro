@@ -1,0 +1,15 @@
+---
+import SolutionDetailView from '../../views/SolutionDetailView.astro';
+import { getSolutions } from '../../data/solutions';
+
+export function getStaticPaths() {
+  return getSolutions('en').industries.map((industry) => ({
+    params: { slug: industry.slug },
+    props: { industry }
+  }));
+}
+
+const { industry } = Astro.props;
+---
+
+<SolutionDetailView locale="en" industry={industry} />

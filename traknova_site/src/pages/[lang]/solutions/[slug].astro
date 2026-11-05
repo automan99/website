@@ -1,0 +1,21 @@
+---
+import SolutionDetailView from '../../../views/SolutionDetailView.astro';
+import { localizedRouteParams } from '../../../i18n/routes';
+import { getSolutions } from '../../../data/solutions';
+import type { Locale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return localizedRouteParams().flatMap(({ params }) => {
+    const locale = params.lang as Locale;
+    return getSolutions(locale).industries.map((industry) => ({
+      params: { ...params, slug: industry.slug },
+      props: { industry }
+    }));
+  });
+}
+
+const locale = Astro.params.lang as Locale;
+const { industry } = Astro.props;
+---
+
+<SolutionDetailView locale={locale} industry={industry} />

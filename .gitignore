@@ -1,0 +1,12 @@
+# Local tooling and scratch output
+.playwright-mcp/
+.superpowers/
+*.log
+*.tmp
+
+# OS and editor noise
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
+*~

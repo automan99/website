@@ -73,7 +73,6 @@
       "contactFacebook": "Facebook",
       "contactNote": "全球销售与项目支持。规格与供货情况按配置和地区确认。"
     },
-    "note": "产品规格、模块供货、防护等级和区域认证以获批数据手册和最终配置为准。本网站展示的典型工作流程仅用于说明常见部署方式，不构成客户案例引用。",
     "rights": "保留所有权利。",
     "privacy": "隐私政策",
     "terms": "使用条款",
@@ -527,19 +526,19 @@
       "body": "这些是该系列最常被指定使用的工作流程。最终适配取决于您的应用、环境和目标市场。",
       "groups": {
         "ruggedPda": [
-          { "title": "收货入库", "body": "扫描 ASN、核对数量，并在上架前标记异常。", "href": "/solutions/#logistics" },
-          { "title": "工单执行", "body": "在工位采集生产数据并更新在制品。", "href": "/solutions/#manufacturing" },
-          { "title": "门店补货", "body": "在日常巡店中检查货架库存和价格。", "href": "/solutions/#retail" }
+          { "title": "收货入库", "body": "扫描 ASN、核对数量，并在上架前标记异常。", "href": "/solutions/logistics/" },
+          { "title": "工单执行", "body": "在工位采集生产数据并更新在制品。", "href": "/solutions/manufacturing/" },
+          { "title": "门店补货", "body": "在日常巡店中检查货架库存和价格。", "href": "/solutions/retail/" }
         ],
         "rfid": [
-          { "title": "RFID 循环盘点", "body": "批量读取标签，复核异常并提交盘点结果。", "href": "/solutions/#logistics" },
-          { "title": "RFID 单品盘点", "body": "扫描货架，处理重复读取并复盘点高差异区域。", "href": "/solutions/#retail" },
-          { "title": "资产贴标与盘点", "body": "巡检现场、采集标签并标记缺失或移动的资产。", "href": "/solutions/#field-service" }
+          { "title": "RFID 循环盘点", "body": "批量读取标签，复核异常并提交盘点结果。", "href": "/solutions/logistics/" },
+          { "title": "RFID 单品盘点", "body": "扫描货架，处理重复读取并复盘点高差异区域。", "href": "/solutions/retail/" },
+          { "title": "资产贴标与盘点", "body": "巡检现场、采集标签并标记缺失或移动的资产。", "href": "/solutions/field-service/" }
         ],
         "industrialTablet": [
-          { "title": "设备巡检", "body": "使用更大屏幕完成检查表、读数和照片记录。", "href": "/solutions/#manufacturing" },
-          { "title": "现场巡检与工单", "body": "运行数字工单、采集签名并在联网时同步。", "href": "/solutions/#field-service" },
-          { "title": "产线配料", "body": "在工位按工单核对物料和批次。", "href": "/solutions/#manufacturing" }
+          { "title": "设备巡检", "body": "使用更大屏幕完成检查表、读数和照片记录。", "href": "/solutions/manufacturing/" },
+          { "title": "现场巡检与工单", "body": "运行数字工单、采集签名并在联网时同步。", "href": "/solutions/field-service/" },
+          { "title": "产线配料", "body": "在工位按工单核对物料和批次。", "href": "/solutions/manufacturing/" }
         ]
       }
     },
@@ -653,6 +652,21 @@
       "titleLine2": "值得信赖的合作伙伴。",
       "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 手持终端和工业平板。我们关注决定部署成败的实用细节。"
     },
+    "profile": {
+      "eyebrow": "公司概况",
+      "titleLine1": "扎根深圳的",
+      "titleLine2": "工业移动计算制造企业。",
+      "paragraph1": "深圳市伊莉亚有限公司是一家扎根深圳的加固型 PDA、RFID 手持终端与工业平板制造及方案企业。15 年多来，我们专注于连接一线作业与其背后业务系统之间的设备、模块和配置。",
+      "paragraph2": "我们服务全球市场的分销商、方案商和企业团队，覆盖数据采集、识别与移动作业项目，从设备选型、配置到 OEM / ODM 合作。已有超过一千家企业与我们合作，用移动数据采集解决实际业务问题。",
+      "facts": [
+        { "value": "15+ 年", "label": "行业经验" },
+        { "value": "1,000+ 家", "label": "服务企业" },
+        { "value": "中国深圳", "label": "公司所在地" },
+        { "value": "加固型 PDA · RFID · 工业平板", "label": "产品方向" }
+      ],
+      "photoAlt": "配送仓库中的货架、托盘与库存。",
+      "photoCaption": "面向仓储与物流作业"
+    },
     "whatWeDo": {
       "eyebrow": "我们的工作",
       "titleLine1": "硬件、配置，",
@@ -674,7 +688,9 @@
           "body": "用于试点、文档化和持续维护车队的务实计划。",
           "items": ["工作流程与异常梳理", "试点规划", "文档包", "备件规划"]
         }
-      ]
+      ],
+      "photoAlt": "工程图纸、卡尺与双手进行硬件设计评审。",
+      "photoCaption": "配置与工程评估"
     },
     "principles": {
       "eyebrow": "我们如何工作",
@@ -760,13 +776,6 @@
         "body": "告诉我们应用、目标市场和预计数量。我们将确认合适的平台以及您评估所需的信息。",
         "button": "发送询盘"
       }
-    },
-    "cta": {
-      "eyebrow": "有项目要讨论？",
-      "titleLine1": "让我们一起找到",
-      "titleLine2": "合适的起点。",
-      "body": "分享工作流程、目标市场和数量。剩下的交给我们。",
-      "button": "联系我们的团队"
     }
   },
   "contact": {
@@ -778,7 +787,6 @@
       "titleLine2": "合适的解决方案。",
       "body": "分享您的工作流程、目标市场和配置问题。我们将回复设备候选清单以及您评估所需的信息。"
     },
-    "visualAlt": "TRAKNOVA 支持团队在办公桌前使用加固设备的插画，背景可见仓储货架。",
     "channels": {
       "eyebrow": "联系我们的销售团队",
       "titleLine1": "选择适合您的",
@@ -798,7 +806,9 @@
       ],
       "privacyPrefix": "我们仅使用您的信息来回复此询盘。请参阅我们的",
       "companyLabel": "公司",
-      "companyName": "深圳市伊莉亚有限公司"
+      "companyName": "深圳市伊莉亚有限公司",
+      "locationLabel": "所在地",
+      "location": "中国深圳"
     },
     "inquiryCard": {
       "eyebrow": "项目询盘",
@@ -876,6 +886,12 @@
   "oem": {
     "metaTitle": "OEM / ODM 合作 | TRAKNOVA",
     "metaDescription": "面向工业移动计算的 OEM 与 ODM 合作：贴牌、定制加固设备和项目开发，从样机到量产。",
+    "photos": {
+      "productionAlt": "生产过程中双手操作精密加工设备的场景。",
+      "productionCaption": "从样机到量产",
+      "testingAlt": "双手组装并测试电子设备的场景。",
+      "testingCaption": "配置、测试与包装"
+    },
     "hero": {
       "eyebrow": "OEM / ODM 合作",
       "titleLine1": "您的品牌，",

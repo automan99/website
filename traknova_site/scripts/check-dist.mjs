@@ -77,7 +77,16 @@ const requiredPages = [
   'zh/oem-odm/index.html',
   'zh/products/index.html',
   'zh/products/ht400-rugged-barcode-pda/index.html',
+  'solutions/index.html',
+  'solutions/logistics/index.html',
+  'solutions/manufacturing/index.html',
+  'solutions/retail/index.html',
+  'solutions/field-service/index.html',
   'zh/solutions/index.html',
+  'zh/solutions/logistics/index.html',
+  'zh/solutions/manufacturing/index.html',
+  'zh/solutions/retail/index.html',
+  'zh/solutions/field-service/index.html',
   'zh/privacy/index.html',
   'zh/terms/index.html',
   'zh/404/index.html'
@@ -114,21 +123,117 @@ if (existsSync(contactPath) && !readFileSync(contactPath, 'utf8').includes('only
   errors.push('contact/index.html: privacy sentence no longer says "only to respond"');
 }
 
-const contactVisual = join(dist, 'images/contact-team.svg');
-if (!existsSync(contactVisual)) {
-  errors.push('contact illustration is missing: images/contact-team.svg');
+const aboutPath = join(dist, 'about/index.html');
+if (existsSync(aboutPath) && readFileSync(aboutPath, 'utf8').includes('Let&#39;s find the right')) {
+  errors.push('about/index.html: closing CTA band should be removed');
+}
+
+const aboutZhPath = join(dist, 'zh/about/index.html');
+if (existsSync(aboutZhPath) && readFileSync(aboutZhPath, 'utf8').includes('让我们一起找到')) {
+  errors.push('zh/about/index.html: closing CTA band should be removed');
 }
 
 for (const [page, marker, description] of [
-  ['contact/index.html', 'Shenzhen Yiliya', 'company name in English'],
-  ['contact/index.html', '/website/images/contact-team.svg', 'contact illustration'],
-  ['zh/contact/index.html', '深圳市伊莉亚有限公司', 'company name in Chinese'],
-  ['zh/contact/index.html', '/website/images/contact-team.svg', 'contact illustration']
+  ['about/index.html', 'A Shenzhen-based', 'company profile heading'],
+  ['about/index.html', '15+ years', 'experience fact'],
+  ['about/index.html', 'Companies served worldwide', 'companies served fact'],
+  ['about/index.html', '/website/images/about-warehouse.webp', 'warehouse photo'],
+  ['about/index.html', '/website/images/about-engineering.webp', 'engineering photo'],
+  ['zh/about/index.html', '扎根深圳的', 'company profile heading'],
+  ['zh/about/index.html', '15+ 年', 'experience fact'],
+  ['zh/about/index.html', '1,000+ 家', 'companies served fact'],
+  ['zh/about/index.html', '/website/images/about-warehouse.webp', 'warehouse photo'],
+  ['zh/about/index.html', '/website/images/about-engineering.webp', 'engineering photo']
 ]) {
   const path = join(dist, page);
   if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
     errors.push(`${page}: missing ${description}`);
   }
+}
+
+for (const asset of ['images/about-warehouse.webp', 'images/about-engineering.webp']) {
+  if (!existsSync(join(dist, asset))) errors.push(`about image is missing from dist: ${asset}`);
+}
+
+for (const [page, marker, description] of [
+  ['oem-odm/index.html', '/website/images/oem-production.webp', 'OEM production photo'],
+  ['oem-odm/index.html', '/website/images/oem-testing.webp', 'OEM testing photo'],
+  ['zh/oem-odm/index.html', '/website/images/oem-production.webp', 'OEM production photo'],
+  ['zh/oem-odm/index.html', '/website/images/oem-testing.webp', 'OEM testing photo']
+]) {
+  const path = join(dist, page);
+  if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: missing ${description}`);
+  }
+}
+
+for (const asset of ['images/oem-production.webp', 'images/oem-testing.webp']) {
+  if (!existsSync(join(dist, asset))) errors.push(`OEM image is missing from dist: ${asset}`);
+}
+
+for (const asset of [
+  'images/solutions/hero-logistics-2000.webp',
+  'images/solutions/logistics-2000.webp',
+  'images/solutions/manufacturing-2000.webp',
+  'images/solutions/retail-2000.webp',
+  'images/solutions/field-service-2000.webp',
+  'images/products/device-pda.svg',
+  'images/products/device-rfid.svg',
+  'images/products/device-tablet.svg'
+]) {
+  if (!existsSync(join(dist, asset))) errors.push(`solutions image is missing from dist: ${asset}`);
+}
+
+for (const page of [
+  'solutions/logistics/index.html',
+  'solutions/manufacturing/index.html',
+  'solutions/retail/index.html',
+  'solutions/field-service/index.html',
+  'zh/solutions/logistics/index.html',
+  'zh/solutions/manufacturing/index.html',
+  'zh/solutions/retail/index.html',
+  'zh/solutions/field-service/index.html'
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  if (!html.includes('property="og:image"')) errors.push(`${page}: missing og:image`);
+  if (!html.includes('"@type":"BreadcrumbList"')) errors.push(`${page}: missing BreadcrumbList schema`);
+  if (html.includes('/solutions/#')) errors.push(`${page}: still contains a legacy solution anchor link`);
+}
+
+const contactExpectations = [
+  ['contact/index.html', 'Shenzhen Yiliya', 'company name in English'],
+  ['contact/index.html', 'Shenzhen, China', 'location'],
+  ['zh/contact/index.html', '深圳市伊莉亚有限公司', 'company name in Chinese'],
+  ['zh/contact/index.html', '中国深圳', 'location']
+];
+for (const [page, marker, description] of contactExpectations) {
+  const path = join(dist, page);
+  if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: missing ${description}`);
+  }
+}
+
+for (const [page, marker] of [
+  ['contact/index.html', 'HOW WE SUPPORT YOU'],
+  ['zh/contact/index.html', '我们的支持']
+]) {
+  const path = join(dist, page);
+  if (existsSync(path) && readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: trust strip should be removed`);
+  }
+}
+
+for (const page of ['contact/index.html', 'zh/contact/index.html']) {
+  const path = join(dist, page);
+  if (existsSync(path) && readFileSync(path, 'utf8').includes('contact-team.svg')) {
+    errors.push(`${page}: decorative contact illustration is still referenced`);
+  }
+}
+
+if (existsSync(join(dist, 'images/contact-team.svg'))) {
+  errors.push('decorative contact illustration is still built');
 }
 
 for (const page of ['zh/privacy/index.html', 'zh/terms/index.html']) {

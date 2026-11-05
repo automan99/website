@@ -1,0 +1,279 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import SolutionImage from '../components/SolutionImage.astro';
+import SolutionDeviceCard from '../components/SolutionDeviceCard.astro';
+import { localizedPath, withBase } from '../utils/paths';
+import { getSolutions, type Industry } from '../data/solutions';
+import { getProduct } from '../data/products';
+import { site } from '../data/site';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  industry: Industry;
+}
+
+const { locale, industry } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.solutions;
+const { detail, deploymentSteps, industries } = getSolutions(locale);
+const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
+
+const deviceSlugs = [...new Set(industry.scenarios.flatMap((scenario) => scenario.devices.map((device) => device.slug)))];
+const devices = deviceSlugs
+  .map((slug) => getProduct(locale, slug))
+  .filter((product): product is NonNullable<typeof product> => Boolean(product));
+const otherIndustries = industries.filter((item) => item.slug !== industry.slug);
+
+const imagePath = withBase(`/images/solutions/${industry.image.base}-2000.webp`);
+const imageUrl = Astro.site ? new URL(imagePath, Astro.site).href : imagePath;
+const absolute = (path: string) => Astro.site ? new URL(path, Astro.site).href : path;
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: detail.breadcrumbHome, item: absolute(localizedPath(locale, '/')) },
+    { '@type': 'ListItem', position: 2, name: detail.breadcrumbSolutions, item: absolute(localizedPath(locale, '/solutions/')) },
+    { '@type': 'ListItem', position: 3, name: industry.name, item: absolute(localizedPath(locale, `/solutions/${industry.slug}/`)) }
+  ]
+};
+
+const serviceSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  name: `${industry.name} — TRAKNOVA`,
+  serviceType: `${industry.eyebrow} solutions`,
+  description: industry.seo.description,
+  url: absolute(localizedPath(locale, `/solutions/${industry.slug}/`)),
+  provider: {
+    '@type': 'Organization',
+    name: site.brand,
+    url: Astro.site?.href
+  },
+  areaServed: 'Worldwide'
+};
+---
+
+<BaseLayout title={industry.seo.title} description={industry.seo.description} image={imageUrl} imageAlt={industry.image.alt} locale={locale}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(serviceSchema)} />
+  </Fragment>
+  <Header locale={locale} />
+  <main>
+    <div class="sol-print-head">
+      <span class="sol-print-brand">TRAKNOVA</span>
+      <span>{industry.name} · {locale === 'zh' ? '解决方案简报' : 'Solution brief'}</span>
+      <span>{site.email}</span>
+    </div>
+
+    <section class="sol-hero sol-hero-detail">
+      <SolutionImage
+        base={industry.image.base}
+        alt={industry.image.alt}
+        class="sol-hero-bg"
+        sizes="100vw"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="sol-hero-overlay"></div>
+      <div class="wrap sol-hero-inner">
+        <div class="breadcrumb">
+          <a href={localizedPath(locale, '/')}>{detail.breadcrumbHome}</a><span>/</span>
+          <a href={localizedPath(locale, '/solutions/')}>{detail.breadcrumbSolutions}</a><span>/</span>
+          <span>{industry.name}</span>
+        </div>
+        <span class="eyebrow">{industry.eyebrow}</span>
+        <h1>{industry.name}</h1>
+        <p class="sol-value-line">{industry.valueLine}</p>
+        <div class="sol-hero-actions">
+          <button class="button button-accent" data-inquiry-open>{detail.contactCta} ↗</button>
+          <button class="button button-glass" data-print-brief>{detail.briefCta} ↓</button>
+        </div>
+        <div class="sol-hero-chips">
+          {industry.scenarios.map((scenario, index) => (
+            <a href={`#scenario-${index + 1}`}>{scenario.title}</a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{detail.challengeEyebrow}</span>
+            <h2>{industry.challenge.title}</h2>
+          </div>
+          <p>{industry.challenge.body}</p>
+        </div>
+        <div class="sol-pain-grid">
+          {industry.challenge.points.map((point, index) => (
+            <article class="sol-pain">
+              <b>{String(index + 1).padStart(2, '0')}</b>
+              <p>{point}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{detail.scenariosEyebrow}</span>
+            <h2>{locale === 'zh' ? '三个现场场景。' : 'Three field scenarios.'}</h2>
+          </div>
+          <p>{industry.intro}</p>
+        </div>
+        <div class="sol-scenario-list">
+          {industry.scenarios.map((scenario, scenarioIndex) => (
+            <article class="sol-scenario" id={`scenario-${scenarioIndex + 1}`}>
+              <div class="sol-scenario-head">
+                <div>
+                  <span class="sol-index">{industry.index}.{scenarioIndex + 1}</span>
+                  <h3>{scenario.title}</h3>
+                </div>
+                <p>{scenario.situation}</p>
+              </div>
+              <div class="sol-scenario-body">
+                <div class="sol-workflow">
+                  <span class="mini-label">{copy.workflowLabel}</span>
+                  <ol>{scenario.workflow.map((step) => <li>{step}</li>)}</ol>
+                </div>
+                <div class="sol-scenario-side">
+                  <div>
+                    <span class="mini-label">{copy.improvesLabel}</span>
+                    <ul class="sol-outcome-list">{scenario.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>
+                  </div>
+                  <div>
+                    <span class="mini-label">{copy.setupLabel}</span>
+                    <div class="sol-device-links">
+                      {scenario.devices.map((device) => (
+                        <a href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span aria-hidden="true">›</span></a>
+                      ))}
+                    </div>
+                  </div>
+                  {scenario.note && <p class="note-line">{scenario.note}</p>}
+                </div>
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{detail.devicesEyebrow}</span>
+            <h2>{locale === 'zh' ? '为流程配齐设备。' : 'Build the device bundle.'}</h2>
+          </div>
+          <p>{detail.devicesBody}</p>
+        </div>
+        <div class:list={['sol-device-grid', `is-${devices.length}`]}>
+          {devices.map((product) => <SolutionDeviceCard product={product} locale={locale} label={detail.viewProduct} />)}
+        </div>
+      </div>
+    </section>
+
+    <section class="sol-outcome-band">
+      <div class="wrap sol-outcome-grid">
+        <div>
+          <span class="eyebrow">{detail.outcomesEyebrow}</span>
+          <h2>{locale === 'zh' ? '部署之后，哪些环节会改善。' : 'What changes after deployment.'}</h2>
+          <ul class="sol-outcome-list sol-outcome-list-large">
+            {industry.outcomes.map((outcome) => <li>{outcome}</li>)}
+          </ul>
+        </div>
+        <div class="sol-snapshot">
+          <span class="mini-label">{detail.snapshotEyebrow}</span>
+          <h3>{industry.snapshot.title}</h3>
+          <dl>
+            {industry.snapshot.items.map((item) => (
+              <><dt>{item.label}</dt><dd>{item.value}</dd></>
+            ))}
+          </dl>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap sol-scope">
+        <div>
+          <span class="eyebrow">{detail.scopeEyebrow}</span>
+          <h2>{detail.scopeTitle}</h2>
+          <p>{detail.scopeBody}</p>
+        </div>
+        <ul>
+          {industry.scope.map((item) => <li>{item}</li>)}
+        </ul>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{detail.deploymentEyebrow}</span>
+            <h2>{copy.deployment.titleLine1}<br />{copy.deployment.titleLine2}</h2>
+          </div>
+          <p>{copy.deployment.body}</p>
+        </div>
+        <div class="deploy-grid">
+          {deploymentSteps.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="sol-oem">
+          <div>
+            <span class="eyebrow">{detail.oemEyebrow}</span>
+            <h2>{detail.oemTitle}</h2>
+            <p>{detail.oemBody}</p>
+            <a class="button button-glass" href={localizedPath(locale, '/oem-odm/')}>{detail.oemCta} ↗</a>
+          </div>
+          <ul>
+            <li>{locale === 'zh' ? '操作系统、软件与 MDM 配置' : 'OS, software and MDM configuration'}</li>
+            <li>{locale === 'zh' ? '采集模块与配件套件' : 'Capture modules and accessory kits'}</li>
+            <li>{locale === 'zh' ? '品牌、包装与文档定制' : 'Branding, packaging and documentation'}</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap sol-other">
+        <span class="eyebrow">{detail.otherIndustries}</span>
+        <div class="sol-other-links">
+          {otherIndustries.map((item) => (
+            <a href={localizedPath(locale, `/solutions/${item.slug}/`)}>{item.name} <span aria-hidden="true">↗</span></a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <button class="button button-accent" data-inquiry-open>{detail.contactCta} ↗</button>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

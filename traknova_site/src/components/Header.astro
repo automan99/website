@@ -3,6 +3,7 @@ import { site } from '../data/site';
 import { localizedPath, getPathInfo } from '../utils/paths';
 import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
+import { getSolutions } from '../data/solutions';
 
 interface Props {
   locale?: Locale;
@@ -12,6 +13,7 @@ const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale);
 const pathInfo = getPathInfo(Astro.url.pathname);
 const isActive = (path: string) => (path === '/' ? pathInfo.path === '/' || pathInfo.path === '' : pathInfo.path.startsWith(path));
+const solutionIndustries = getSolutions(locale).industries;
 const navItems = [
   { href: '/products/', label: dict.common.nav.products },
   { href: '/solutions/', label: dict.common.nav.solutions },
@@ -36,10 +38,41 @@ const navItems = [
 </div></div>
 <header class="header"><div class="wrap header-inner">
   <a class="logo" href={localizedPath(locale, '/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
-  <nav class="desktop-nav" aria-label={dict.header.navAria}>{navItems.map((item) => <a href={localizedPath(locale, item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav>
+  <nav class="desktop-nav" aria-label={dict.header.navAria}>
+    {navItems.map((item) => item.href === '/solutions/' ? (
+      <div class="nav-drop">
+        <a href={localizedPath(locale, item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>
+          {item.label} <span class="nav-caret" aria-hidden="true">▾</span>
+        </a>
+        <div class="nav-drop-menu">
+          <div class="nav-drop-panel">
+            {solutionIndustries.map((industry) => (
+              <a href={localizedPath(locale, `/solutions/${industry.slug}/`)}>{industry.name}</a>
+            ))}
+          </div>
+        </div>
+      </div>
+    ) : (
+      <a href={localizedPath(locale, item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+    ))}
+  </nav>
   <a class="button button-accent nav-cta" href={localizedPath(locale, '/contact/')}>{dict.header.quoteCta} <span>↗</span></a>
   <button class="menu-toggle" data-menu-toggle aria-label={dict.common.menuToggle}>☰</button>
-</div><nav class="mobile-nav" aria-label={dict.header.mobileNavAria} data-mobile-menu>{navItems.map((item) => <a href={localizedPath(locale, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}<div class="mobile-lang">{ENABLED_LOCALES.map((enabled) => <a href={localizedPath(enabled, pathInfo.path)} hreflang={LOCALE_META[enabled].htmlLang} class:list={{ 'is-active': enabled === locale }} data-lang-link data-lang={enabled}>{LOCALE_META[enabled].nativeName}</a>)}</div></nav></header>
+</div><nav class="mobile-nav" aria-label={dict.header.mobileNavAria} data-mobile-menu>
+  {navItems.map((item) => (
+    <Fragment>
+      <a href={localizedPath(locale, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
+      {item.href === '/solutions/' && (
+        <div class="mobile-subnav">
+          {solutionIndustries.map((industry) => (
+            <a href={localizedPath(locale, `/solutions/${industry.slug}/`)}>{industry.name}</a>
+          ))}
+        </div>
+      )}
+    </Fragment>
+  ))}
+  <div class="mobile-lang">{ENABLED_LOCALES.map((enabled) => <a href={localizedPath(enabled, pathInfo.path)} hreflang={LOCALE_META[enabled].htmlLang} class:list={{ 'is-active': enabled === locale }} data-lang-link data-lang={enabled}>{LOCALE_META[enabled].nativeName}</a>)}</div>
+</nav></header>
 <script>
   import { applyHashToLanguageLinks, rememberLanguage } from '../scripts/lang-switcher.mjs';
 

@@ -9,13 +9,22 @@ import '../styles/enterprise.css';
 interface Props {
   title?: string;
   description?: string;
+  image?: string;
+  imageAlt?: string;
   locale?: Locale;
 }
 
-const { title, description, locale = DEFAULT_LOCALE } = Astro.props;
+const { title, description, image, imageAlt, locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale);
 const pageTitle = title ?? site.brand;
 const pageDescription = description ?? dict.site.description;
+const socialImage = image
+  ? image.startsWith('http')
+    ? image
+    : Astro.site
+      ? new URL(withBase(image), Astro.site).href
+      : withBase(image)
+  : undefined;
 
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
 const logicalPath = getPathInfo(Astro.url.pathname).path;
@@ -57,13 +66,18 @@ const organizationSchema = {
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
+    {socialImage && <meta property="og:image" content={socialImage} />}
+    {socialImage && <meta property="og:image:alt" content={imageAlt ?? pageTitle} />}
+    {socialImage && <meta property="og:image:width" content="2000" />}
+    {socialImage && <meta property="og:image:height" content="1125" />}
     <meta property="og:locale" content={LOCALE_META[locale].ogLocale} />
     {ENABLED_LOCALES.filter((enabled) => enabled !== locale).map((enabled) => (
       <meta property="og:locale:alternate" content={LOCALE_META[enabled].ogLocale} />
     ))}
-    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:card" content={socialImage ? 'summary_large_image' : 'summary'} />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={pageDescription} />
+    {socialImage && <meta name="twitter:image" content={socialImage} />}
     <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -92,9 +106,8 @@ const organizationSchema = {
           }
         });
       });
-      const filterButtons = document.querySelectorAll('[data-filter]');
-      filterButtons.forEach((button) => button.addEventListener('click', () => {
-        filterButtons.forEach((b) => b.classList.remove('active'));
+      document.querySelectorAll('[data-filter]').forEach((button) => button.addEventListener('click', () => {
+        document.querySelectorAll('[data-filter]').forEach((b) => b.classList.remove('active'));
         button.classList.add('active');
         const category = button.getAttribute('data-filter');
         document.querySelectorAll('[data-product-category]').forEach((card) => {
@@ -102,6 +115,9 @@ const organizationSchema = {
           card.classList.toggle('is-hidden', !match);
         });
       }));
+      document.querySelectorAll('[data-print-brief]').forEach((el) => {
+        el.addEventListener('click', () => window.print());
+      });
     </script>
   </body>
 </html>

@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import { localizedPath } from '../utils/paths';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -26,12 +26,38 @@ const copy = dict.about;
       </div>
     </section>
 
+    <section class="section section-soft about-profile">
+      <div class="wrap profile-grid">
+        <div class="profile-copy">
+          <span class="eyebrow">{copy.profile.eyebrow}</span>
+          <h2>{copy.profile.titleLine1}<br />{copy.profile.titleLine2}</h2>
+          <p>{copy.profile.paragraph1}</p>
+          <p>{copy.profile.paragraph2}</p>
+        </div>
+        <div class="profile-facts">
+          {copy.profile.facts.map((fact) => (
+            <article class="profile-fact"><b>{fact.value}</b><span>{fact.label}</span></article>
+          ))}
+        </div>
+      </div>
+      <div class="wrap">
+        <figure class="media-band media-band-profile">
+          <img src={withBase('/images/about-warehouse.webp')} alt={copy.profile.photoAlt} width="1600" height="640" loading="lazy" />
+          <figcaption>{copy.profile.photoCaption}</figcaption>
+        </figure>
+      </div>
+    </section>
+
     <section class="section">
       <div class="wrap">
         <div class="split-intro">
           <div><span class="eyebrow">{copy.whatWeDo.eyebrow}</span><h2>{copy.whatWeDo.titleLine1}<br />{copy.whatWeDo.titleLine2}</h2></div>
           <p>{copy.whatWeDo.body}</p>
         </div>
+        <figure class="media-band media-band-inline">
+          <img src={withBase('/images/about-engineering.webp')} alt={copy.whatWeDo.photoAlt} width="1320" height="400" loading="lazy" />
+          <figcaption>{copy.whatWeDo.photoCaption}</figcaption>
+        </figure>
         <div class="quality-grid">
           {copy.whatWeDo.cards.map((card) => (
             <article class="quality-card">
@@ -131,17 +157,6 @@ const copy = dict.about;
             <div class="mt-36"><button class="button button-accent" data-inquiry-open>{copy.special.talk.button} ↗</button></div>
           </article>
         </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap cta-band">
-        <div>
-          <span class="eyebrow">{copy.cta.eyebrow}</span>
-          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
-          <p>{copy.cta.body}</p>
-        </div>
-        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
       </div>
     </section>
   </main>

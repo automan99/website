@@ -1,0 +1,8 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 180" role="img" aria-label="Rugged tablet illustration">
+  <g fill="none" stroke="#8fa3bb" stroke-width="4" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="34" y="26" width="172" height="128" rx="12"/>
+    <rect x="46" y="38" width="148" height="96" rx="5"/>
+    <circle cx="120" cy="145" r="3.5"/>
+    <path d="M76 62h88M76 78h56" />
+  </g>
+</svg>

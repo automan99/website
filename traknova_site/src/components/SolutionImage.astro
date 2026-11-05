@@ -1,0 +1,36 @@
+---
+import { withBase } from '../utils/paths';
+
+interface Props {
+  base: string;
+  alt: string;
+  sizes?: string;
+  loading?: 'eager' | 'lazy';
+  fetchpriority?: 'high' | 'low' | 'auto';
+  class?: string;
+}
+
+const {
+  base,
+  alt,
+  sizes = '100vw',
+  loading = 'lazy',
+  fetchpriority = 'auto',
+  class: className
+} = Astro.props;
+
+const src = (width: number) => withBase(`/images/solutions/${base}-${width}.webp`);
+---
+
+<img
+  class={className}
+  src={src(1200)}
+  srcset={`${src(800)} 800w, ${src(1200)} 1200w, ${src(2000)} 2000w`}
+  sizes={sizes}
+  alt={alt}
+  width="2000"
+  height="1125"
+  loading={loading}
+  fetchpriority={fetchpriority}
+  decoding="async"
+/>

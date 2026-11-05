@@ -3,7 +3,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import { localizedPath } from '../utils/paths';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -32,6 +32,10 @@ const copy = dict.oem;
 
     <section class="section">
       <div class="wrap">
+        <figure class="media-band media-band-inline">
+          <img src={withBase('/images/oem-production.webp')} alt={copy.photos.productionAlt} width="1600" height="640" loading="lazy" />
+          <figcaption>{copy.photos.productionCaption}</figcaption>
+        </figure>
         <div class="split-intro">
           <div>
             <span class="eyebrow">{copy.models.eyebrow}</span>
@@ -109,6 +113,10 @@ const copy = dict.oem;
           </div>
           <p>{copy.quality.body}</p>
         </div>
+        <figure class="media-band media-band-inline">
+          <img src={withBase('/images/oem-testing.webp')} alt={copy.photos.testingAlt} width="1600" height="640" loading="lazy" />
+          <figcaption>{copy.photos.testingCaption}</figcaption>
+        </figure>
         <div class="quality-grid">
           {copy.quality.cards.map((card) => (
             <article class="quality-card">
