@@ -1,6 +1,187 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'; import Header from '../../components/Header.astro'; import Footer from '../../components/Footer.astro'; import InquiryDialog from '../../components/InquiryDialog.astro'; import { products } from '../../data/products'; import { withBase } from '../../utils/paths';
-export function getStaticPaths(){ return products.map((product)=>({params:{slug:product.slug},props:{product}})); }
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import InquiryDialog from '../../components/InquiryDialog.astro';
+import ProductCard from '../../components/ProductCard.astro';
+import { products } from '../../data/products';
+import { withBase } from '../../utils/paths';
+export function getStaticPaths() {
+  return products.map((product) => ({ params: { slug: product.slug }, props: { product } }));
+}
 const { product } = Astro.props;
+
+const confirmedSpecs = Object.entries(product.specs).filter(([, value]) => !/confirm/i.test(value));
+const related = products.filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
+const familyAnchor = product.category === 'Rugged PDA' ? '#rugged-pda' : product.category === 'RFID' ? '#rfid' : '#industrial-tablets';
+
+const productImage = product.image.startsWith('http')
+  ? product.image
+  : Astro.site
+    ? new URL(withBase(product.image), Astro.site).href
+    : withBase(product.image);
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.summary,
+  category: product.category,
+  brand: { '@type': 'Brand', name: 'TRAKNOVA' },
+  image: productImage,
+  sku: product.model
+};
+
+const fits = product.category === 'Rugged PDA'
+  ? [
+      { title: 'Dock-to-stock receiving', body: 'Scan the ASN, verify counts and flag exceptions before put-away.', href: '/solutions/#logistics' },
+      { title: 'Work-order execution', body: 'Capture production data at the station and update WIP.', href: '/solutions/#manufacturing' },
+      { title: 'Store replenishment', body: 'Check shelf stock and price during normal store walks.', href: '/solutions/#retail' }
+    ]
+  : product.category === 'RFID'
+    ? [
+        { title: 'RFID cycle counting', body: 'Read tags in bulk, review exceptions and post the count.', href: '/solutions/#logistics' },
+        { title: 'RFID item-level stocktake', body: 'Sweep fixtures, resolve duplicates and recount high-variance zones.', href: '/solutions/#retail' },
+        { title: 'Asset tagging and audits', body: 'Walk the site, capture tags and flag missing or moved assets.', href: '/solutions/#field-service' }
+      ]
+    : [
+        { title: 'Equipment inspection rounds', body: 'Use a larger screen for checklists, readings and photo evidence.', href: '/solutions/#manufacturing' },
+        { title: 'Field inspection and work orders', body: 'Run digital job sheets, capture signatures and sync when online.', href: '/solutions/#field-service' },
+        { title: 'Line-side kitting', body: 'Validate components and lots against the work order at the station.', href: '/solutions/#manufacturing' }
+      ];
+
+const configCards = product.category === 'Rugged PDA'
+  ? [
+      { title: 'Capture modules', intro: 'Selected per SKU and workflow.', items: ['1D / 2D scan engine', 'NFC options', 'Document reader on specialized models', 'Camera configuration'] },
+      { title: 'Form factor & accessories', intro: 'Ergonomics matched to the task.', items: ['Standard or pistol-grip', 'Hand straps and protective cases', 'Charging cradles', 'Vehicle or desk mounting'] },
+      { title: 'Software & deployment', intro: 'Agreed before the order.', items: ['OS image and preload', 'MDM enrollment', 'Pilot and staging', 'Spares planning'] }
+    ]
+  : product.category === 'RFID'
+    ? [
+        { title: 'RFID module & regional bands', intro: 'Configured for the target market.', items: ['UHF or short-range RFID module', 'Regional frequency band', 'Tag protocol support', 'Read-range validation with the chosen tag'] },
+        { title: 'Form factor & accessories', intro: 'Matched to the counting method.', items: ['Handheld or tablet form factor', 'Grip, strap and case options', 'Charging cradles', 'Vehicle or desk mounting'] },
+        { title: 'Software & deployment', intro: 'Planned with your software stack.', items: ['Middleware or application integration', 'Preload and MDM', 'Pilot count and acceptance', 'Spares planning'] }
+      ]
+    : [
+        { title: 'OS & compute', intro: 'Selected by application and market.', items: ['Android or Windows variant', 'Memory and storage option', 'Processor option', 'Regional OS image'] },
+        { title: 'I/O & modules', intro: 'Matched to the equipment beside it.', items: ['RS232 / RS485 and RJ45 where available', 'USB and HDMI', 'Barcode, NFC or RFID options', 'Docking and cable requirements'] },
+        { title: 'Mounting & accessories', intro: 'Planned for the work environment.', items: ['Vehicle docks and mounts', 'Desk docks and chargers', 'Hand straps and cases', 'Protective covers'] }
+      ];
 ---
-<BaseLayout title={`${product.name} | TRAKNOVA`} description={product.summary}><Header/><main><section class="page-hero"><div class="wrap"><span class="eyebrow">{product.category}</span><h1>{product.name}</h1><p>{product.summary}</p></div></section><section class="section"><div class="wrap product-detail"><div class="detail-image"><img src={withBase(product.image)} alt={product.name} /></div><div><span class="product-category">{product.model}</span><h2>Designed for demanding workflows.</h2><p>{product.summary}</p><ul class="check-list">{product.highlights.map((item)=><li>{item}</li>)}</ul><button class="button button-accent" data-inquiry-open>Request Datasheet & Quote ↗</button></div></div><div class="wrap specs-wrap"><h2>Technical Specifications</h2><table class="spec-table"><tbody>{Object.entries(product.specs).map(([key,value])=><tr><th>{key}</th><td>{value}</td></tr>)}</tbody></table><p class="fineprint">Specifications are transcribed from the domestic catalogue where stated. Optional modules, regional variants and inconsistent protection claims must be confirmed against the approved datasheet before quotation. <a href={product.sourceUrl} target="_blank" rel="noreferrer">View domestic source ↗</a></p></div></section></main><Footer/><InquiryDialog/></BaseLayout>
+<BaseLayout title={`${product.name} | TRAKNOVA`} description={product.summary}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="breadcrumb">
+          <a href={withBase('/')}>Home</a><span>/</span>
+          <a href={withBase('/products/')}>Products</a><span>/</span>
+          <span>{product.name}</span>
+        </div>
+        <span class="eyebrow">{product.category}</span>
+        <h1>{product.name}</h1>
+        <p>{product.summary}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap product-detail">
+        <div class="detail-image"><img src={withBase(product.image)} alt={product.name} /></div>
+        <div>
+          <span class="product-category">{product.model}</span>
+          <h2>Designed for demanding workflows.</h2>
+          <p>{product.summary}</p>
+          <ul class="check-list">{product.highlights.map((item) => <li>{item}</li>)}</ul>
+          <div class="detail-actions">
+            <button class="button button-accent" data-inquiry-open>Request Datasheet &amp; Quote ↗</button>
+            <a class="button button-outline" href={withBase('/contact/')}>Talk to Sales ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">WHERE IT FITS</span><h2>Built for<br />a specific job.</h2></div>
+          <p>These are the workflows this family is most often specified for. The final fit depends on your application, environment and target market.</p>
+        </div>
+        <div class="fit-grid">
+          {fits.map((fit) => (
+            <article class="fit-card">
+              <h3>{fit.title}</h3>
+              <p>{fit.body}</p>
+              <a href={withBase(fit.href)}>See the workflow →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">CONFIGURATION</span><h2>What can be<br />adapted.</h2></div>
+          <p>Configuration options are confirmed against the selected SKU and target market. Some combinations require tooling, minimum quantities or regional approval.</p>
+        </div>
+        <div class="quality-grid">
+          {configCards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <p>{card.intro}</p>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">TECHNICAL SPECIFICATIONS</span><h2>Confirmed values,<br />not assumptions.</h2></div>
+          <p>Only source-confirmed specifications are shown. Complete configuration details, options and regional approvals are provided with the approved datasheet.</p>
+        </div>
+        {confirmedSpecs.length >= 2 ? (
+          <table class="spec-table">
+            <tbody>{confirmedSpecs.map(([key, value]) => <tr><th>{key}</th><td>{value}</td></tr>)}</tbody>
+          </table>
+        ) : (
+          <div class="spec-empty">
+            <h3>Full specification sheet available on request</h3>
+            <p>This model has configuration-dependent specifications. Request the approved datasheet for your target market and configuration.</p>
+            <button class="button button-accent" data-inquiry-open>Request Datasheet ↗</button>
+          </div>
+        )}
+        {confirmedSpecs.length >= 2 && <p class="fineprint">Specifications shown are confirmed values. Optional modules, regional variants and protection ratings must be confirmed against the approved datasheet before quotation.</p>}
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="split-intro">
+            <div><span class="eyebrow">RELATED MODELS</span><h2>Other options<br />in this family.</h2></div>
+            <p>Compare form factors and capture methods across the range.</p>
+          </div>
+          <div class="related-grid">{related.map((item) => <ProductCard product={item} />)}</div>
+          <div class="center mt-36"><a class="button button-outline" href={withBase(`/products/${familyAnchor}`)}>View the full family ↗</a></div>
+        </div>
+      </section>
+    )}
+
+    <section class="section section-soft">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">READY TO SPECIFY?</span>
+          <h2>Request the datasheet<br />and a configuration review.</h2>
+          <p>Tell us the workflow, target market and expected volume. We will confirm the model, options and documentation path.</p>
+        </div>
+        <a class="button button-accent" href={withBase('/contact/')}>Send an Inquiry ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer /><InquiryDialog />
+</BaseLayout>

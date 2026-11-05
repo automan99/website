@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://automan99.github.io/website/sitemap-index.xml

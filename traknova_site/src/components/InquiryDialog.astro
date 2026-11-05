@@ -1,16 +1,21 @@
 ---
 import { site } from '../data/site';
+import { withBase } from '../utils/paths';
 ---
 <div class="dialog" id="inquiry-dialog"><div class="dialog-panel"><button class="dialog-close" data-dialog-close aria-label="Close">×</button><span class="eyebrow">CONTACT OUR SALES TEAM</span><h2>Request a Quote</h2><p>Tell us about your project. Our team will follow up with the right product information.</p>
 <form action={site.formspreeEndpoint} method="POST">
   <div class="form-grid">
-    <label>Full Name *<input name="name" required /></label>
-    <label>Business Email *<input name="email" type="email" required /></label>
-    <label>Company<input name="company" /></label>
-    <label>Country / Region *<input name="country" required /></label>
-    <label>Product Interest *<select name="product" required><option value="">Select a category</option><option>Rugged PDA</option><option>RFID / NFC</option><option>Industrial Tablet</option><option>OEM / ODM</option></select></label>
+    <label>Full Name *<input name="name" autocomplete="name" required /></label>
+    <label>Business Email *<input name="email" type="email" autocomplete="email" required /></label>
+    <label>Company<input name="company" autocomplete="organization" /></label>
+    <label>Country / Region *<input name="country" autocomplete="country-name" required /></label>
+    <label>Product Interest *<select name="product" required><option value="">Select a category</option><option>Rugged PDA</option><option>RFID / NFC</option><option>Industrial Tablet</option><option>OEM / ODM</option><option>Not sure</option></select></label>
+    <label>Application / Industry<select name="application"><option value="">Select an application</option><option>Warehouse &amp; Logistics</option><option>Manufacturing</option><option>Retail &amp; Commerce</option><option>Field Service &amp; Assets</option><option>Healthcare / Public Services</option><option>Other</option></select></label>
+    <label>Cooperation Interest<select name="cooperation"><option>Standard product</option><option>Private label</option><option>Configured product</option><option>Project development</option><option>Not sure</option></select></label>
+    <label>Deployment Timeline<select name="timeline"><option>Exploring</option><option>0–3 months</option><option>3–6 months</option><option>6–12 months</option><option>12+ months</option></select></label>
     <label>Estimated Quantity<select name="quantity"><option>Not decided</option><option>1–50</option><option>50–200</option><option>200–1,000</option><option>1,000+</option></select></label>
-    <label class="full">Project Details *<textarea name="message" required></textarea></label>
+    <label class="full">Project Details *<textarea name="message" required placeholder="Workflow, target market, required capture method, and any timing constraints."></textarea></label>
+    <p class="full form-note">We use your information to respond to this inquiry. See our <a href={withBase('/privacy/')}>Privacy Policy</a>.</p>
     <button class="button button-accent full" type="submit">Submit Inquiry →</button>
   </div>
   <input type="hidden" name="_subject" value="New TRAKNOVA website inquiry" />

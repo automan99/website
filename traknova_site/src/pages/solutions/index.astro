@@ -1,4 +1,170 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro'; import Header from '../../components/Header.astro'; import Footer from '../../components/Footer.astro'; import InquiryDialog from '../../components/InquiryDialog.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import InquiryDialog from '../../components/InquiryDialog.astro';
+import { withBase } from '../../utils/paths';
+import { industries, solutionLayers, specializedWorkflows, solutionMatrix, deploymentSteps } from '../../data/solutions';
 ---
-<BaseLayout title="Industry Solutions | TRAKNOVA"><Header/><main><section class="page-hero"><div class="wrap"><span class="eyebrow">INDUSTRY SOLUTIONS</span><h1>Technology that keeps<br/><em>work moving.</em></h1><p>Reliable data capture across warehouses, manufacturing floors, retail environments and field operations.</p></div></section><section class="section"><div class="wrap solution-list"><article><span>01 / LOGISTICS</span><h2>Warehouse & Logistics</h2><p>Mobile computing and RFID tools for receiving, put-away, cycle counting, picking and shipping workflows.</p></article><article><span>02 / MANUFACTURING</span><h2>Manufacturing</h2><p>Capture production data, identify components and improve work-in-progress visibility.</p></article><article><span>03 / RETAIL</span><h2>Retail & Commerce</h2><p>Support inventory accuracy, replenishment, price checks and store operations.</p></article><article><span>04 / FIELD OPERATIONS</span><h2>Field Service & Asset Tracking</h2><p>Connect mobile teams with reliable identification, scanning and business data.</p></article></div></section></main><Footer/><InquiryDialog/></BaseLayout>
+<BaseLayout
+  title="Industry Solutions | TRAKNOVA"
+  description="Scenario-based industrial mobility solutions for warehouse and logistics, manufacturing, retail and field service: barcode, RFID, mobile printing and rugged tablets."
+>
+  <Header />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">INDUSTRY SOLUTIONS</span>
+        <h1>Built around the work.<br /><em>Not just the device.</em></h1>
+        <p>Four industries, twelve field scenarios. See how rugged mobile computers, RFID and industrial tablets fit into the workflows your teams run every day.</p>
+        <div class="anchor-chips">
+          {industries.map((industry) => <a class="anchor-chip" href={`#${industry.id}`}>{industry.name}</a>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">SOLUTION ANATOMY</span>
+            <h2>One solution.<br />Four connected layers.</h2>
+          </div>
+          <p>Every deployment starts with a physical event — a scan, a tag read, a signature — and ends in a business system. TRAKNOVA supplies the layers in between, and works with the software stack you already run.</p>
+        </div>
+        <div class="anatomy">
+          {solutionLayers.map((layer) => (
+            <div class="anatomy-step">
+              <span class="anatomy-num">{layer.num}</span>
+              <h3>{layer.title}</h3>
+              <p>{layer.body}</p>
+              <div class="anatomy-tags">{layer.tags.map((tag) => <span>{tag}</span>)}</div>
+            </div>
+          ))}
+        </div>
+        <p class="note-line">Accessories, spares and deployment support are planned with the device, not added after it.</p>
+      </div>
+    </section>
+
+    {industries.map((industry, index) => (
+      <section id={industry.id} class:list={['industry-block', { alt: index % 2 === 1 }]}>
+        <div class="wrap">
+          <div class="industry-head">
+            <div>
+              <span class="industry-index">{industry.index} / {industry.eyebrow}</span>
+              <h2>{industry.name}</h2>
+            </div>
+            <p>{industry.intro}</p>
+          </div>
+          <div class="scenario-grid">
+            {industry.scenarios.map((scenario, scenarioIndex) => (
+              <article class="scenario-card">
+                <span class="scenario-label">SCENARIO {industry.index}.{scenarioIndex + 1}</span>
+                <h3>{scenario.title}</h3>
+                <p class="scenario-situation">{scenario.situation}</p>
+                <div class="scenario-section">
+                  <span class="mini-label">Workflow</span>
+                  <ol class="workflow">{scenario.workflow.map((step) => <li>{step}</li>)}</ol>
+                </div>
+                <div class="scenario-section">
+                  <span class="mini-label">Recommended setup</span>
+                  <div class="device-list">
+                    {scenario.devices.map((device) => (
+                      <a class="device-link" href={withBase(`/products/${device.slug}/`)}>{device.label} <span>›</span></a>
+                    ))}
+                  </div>
+                </div>
+                <div class="scenario-section">
+                  <span class="mini-label">What improves</span>
+                  <ul class="outcome-list">{scenario.outcomes.map((outcome) => <li>{outcome}</li>)}</ul>
+                </div>
+                {scenario.note && <p class="scenario-note">{scenario.note}</p>}
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+    ))}
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">SPECIALIZED WORKFLOWS</span>
+            <h2>When the workflow<br />needs a specific module.</h2>
+          </div>
+          <p>Some deployments need more than scanning. These platforms are positioned for healthcare-oriented and identity-document workflows, subject to the approved configuration and target market.</p>
+        </div>
+        <div class="special-grid">
+          {specializedWorkflows.map((item) => (
+            <article class="special-card">
+              <span class="mini-label">{item.eyebrow}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
+              <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
+              <div class="device-list special-devices">
+                {item.devices.map((device) => (
+                  <a class="device-link" href={withBase(`/products/${device.slug}/`)}>{device.label} <span>›</span></a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">SELECTION MATRIX</span>
+            <h2>Match the task<br />to the capture method.</h2>
+          </div>
+          <p>A starting point for specification discussions. Final device and module selection depends on the application, environment and regional configuration.</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table">
+            <thead>
+              <tr><th>Industry</th><th>Typical tasks</th><th>Recommended devices</th><th>Capture</th></tr>
+            </thead>
+            <tbody>
+              {solutionMatrix.map((row) => (
+                <tr><td>{row.industry}</td><td>{row.tasks}</td><td>{row.devices}</td><td>{row.capture}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="note-line">UHF RFID frequency bands and market approvals vary by country. Confirm the target market before configuration.</p>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">DEPLOYMENT PATH</span>
+            <h2>From workflow review<br />to fleet rollout.</h2>
+          </div>
+          <p>Hardware is one part of a deployment. A short, structured process reduces rework and gives both teams a clear acceptance point.</p>
+        </div>
+        <div class="deploy-grid">
+          {deploymentSteps.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">NOT SEEING YOUR WORKFLOW?</span>
+          <h2>Tell us how your team<br />works today.</h2>
+          <p>We will map the steps, the exceptions and the data — then recommend a device and configuration.</p>
+        </div>
+        <a class="button button-accent" href={withBase('/contact/')}>Discuss Your Scenario ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer /><InquiryDialog />
+</BaseLayout>

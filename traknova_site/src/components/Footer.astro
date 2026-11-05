@@ -3,9 +3,37 @@ import { site } from '../data/site';
 import { withBase } from '../utils/paths';
 ---
 <footer class="footer"><div class="wrap footer-grid">
-  <div><a class="logo logo-light" href={withBase('/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>INDUSTRIAL MOBILITY</small></span></a><p>Rugged mobile computers, RFID technology and intelligent data capture solutions for connected operations.</p></div>
-  <div><h4>Products</h4><a href={withBase('/products/')}>Rugged PDA</a><a href={withBase('/products/')}>RFID Devices</a><a href={withBase('/products/')}>Industrial Tablets</a></div>
-  <div><h4>Company</h4><a href={withBase('/about/')}>About Us</a><a href={withBase('/oem-odm/')}>OEM / ODM</a><a href={withBase('/solutions/')}>Industries</a><a href={withBase('/contact/')}>Contact</a></div>
-  <div><h4>Get in Touch</h4><a href={`mailto:${site.email}`}>{site.email}</a><a href={withBase('/contact/')}>Request a Quote</a><a href={site.facebook} target="_blank" rel="noreferrer">Facebook</a></div>
-</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. All rights reserved.</span><span>Privacy · Terms</span></div></footer>
+  <div>
+    <a class="logo logo-light" href={withBase('/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>INDUSTRIAL MOBILITY</small></span></a>
+    <p>Rugged mobile computers, RFID technology and industrial tablets for connected operations. Hardware, configuration and OEM / ODM cooperation from one partner.</p>
+  </div>
+  <div>
+    <h4>Products</h4>
+    <a href={withBase('/products/#rugged-pda')}>Rugged PDA</a>
+    <a href={withBase('/products/#rfid')}>RFID Devices</a>
+    <a href={withBase('/products/#industrial-tablets')}>Industrial Tablets</a>
+    <a href={withBase('/products/')}>All Products</a>
+  </div>
+  <div>
+    <h4>Solutions</h4>
+    <a href={withBase('/solutions/#logistics')}>Warehouse & Logistics</a>
+    <a href={withBase('/solutions/#manufacturing')}>Manufacturing</a>
+    <a href={withBase('/solutions/#retail')}>Retail & Commerce</a>
+    <a href={withBase('/solutions/#field-service')}>Field Service & Assets</a>
+  </div>
+  <div>
+    <h4>Company</h4>
+    <a href={withBase('/about/')}>About Us</a>
+    <a href={withBase('/oem-odm/')}>OEM / ODM</a>
+    <a href={withBase('/contact/')}>Contact</a>
+    <a href={withBase('/contact/')}>Request a Quote</a>
+  </div>
+  <div>
+    <h4>Get in Touch</h4>
+    <a href={`mailto:${site.email}`}>{site.email}</a>
+    <a href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">WhatsApp Sales</a>
+    <a href={site.facebook} target="_blank" rel="noreferrer">Facebook</a>
+    <p>Global sales and project support. Specifications and availability are confirmed per configuration and region.</p>
+  </div>
+</div><div class="wrap footer-note">Product specifications, module availability, protection ratings and regional approvals are subject to the approved datasheet and final configuration. Typical workflow scenarios on this site illustrate common deployments and are not customer references.</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. All rights reserved.</span><span><a href={withBase('/privacy/')}>Privacy</a> · <a href={withBase('/terms/')}>Terms</a></span></div></footer>
 <div class="floating-contact"><a aria-label="WhatsApp" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">WA</a><a aria-label="Email" href={`mailto:${site.email}`}>✉</a></div>
