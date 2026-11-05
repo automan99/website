@@ -1,23 +1,53 @@
 ---
 import { site } from '../data/site';
-import { withBase } from '../utils/paths';
+import { localizedPath, getPathInfo } from '../utils/paths';
+import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
 
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
-const pathname = Astro.url.pathname;
-const current = base && pathname.startsWith(base) ? pathname.slice(base.length) : pathname;
-const isActive = (path: string) => (path === '/' ? current === '/' || current === '' : current.startsWith(path));
+interface Props {
+  locale?: Locale;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale);
+const pathInfo = getPathInfo(Astro.url.pathname);
+const isActive = (path: string) => (path === '/' ? pathInfo.path === '/' || pathInfo.path === '' : pathInfo.path.startsWith(path));
 const navItems = [
-  { href: '/products/', label: 'Products' },
-  { href: '/solutions/', label: 'Solutions' },
-  { href: '/oem-odm/', label: 'OEM / ODM' },
-  { href: '/about/', label: 'About' },
-  { href: '/contact/', label: 'Contact' }
+  { href: '/products/', label: dict.common.nav.products },
+  { href: '/solutions/', label: dict.common.nav.solutions },
+  { href: '/oem-odm/', label: dict.common.nav.oem },
+  { href: '/about/', label: dict.common.nav.about },
+  { href: '/contact/', label: dict.common.nav.contact }
 ];
 ---
-<div class="utility"><div class="wrap utility-inner"><span>ENGINEERED FOR THE FRONTLINE. BUILT FOR BUSINESS.</span><span>Global Sales · {site.email}</span></div></div>
+<div class="utility"><div class="wrap utility-inner">
+  <span class="utility-tagline">{dict.header.utilityTagline}</span>
+  <div class="utility-right">
+    <span class="utility-sales">{dict.header.utilitySales} · {site.email}</span>
+    <details class="lang-switcher">
+      <summary aria-label={`${dict.common.languageLabel}: ${LOCALE_META[locale].nativeName}`}>{LOCALE_META[locale].nativeName} <span aria-hidden="true">▾</span></summary>
+      <div class="lang-menu">
+        {ENABLED_LOCALES.map((enabled) => (
+          <a href={localizedPath(enabled, pathInfo.path)} hreflang={LOCALE_META[enabled].htmlLang} class:list={{ 'is-active': enabled === locale }} data-lang-link data-lang={enabled}>{LOCALE_META[enabled].nativeName}</a>
+        ))}
+      </div>
+    </details>
+  </div>
+</div></div>
 <header class="header"><div class="wrap header-inner">
-  <a class="logo" href={withBase('/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>INDUSTRIAL MOBILITY</small></span></a>
-  <nav class="desktop-nav" aria-label="Primary">{navItems.map((item) => <a href={withBase(item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav>
-  <a class="button button-accent nav-cta" href={withBase('/contact/')}>Get a Quote <span>↗</span></a>
-  <button class="menu-toggle" data-menu-toggle aria-label="Toggle navigation">☰</button>
-</div><nav class="mobile-nav" aria-label="Mobile" data-mobile-menu>{navItems.map((item) => <a href={withBase(item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav></header>
+  <a class="logo" href={localizedPath(locale, '/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
+  <nav class="desktop-nav" aria-label={dict.header.navAria}>{navItems.map((item) => <a href={localizedPath(locale, item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}</nav>
+  <a class="button button-accent nav-cta" href={localizedPath(locale, '/contact/')}>{dict.header.quoteCta} <span>↗</span></a>
+  <button class="menu-toggle" data-menu-toggle aria-label={dict.common.menuToggle}>☰</button>
+</div><nav class="mobile-nav" aria-label={dict.header.mobileNavAria} data-mobile-menu>{navItems.map((item) => <a href={localizedPath(locale, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}<div class="mobile-lang">{ENABLED_LOCALES.map((enabled) => <a href={localizedPath(enabled, pathInfo.path)} hreflang={LOCALE_META[enabled].htmlLang} class:list={{ 'is-active': enabled === locale }} data-lang-link data-lang={enabled}>{LOCALE_META[enabled].nativeName}</a>)}</div></nav></header>
+<script is:inline>
+  (() => {
+    const hash = window.location.hash;
+    document.querySelectorAll('[data-lang-link]').forEach((link) => {
+      if (hash && !link.hash) link.href = link.pathname + link.search + hash;
+      link.addEventListener('click', () => {
+        try { localStorage.setItem('traknova.lang', link.dataset.lang || ''); } catch (error) {}
+      });
+    });
+  })();
+</script>

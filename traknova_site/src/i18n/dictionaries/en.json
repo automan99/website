@@ -1,0 +1,149 @@
+{
+  "site": {
+    "tagline": "Move Data. Move Business.",
+    "description": "Rugged mobile computers, RFID technology and intelligent data capture solutions.",
+    "logoSubline": "INDUSTRIAL MOBILITY"
+  },
+  "common": {
+    "nav": {
+      "products": "Products",
+      "solutions": "Solutions",
+      "oem": "OEM / ODM",
+      "about": "About",
+      "contact": "Contact"
+    },
+    "actions": {
+      "getQuote": "Get a Quote",
+      "exploreProduct": "Explore product",
+      "viewAllProducts": "View All Products",
+      "sendInquiry": "Send an Inquiry",
+      "talkToSales": "Talk to Sales",
+      "requestQuote": "Request a Quote",
+      "contactTeam": "Contact Our Team",
+      "askQuestion": "Ask a Question",
+      "browseProducts": "Browse Products",
+      "viewPlatforms": "View Platforms",
+      "requestDatasheet": "Request a Datasheet",
+      "discussProject": "Discuss Your Project",
+      "viewFamily": "View the full family",
+      "seeWorkflow": "See the workflow",
+      "backToHome": "Back to Home",
+      "allProducts": "All Products",
+      "home": "Home",
+      "productsCrumb": "Products"
+    },
+    "categories": {
+      "ruggedPda": "Rugged PDA",
+      "rfid": "RFID",
+      "industrialTablet": "Industrial Tablet",
+      "ruggedPdaPlural": "Rugged PDA",
+      "rfidPlural": "RFID",
+      "industrialTabletPlural": "Industrial Tablets"
+    },
+    "languageLabel": "Language",
+    "menuToggle": "Toggle navigation"
+  },
+  "header": {
+    "utilityTagline": "ENGINEERED FOR THE FRONTLINE. BUILT FOR BUSINESS.",
+    "utilitySales": "Global Sales",
+    "navAria": "Primary",
+    "mobileNavAria": "Mobile",
+    "quoteCta": "Get a Quote"
+  },
+  "footer": {
+    "description": "Rugged mobile computers, RFID technology and industrial tablets for connected operations. Hardware, configuration and OEM / ODM cooperation from one partner.",
+    "columns": {
+      "productsTitle": "Products",
+      "productsRuggedPda": "Rugged PDA",
+      "productsRfid": "RFID Devices",
+      "productsTablets": "Industrial Tablets",
+      "productsAll": "All Products",
+      "solutionsTitle": "Solutions",
+      "solutionsLogistics": "Warehouse & Logistics",
+      "solutionsManufacturing": "Manufacturing",
+      "solutionsRetail": "Retail & Commerce",
+      "solutionsField": "Field Service & Assets",
+      "companyTitle": "Company",
+      "companyAbout": "About Us",
+      "companyOem": "OEM / ODM",
+      "companyContact": "Contact",
+      "companyQuote": "Request a Quote",
+      "contactTitle": "Get in Touch",
+      "contactWhatsapp": "WhatsApp Sales",
+      "contactFacebook": "Facebook",
+      "contactNote": "Global sales and project support. Specifications and availability are confirmed per configuration and region."
+    },
+    "note": "Product specifications, module availability, protection ratings and regional approvals are subject to the approved datasheet and final configuration. Typical workflow scenarios on this site illustrate common deployments and are not customer references.",
+    "rights": "All rights reserved.",
+    "privacy": "Privacy",
+    "terms": "Terms",
+    "whatsapp": "WhatsApp Sales",
+    "facebook": "Facebook",
+    "floatingWhatsappAria": "WhatsApp",
+    "floatingEmailAria": "Email"
+  },
+  "inquiry": {
+    "eyebrow": "CONTACT OUR SALES TEAM",
+    "title": "Request a Quote",
+    "intro": "Tell us about your project. Our team will follow up with the right product information.",
+    "close": "Close",
+    "fields": {
+      "fullName": "Full Name",
+      "businessEmail": "Business Email",
+      "company": "Company",
+      "country": "Country / Region",
+      "product": "Product Interest",
+      "application": "Application / Industry",
+      "cooperation": "Cooperation Interest",
+      "timeline": "Deployment Timeline",
+      "quantity": "Estimated Quantity",
+      "details": "Project Details"
+    },
+    "options": {
+      "product": {
+        "placeholder": "Select a category",
+        "ruggedPda": "Rugged PDA",
+        "rfid": "RFID / NFC",
+        "industrialTablet": "Industrial Tablet",
+        "oem": "OEM / ODM",
+        "notSure": "Not sure"
+      },
+      "application": {
+        "placeholder": "Select an application",
+        "logistics": "Warehouse & Logistics",
+        "manufacturing": "Manufacturing",
+        "retail": "Retail & Commerce",
+        "field": "Field Service & Assets",
+        "healthcare": "Healthcare / Public Services",
+        "other": "Other"
+      },
+      "cooperation": {
+        "standard": "Standard product",
+        "privateLabel": "Private label",
+        "configured": "Configured product",
+        "project": "Project development",
+        "notSure": "Not sure"
+      },
+      "timeline": {
+        "exploring": "Exploring",
+        "m0_3": "0–3 months",
+        "m3_6": "3–6 months",
+        "m6_12": "6–12 months",
+        "m12plus": "12+ months"
+      },
+      "quantity": {
+        "notDecided": "Not decided",
+        "q1_50": "1–50",
+        "q50_200": "50–200",
+        "q200_1000": "200–1,000",
+        "q1000plus": "1,000+"
+      }
+    },
+    "detailsPlaceholder": "Workflow, target market, required capture method, and any timing constraints.",
+    "privacyPrefix": "We use your information to respond to this inquiry. See our ",
+    "privacyLinkLabel": "Privacy Policy",
+    "privacySuffix": ".",
+    "submit": "Submit Inquiry",
+    "subject": "New TRAKNOVA website inquiry"
+  }
+}

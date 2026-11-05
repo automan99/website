@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "i18n:check": "node scripts/check-i18n.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.2.1",

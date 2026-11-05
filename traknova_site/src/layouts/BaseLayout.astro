@@ -1,44 +1,70 @@
 ---
 import { site } from '../data/site';
-import { withBase } from '../utils/paths';
+import { withBase, localizedPath, getPathInfo } from '../utils/paths';
+import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
 import '../styles/global.css';
 import '../styles/enterprise.css';
-const { title = site.brand, description = site.description } = Astro.props;
+
+interface Props {
+  title?: string;
+  description?: string;
+  locale?: Locale;
+}
+
+const { title, description, locale = DEFAULT_LOCALE } = Astro.props;
+const dict = getDictionary(locale);
+const pageTitle = title ?? site.brand;
+const pageDescription = description ?? dict.site.description;
 
 const canonical = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const logicalPath = getPathInfo(Astro.url.pathname).path;
+const alternateUrl = (target: Locale) => {
+  const path = localizedPath(target, logicalPath);
+  return Astro.site ? new URL(path, Astro.site).href : path;
+};
+
 const organizationSchema = {
   '@context': 'https://schema.org',
   '@type': 'Organization',
   name: site.brand,
   url: Astro.site?.href,
-  description: site.description,
+  description: dict.site.description,
   email: site.email,
   contactPoint: {
     '@type': 'ContactPoint',
     contactType: 'sales',
     email: site.email,
-    availableLanguage: ['English']
+    availableLanguage: ENABLED_LOCALES.map((enabled) => LOCALE_META[enabled].htmlLang)
   }
 };
 ---
 <!doctype html>
-<html lang="en">
+<html lang={LOCALE_META[locale].htmlLang}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <meta name="description" content={description} />
+    <meta name="description" content={pageDescription} />
     <meta name="theme-color" content="#101c2d" />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
+    {ENABLED_LOCALES.map((enabled) => (
+      <link rel="alternate" hreflang={LOCALE_META[enabled].htmlLang} href={alternateUrl(enabled)} />
+    ))}
+    <link rel="alternate" hreflang="x-default" href={alternateUrl(DEFAULT_LOCALE)} />
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={site.brand} />
-    <meta property="og:title" content={title} />
-    <meta property="og:description" content={description} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
     <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={LOCALE_META[locale].ogLocale} />
+    {ENABLED_LOCALES.filter((enabled) => enabled !== locale).map((enabled) => (
+      <meta property="og:locale:alternate" content={LOCALE_META[enabled].ogLocale} />
+    ))}
     <meta name="twitter:card" content="summary" />
-    <meta name="twitter:title" content={title} />
-    <meta name="twitter:description" content={description} />
-    <title>{title}</title>
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <title>{pageTitle}</title>
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
