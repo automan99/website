@@ -1,34 +1,32 @@
 ---
-import { getCategoryLabel, type Product } from '../data/products';
+import {
+  getCategoryLabel,
+  getProductHref,
+  type ProductFamily,
+  type ProductVariant
+} from '../data/products/catalog';
 import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 
 interface Props {
-  product: Product;
+  family: ProductFamily;
+  variant: ProductVariant;
   locale: Locale;
   label: string;
 }
 
-const { product, locale, label } = Astro.props;
-const fallbackByCategory = {
-  'Rugged PDA': 'device-pda.svg',
-  RFID: 'device-rfid.svg',
-  'Industrial Tablet': 'device-tablet.svg'
-} as const;
-const silhouette = product.category === 'Industrial Tablet' || /tablet/i.test(product.name)
-  ? 'device-tablet.svg'
-  : fallbackByCategory[product.category];
+const { family, variant, locale, label } = Astro.props;
+const silhouette = family.category === 'rugged-tablet' ? 'device-tablet.svg' : 'device-rfid.svg';
 const image = withBase(`/images/products/${silhouette}`);
 ---
-
 <article class="sol-device-card">
   <div class="sol-device-media is-silhouette">
     <img src={image} alt="" loading="lazy" decoding="async" />
   </div>
   <div class="sol-device-copy">
-    <span class="sol-device-cat">{getCategoryLabel(locale, product.category)}</span>
-    <h3>{product.name}</h3>
-    <p>{product.summary}</p>
-    <a class="text-link" href={localizedPath(locale, `/products/${product.slug}/`)}>{label} →</a>
+    <span class="sol-device-cat">{getCategoryLabel(locale, family.category)}</span>
+    <h3>{variant.name}</h3>
+    <p>{variant.summary}</p>
+    <a class="text-link" href={localizedPath(locale, getProductHref(family, variant.id))}>{label} →</a>
   </div>
 </article>

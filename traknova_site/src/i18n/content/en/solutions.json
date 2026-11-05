@@ -66,16 +66,20 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "ht550",
+              "variant": "standard"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             },
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -83,7 +87,7 @@
             "Dock staff spend time moving goods instead of re-counting them.",
             "WMS inventory reflects the floor within the receiving shift."
           ],
-          "note": "Exception labeling uses a configured HT800 or a compatible paired printer. Confirm media and print width for the SKU."
+          "note": "Exception labeling uses a configured device with barcode capture or a compatible paired printer. Confirm media and print width for the SKU."
         },
         {
           "title": "RFID cycle counting",
@@ -97,13 +101,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "ht550",
+              "variant": "standard"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -124,13 +131,16 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -138,7 +148,7 @@
             "Fewer trips and reprints between pack station and office printer.",
             "Dispatch status is available to customer service in real time."
           ],
-          "note": "Station printing requires a configured HT800 or a compatible label printer."
+          "note": "Station printing requires a configured device or a compatible label printer."
         }
       ],
       "slug": "logistics",
@@ -219,13 +229,16 @@
           ],
           "devices": [
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht520-multifunction-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -246,13 +259,16 @@
           ],
           "devices": [
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht520-multifunction-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -273,13 +289,16 @@
           ],
           "devices": [
             {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             }
           ],
           "outcomes": [
@@ -287,7 +306,7 @@
             "Findings reach maintenance before the next shift.",
             "Wired connection to legacy equipment where required."
           ],
-          "note": "RS232 / RS485 and RJ45 connectivity depends on the A100 SKU and configuration. Confirm the required ports before quotation."
+          "note": "Connectivity and adapter requirements depend on the selected tablet configuration. Confirm the required ports and adapters before quotation."
         }
       ],
       "slug": "manufacturing",
@@ -368,13 +387,16 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "y70-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -395,13 +417,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "ht550",
+              "variant": "standard"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -422,13 +447,16 @@
           ],
           "devices": [
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "ht540-series",
+              "variant": "uhf"
             }
           ],
           "outcomes": [
@@ -436,7 +464,7 @@
             "Fewer trips to a back-office printer.",
             "Price changes reflected consistently."
           ],
-          "note": "HT800 mobile printing is configuration-dependent. Confirm the print module, media and print width before deployment."
+          "note": "Labeling workflows use a configured scanning device or a compatible paired printer. Confirm media and print width before deployment."
         }
       ],
       "slug": "retail",
@@ -517,13 +545,16 @@
           ],
           "devices": [
             {
-              "slug": "y70-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -544,13 +575,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "ht550",
+              "variant": "standard"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "ht540-series",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -571,13 +605,16 @@
           ],
           "devices": [
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "ht530-document-id-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "y70-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -585,7 +622,7 @@
             "On-site labeling and documentation.",
             "Fewer return visits for missing paperwork."
           ],
-          "note": "HT530 document reading requires the appropriate regional module and approved document support. Confirm before deployment."
+          "note": "Document and identity capture requirements must be confirmed for the selected configuration and target region before deployment."
         }
       ],
       "slug": "field-service",
@@ -650,32 +687,34 @@
   ],
   "specializedWorkflows": [
     {
-      "eyebrow": "HEALTHCARE-ORIENTED WORKFLOWS",
-      "title": "HT510 Medical edition",
-      "body": "A handheld configuration positioned for bedside identification, specimen and medication administration support, and equipment checks. Healthcare deployments require workflow validation against local requirements.",
+      "eyebrow": "CLOSE-RANGE IDENTIFICATION",
+      "title": "HT540 Series HF RFID handheld",
+      "body": "An HF RFID handheld for cards, labels and NFC workflows where identification happens at close range. Configuration and accessory choices are confirmed against the project's workflow and regional requirements.",
       "points": [
-        "Patient, specimen and asset identification",
-        "One-handed form factor for bedside tasks",
-        "Cleaning and disinfection requirements confirmed with the approved configuration"
+        "Card, label and NFC identification",
+        "One-handed 5.5-inch handheld form factor",
+        "Optional barcode and PSAM modules"
       ],
       "devices": [
         {
-          "slug": "ht510-rugged-pda"
+          "slug": "ht540-series",
+          "variant": "hf"
         }
       ]
     },
     {
-      "eyebrow": "DOCUMENT & IDENTITY CAPTURE",
-      "title": "HT530 Document & ID Capture",
-      "body": "A specialized handheld for service counters, controlled access and field verification where an identity or document must be read and recorded. Reader compatibility varies by country and document type.",
+      "eyebrow": "DOCUMENT & IDENTITY WORKFLOWS",
+      "title": "Y100 Series rugged tablet",
+      "body": "A 10.1-inch rugged tablet for counter, field and inspection workflows that need a larger screen and optional data capture. Identity and document modules are project-specific and must be confirmed for the target country.",
       "points": [
-        "Counter and field identity workflows",
-        "Document reader module confirmed per region",
-        "Positioned for controlled enterprise and public-service deployments"
+        "Larger screen for verification and records",
+        "Optional barcode, NFC, UHF RFID or fingerprint",
+        "Configuration confirmed per region"
       ],
       "devices": [
         {
-          "slug": "ht530-document-id-pda"
+          "slug": "y100-series",
+          "variant": "standard"
         }
       ]
     }
@@ -684,25 +723,25 @@
     {
       "industry": "Warehouse & Logistics",
       "tasks": "Receiving, put-away, cycle counting, picking, packing, dispatch",
-      "devices": "HT400 · HT550 · HT800 · Y100 RFID",
+      "devices": "HT540 Series · HT550 · Y100 Series",
       "capture": "1D / 2D barcode, UHF RFID, mobile print"
     },
     {
       "industry": "Manufacturing",
       "tasks": "Work orders, WIP, kitting, traceability, maintenance rounds",
-      "devices": "HT510 · HT520 · A100 · Y100",
+      "devices": "HT540 Series · Y100 Series",
       "capture": "Barcode, NFC, wired I/O, photo evidence"
     },
     {
       "industry": "Retail & Commerce",
       "tasks": "Replenishment, price checks, stocktakes, labeling",
-      "devices": "HT400 · HT540 · HT550 · HT800 · Y70",
+      "devices": "HT540 Series · HT550 · Y100 Series",
       "capture": "Barcode, UHF RFID, mobile print"
     },
     {
       "industry": "Field Service & Assets",
       "tasks": "Inspections, work orders, asset audits, on-site documentation",
-      "devices": "Y70 · Y100 · HT550 · HT530 · HT800",
+      "devices": "HT540 Series · HT550 · Y100 Series",
       "capture": "Barcode, UHF RFID, document reading, mobile print"
     }
   ],
