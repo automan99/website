@@ -1,0 +1,100 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getProducts } from '../data/products';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const home = dict.home;
+const products = getProducts(locale);
+const solutionLinks = ['/solutions/#logistics', '/solutions/#manufacturing', '/solutions/#retail', '/solutions/#field-service'];
+---
+<BaseLayout title={home.metaTitle} description={home.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><span class="eyebrow">{home.hero.eyebrow}</span><h1>{home.hero.titleLine1}<br /><em>{home.hero.titleLine2}</em></h1><p>{home.hero.body}</p><div class="hero-actions"><a class="button button-accent" href={localizedPath(locale, '/products/')}>{home.hero.primaryCta} →</a><a class="button button-glass" href={localizedPath(locale, '/contact/')}>{home.hero.secondaryCta} ↗</a></div><div class="hero-proof">{home.hero.proof.map((item) => <span><b>{item.title}</b>{item.text}</span>)}</div></div>
+    <div class="hero-visual"><div class="hero-orbit"></div><div class="device-stack"><div class="device device-tablet"><div class="screen"></div></div><div class="device device-pda"><div class="screen"></div><div class="keypad"></div></div><div class="device device-reader"><div class="reader-head"></div><div class="reader-grip"></div></div></div><div class="visual-chip chip-a">{home.hero.chips.rfidTitle}<small>{home.hero.chips.rfidText}</small></div><div class="visual-chip chip-b">{home.hero.chips.ruggedTitle}<small>{home.hero.chips.ruggedText}</small></div></div></div></section>
+    <section class="trust-strip"><div class="wrap trust-inner"><span>{home.trustStrip.label}</span><b>RFID</b><b>BARCODE</b><b>NFC</b><b>ANDROID</b><b>INDUSTRIAL IoT</b></div></section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{home.why.eyebrow}</span><h2>{home.why.titleLine1}<br />{home.why.titleLine2}</h2></div>
+          <p>{home.why.body}</p>
+        </div>
+        <div class="pillar-grid">
+          {home.why.pillars.map((pillar, index) => (
+            <article class="pillar"><b>{String(index + 1).padStart(2, '0')}</b><h3>{pillar.title}</h3><p>{pillar.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">{home.portfolio.eyebrow}</span><h2>{home.portfolio.titleLine1}<br />{home.portfolio.titleLine2}</h2></div><p>{home.portfolio.body}</p></div><div class="filter-row"><button class="filter active" data-filter="all">{dict.common.actions.allProducts}</button><button class="filter" data-filter="Rugged PDA">{dict.common.categories.ruggedPda}</button><button class="filter" data-filter="RFID">{dict.common.categories.rfid}</button><button class="filter" data-filter="Industrial Tablet">{dict.common.categories.industrialTabletPlural}</button></div><div class="product-grid">{products.map((product) => <ProductCard product={product} locale={locale} />)}</div><div class="center mt-36"><a class="button button-outline" href={localizedPath(locale, '/products/')}>{home.portfolio.viewAll} ↗</a></div></div></section>
+
+    <section class="dark-stats"><div class="wrap stats-grid">{home.stats.map((stat) => <div><b>{stat.value}</b><span>{stat.label}</span></div>)}</div></section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{home.solutions.eyebrow}</span><h2>{home.solutions.titleLine1}<br />{home.solutions.titleLine2}</h2></div>
+          <p>{home.solutions.body}</p>
+        </div>
+        <div class="solution-entry-grid">
+          {home.solutions.entries.map((entry, index) => (
+            <a class:list={['solution-entry', `solution-${['warehouse', 'manufacturing', 'retail', 'field'][index]}`]} href={localizedPath(locale, solutionLinks[index])}>
+              <span class="entry-index">{entry.index}</span>
+              <h3>{entry.title}</h3>
+              <p>{entry.body}</p>
+              <div class="entry-tags">{entry.tags.map((tag) => <span>{tag}</span>)}</div>
+              <span class="entry-link">{entry.link} <span>↗</span></span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{home.process.eyebrow}</span><h2>{home.process.titleLine1}<br />{home.process.titleLine2}</h2></div>
+          <p>{home.process.body}</p>
+        </div>
+        <div class="deploy-grid">
+          {home.process.steps.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="wrap"><div class="oem-panel"><div><span class="eyebrow">{home.oem.eyebrow}</span><h2>{home.oem.titleLine1}<br /><em>{home.oem.titleLine2}</em></h2><p>{home.oem.body}</p><ul>{home.oem.points.map((point) => <li>{point}</li>)}</ul><a class="button button-accent" href={localizedPath(locale, '/oem-odm/')}>{home.oem.cta} →</a></div><div class="oem-art"><div class="oem-ring"></div><div class="oem-device"></div><span>{home.oem.artLabel}</span></div></div></div></section>
+
+    <section class="section section-soft">
+      <div class="wrap faq-split">
+        <div>
+          <span class="eyebrow">{home.faq.eyebrow}</span>
+          <h2>{home.faq.titleLine1}<br />{home.faq.titleLine2}</h2>
+          <p>{home.faq.body}</p>
+          <div class="mt-36"><a class="button button-outline" href={localizedPath(locale, '/contact/')}>{home.faq.cta} ↗</a></div>
+        </div>
+        <div class="faq-list">
+          {home.faq.items.map((item) => <details><summary>{item.q}</summary><p>{item.a}</p></details>)}
+        </div>
+      </div>
+    </section>
+
+    <section class="section"><div class="wrap cta-band"><div><span class="eyebrow">{home.cta.eyebrow}</span><h2>{home.cta.titleLine1}<br />{home.cta.titleLine2}</h2><p>{home.cta.body}</p></div><a class="button button-accent" href={localizedPath(locale, '/contact/')}>{home.cta.button} ↗</a></div></section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

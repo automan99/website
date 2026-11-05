@@ -145,5 +145,152 @@
     "privacySuffix": ".",
     "submit": "Submit Inquiry",
     "subject": "New TRAKNOVA website inquiry"
+  },
+  "home": {
+    "metaTitle": "TRAKNOVA | Industrial Mobility & Auto-ID Solutions",
+    "metaDescription": "Rugged mobile computers, RFID handhelds and industrial tablets for warehouse, manufacturing, retail and field service. Solution design, configuration and OEM / ODM cooperation.",
+    "hero": {
+      "eyebrow": "INDUSTRIAL MOBILITY & AUTO-ID",
+      "titleLine1": "Move Data.",
+      "titleLine2": "Move Business.",
+      "body": "Powering smarter operations with rugged mobile computers, RFID technology and intelligent data capture solutions — engineered for the real world.",
+      "primaryCta": "Explore Products",
+      "secondaryCta": "Talk to Our Experts",
+      "proof": [
+        { "title": "Built for Business", "text": "Enterprise-grade devices" },
+        { "title": "OEM / ODM Ready", "text": "Your brand, your solution" },
+        { "title": "Global Support", "text": "From concept to delivery" }
+      ],
+      "chips": {
+        "rfidTitle": "RFID + NFC",
+        "rfidText": "Intelligent identification",
+        "ruggedTitle": "RUGGED BY DESIGN",
+        "ruggedText": "Ready for demanding workflows"
+      }
+    },
+    "trustStrip": {
+      "label": "TECHNOLOGY FOR CONNECTED OPERATIONS"
+    },
+    "why": {
+      "eyebrow": "WHY TRAKNOVA",
+      "titleLine1": "Hardware is only useful",
+      "titleLine2": "when it fits the work.",
+      "body": "We select and configure devices around the task: the capture method, the form factor, the software and the support path after rollout.",
+      "pillars": [
+        { "title": "Rugged by design", "body": "Devices chosen for warehouse, field and industrial environments. Protection and operating limits are confirmed per SKU." },
+        { "title": "Integrated auto-ID", "body": "Barcode, UHF RFID, NFC and document capture configured around the workflow, not added afterwards." },
+        { "title": "Configuration flexibility", "body": "Android and Windows platforms, multiple form factors and module options for regional requirements." },
+        { "title": "OEM / ODM ready", "body": "Private label, configured products and project development under your brand and your documentation." }
+      ]
+    },
+    "portfolio": {
+      "eyebrow": "OUR PRODUCT PORTFOLIO",
+      "titleLine1": "Hardware that works",
+      "titleLine2": "as hard as you do.",
+      "body": "Explore rugged PDA computers, RFID handhelds and rugged tablets for enterprise data capture.",
+      "viewAll": "View All Products"
+    },
+    "stats": [
+      { "value": "RFID", "label": "Advanced identification" },
+      { "value": "1D / 2D", "label": "Barcode data capture" },
+      { "value": "Android", "label": "Enterprise mobility" },
+      { "value": "OEM / ODM", "label": "Flexible customization" }
+    ],
+    "solutions": {
+      "eyebrow": "SOLUTIONS IN PRACTICE",
+      "titleLine1": "Start from the workflow.",
+      "titleLine2": "Then choose the device.",
+      "body": "Each industry page maps common tasks to capture methods, device configurations and a deployment path.",
+      "entries": [
+        {
+          "index": "01 / LOGISTICS",
+          "title": "Warehouse & Logistics",
+          "body": "Receiving, put-away, cycle counting, picking and dispatch — captured before inventory reaches the WMS.",
+          "tags": ["Barcode", "UHF RFID", "Mobile print"],
+          "link": "Explore logistics solutions"
+        },
+        {
+          "index": "02 / MANUFACTURING",
+          "title": "Manufacturing",
+          "body": "Work orders, WIP, material traceability and maintenance rounds captured at the point of work.",
+          "tags": ["Barcode", "Wired I/O", "Rugged tablets"],
+          "link": "Explore manufacturing solutions"
+        },
+        {
+          "index": "03 / RETAIL",
+          "title": "Retail & Commerce",
+          "body": "Replenishment, price accuracy, RFID stocktakes and labeling at the point of decision.",
+          "tags": ["Barcode", "UHF RFID", "Mobile print"],
+          "link": "Explore retail solutions"
+        },
+        {
+          "index": "04 / FIELD SERVICE",
+          "title": "Field Service & Assets",
+          "body": "Inspections, digital work orders, asset audits and on-site documentation for mobile teams.",
+          "tags": ["Rugged tablets", "UHF RFID", "Documentation"],
+          "link": "Explore field solutions"
+        }
+      ]
+    },
+    "process": {
+      "eyebrow": "HOW WE WORK",
+      "titleLine1": "A practical path",
+      "titleLine2": "from requirement to rollout.",
+      "body": "The same four gates apply whether you are evaluating a single device or planning a fleet deployment.",
+      "steps": [
+        { "title": "Workflow review", "body": "Map the steps, exceptions and data each step must produce before selecting hardware." },
+        { "title": "Configuration", "body": "Choose form factor, capture modules, OS, accessories and integration points." },
+        { "title": "Pilot", "body": "Deploy to one site or shift and compare accuracy, cycle time and exception rates." },
+        { "title": "Rollout & support", "body": "Stage devices, configure MDM, train users, plan spares and agree the support path." }
+      ]
+    },
+    "oem": {
+      "eyebrow": "OEM / ODM PARTNERSHIP",
+      "titleLine1": "Build your next device.",
+      "titleLine2": "Under your brand.",
+      "body": "From logo customization to tailored hardware configurations, TRAKNOVA supports partners developing and scaling their own industrial mobility portfolio.",
+      "points": [
+        "Private label & branding",
+        "Hardware configuration",
+        "Accessory customization",
+        "Project-based development",
+        "Packaging & documentation",
+        "Production coordination"
+      ],
+      "cta": "Explore OEM / ODM",
+      "artLabel": "ENGINEERED TO YOUR SPECIFICATION"
+    },
+    "faq": {
+      "eyebrow": "COMMON QUESTIONS",
+      "titleLine1": "Before you",
+      "titleLine2": "send an inquiry.",
+      "body": "If your question is not here, include it in the form. We will answer it against your workflow and target market.",
+      "cta": "Ask a Question",
+      "items": [
+        {
+          "q": "Do you supply samples?",
+          "a": "Sample and pilot policy is agreed per project. For configured products, a prototype or pilot build is the usual acceptance step before a production order."
+        },
+        {
+          "q": "Can devices be branded for our company?",
+          "a": "Yes. Private label and configured-product cooperation are covered on the OEM / ODM page, including logo, packaging, documentation and software image options."
+        },
+        {
+          "q": "Do you support regional RFID frequencies?",
+          "a": "UHF RFID bands and market approvals differ by country. We confirm the target market before selecting the module and include the applicable configuration in the proposal."
+        },
+        {
+          "q": "How do I get a datasheet?",
+          "a": "Send an inquiry with the model and configuration you are evaluating. We will confirm the applicable datasheet, options and availability for your market."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "LET'S TALK ABOUT YOUR PROJECT",
+      "titleLine1": "Have a project in mind?",
+      "titleLine2": "Let's find the right solution.",
+      "body": "Tell us what you need. Our team will help identify the right device and configuration.",
+      "button": "Send an Inquiry"
+    }
   }
 }
