@@ -70,6 +70,68 @@ npm run dev
 - 如果开启统计/追踪脚本，必须补充隐私政策、Cookie与数据采集声明
 - 上线前测试移动端适配、全部链接、咨询提交流程、页面元信息
 
+## 8. 国际化（i18n）
+当前启用语言：**English（默认，根路径）** 和 **简体中文（`/zh/`）**。
+架构预留 8 种语言：`en`、`zh`、`hi`、`es`、`ru`、`de`、`fr`、`pt`。
+
+### 文件结构
+- `src/i18n/config.ts`：语言列表、默认语言、已启用语言、语言元信息
+- `src/i18n/dictionaries/en.json`、`zh.json`：页面文案（纯文本，禁止 HTML）
+- `src/i18n/content/<locale>/products.json`：产品名称、简介、亮点
+- `src/i18n/content/<locale>/solutions.json`：行业解决方案内容
+- `src/views/`：只写一份的页面模板，通过 `locale` prop 渲染
+- `src/pages/`：英文根路由；`src/pages/[lang]/`：其他语言的本地化路由
+
+### 新增一种语言
+1. 在 `src/i18n/config.ts` 的 `LOCALE_META` 增加对应条目（母语名称、`htmlLang`、`ogLocale`、路径前缀）。
+2. 复制 `src/i18n/dictionaries/en.json` 为 `<locale>.json`，逐键翻译，不增不减。
+3. 新建 `src/i18n/content/<locale>/products.json` 和 `solutions.json`，结构镜像英文文件。
+4. 在以下加载器中注册导入：
+   - `src/i18n/index.ts`
+   - `src/data/products/index.ts`
+   - `src/data/solutions/index.ts`
+5. 把语言加入 `ENABLED_LOCALES`。
+6. 在 `astro.config.mjs` 的 sitemap `i18n.locales` 中追加对应的语言标签。
+7. 运行校验：
+   ```bash
+   npm run i18n:check
+   npm run build
+   npm run check:dist
+   ```
+
+### 翻译约定
+- 字典和内容文件只写纯文本；换行、强调和链接由 Astro 模板负责组合。
+- 产品型号（HT400、Y100 等）、参数表键值、法律条款正文保持英文。
+- 英文营销文案修改后，必须同步更新中文译文。
+- 中文页面中的参数表会显示“规格参数以英文版本为准”。
+
+常用术语统一如下：
+
+| English | 中文 |
+| --- | --- |
+| Rugged PDA | 加固型 PDA |
+| Industrial Tablet | 工业平板 |
+| Warehouse & Logistics | 仓储与物流 |
+| Manufacturing | 制造 |
+| Retail & Commerce | 零售与商业 |
+| Field Service & Asset Tracking | 现场服务与资产追踪 |
+| barcode | 条码 |
+| UHF RFID | UHF RFID |
+| workflow | 工作流程 |
+| capture | 采集 |
+| deployment / rollout | 部署 / 上线 |
+| datasheet | 数据手册 |
+| inquiry | 询盘 |
+| private label | 贴牌 |
+| configured product | 定制配置产品 |
+| pilot | 试点 |
+| spare parts | 备件 |
+
+### 校验命令
+- `npm run i18n:check`：检查所有语言字典键结构、产品/解决方案内容覆盖，并禁止 HTML 标签
+- `npm run check:dist`：构建后检查 `lang`、hreflang、`/website` 链接前缀、中文页面翻译完整性、
+  法律页英文正文标注和未启用语言是否误生成
+
 ## 当前项目状态
 这是一份扩展开发版本，已录入选定产品线，部分参数取自原始资料。
 不少产品目前还是占位数据，因为爬取的国内产品页面没有公开完整的型号专属参数。**发布前所有参数、频段、认证、防护等级、选配项，都必须和官方产品手册二次核对。**

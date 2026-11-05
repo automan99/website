@@ -6,7 +6,7 @@ placeholder contact details and spec gaps still need to be replaced.
 
 ## Contact and form
 
-- [ ] Replace `sales@YOUR-DOMAIN.com` in `src/data/site.ts`
+- [ ] Replace `sales@traknova.com` in `src/data/site.ts`
 - [ ] Replace the WhatsApp number (`10000000000`)
 - [ ] Replace the Facebook page URL
 - [ ] Create and replace the Formspree endpoint
@@ -28,7 +28,7 @@ placeholder contact details and spec gaps still need to be replaced.
 ## Product data
 
 The following are currently flagged "Confirm exact configuration" in
-`src/data/products.ts`. Public pages should show only confirmed values.
+`src/data/products/base.ts`. Public pages should show only confirmed values.
 
 - [ ] HT400: barcode engine, OS, display, memory, wireless, ruggedness
 - [ ] HT510: barcode engine, OS, display, memory, battery, ruggedness; variant differences
@@ -46,6 +46,14 @@ The following are currently flagged "Confirm exact configuration" in
 - [ ] Confirm which models have CE / FCC / RoHS / other market approvals
 - [ ] Replace domestic-catalogue imagery with approved high-resolution originals, or
       confirm redistribution rights
+
+## Localization
+
+- [ ] Have the Simplified Chinese marketing copy reviewed by a native speaker before launch
+- [ ] Re-sync `zh.json` and Chinese content files whenever the English copy changes
+- [ ] When enabling another language, add its dictionary/content files and update
+      `ENABLED_LOCALES` plus the sitemap `i18n.locales` list
+- [ ] Confirm that product specs and legal text remain English-only by design
 
 ## OEM / ODM
 
