@@ -1454,5 +1454,21 @@
   .utility-sales {
     display: none;
   }
+
+  .visual-chip.chip-b {
+    right: auto;
+    bottom: 96px;
+    left: 4px;
+  }
+}
+
+/* ---------- CJK typography ---------- */
+
+:lang(zh) body,
+:lang(zh) .button,
+:lang(zh) .form-grid input,
+:lang(zh) .form-grid select,
+:lang(zh) .form-grid textarea {
+  font-family: 'DM Sans', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', sans-serif;
 }
 
