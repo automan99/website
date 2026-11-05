@@ -57,9 +57,6 @@
     "description": "Rugged mobile computers, RFID technology and industrial tablets for connected operations. Hardware, configuration and OEM / ODM cooperation from one partner.",
     "columns": {
       "productsTitle": "Products",
-      "productsRuggedPda": "Rugged PDA",
-      "productsRfid": "RFID Devices",
-      "productsTablets": "Industrial Tablets",
       "productsAll": "All Products",
       "solutionsTitle": "Solutions",
       "solutionsLogistics": "Warehouse & Logistics",
@@ -214,10 +211,10 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "OUR PRODUCT PORTFOLIO",
-      "titleLine1": "Hardware that works",
-      "titleLine2": "as hard as you do.",
-      "body": "Explore rugged PDA computers, RFID handhelds and rugged tablets for enterprise data capture.",
+      "eyebrow": "OUR PRODUCT PLATFORMS",
+      "titleLine1": "Three platforms.",
+      "titleLine2": "Built for the field.",
+      "body": "RFID handhelds and a 10.1-inch rugged tablet platform. Choose the platform for the work, then configure the version.",
       "viewAll": "View All Products"
     },
     "stats": [

@@ -57,9 +57,6 @@
     "description": "为互联运营提供加固型移动计算机、RFID 技术与工业平板。硬件、配置与 OEM / ODM 合作，一站完成。",
     "columns": {
       "productsTitle": "产品",
-      "productsRuggedPda": "加固型 PDA",
-      "productsRfid": "RFID 设备",
-      "productsTablets": "工业平板",
       "productsAll": "全部产品",
       "solutionsTitle": "解决方案",
       "solutionsLogistics": "仓储与物流",
@@ -214,10 +211,10 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "产品组合",
-      "titleLine1": "与您同样努力",
-      "titleLine2": "工作的硬件。",
-      "body": "探索用于企业数据采集的加固型 PDA、RFID 手持终端和加固平板。",
+      "eyebrow": "我们的产品平台",
+      "titleLine1": "三条平台。",
+      "titleLine2": "为现场而生。",
+      "body": "RFID 手持机与 10.1 英寸加固平板平台。按工作选择平台，再配置版本。",
       "viewAll": "查看全部产品"
     },
     "stats": [

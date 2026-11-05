@@ -108,20 +108,11 @@ for (const file of localeFiles) {
 }
 
 // ---- product content ----
-const EXPECTED_SLUGS = [
-  'ht400-rugged-barcode-pda',
-  'ht510-rugged-pda',
-  'ht520-multifunction-pda',
-  'ht530-document-id-pda',
-  'ht800-scan-print-pda',
-  'ht540-rfid-handheld',
-  'ht550-uhf-rfid-handheld',
-  'y100-uhf-rfid-tablet',
-  'y100-rugged-android-tablet',
-  'y70-rugged-tablet',
-  'a100-windows-rugged-tablet',
-  't120a-windows-industrial-tablet'
-];
+const productDataDir = join(root, 'src/data/products');
+const EXPECTED_SLUGS = readdirSync(productDataDir)
+  .filter((name) => name.endsWith('.json'))
+  .map((name) => readJson(join(productDataDir, name))?.id)
+  .filter(Boolean);
 
 function contentLocales(subdir) {
   const dir = join(contentDir, subdir);
