@@ -196,7 +196,7 @@
         },
         {
           "title": "Configuration flexibility",
-          "body": "Android and Windows platforms, multiple form factors and module options for regional requirements."
+          "body": "Android platforms, multiple form factors and module options for regional requirements."
         },
         {
           "title": "OEM / ODM ready",
@@ -426,7 +426,7 @@
           "items": [
             "1D / 2D scan engines",
             "UHF RFID and short-range RFID",
-            "NFC and document readers",
+            "NFC, fingerprint and RTK / 5G configurations",
             "Optional camera configurations"
           ]
         },
@@ -444,7 +444,7 @@
           "title": "Software & rollout",
           "body": "Deployment scope is agreed before the order.",
           "items": [
-            "Android or Windows image",
+            "Android OS image",
             "Preloaded applications",
             "MDM enrollment and staging",
             "Pilot and rollout planning"
@@ -461,7 +461,7 @@
       "items": [
         {
           "q": "How do I choose between a PDA and a tablet?",
-          "a": "Start with the task. A PDA is better for one-handed scanning in aisles, on a ladder or in the field. A tablet is better when the operator needs a larger screen, Windows software, equipment ports or a vehicle mount. The workflow review on our Solutions page describes the usual patterns."
+          "a": "Start with the task. A handheld is better for one-handed scanning in aisles, on a ladder or in the field. A tablet is better when the operator needs a larger screen, inspection checklists, a vehicle mount or modular data capture. The workflow review on our Solutions page describes the usual patterns."
         },
         {
           "q": "Are the specifications on this site final?",
@@ -469,7 +469,7 @@
         },
         {
           "q": "Can you configure modules for a specific project?",
-          "a": "Yes, subject to the selected platform. Barcode engines, RFID modules, NFC, document readers, memory and accessories are reviewed against the application, target market and production plan. Some options require tooling or minimum quantities."
+          "a": "Yes, subject to the selected platform. Barcode engines, RFID modules, NFC, fingerprint, RTK / 5G options, memory and accessories are reviewed against the application, target market and production plan. Some options require tooling or minimum quantities."
         },
         {
           "q": "How do I compare two models for my workflow?",

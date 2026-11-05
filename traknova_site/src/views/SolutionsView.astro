@@ -6,7 +6,8 @@ import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import { localizedPath, withBase } from '../utils/paths';
 import { getSolutions } from '../data/solutions';
-import { getProductFamily, getProductHref } from '../data/products/catalog';
+import { getProductHref } from '../data/products/catalog';
+import { resolveDeviceRef } from '../data/solutions/devices';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -25,14 +26,6 @@ const {
   deploymentSteps,
   overview
 } = getSolutions(locale);
-const resolveDevice = (slug: string, variantId?: string) => {
-  const family = getProductFamily(locale, slug);
-  if (!family) return null;
-  const variant =
-    family.variants.find((item) => item.id === (variantId ?? family.defaultVariant)) ??
-    family.variants[0];
-  return variant ? { family, variant } : null;
-};
 const heroAlt = locale === 'zh'
   ? '仓库员工使用手持终端和平板扫描库存'
   : 'Warehouse associate scanning inventory with a handheld computer and tablet';
@@ -189,12 +182,12 @@ const heroImageUrl = Astro.site ? new URL(heroImagePath, Astro.site).href : hero
               <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
               <div class="device-list special-devices">
                 {item.devices.map((device) => {
-                  const resolved = resolveDevice(device.slug, device.variant);
-                  return resolved ? (
-                    <a class="device-link" href={localizedPath(locale, getProductHref(resolved.family, resolved.variant.id))}>
-                      {resolved.variant.name} <span>›</span>
+                  const { family, variant } = resolveDeviceRef(locale, device);
+                  return (
+                    <a class="device-link" href={localizedPath(locale, getProductHref(family, variant.id))}>
+                      {variant.name} <span>›</span>
                     </a>
-                  ) : null;
+                  );
                 })}
               </div>
             </article>

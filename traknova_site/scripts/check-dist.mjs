@@ -75,6 +75,7 @@ const requiredPages = [
   'zh/about/index.html',
   'zh/contact/index.html',
   'zh/oem-odm/index.html',
+  'products/index.html',
   'zh/products/index.html',
   'products/ht540-series/index.html',
   'products/ht550/index.html',
@@ -115,6 +116,7 @@ for (const [page, marker] of [
     errors.push(`${page}: missing product variant root`);
   }
   if (!html.includes(marker)) errors.push(`${page}: missing product name "${marker}"`);
+  if (!html.includes('property="og:image"')) errors.push(`${page}: missing og:image`);
 }
 
 const legacyProductSlugs = [
@@ -242,7 +244,6 @@ for (const asset of [
   'images/solutions/manufacturing-2000.webp',
   'images/solutions/retail-2000.webp',
   'images/solutions/field-service-2000.webp',
-  'images/products/device-pda.svg',
   'images/products/device-rfid.svg',
   'images/products/device-tablet.svg'
 ]) {

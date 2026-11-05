@@ -4,7 +4,7 @@
  *
  * - Every dictionary must have exactly the same key paths as en.json.
  * - No dictionary string may contain HTML tags (plain text only).
- * - Product content must cover the same 12 slugs in every locale.
+ * - Product content must cover the same product-line ids in every locale.
  * - Solution content must have the same top-level keys, industry ids and
  *   scenario counts in every locale.
  *

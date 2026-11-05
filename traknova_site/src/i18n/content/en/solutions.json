@@ -137,10 +137,6 @@
             {
               "slug": "y100-series",
               "variant": "standard"
-            },
-            {
-              "slug": "y100-series",
-              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -233,10 +229,6 @@
               "variant": "uhf"
             },
             {
-              "slug": "ht540-series",
-              "variant": "uhf"
-            },
-            {
               "slug": "y100-series",
               "variant": "standard"
             }
@@ -263,10 +255,6 @@
               "variant": "uhf"
             },
             {
-              "slug": "ht540-series",
-              "variant": "uhf"
-            },
-            {
               "slug": "y100-series",
               "variant": "standard"
             }
@@ -288,10 +276,6 @@
             "Sync completed rounds and findings to the CMMS / EAM."
           ],
           "devices": [
-            {
-              "slug": "y100-series",
-              "variant": "standard"
-            },
             {
               "slug": "y100-series",
               "variant": "standard"
@@ -391,10 +375,6 @@
               "variant": "uhf"
             },
             {
-              "slug": "ht540-series",
-              "variant": "uhf"
-            },
-            {
               "slug": "y100-series",
               "variant": "standard"
             }
@@ -449,10 +429,6 @@
             {
               "slug": "y100-series",
               "variant": "standard"
-            },
-            {
-              "slug": "ht540-series",
-              "variant": "uhf"
             },
             {
               "slug": "ht540-series",
@@ -547,14 +523,6 @@
             {
               "slug": "y100-series",
               "variant": "standard"
-            },
-            {
-              "slug": "y100-series",
-              "variant": "standard"
-            },
-            {
-              "slug": "y100-series",
-              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -604,14 +572,6 @@
             "Sync the record to the service platform."
           ],
           "devices": [
-            {
-              "slug": "y100-series",
-              "variant": "standard"
-            },
-            {
-              "slug": "y100-series",
-              "variant": "standard"
-            },
             {
               "slug": "y100-series",
               "variant": "standard"

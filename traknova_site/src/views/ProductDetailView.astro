@@ -7,7 +7,6 @@ import ProductFamilyCard from '../components/ProductFamilyCard.astro';
 import {
   getCategoryLabel,
   getProductFamilies,
-  getProductHref,
   type ProductFamily
 } from '../data/products/catalog';
 import { localizedPath, withBase } from '../utils/paths';
@@ -22,7 +21,6 @@ interface Props {
 const { locale, family } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.productDetail;
-const variantIds = family.variants.map((variant) => variant.id);
 const isMultiVariant = family.variants.length > 1;
 const related = getProductFamilies(locale).filter((item) => item.id !== family.id);
 const defaultVariant =
@@ -49,7 +47,15 @@ const productSchema = {
   }))
 };
 ---
-<BaseLayout title={`${family.name} | TRAKNOVA`} description={family.summary} locale={locale}>
+<BaseLayout
+  title={`${family.name} | TRAKNOVA`}
+  description={family.summary}
+  image={defaultVariant.image}
+  imageAlt={defaultVariant.name}
+  imageWidth={1200}
+  imageHeight={1200}
+  locale={locale}
+>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   </Fragment>
@@ -124,7 +130,7 @@ const productSchema = {
                   </div>
                 </div>
                 <div class="product-hero-copy">
-                  <span class="product-category">{variant.model}</span>
+                  <span class="product-category">{getCategoryLabel(locale, family.category)}</span>
                   <h2>{variant.name}</h2>
                   <p>{variant.summary}</p>
                   <ul class="check-list">
@@ -137,6 +143,7 @@ const productSchema = {
                   </div>
                   <div class="detail-actions">
                     <button class="button button-accent" data-inquiry-open>{copy.hero.requestQuote} ↗</button>
+                    <button class="button button-outline" data-inquiry-open>{copy.hero.requestDatasheet} ↗</button>
                     <a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.hero.talkToSales} ↗</a>
                   </div>
                 </div>
@@ -176,8 +183,15 @@ const productSchema = {
                   <tr>
                     <th>{copy.variants.compareLabel}</th>
                     {family.variants.map((variant) => (
-                      <th>
-                        <button type="button" data-variant-jump={variant.id}>{variant.label}</button>
+                      <th
+                        data-variant-column={variant.id}
+                        class:list={[variant.id === family.defaultVariant ? 'is-active' : '']}
+                      >
+                        <button
+                          type="button"
+                          data-variant-jump={variant.id}
+                          aria-pressed={variant.id === family.defaultVariant ? 'true' : 'false'}
+                        >{variant.label}</button>
                       </th>
                     ))}
                   </tr>
@@ -186,7 +200,9 @@ const productSchema = {
                   {family.variantComparison.map((row) => (
                     <tr>
                       <th>{row.label}</th>
-                      {family.variants.map((variant) => <td>{row.values[variant.id]}</td>)}
+                      {family.variants.map((variant) => (
+                        <td data-variant-column={variant.id}>{row.values[variant.id]}</td>
+                      ))}
                     </tr>
                   ))}
                 </tbody>

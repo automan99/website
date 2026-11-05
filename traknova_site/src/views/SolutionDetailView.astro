@@ -6,8 +6,9 @@ import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import SolutionDeviceCard from '../components/SolutionDeviceCard.astro';
 import { localizedPath, withBase } from '../utils/paths';
-import { getSolutions, type Industry } from '../data/solutions';
-import { getProductFamily, getProductHref } from '../data/products/catalog';
+import { getSolutions, type DeviceRef, type Industry } from '../data/solutions';
+import { getProductHref } from '../data/products/catalog';
+import { resolveDeviceRef, type ResolvedDevice } from '../data/solutions/devices';
 import { site } from '../data/site';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
@@ -21,13 +22,17 @@ const { locale, industry } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.solutions;
 const { detail, deploymentSteps, industries } = getSolutions(locale);
-const resolveDevice = (slug: string, variantId?: string) => {
-  const family = getProductFamily(locale, slug);
-  if (!family) return null;
-  const variant =
-    family.variants.find((item) => item.id === (variantId ?? family.defaultVariant)) ??
-    family.variants[0];
-  return variant ? { family, variant } : null;
+const resolveScenarioDevices = (refs: DeviceRef[]): ResolvedDevice[] => {
+  const seen = new Set<string>();
+  const resolvedDevices: ResolvedDevice[] = [];
+  for (const ref of refs) {
+    const resolved = resolveDeviceRef(locale, ref);
+    const key = `${resolved.family.id}#${resolved.variant.id}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    resolvedDevices.push(resolved);
+  }
+  return resolvedDevices;
 };
 
 const deviceRefs = [
@@ -37,9 +42,14 @@ const deviceRefs = [
       .map((device) => [`${device.slug}#${device.variant ?? ''}`, device])
   ).values()
 ];
-const devices = deviceRefs
-  .map((device) => resolveDevice(device.slug, device.variant))
-  .filter((device): device is NonNullable<typeof device> => Boolean(device));
+const devices = [
+  ...new Map(
+    deviceRefs.map((ref) => {
+      const resolved = resolveDeviceRef(locale, ref);
+      return [`${resolved.family.id}#${resolved.variant.id}`, resolved];
+    })
+  ).values()
+];
 const otherIndustries = industries.filter((item) => item.slug !== industry.slug);
 
 const imagePath = withBase(`/images/solutions/${industry.image.base}-2000.webp`);
@@ -168,14 +178,11 @@ const serviceSchema = {
                   <div>
                     <span class="mini-label">{copy.setupLabel}</span>
                     <div class="sol-device-links">
-                      {scenario.devices.map((device) => {
-                        const resolved = resolveDevice(device.slug, device.variant);
-                        return resolved ? (
-                          <a href={localizedPath(locale, getProductHref(resolved.family, resolved.variant.id))}>
-                            {resolved.variant.name} <span aria-hidden="true">›</span>
-                          </a>
-                        ) : null;
-                      })}
+                      {resolveScenarioDevices(scenario.devices).map(({ family, variant }) => (
+                        <a href={localizedPath(locale, getProductHref(family, variant.id))}>
+                          {variant.name} <span aria-hidden="true">›</span>
+                        </a>
+                      ))}
                     </div>
                   </div>
                   {scenario.note && <p class="note-line">{scenario.note}</p>}

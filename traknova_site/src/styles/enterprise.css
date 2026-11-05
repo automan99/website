@@ -3329,3 +3329,26 @@
     min-height: 120px;
   }
 }
+
+/* Variant comparison: active column feedback and sticky-nav anchor offset. */
+.compare-table th.is-active,
+.compare-table td.is-active {
+  background: #eef4ff;
+}
+
+.compare-table th.is-active button {
+  color: var(--navy);
+  font-weight: 800;
+}
+
+.product-variants-root [id="overview"],
+.product-variants-root [id="variants"],
+.product-variants-root [id="features"],
+.product-variants-root [id="specifications"],
+.product-variants-root [id="applications"] {
+  scroll-margin-top: 128px;
+}
+
+.gallery-thumbs {
+  grid-template-columns: repeat(auto-fit, minmax(90px, 1fr));
+}

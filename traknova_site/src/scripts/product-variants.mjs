@@ -10,6 +10,12 @@ export function buildVariantHash(variantId) {
   return `#variant-${variantId}`;
 }
 
+export function updateVariantHash(variantId, win = window) {
+  const nextUrl = `${win.location.pathname}${win.location.search}${buildVariantHash(variantId)}`;
+  win.history.replaceState(null, '', nextUrl);
+  win.dispatchEvent(new win.Event('hashchange'));
+}
+
 export function getInitialVariant(variantIds, defaultId, hash) {
   const fromHash = parseVariantHash(hash, variantIds);
   if (fromHash) return fromHash;
@@ -17,9 +23,34 @@ export function getInitialVariant(variantIds, defaultId, hash) {
   return variantIds[0] ?? null;
 }
 
-export function enhanceVariantSelector(root) {
+export function applyVariantState(root, id) {
   const tabs = Array.from(root.querySelectorAll('[data-variant-tab]'));
   const panels = Array.from(root.querySelectorAll('[data-variant-panel]'));
+  const columns = Array.from(root.querySelectorAll('[data-variant-column]'));
+  const jumps = Array.from(root.querySelectorAll('[data-variant-jump]'));
+
+  for (const tab of tabs) {
+    const isActive = tab.dataset.variantTab === id;
+    tab.setAttribute('aria-selected', String(isActive));
+    tab.setAttribute('tabindex', isActive ? '0' : '-1');
+    tab.classList.toggle('is-active', isActive);
+  }
+
+  for (const panel of panels) {
+    panel.hidden = panel.dataset.variantPanel !== id;
+  }
+
+  for (const column of columns) {
+    column.classList.toggle('is-active', column.dataset.variantColumn === id);
+  }
+
+  for (const jump of jumps) {
+    jump.setAttribute('aria-pressed', String(jump.dataset.variantJump === id));
+  }
+}
+
+export function enhanceVariantSelector(root) {
+  const tabs = Array.from(root.querySelectorAll('[data-variant-tab]'));
   const ids = tabs.map((tab) => tab.dataset.variantTab);
   if (ids.length === 0) return;
 
@@ -29,22 +60,8 @@ export function enhanceVariantSelector(root) {
   const select = (id, { updateHash = true } = {}) => {
     if (!ids.includes(id)) return;
     active = id;
-
-    for (const tab of tabs) {
-      const isActive = tab.dataset.variantTab === id;
-      tab.setAttribute('aria-selected', String(isActive));
-      tab.setAttribute('tabindex', isActive ? '0' : '-1');
-      tab.classList.toggle('is-active', isActive);
-    }
-
-    for (const panel of panels) {
-      panel.hidden = panel.dataset.variantPanel !== id;
-    }
-
-    if (updateHash) {
-      const nextUrl = `${window.location.pathname}${window.location.search}${buildVariantHash(id)}`;
-      window.history.replaceState(null, '', nextUrl);
-    }
+    applyVariantState(root, id);
+    if (updateHash) updateVariantHash(id);
   };
 
   root.dataset.enhanced = 'true';
