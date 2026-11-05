@@ -1,0 +1,110 @@
+{
+  "ht400-rugged-barcode-pda": {
+    "name": "HT400 Rugged Barcode PDA",
+    "summary": "Compact Android mobile computer for barcode-based receiving, picking, stocktaking and field data capture.",
+    "highlights": [
+      "1D / 2D barcode capture configuration",
+      "Portable handheld form factor",
+      "For logistics, retail and field operations"
+    ]
+  },
+  "ht510-rugged-pda": {
+    "name": "HT510 Rugged PDA",
+    "summary": "A configurable handheld terminal family with standard, pistol-grip and healthcare-oriented variants.",
+    "highlights": [
+      "Multiple form-factor variants",
+      "Barcode data capture configuration",
+      "Variant-specific accessories and workflows"
+    ]
+  },
+  "ht520-multifunction-pda": {
+    "name": "HT520 Multifunction PDA",
+    "summary": "Multifunction enterprise handheld for mobile data collection and operational workflows.",
+    "highlights": [
+      "Multifunction mobile terminal platform",
+      "Barcode / data-capture options to confirm",
+      "Suitable for enterprise application integration"
+    ]
+  },
+  "ht530-document-id-pda": {
+    "name": "HT530 Document & ID Capture PDA",
+    "summary": "A specialized handheld terminal listed for ID-card-related workflows. Regional document-reading compatibility must be confirmed per project.",
+    "highlights": [
+      "Specialized document / ID workflow positioning",
+      "Reader module and supported standards require project confirmation",
+      "For controlled enterprise and public-service deployments"
+    ]
+  },
+  "ht800-scan-print-pda": {
+    "name": "HT800 Scan & Print PDA",
+    "summary": "Integrated mobile data capture and printing concept for on-the-go labeling and transaction workflows.",
+    "highlights": [
+      "Scanning and mobile printing in one device",
+      "For delivery, retail and field operations",
+      "Print width, media and engine details to confirm"
+    ]
+  },
+  "ht540-rfid-handheld": {
+    "name": "HT540 RFID Handheld",
+    "summary": "Short-range RFID handheld terminal for close-proximity identification and data collection.",
+    "highlights": [
+      "Short-range RFID reader category",
+      "For identification and item-level workflows",
+      "RFID standard, read range and supported tags to confirm"
+    ]
+  },
+  "ht550-uhf-rfid-handheld": {
+    "name": "HT550 UHF RFID Handheld",
+    "summary": "Long-range UHF RFID handheld for bulk inventory, asset tracking, warehouse operations and field identification.",
+    "highlights": [
+      "Impinj E710 UHF RFID module stated on source page",
+      "Published read range: 1–20 m, dependent on tag and environment",
+      "Android 10; 5.5-inch display; 10,700 mAh battery stated on source page"
+    ]
+  },
+  "y100-uhf-rfid-tablet": {
+    "name": "Y100 UHF RFID Rugged Tablet",
+    "summary": "A 10.1-inch rugged Android tablet with integrated UHF RFID, designed for inventory, logistics and asset-management workflows.",
+    "highlights": [
+      "Impinj E710-based UHF RFID module listed",
+      "Android 13 with 6 GB + 128 GB listed",
+      "Optional barcode scanning, NFC, fingerprint and PSAM modules"
+    ]
+  },
+  "y100-rugged-android-tablet": {
+    "name": "Y100 Rugged Android Tablet",
+    "summary": "A rugged 10.1-inch tablet platform for mobile workforces, inspection and industrial data collection.",
+    "highlights": [
+      "10.1-inch rugged tablet family",
+      "Optional barcode / NFC / RFID configurations depend on model",
+      "Confirm Android variant specification before quotation"
+    ]
+  },
+  "y70-rugged-tablet": {
+    "name": "Y70 7-inch Rugged Tablet",
+    "summary": "A compact 7-inch rugged tablet family available in Android and Windows variants for mobile field operations.",
+    "highlights": [
+      "7-inch compact rugged tablet",
+      "Android and Windows versions listed",
+      "Configuration and protection rating vary by version"
+    ]
+  },
+  "a100-windows-rugged-tablet": {
+    "name": "A100 Windows Rugged Tablet",
+    "summary": "A 10.1-inch Windows rugged tablet with native industrial I/O options for equipment connectivity and field service.",
+    "highlights": [
+      "10.1-inch Windows tablet; Intel N-series options listed",
+      "Gigabit RJ45 and configurable RS232 / RS485",
+      "550-nit display and IP67 are stated on source page; verify final SKU"
+    ]
+  },
+  "t120a-windows-industrial-tablet": {
+    "name": "T120A Windows Industrial Tablet",
+    "summary": "A large-format 12.6-inch Windows industrial tablet for demanding mobile workstations and industrial applications.",
+    "highlights": [
+      "12.6-inch Windows industrial tablet",
+      "Large-screen platform for industrial software and field workflows",
+      "Detailed processor, I/O and protection data to confirm by SKU"
+    ]
+  }
+}

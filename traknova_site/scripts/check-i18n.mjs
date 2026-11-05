@@ -133,31 +133,31 @@ function contentLocales(subdir) {
 }
 
 const productLocales = contentLocales('.');
-if (productLocales.length > 0) {
-  const enProductsPath = join(contentDir, 'en/products.json');
-  if (!existsSync(enProductsPath)) {
-    errors.push('src/i18n/content/en/products.json is missing');
-  } else {
-    const enProducts = readJson(enProductsPath);
-    if (enProducts) {
-      const enSlugs = Object.keys(enProducts).sort();
-      for (const slug of EXPECTED_SLUGS) {
-        if (!enSlugs.includes(slug)) errors.push(`en products: missing slug "${slug}"`);
-      }
-      for (const locale of productLocales) {
-        const data = readJson(join(contentDir, locale, 'products.json'));
-        if (!data) continue;
-        const slugs = Object.keys(data).sort();
-        for (const slug of enSlugs) {
-          if (!slugs.includes(slug)) errors.push(`${locale} products: missing slug "${slug}"`);
-        }
-        for (const slug of slugs) {
-          if (!enSlugs.includes(slug)) errors.push(`${locale} products: extra slug "${slug}"`);
-        }
-        for (const path of collectHtmlValues(data, '')) {
-          errors.push(`${locale} products: HTML tag in string value "${path}"`);
-        }
-      }
+const enProductsPath = join(contentDir, 'en/products.json');
+let enProducts = null;
+if (!existsSync(enProductsPath)) {
+  errors.push('src/i18n/content/en/products.json is missing');
+} else {
+  enProducts = readJson(enProductsPath);
+}
+
+if (enProducts) {
+  const enSlugs = Object.keys(enProducts).sort();
+  for (const slug of EXPECTED_SLUGS) {
+    if (!enSlugs.includes(slug)) errors.push(`en products: missing slug "${slug}"`);
+  }
+  for (const locale of productLocales.filter((name) => name !== 'en')) {
+    const data = readJson(join(contentDir, locale, 'products.json'));
+    if (!data) continue;
+    const slugs = Object.keys(data).sort();
+    for (const slug of enSlugs) {
+      if (!slugs.includes(slug)) errors.push(`${locale} products: missing slug "${slug}"`);
+    }
+    for (const slug of slugs) {
+      if (!enSlugs.includes(slug)) errors.push(`${locale} products: extra slug "${slug}"`);
+    }
+    for (const path of collectHtmlValues(data, '')) {
+      errors.push(`${locale} products: HTML tag in string value "${path}"`);
     }
   }
 }
@@ -173,38 +173,38 @@ function solutionLocales() {
 }
 
 const solutionLocaleNames = solutionLocales();
-if (solutionLocaleNames.length > 0) {
-  const enSolutionsPath = join(contentDir, 'en/solutions.json');
-  if (!existsSync(enSolutionsPath)) {
-    errors.push('src/i18n/content/en/solutions.json is missing');
-  } else {
-    const enSolutions = readJson(enSolutionsPath);
-    if (enSolutions) {
-      const enTopKeys = Object.keys(enSolutions).sort();
-      for (const locale of solutionLocaleNames) {
-        const data = readJson(join(contentDir, locale, 'solutions.json'));
-        if (!data) continue;
-        const keys = Object.keys(data).sort();
-        for (const key of enTopKeys) {
-          if (!keys.includes(key)) errors.push(`${locale} solutions: missing top-level key "${key}"`);
-        }
-        for (const key of keys) {
-          if (!enTopKeys.includes(key)) errors.push(`${locale} solutions: extra top-level key "${key}"`);
-        }
-        const enIds = (enSolutions.industries ?? []).map((industry) => industry.id);
-        const ids = (data.industries ?? []).map((industry) => industry.id);
-        if (JSON.stringify(ids) !== JSON.stringify(enIds)) {
-          errors.push(`${locale} solutions: industry ids differ (${ids.join(', ')})`);
-        }
-        const enCounts = (enSolutions.industries ?? []).map((industry) => industry.scenarios?.length ?? 0);
-        const counts = (data.industries ?? []).map((industry) => industry.scenarios?.length ?? 0);
-        if (JSON.stringify(counts) !== JSON.stringify(enCounts)) {
-          errors.push(`${locale} solutions: scenario counts differ (${counts.join(', ')})`);
-        }
-        for (const path of collectHtmlValues(data, '')) {
-          errors.push(`${locale} solutions: HTML tag in string value "${path}"`);
-        }
-      }
+const enSolutionsPath = join(contentDir, 'en/solutions.json');
+let enSolutions = null;
+if (!existsSync(enSolutionsPath)) {
+  errors.push('src/i18n/content/en/solutions.json is missing');
+} else {
+  enSolutions = readJson(enSolutionsPath);
+}
+
+if (enSolutions) {
+  const enTopKeys = Object.keys(enSolutions).sort();
+  for (const locale of solutionLocaleNames.filter((name) => name !== 'en')) {
+    const data = readJson(join(contentDir, locale, 'solutions.json'));
+    if (!data) continue;
+    const keys = Object.keys(data).sort();
+    for (const key of enTopKeys) {
+      if (!keys.includes(key)) errors.push(`${locale} solutions: missing top-level key "${key}"`);
+    }
+    for (const key of keys) {
+      if (!enTopKeys.includes(key)) errors.push(`${locale} solutions: extra top-level key "${key}"`);
+    }
+    const enIds = (enSolutions.industries ?? []).map((industry) => industry.id);
+    const ids = (data.industries ?? []).map((industry) => industry.id);
+    if (JSON.stringify(ids) !== JSON.stringify(enIds)) {
+      errors.push(`${locale} solutions: industry ids differ (${ids.join(', ')})`);
+    }
+    const enCounts = (enSolutions.industries ?? []).map((industry) => industry.scenarios?.length ?? 0);
+    const counts = (data.industries ?? []).map((industry) => industry.scenarios?.length ?? 0);
+    if (JSON.stringify(counts) !== JSON.stringify(enCounts)) {
+      errors.push(`${locale} solutions: scenario counts differ (${counts.join(', ')})`);
+    }
+    for (const path of collectHtmlValues(data, '')) {
+      errors.push(`${locale} solutions: HTML tag in string value "${path}"`);
     }
   }
 }
