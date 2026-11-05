@@ -1,3 +1,4 @@
+import { execFileSync } from 'node:child_process';
 import { mkdir } from 'node:fs/promises';
 import { dirname, join } from 'node:path';
 import sharp from 'sharp';
@@ -109,3 +110,7 @@ for (const mapping of MAPPINGS) {
 
   console.log(`wrote ${mapping.output}`);
 }
+
+execFileSync('python3', [join(process.cwd(), 'scripts/remove-product-backgrounds.py')], {
+  stdio: 'inherit'
+});
