@@ -1,25 +1,4 @@
 ---
-import BaseLayout from '../layouts/BaseLayout.astro';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro';
-import { withBase } from '../utils/paths';
+import NotFoundView from '../views/NotFoundView.astro';
 ---
-<BaseLayout title="Page Not Found | TRAKNOVA" description="The requested page could not be found.">
-  <Header />
-  <main>
-    <section class="section">
-      <div class="wrap not-found">
-        <span class="eyebrow">404</span>
-        <h1>Page not<br /><em>found.</em></h1>
-        <p>The page you are looking for may have moved, or the link may be incomplete. Start from one of these instead.</p>
-        <div class="not-found-actions">
-          <a class="button button-accent" href={withBase('/')}>Back to Home ↗</a>
-          <a class="button button-outline" href={withBase('/products/')}>Products</a>
-          <a class="button button-outline" href={withBase('/solutions/')}>Solutions</a>
-          <a class="button button-outline" href={withBase('/contact/')}>Contact</a>
-        </div>
-      </div>
-    </section>
-  </main>
-  <Footer />
-</BaseLayout>
+<NotFoundView locale="en" />

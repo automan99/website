@@ -1,0 +1,64 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { site } from '../data/site';
+import type { LegalDocument } from '../data/legal/en';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  document: LegalDocument;
+}
+
+const { locale, document } = Astro.props;
+const dict = getDictionary(locale);
+const chrome = document.id === 'privacy' ? dict.legal.privacy : dict.legal.terms;
+---
+<BaseLayout title={chrome.metaTitle} description={chrome.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{chrome.eyebrow}</span>
+        <h1>{chrome.titleLine1}<br /><em>{chrome.titleLine2}</em></h1>
+        <p>{chrome.intro}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap legal">
+        <p class="legal-updated">{dict.legal.updatedLabel}: {document.updated}</p>
+        {dict.legal.englishVersionNotice && <p class="legal-notice">{dict.legal.englishVersionNotice}</p>}
+
+        <div lang="en">
+          {document.blocks.map((block) => {
+            if (block.type === 'heading') return <h2>{block.text}</h2>;
+            if (block.type === 'paragraph') {
+              return (
+                <p>
+                  {block.content.map((part) =>
+                    'text' in part ? part.text : <a href={`mailto:${site.email}`}>{site.email}</a>
+                  )}
+                </p>
+              );
+            }
+            return (
+              <ul>
+                {block.items.map((item) => (
+                  <li>
+                    {item.map((part) =>
+                      'text' in part ? part.text : <a href={`mailto:${site.email}`}>{site.email}</a>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            );
+          })}
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+</BaseLayout>

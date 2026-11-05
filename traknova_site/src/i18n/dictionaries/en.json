@@ -1006,5 +1006,33 @@
       "body": "Tell us the application, target market, expected volume and branding scope. We will come back with the right platform and a project path.",
       "button": "Discuss Your Project"
     }
+  },
+  "legal": {
+    "privacy": {
+      "metaTitle": "Privacy Policy | TRAKNOVA",
+      "metaDescription": "How TRAKNOVA handles information submitted through this website and in the course of a business inquiry.",
+      "eyebrow": "LEGAL",
+      "titleLine1": "Privacy",
+      "titleLine2": "Policy.",
+      "intro": "How we handle information submitted through this website and in the course of a business inquiry."
+    },
+    "terms": {
+      "metaTitle": "Terms of Use | TRAKNOVA",
+      "metaDescription": "Terms of use for the TRAKNOVA website, including product information, inquiries and intellectual property.",
+      "eyebrow": "LEGAL",
+      "titleLine1": "Terms of",
+      "titleLine2": "Use.",
+      "intro": "The conditions that apply to this website and to general product information published on it."
+    },
+    "updatedLabel": "Last updated",
+    "englishVersionNotice": ""
+  },
+  "notFound": {
+    "metaTitle": "Page Not Found | TRAKNOVA",
+    "metaDescription": "The requested page could not be found.",
+    "eyebrow": "404",
+    "titleLine1": "Page not",
+    "titleLine2": "found.",
+    "body": "The page you are looking for may have moved, or the link may be incomplete. Start from one of these instead."
   }
 }
