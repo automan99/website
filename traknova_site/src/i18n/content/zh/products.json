@@ -314,5 +314,247 @@
         ]
       }
     }
+  },
+  "y100": {
+    "name": "Y100 Series",
+    "eyebrow": "10.1 英寸加固平板平台",
+    "tagline": "一个平台，五种现场配置。",
+    "summary": "10.1 英寸 Android 加固平板平台，提供标准、RFID、RTK、指纹与 5G 专用版本，适用于库存、巡检、现场服务与测绘。",
+    "overview": [
+      "Y100 Series 以 10.1 英寸 Android 平板为基础，配备 10,000 mAh 电池、IP67 防护和共用配件生态。标准版覆盖日常移动计算与可选的数据采集模块。",
+      "专用版本分别加入一体化 UHF RFID、厘米级 RTK、指纹模块或 5G 连接。先按工作场景选择版本，再确认模块选项、区域频段与目标市场认证。"
+    ],
+    "variants": {
+      "standard": {
+        "label": "标准版",
+        "name": "Y100 Standard",
+        "summary": "10.1 英寸 Android 16 基础平板，适用于移动办公、巡检与可选数据采集。",
+        "highlights": [
+          "10.1 英寸屏幕，8 GB + 128 GB",
+          "10,000 mAh 电池，30 W PD 快充",
+          "条码、NFC、UHF RFID 与指纹可选"
+        ],
+        "features": [
+          {
+            "title": "面向现场的 Android 平板",
+            "body": "10.1 英寸屏幕、MT6789 八核平台与 Android 16，可运行巡检、工单与资产管理应用。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "10,000 mAh 电池与 30 W PD 快充，支持长时间现场使用。"
+          },
+          {
+            "title": "按需配置采集能力",
+            "body": "可按工作流选配 1D/2D 扫描、NFC、UHF RFID 或指纹模块。"
+          },
+          {
+            "title": "加固设计",
+            "body": "IP67 防护、1.0 m 跌落，并支持手套与湿手触控。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储作业",
+            "solution": "logistics"
+          },
+          {
+            "label": "生产与质量",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "零售运营",
+            "solution": "retail"
+          },
+          {
+            "label": "现场巡检",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "rfid": {
+        "label": "RFID",
+        "name": "Y100 RFID",
+        "summary": "10.1 英寸加固平板，集成 Impinj UHF RFID 模块，适用于库存与资产盘点。",
+        "highlights": [
+          "Impinj E710 / E510 / R2000 UHF 模块",
+          "读取距离最高 10 m，150+ 标签/秒",
+          "Android 16，8 GB + 128 GB"
+        ],
+        "features": [
+          {
+            "title": "一体化 UHF RFID",
+            "body": "内置 Impinj 模块与 4 dBi 天线，可读写 EPC C1 Gen2 / ISO 18000-6C 标签。"
+          },
+          {
+            "title": "单次覆盖更多",
+            "body": "开阔环境下读取距离最高 10 m，每秒可读取 150 个以上标签。"
+          },
+          {
+            "title": "更大的 RFID 工作区",
+            "body": "10.1 英寸屏幕比手持机提供更大的库存与异常处理界面。"
+          },
+          {
+            "title": "共用加固平台",
+            "body": "IP67、10,000 mAh 电池，与 Y100 Series 其他版本共用配件。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产审计",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      },
+      "rtk": {
+        "label": "RTK",
+        "name": "Y100 RTK",
+        "summary": "10.1 英寸加固 RTK 平板，适用于厘米级测绘、GIS 与现场定位。",
+        "highlights": [
+          "1408 通道 RTK GNSS",
+          "水平精度 2.5 cm",
+          "10.1 英寸 800 尼特屏幕"
+        ],
+        "features": [
+          {
+            "title": "厘米级定位",
+            "body": "1408 通道 RTK 模块提供 2.5 cm 水平精度，适用于测绘、GIS 与高精度现场作业。"
+          },
+          {
+            "title": "户外可读屏幕",
+            "body": "10.1 英寸 800 尼特屏幕，在强光环境下仍可用于地图与巡检。"
+          },
+          {
+            "title": "RTK 天线接口",
+            "body": "顶部天线接口可连接外置 RTK 天线，适应现场架设。"
+          },
+          {
+            "title": "现场级续航",
+            "body": "10,000 mAh 电池与 30 W PD 快充，支持长时间测绘作业。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "土地测绘",
+            "solution": "field-service"
+          },
+          {
+            "label": "GIS 与制图",
+            "solution": "field-service"
+          },
+          {
+            "label": "精准农业",
+            "solution": "field-service"
+          },
+          {
+            "label": "公用设施巡检",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "fingerprint": {
+        "label": "指纹版",
+        "name": "Y100 Fingerprint",
+        "summary": "10.1 英寸加固平板，配备 FAP10/FAP20 指纹模块，适用于需要身份核验的工作流。",
+        "highlights": [
+          "FAP10 / FAP20 电容式指纹",
+          "6 GB + 128 GB，Android 16",
+          "10,000 mAh 电池与 IP67"
+        ],
+        "features": [
+          {
+            "title": "作业现场身份核验",
+            "body": "FAP10/FAP20 指纹模块支持操作员登录与身份核验。"
+          },
+          {
+            "title": "一台设备完成多种任务",
+            "body": "在同一 10.1 英寸平台上叠加指纹、条码、NFC 或 UHF RFID。"
+          },
+          {
+            "title": "适合共用设备",
+            "body": "指纹登录便于团队共用设备，同时保留个人操作责任记录。"
+          },
+          {
+            "title": "加固且便携",
+            "body": "IP67 防护、1.0 m 跌落与 10,000 mAh 电池。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "人员身份核验",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "现场服务签核",
+            "solution": "field-service"
+          },
+          {
+            "label": "受控巡检",
+            "solution": "logistics"
+          },
+          {
+            "label": "零售班次操作",
+            "solution": "retail"
+          }
+        ]
+      },
+      "5g": {
+        "label": "5G",
+        "name": "Y100 5G",
+        "summary": "10.1 英寸 5G 加固平板，适用于需要持续连接与高带宽的现场作业。",
+        "highlights": [
+          "UNISOC 7885 与 5G NR",
+          "4 GB + 64 GB，Android 13",
+          "10,000 mAh 电池，IP67"
+        ],
+        "features": [
+          {
+            "title": "现场 5G 连接",
+            "body": "5G NR 连接支持实时视频、大文件上传与云端现场应用。"
+          },
+          {
+            "title": "面向连接的平台",
+            "body": "UNISOC 7885、Android 13 与 5G NR 频段，覆盖具备 5G 网络的市场。"
+          },
+          {
+            "title": "可选现场模块",
+            "body": "可按工作流选配条码、NFC、UHF RFID、指纹或 RTK 模块。"
+          },
+          {
+            "title": "整班次现场续航",
+            "body": "10,000 mAh 电池在典型环境下可支持 12 小时以上工作。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "联网现场服务",
+            "solution": "field-service"
+          },
+          {
+            "label": "远程巡检",
+            "solution": "field-service"
+          },
+          {
+            "label": "物流实时更新",
+            "solution": "logistics"
+          },
+          {
+            "label": "联网制造",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }

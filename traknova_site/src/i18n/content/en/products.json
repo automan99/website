@@ -314,5 +314,247 @@
         ]
       }
     }
+  },
+  "y100": {
+    "name": "Y100 Series",
+    "eyebrow": "10.1-inch rugged tablet platform",
+    "tagline": "One platform. Five field configurations.",
+    "summary": "A 10.1-inch Android rugged tablet platform with dedicated standard, RFID, RTK, fingerprint and 5G configurations for inventory, inspection, field service and surveying.",
+    "overview": [
+      "Y100 Series is built around a 10.1-inch Android tablet with a 10,000 mAh battery, IP67 protection and a shared accessory ecosystem. The standard version covers everyday mobile computing and optional data capture.",
+      "Dedicated configurations add integrated UHF RFID, centimetre-level RTK, a fingerprint module or 5G connectivity. Choose the version that matches the work, then confirm module options, regional bands and certifications for the target market."
+    ],
+    "variants": {
+      "standard": {
+        "label": "Standard",
+        "name": "Y100 Standard",
+        "summary": "The base 10.1-inch Android 16 tablet for mobile work, inspection and optional data capture.",
+        "highlights": [
+          "10.1-inch display, 8 GB + 128 GB",
+          "10,000 mAh battery with 30 W PD",
+          "Optional barcode, NFC, UHF RFID and fingerprint"
+        ],
+        "features": [
+          {
+            "title": "A field-ready Android tablet",
+            "body": "A 10.1-inch display, MT6789 8-core platform and Android 16 handle inspection, work-order and asset applications."
+          },
+          {
+            "title": "All-day battery",
+            "body": "The 10,000 mAh battery and 30 W PD charging support long shifts in the field."
+          },
+          {
+            "title": "Configure the capture you need",
+            "body": "Add 1D/2D scanning, NFC, UHF RFID or a fingerprint module for the workflow."
+          },
+          {
+            "title": "Rugged by design",
+            "body": "IP67 protection, a 1.0 m drop rating and glove / wet-hand touch support."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Warehouse operations",
+            "solution": "logistics"
+          },
+          {
+            "label": "Production and quality",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "Retail operations",
+            "solution": "retail"
+          },
+          {
+            "label": "Field inspection",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "rfid": {
+        "label": "RFID",
+        "name": "Y100 RFID",
+        "summary": "A 10.1-inch rugged tablet with an integrated Impinj UHF RFID module for inventory and asset audits.",
+        "highlights": [
+          "Impinj E710 / E510 / R2000 UHF module",
+          "Up to 10 m read range, 150+ tags per second",
+          "Android 16 with 8 GB + 128 GB"
+        ],
+        "features": [
+          {
+            "title": "Integrated UHF RFID",
+            "body": "Read and write EPC C1 Gen2 / ISO 18000-6C tags with a built-in Impinj module and 4 dBi antenna."
+          },
+          {
+            "title": "Cover more per pass",
+            "body": "Read up to 10 m in open outdoor conditions and capture 150+ tags per second."
+          },
+          {
+            "title": "A larger RFID workspace",
+            "body": "The 10.1-inch display gives inventory and exception workflows more room than a handheld."
+          },
+          {
+            "title": "Shared rugged platform",
+            "body": "IP67, a 10,000 mAh battery and the same accessories as the rest of the Y100 Series."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Warehouse inventory",
+            "solution": "logistics"
+          },
+          {
+            "label": "Asset audits",
+            "solution": "field-service"
+          },
+          {
+            "label": "Retail stock counts",
+            "solution": "retail"
+          },
+          {
+            "label": "Material traceability",
+            "solution": "manufacturing"
+          }
+        ]
+      },
+      "rtk": {
+        "label": "RTK",
+        "name": "Y100 RTK",
+        "summary": "A 10.1-inch rugged RTK tablet for centimetre-level surveying, GIS and field positioning.",
+        "highlights": [
+          "1408-channel RTK GNSS",
+          "2.5 cm horizontal accuracy",
+          "10.1-inch 800-nit display"
+        ],
+        "features": [
+          {
+            "title": "Centimetre-level positioning",
+            "body": "A 1408-channel RTK module delivers 2.5 cm horizontal accuracy for surveying, GIS and precision field work."
+          },
+          {
+            "title": "Readable outdoors",
+            "body": "The 10.1-inch 800-nit display supports outdoor mapping and inspection in bright conditions."
+          },
+          {
+            "title": "RTK antenna port",
+            "body": "A top-mounted antenna port connects the external RTK antenna for field setups."
+          },
+          {
+            "title": "Field-ready battery",
+            "body": "A 10,000 mAh battery and 30 W PD charging support long survey days."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Land surveying",
+            "solution": "field-service"
+          },
+          {
+            "label": "GIS and mapping",
+            "solution": "field-service"
+          },
+          {
+            "label": "Precision agriculture",
+            "solution": "field-service"
+          },
+          {
+            "label": "Utility inspection",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "fingerprint": {
+        "label": "Fingerprint",
+        "name": "Y100 Fingerprint",
+        "summary": "A 10.1-inch rugged tablet with a FAP10/FAP20 fingerprint module for identity-aware workflows.",
+        "highlights": [
+          "FAP10 / FAP20 capacitive fingerprint",
+          "6 GB + 128 GB, Android 16",
+          "10,000 mAh battery and IP67"
+        ],
+        "features": [
+          {
+            "title": "Identity at the point of work",
+            "body": "A FAP10/FAP20 fingerprint module supports operator login and identity verification on the tablet."
+          },
+          {
+            "title": "One device for the job",
+            "body": "Combine fingerprint verification with barcode, NFC or UHF RFID options on the same 10.1-inch platform."
+          },
+          {
+            "title": "Built for shared devices",
+            "body": "Fingerprint sign-in helps teams share a device while keeping individual accountability."
+          },
+          {
+            "title": "Rugged and portable",
+            "body": "IP67 protection, a 1.0 m drop rating and a 10,000 mAh battery."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Workforce verification",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "Field service sign-off",
+            "solution": "field-service"
+          },
+          {
+            "label": "Access-controlled inspections",
+            "solution": "logistics"
+          },
+          {
+            "label": "Retail shift operations",
+            "solution": "retail"
+          }
+        ]
+      },
+      "5g": {
+        "label": "5G",
+        "name": "Y100 5G",
+        "summary": "A 10.1-inch 5G rugged tablet for connected field work and bandwidth-heavy applications.",
+        "highlights": [
+          "5G NR with UNISOC 7885",
+          "4 GB + 64 GB, Android 13",
+          "10,000 mAh battery, IP67"
+        ],
+        "features": [
+          {
+            "title": "5G in the field",
+            "body": "5G NR connectivity supports live video, large uploads and cloud-connected field applications."
+          },
+          {
+            "title": "A platform built for connectivity",
+            "body": "UNISOC 7885, Android 13 and 5G NR bands cover markets where 5G coverage is available."
+          },
+          {
+            "title": "Optional field modules",
+            "body": "Add barcode, NFC, UHF RFID, fingerprint or RTK modules for the workflow."
+          },
+          {
+            "title": "All-day field power",
+            "body": "A 10,000 mAh battery supports more than 12 hours of work depending on environment."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Connected field service",
+            "solution": "field-service"
+          },
+          {
+            "label": "Remote inspection",
+            "solution": "field-service"
+          },
+          {
+            "label": "Live logistics updates",
+            "solution": "logistics"
+          },
+          {
+            "label": "Connected manufacturing",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }
