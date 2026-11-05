@@ -256,5 +256,63 @@
         ]
       }
     }
+  },
+  "ht550": {
+    "name": "HT550",
+    "eyebrow": "Long-range UHF RFID handheld",
+    "tagline": "Long-range UHF reads. Full-shift power.",
+    "summary": "A 5.5-inch Android 13 UHF RFID handheld built for bulk inventory, asset tracking and long-range counting in warehouses, yards and field operations.",
+    "overview": [
+      "HT550 combines an Impinj E-series UHF module, a 4 dBi circular antenna and a 9,600 mAh battery in a 680 g handheld. It is designed for long shifts of bulk counting where read range and uptime matter more than a compact form factor.",
+      "The Android 13 platform, 5.5-inch display and optional 1D/2D scanner support inventory, asset and logistics applications. Regional UHF bands are configured for the target market, and read performance depends on tag, orientation and environment."
+    ],
+    "variants": {
+      "standard": {
+        "label": "Standard",
+        "name": "HT550",
+        "summary": "Long-range UHF RFID handheld with Android 13, a 9,600 mAh battery and optional barcode scanning.",
+        "highlights": [
+          "Impinj E-series UHF module with 4 dBi circular antenna",
+          "1–20 m module rating; about 15 m with Impinj MR6 tag outdoors",
+          "9,600 mAh battery and IP67 protection"
+        ],
+        "features": [
+          {
+            "title": "Long-range bulk reads",
+            "body": "Read UHF tags at up to 15 m with an Impinj MR6 tag in open outdoor conditions, with a module rating of 1–20 m depending on tag and environment."
+          },
+          {
+            "title": "All-shift battery",
+            "body": "The 9,600 mAh battery supports more than 10 hours of work, with 18 W charging for high-intensity counting shifts."
+          },
+          {
+            "title": "Fast group reading",
+            "body": "Capture up to 2,000 tags per 10 seconds to shorten cycle counts and asset audits."
+          },
+          {
+            "title": "Handheld ergonomics",
+            "body": "A 5.5-inch 720 × 1440 display, physical scan keys and a 680 g body with IP67 host protection."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Warehouse inventory",
+            "solution": "logistics"
+          },
+          {
+            "label": "Asset tracking",
+            "solution": "field-service"
+          },
+          {
+            "label": "Retail stock counts",
+            "solution": "retail"
+          },
+          {
+            "label": "Material traceability",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }

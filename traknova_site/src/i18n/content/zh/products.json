@@ -256,5 +256,63 @@
         ]
       }
     }
+  },
+  "ht550": {
+    "name": "HT550",
+    "eyebrow": "长距离 UHF RFID 手持机",
+    "tagline": "远距离 UHF 读取，整班次续航。",
+    "summary": "5.5 英寸 Android 13 UHF RFID 手持机，适用于仓储、堆场与现场作业中的批量盘点、资产追踪和远距离读取。",
+    "overview": [
+      "HT550 在 680 g 的手持机身中集成了 Impinj E 系列 UHF 模块、4 dBi 圆极化天线和 9,600 mAh 电池。它面向长时间、大批量盘点场景，优先保证读取距离与续航，而不是追求最紧凑的机身。",
+      "Android 13 平台、5.5 英寸屏幕与可选 1D/2D 扫描头可覆盖库存、资产与物流应用。UHF 频段按目标市场配置，实际读取性能取决于标签、朝向与环境。"
+    ],
+    "variants": {
+      "standard": {
+        "label": "标准版",
+        "name": "HT550",
+        "summary": "长距离 UHF RFID 手持机，Android 13、9,600 mAh 电池，可选条码扫描。",
+        "highlights": [
+          "Impinj E 系列 UHF 模块，4 dBi 圆极化天线",
+          "模块标称 1–20 m；开阔环境 Impinj MR6 标签约 15 m",
+          "9,600 mAh 电池与 IP67 防护"
+        ],
+        "features": [
+          {
+            "title": "远距离批量读取",
+            "body": "开阔环境下使用 Impinj MR6 标签可达约 15 m；模块标称 1–20 m，实际取决于标签与环境。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "9,600 mAh 电池支持 10 小时以上工作，18 W 快充适合高强度盘点班次。"
+          },
+          {
+            "title": "快速群读",
+            "body": "最高每秒读取 200 个标签（2,000 个/10 秒），缩短循环盘点与资产审计时间。"
+          },
+          {
+            "title": "手持人体工学",
+            "body": "5.5 英寸 720 × 1440 屏幕、实体扫描键、680 g 机身与 IP67 主机防护。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产追踪",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }
