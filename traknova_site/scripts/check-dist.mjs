@@ -114,6 +114,23 @@ if (existsSync(contactPath) && !readFileSync(contactPath, 'utf8').includes('only
   errors.push('contact/index.html: privacy sentence no longer says "only to respond"');
 }
 
+const contactVisual = join(dist, 'images/contact-team.svg');
+if (!existsSync(contactVisual)) {
+  errors.push('contact illustration is missing: images/contact-team.svg');
+}
+
+for (const [page, marker, description] of [
+  ['contact/index.html', 'Shenzhen Yiliya', 'company name in English'],
+  ['contact/index.html', '/website/images/contact-team.svg', 'contact illustration'],
+  ['zh/contact/index.html', '深圳市伊莉亚有限公司', 'company name in Chinese'],
+  ['zh/contact/index.html', '/website/images/contact-team.svg', 'contact illustration']
+]) {
+  const path = join(dist, page);
+  if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: missing ${description}`);
+  }
+}
+
 for (const page of ['zh/privacy/index.html', 'zh/terms/index.html']) {
   const path = join(dist, page);
   if (!existsSync(path)) continue;

@@ -778,6 +778,7 @@
       "titleLine2": "solution together.",
       "body": "Share your workflow, target market and configuration questions. We will come back with a device shortlist and the information you need to evaluate it."
     },
+    "visualAlt": "Illustration of the TRAKNOVA support team working with rugged devices at an office desk, with warehouse racking visible behind them.",
     "channels": {
       "eyebrow": "TALK TO OUR SALES TEAM",
       "titleLine1": "Choose the channel",
@@ -795,7 +796,9 @@
         "Required capture method: barcode, RFID, print or document",
         "Timeline and OEM / ODM interest"
       ],
-      "privacyPrefix": "We use your information only to respond to this inquiry. See our "
+      "privacyPrefix": "We use your information only to respond to this inquiry. See our ",
+      "companyLabel": "Company",
+      "companyName": "Shenzhen Yiliya Co., Ltd. (深圳市伊莉亚有限公司)"
     },
     "inquiryCard": {
       "eyebrow": "PROJECT INQUIRY",

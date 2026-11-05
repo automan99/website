@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
 import { site } from '../data/site';
-import { localizedPath } from '../utils/paths';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -27,6 +27,10 @@ const copy = dict.contact;
       </div>
     </section>
 
+    <section class="contact-visual">
+      <img src={withBase('/images/contact-team.svg')} alt={copy.visualAlt} width="1600" height="520" loading="lazy" />
+    </section>
+
     <section class="section">
       <div class="wrap contact-grid">
         <div>
@@ -36,6 +40,7 @@ const copy = dict.contact;
           <a class="contact-row" href={`mailto:${site.email}`}><b>{copy.channels.emailLabel}</b><span>{site.email}</span></a>
           <a class="contact-row" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer"><b>{copy.channels.whatsappLabel}</b><span>{copy.channels.whatsappText} ↗</span></a>
           <a class="contact-row" href={site.facebook} target="_blank" rel="noreferrer"><b>{copy.channels.facebookLabel}</b><span>{copy.channels.facebookText} ↗</span></a>
+          <div class="contact-row contact-company"><b>{copy.channels.companyLabel}</b><span>{copy.channels.companyName}</span></div>
           <div class="mt-36">
             <span class="mini-label">{copy.channels.includeLabel}</span>
             <ul class="outcome-list">{copy.channels.items.map((item) => <li>{item}</li>)}</ul>

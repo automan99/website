@@ -778,6 +778,7 @@
       "titleLine2": "合适的解决方案。",
       "body": "分享您的工作流程、目标市场和配置问题。我们将回复设备候选清单以及您评估所需的信息。"
     },
+    "visualAlt": "TRAKNOVA 支持团队在办公桌前使用加固设备的插画，背景可见仓储货架。",
     "channels": {
       "eyebrow": "联系我们的销售团队",
       "titleLine1": "选择适合您的",
@@ -795,7 +796,9 @@
         "所需采集方式：条码、RFID、打印或文档",
         "时间表与 OEM / ODM 意向"
       ],
-      "privacyPrefix": "我们仅使用您的信息来回复此询盘。请参阅我们的"
+      "privacyPrefix": "我们仅使用您的信息来回复此询盘。请参阅我们的",
+      "companyLabel": "公司",
+      "companyName": "深圳市伊莉亚有限公司"
     },
     "inquiryCard": {
       "eyebrow": "项目询盘",
