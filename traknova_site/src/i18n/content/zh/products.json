@@ -106,5 +106,155 @@
       "面向工业软件和现场工作流程的大屏平台",
       "处理器、I/O 和防护细节需按 SKU 确认"
     ]
+  },
+  "ht540": {
+    "name": "HT540 Series",
+    "eyebrow": "Android RFID 手持机",
+    "tagline": "一个手持平台，覆盖 LF、HF 与 UHF 工作流。",
+    "summary": "5.5 英寸 Android RFID 手持机，提供 LF、HF、UHF 三个版本，适用于近距离识别、库存盘点与现场数据采集。",
+    "overview": [
+      "HT540 Series 在同一套成熟的 Android 手持平台上覆盖三种 RFID 频段。5.5 英寸屏幕、实体扫描键与可更换的 4,900 mAh 电池在各版本间共用，培训、配件与部署方式保持一致。",
+      "LF 适合动物识别、门禁与近距离资产标签；HF 适合卡片、标签与 NFC 工作流；UHF 适合单品盘点与资产审计。条码扫描、NFC 与 PSAM 选项按版本和项目配置。"
+    ],
+    "variants": {
+      "lf": {
+        "label": "LF",
+        "name": "HT540-LF",
+        "summary": "LF RFID 手持机，适用于动物识别、门禁与近距离资产标签。",
+        "highlights": [
+          "125 / 134.2 kHz LF RFID",
+          "ISO 11784 / ISO 11785",
+          "条码扫描与 NFC 可选"
+        ],
+        "features": [
+          {
+            "title": "适合低频读取的场景",
+            "body": "在 10 cm 内读取 125 kHz 与 134.2 kHz FDX-B/HDX 标签，对非金属材料周边环境有较好的适应性。"
+          },
+          {
+            "title": "面向动物与门禁标签",
+            "body": "在加固 Android 手持机上支持畜牧、动物识别与门禁工作流。"
+          },
+          {
+            "title": "可叠加条码与 NFC",
+            "body": "在 LF 识别之外，可选 1D/2D 条码扫描与 NFC，覆盖混合数据采集任务。"
+          },
+          {
+            "title": "同一套加固平台",
+            "body": "IP65 防护、1.2 m 跌落与可更换 4,900 mAh 电池，满足整班次现场使用。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "畜牧与动物识别",
+            "solution": "field-service"
+          },
+          {
+            "label": "门禁与考勤",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "资产贴标",
+            "solution": "logistics"
+          },
+          {
+            "label": "零售服务检查",
+            "solution": "retail"
+          }
+        ]
+      },
+      "hf": {
+        "label": "HF",
+        "name": "HT540-HF",
+        "summary": "HF RFID 手持机，适用于近距离卡片、标签与 NFC 识别。",
+        "highlights": [
+          "13.56 MHz HF RFID",
+          "ISO 14443A/B、ISO 15693 与 NFC",
+          "条码扫描与 PSAM 可选"
+        ],
+        "features": [
+          {
+            "title": "近距离卡片与标签读取",
+            "body": "在 1–3 cm 内读取 HF 卡片、标签与 NFC 标签，适用于需要可控识别的核验流程。"
+          },
+          {
+            "title": "内置 NFC",
+            "body": "在同一设备上支持 NFC-IP1/2、M1 卡与 CPU 卡，以及 HF RFID。"
+          },
+          {
+            "title": "PSAM 安全模块",
+            "body": "需要安全卡片认证或区域接入标准时，可选 PSAM 模块。"
+          },
+          {
+            "title": "共用的 Android 平台",
+            "body": "Android 10、5.5 英寸屏幕，与系列其他版本共用电池和配件生态。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "员工与资产识别",
+            "solution": "field-service"
+          },
+          {
+            "label": "零售库存准确性",
+            "solution": "retail"
+          },
+          {
+            "label": "在制品追踪",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "收货与核验",
+            "solution": "logistics"
+          }
+        ]
+      },
+      "uhf": {
+        "label": "UHF",
+        "name": "HT540-UHF",
+        "summary": "UHF RFID 手持机，适用于单品盘点、资产审计与短距离库存读取。",
+        "highlights": [
+          "UHF 860–960 MHz，支持区域频段配置",
+          "3 dBi 陶瓷天线，读取距离 1–3 m",
+          "条码扫描、NFC 与 PSAM 可选"
+        ],
+        "features": [
+          {
+            "title": "适合货架与通道的短距 UHF",
+            "body": "使用 3 dBi 圆极化天线在 1–3 m 内读取单品标签，适合货架盘点、循环盘点与资产审计。"
+          },
+          {
+            "title": "一个平台，操作一致",
+            "body": "与 LF/HF 版本共用 5.5 英寸 Android 10 设备、扫描键、电池与配件，降低培训成本。"
+          },
+          {
+            "title": "扫描与识别合一",
+            "body": "可选 1D/2D 条码扫描，将标签读取与标签、货架和资产核验放在同一工作流中。"
+          },
+          {
+            "title": "面向日常高强度使用",
+            "body": "IP65 防护、1.2 m 跌落与易更换电池，支持整班次使用。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产审计",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }

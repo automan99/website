@@ -106,5 +106,155 @@
       "Large-screen platform for industrial software and field workflows",
       "Detailed processor, I/O and protection data to confirm by SKU"
     ]
+  },
+  "ht540": {
+    "name": "HT540 Series",
+    "eyebrow": "Android RFID handheld",
+    "tagline": "One handheld platform. LF, HF and UHF workflows.",
+    "summary": "A 5.5-inch Android RFID handheld available in LF, HF and UHF versions for close-range identification, stock counts and field data capture.",
+    "overview": [
+      "The HT540 Series puts three RFID bands on one proven Android handheld platform. The 5.5-inch display, physical scan keys and replaceable 4,900 mAh battery are shared across every version, so training, accessories and deployment stay consistent.",
+      "Choose LF for animal ID, access control and close-range asset tags; HF for cards, labels and NFC workflows; or UHF for item-level stock counts and asset audits. Barcode scanning, NFC and PSAM options are configured per version and project."
+    ],
+    "variants": {
+      "lf": {
+        "label": "LF",
+        "name": "HT540-LF",
+        "summary": "LF RFID handheld for animal ID, access control and close-range asset tags.",
+        "highlights": [
+          "125 / 134.2 kHz LF RFID",
+          "ISO 11784 / ISO 11785",
+          "Optional barcode scanner and NFC"
+        ],
+        "features": [
+          {
+            "title": "Low-frequency reads where it matters",
+            "body": "Read 125 kHz and 134.2 kHz FDX-B/HDX tags within 10 cm, with strong performance around non-metallic materials."
+          },
+          {
+            "title": "Purpose-built for animal and access tags",
+            "body": "Support livestock, animal identification and access-control workflows on a rugged Android handheld."
+          },
+          {
+            "title": "Add barcode and NFC",
+            "body": "Combine LF identification with optional 1D/2D barcode scanning and NFC for mixed data-capture tasks."
+          },
+          {
+            "title": "Same rugged platform",
+            "body": "IP65 protection, a 1.2 m drop rating and a replaceable 4,900 mAh battery support full-shift field use."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Livestock and animal ID",
+            "solution": "field-service"
+          },
+          {
+            "label": "Access control and attendance",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "Asset tagging",
+            "solution": "logistics"
+          },
+          {
+            "label": "Retail service checks",
+            "solution": "retail"
+          }
+        ]
+      },
+      "hf": {
+        "label": "HF",
+        "name": "HT540-HF",
+        "summary": "HF RFID handheld for cards, labels and NFC identification at close range.",
+        "highlights": [
+          "13.56 MHz HF RFID",
+          "ISO 14443A/B, ISO 15693 and NFC",
+          "Optional barcode scanner and PSAM"
+        ],
+        "features": [
+          {
+            "title": "Close-range card and label reads",
+            "body": "Read HF cards, labels and NFC tags at 1–3 cm for controlled identification and verification workflows."
+          },
+          {
+            "title": "NFC built in",
+            "body": "Support NFC-IP1/2, M1 cards and CPU cards alongside HF RFID on the same device."
+          },
+          {
+            "title": "PSAM for secure workflows",
+            "body": "Add a PSAM module for projects that require secure card authentication and regional access standards."
+          },
+          {
+            "title": "A shared Android platform",
+            "body": "Android 10, a 5.5-inch display and the same battery and accessory ecosystem as the rest of the series."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Employee and asset identification",
+            "solution": "field-service"
+          },
+          {
+            "label": "Retail stock accuracy",
+            "solution": "retail"
+          },
+          {
+            "label": "Work-in-progress tracking",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "Receiving and verification",
+            "solution": "logistics"
+          }
+        ]
+      },
+      "uhf": {
+        "label": "UHF",
+        "name": "HT540-UHF",
+        "summary": "UHF RFID handheld for item-level stock counts, asset audits and short-range inventory reads.",
+        "highlights": [
+          "UHF 860–960 MHz with regional band configuration",
+          "1–3 m read range with a 3 dBi ceramic antenna",
+          "Optional barcode scanner, NFC and PSAM"
+        ],
+        "features": [
+          {
+            "title": "Short-range UHF that fits the aisle",
+            "body": "Read item tags at 1–3 m with a 3 dBi circularly polarized antenna, suited to shelf counts, cycle counts and asset audits."
+          },
+          {
+            "title": "One platform, familiar operation",
+            "body": "The same 5.5-inch Android 10 device, scan keys, battery and accessories as the LF and HF versions keep training consistent."
+          },
+          {
+            "title": "Scan and identify together",
+            "body": "Add a 1D/2D barcode scanner to combine tag reads with label, shelf and asset checks in one workflow."
+          },
+          {
+            "title": "Built for daily handling",
+            "body": "IP65 protection, a 1.2 m drop rating and an easily replaceable battery support full-shift use."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Warehouse inventory",
+            "solution": "logistics"
+          },
+          {
+            "label": "Asset audits",
+            "solution": "field-service"
+          },
+          {
+            "label": "Stock counts",
+            "solution": "retail"
+          },
+          {
+            "label": "Material traceability",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }
