@@ -30,7 +30,8 @@
       "backToHome": "Back to Home",
       "allProducts": "All Products",
       "home": "Home",
-      "productsCrumb": "Products"
+      "productsCrumb": "Products",
+      "exploreSeries": "Explore the series"
     },
     "categories": {
       "ruggedPda": "Rugged PDA",
@@ -38,7 +39,9 @@
       "industrialTablet": "Industrial Tablet",
       "ruggedPdaPlural": "Rugged PDA",
       "rfidPlural": "RFID",
-      "industrialTabletPlural": "Industrial Tablets"
+      "industrialTabletPlural": "Industrial Tablets",
+      "rfidHandheld": "RFID Handheld",
+      "ruggedTablet": "Rugged Tablet"
     },
     "languageLabel": "Language",
     "menuToggle": "Toggle navigation"
@@ -156,9 +159,18 @@
       "primaryCta": "Explore Products",
       "secondaryCta": "Talk to Our Experts",
       "proof": [
-        { "title": "Built for Business", "text": "Enterprise-grade devices" },
-        { "title": "OEM / ODM Ready", "text": "Your brand, your solution" },
-        { "title": "Global Support", "text": "From concept to delivery" }
+        {
+          "title": "Built for Business",
+          "text": "Enterprise-grade devices"
+        },
+        {
+          "title": "OEM / ODM Ready",
+          "text": "Your brand, your solution"
+        },
+        {
+          "title": "Global Support",
+          "text": "From concept to delivery"
+        }
       ],
       "chips": {
         "rfidTitle": "RFID + NFC",
@@ -169,7 +181,13 @@
     },
     "trustStrip": {
       "label": "TECHNOLOGY FOR CONNECTED OPERATIONS",
-      "items": ["RFID", "BARCODE", "NFC", "ANDROID", "INDUSTRIAL IoT"]
+      "items": [
+        "RFID",
+        "BARCODE",
+        "NFC",
+        "ANDROID",
+        "INDUSTRIAL IoT"
+      ]
     },
     "why": {
       "eyebrow": "WHY TRAKNOVA",
@@ -177,10 +195,22 @@
       "titleLine2": "when it fits the work.",
       "body": "We select and configure devices around the task: the capture method, the form factor, the software and the support path after rollout.",
       "pillars": [
-        { "title": "Rugged by design", "body": "Devices chosen for warehouse, field and industrial environments. Protection and operating limits are confirmed per SKU." },
-        { "title": "Integrated auto-ID", "body": "Barcode, UHF RFID, NFC and document capture configured around the workflow, not added afterwards." },
-        { "title": "Configuration flexibility", "body": "Android and Windows platforms, multiple form factors and module options for regional requirements." },
-        { "title": "OEM / ODM ready", "body": "Private label, configured products and project development under your brand and your documentation." }
+        {
+          "title": "Rugged by design",
+          "body": "Devices chosen for warehouse, field and industrial environments. Protection and operating limits are confirmed per SKU."
+        },
+        {
+          "title": "Integrated auto-ID",
+          "body": "Barcode, UHF RFID, NFC and document capture configured around the workflow, not added afterwards."
+        },
+        {
+          "title": "Configuration flexibility",
+          "body": "Android and Windows platforms, multiple form factors and module options for regional requirements."
+        },
+        {
+          "title": "OEM / ODM ready",
+          "body": "Private label, configured products and project development under your brand and your documentation."
+        }
       ]
     },
     "portfolio": {
@@ -191,10 +221,22 @@
       "viewAll": "View All Products"
     },
     "stats": [
-      { "value": "RFID", "label": "Advanced identification" },
-      { "value": "1D / 2D", "label": "Barcode data capture" },
-      { "value": "Android", "label": "Enterprise mobility" },
-      { "value": "OEM / ODM", "label": "Flexible customization" }
+      {
+        "value": "RFID",
+        "label": "Advanced identification"
+      },
+      {
+        "value": "1D / 2D",
+        "label": "Barcode data capture"
+      },
+      {
+        "value": "Android",
+        "label": "Enterprise mobility"
+      },
+      {
+        "value": "OEM / ODM",
+        "label": "Flexible customization"
+      }
     ],
     "solutions": {
       "eyebrow": "SOLUTIONS IN PRACTICE",
@@ -206,28 +248,44 @@
           "index": "01 / LOGISTICS",
           "title": "Warehouse & Logistics",
           "body": "Receiving, put-away, cycle counting, picking and dispatch — captured before inventory reaches the WMS.",
-          "tags": ["Barcode", "UHF RFID", "Mobile print"],
+          "tags": [
+            "Barcode",
+            "UHF RFID",
+            "Mobile print"
+          ],
           "link": "Explore logistics solutions"
         },
         {
           "index": "02 / MANUFACTURING",
           "title": "Manufacturing",
           "body": "Work orders, WIP, material traceability and maintenance rounds captured at the point of work.",
-          "tags": ["Barcode", "Wired I/O", "Rugged tablets"],
+          "tags": [
+            "Barcode",
+            "Wired I/O",
+            "Rugged tablets"
+          ],
           "link": "Explore manufacturing solutions"
         },
         {
           "index": "03 / RETAIL",
           "title": "Retail & Commerce",
           "body": "Replenishment, price accuracy, RFID stocktakes and labeling at the point of decision.",
-          "tags": ["Barcode", "UHF RFID", "Mobile print"],
+          "tags": [
+            "Barcode",
+            "UHF RFID",
+            "Mobile print"
+          ],
           "link": "Explore retail solutions"
         },
         {
           "index": "04 / FIELD SERVICE",
           "title": "Field Service & Assets",
           "body": "Inspections, digital work orders, asset audits and on-site documentation for mobile teams.",
-          "tags": ["Rugged tablets", "UHF RFID", "Documentation"],
+          "tags": [
+            "Rugged tablets",
+            "UHF RFID",
+            "Documentation"
+          ],
           "link": "Explore field solutions"
         }
       ]
@@ -238,10 +296,22 @@
       "titleLine2": "from requirement to rollout.",
       "body": "The same four gates apply whether you are evaluating a single device or planning a fleet deployment.",
       "steps": [
-        { "title": "Workflow review", "body": "Map the steps, exceptions and data each step must produce before selecting hardware." },
-        { "title": "Configuration", "body": "Choose form factor, capture modules, OS, accessories and integration points." },
-        { "title": "Pilot", "body": "Deploy to one site or shift and compare accuracy, cycle time and exception rates." },
-        { "title": "Rollout & support", "body": "Stage devices, configure MDM, train users, plan spares and agree the support path." }
+        {
+          "title": "Workflow review",
+          "body": "Map the steps, exceptions and data each step must produce before selecting hardware."
+        },
+        {
+          "title": "Configuration",
+          "body": "Choose form factor, capture modules, OS, accessories and integration points."
+        },
+        {
+          "title": "Pilot",
+          "body": "Deploy to one site or shift and compare accuracy, cycle time and exception rates."
+        },
+        {
+          "title": "Rollout & support",
+          "body": "Stage devices, configure MDM, train users, plan spares and agree the support path."
+        }
       ]
     },
     "oem": {
@@ -295,136 +365,48 @@
   },
   "products": {
     "metaTitle": "Products | TRAKNOVA",
-    "metaDescription": "Explore TRAKNOVA rugged PDA computers, RFID handhelds and industrial tablets. Find the right capture method for receiving, inventory, manufacturing, retail and field service.",
+    "metaDescription": "Explore the TRAKNOVA HT540 Series, HT550 and Y100 Series: RFID handhelds and a rugged tablet platform for close-range identification, bulk inventory and field computing.",
     "hero": {
-      "eyebrow": "PRODUCT PORTFOLIO",
-      "titleLine1": "Industrial hardware.",
-      "titleLine2": "Purpose-built performance.",
-      "body": "Rugged PDA computers, RFID handhelds and industrial tablets for data capture, identification and mobile work. Configurations are confirmed against the approved datasheet for your market."
+      "eyebrow": "PRODUCT RANGE",
+      "titleLine1": "Three platforms.",
+      "titleLine2": "Built for the field.",
+      "body": "RFID handhelds and a 10.1-inch rugged tablet platform for close-range identification, bulk inventory and field computing. Choose the platform, then configure the version for the work."
     },
     "anchors": {
-      "taskSelector": "Start with the task",
-      "ruggedPda": "Rugged PDA",
-      "rfid": "RFID",
-      "industrialTablets": "Industrial tablets",
-      "comparison": "Compare"
+      "series": "Product lines",
+      "compare": "Compare"
     },
-    "taskSelector": {
-      "eyebrow": "START WITH THE TASK",
-      "titleLine1": "What does the device",
-      "titleLine2": "need to do?",
-      "body": "Six common requirements and the platform families that fit them. Use this as a shortlist, then confirm the configuration with our team.",
+    "work": {
+      "eyebrow": "CHOOSE BY WORK",
+      "titleLine1": "Start with the job,",
+      "titleLine2": "then the device.",
+      "body": "Three common starting points. Each one leads to the platform and configuration that fits it.",
       "cards": [
         {
-          "title": "Barcode scanning and identification",
-          "body": "Receiving, picking, work orders and shelf checks where a precise, close-range read is required.",
-          "models": [
-            { "label": "HT400", "slug": "ht400-rugged-barcode-pda" },
-            { "label": "HT510", "slug": "ht510-rugged-pda" },
-            { "label": "HT520", "slug": "ht520-multifunction-pda" }
-          ]
+          "title": "Bulk inventory and asset audits",
+          "body": "Read tags in volume, cover more per pass and keep the count moving across the site.",
+          "href": "/products/ht550/",
+          "tag": "UHF RFID"
         },
         {
-          "title": "UHF RFID and bulk inventory",
-          "body": "Cycle counts, item-level stocktakes and asset audits where tags must be read in volume.",
-          "models": [
-            { "label": "HT550", "slug": "ht550-uhf-rfid-handheld" },
-            { "label": "Y100 RFID", "slug": "y100-uhf-rfid-tablet" },
-            { "label": "HT540", "slug": "ht540-rfid-handheld" }
-          ]
+          "title": "Close-range identification",
+          "body": "Read LF, HF or short-range UHF tags on one handheld platform, with barcode and NFC options.",
+          "href": "/products/ht540-series/",
+          "tag": "LF · HF · UHF"
         },
         {
-          "title": "Mobile printing",
-          "body": "Labels, receipts and service documents printed at the pack station, in the aisle or on site.",
-          "models": [{ "label": "HT800", "slug": "ht800-scan-print-pda" }]
-        },
-        {
-          "title": "Industrial I/O and Windows software",
-          "body": "Equipment connection, line-side applications and Windows-based field service software.",
-          "models": [
-            { "label": "A100", "slug": "a100-windows-rugged-tablet" },
-            { "label": "T120A", "slug": "t120a-windows-industrial-tablet" }
-          ]
-        },
-        {
-          "title": "ID and document capture",
-          "body": "Controlled identity and document workflows at counters, checkpoints and in the field.",
-          "models": [{ "label": "HT530", "slug": "ht530-document-id-pda" }]
-        },
-        {
-          "title": "Field and vehicle mobility",
-          "body": "Compact and large-format tablets for technicians, inspectors and mobile teams.",
-          "models": [
-            { "label": "Y70", "slug": "y70-rugged-tablet" },
-            { "label": "Y100", "slug": "y100-rugged-android-tablet" },
-            { "label": "A100", "slug": "a100-windows-rugged-tablet" }
-          ]
-        }
-      ]
-    },
-    "families": {
-      "eyebrow": "THREE PRODUCT FAMILIES",
-      "titleLine1": "One range,",
-      "titleLine2": "three ways to work.",
-      "body": "Each family has a different balance of screen size, capture capability and operating environment.",
-      "cards": [
-        {
-          "count": "05 MODELS",
-          "title": "Rugged PDA",
-          "body": "Handheld computers for one-handed scanning, field capture and task-specific modules.",
-          "points": [
-            "Barcode and multifunction handhelds",
-            "Pistol-grip and medical variants",
-            "Scan-and-print and ID capture configurations"
-          ],
-          "link": "View rugged PDA models",
-          "anchor": "#rugged-pda"
-        },
-        {
-          "count": "03 MODELS",
-          "title": "RFID",
-          "body": "Short-range and UHF RFID devices for item-level identification, inventory and asset tracking.",
-          "points": [
-            "UHF handheld for bulk reads",
-            "Short-range RFID handheld",
-            "10.1-inch UHF RFID tablet"
-          ],
-          "link": "View RFID models",
-          "anchor": "#rfid"
-        },
-        {
-          "count": "04 MODELS",
-          "title": "Industrial Tablets",
-          "body": "Rugged Android and Windows tablets for larger screens, industrial software and equipment I/O.",
-          "points": [
-            "7-inch and 10.1-inch Android",
-            "10.1-inch Windows with wired I/O",
-            "12.6-inch large-format Windows"
-          ],
-          "link": "View tablet models",
-          "anchor": "#industrial-tablets"
+          "title": "Field computing and capture",
+          "body": "A 10.1-inch Android platform for inspection, work orders and modular data capture.",
+          "href": "/products/y100-series/",
+          "tag": "10.1-inch tablet"
         }
       ]
     },
     "sections": {
-      "ruggedPda": {
-        "eyebrow": "RUGGED PDA",
-        "titleLine1": "Handhelds for",
-        "titleLine2": "the point of work.",
-        "body": "Compact, configurable terminals for scanning, identification and task-specific workflows."
-      },
-      "rfid": {
-        "eyebrow": "RFID",
-        "titleLine1": "Identify in bulk,",
-        "titleLine2": "not one at a time.",
-        "body": "Short-range and UHF RFID platforms for inventory, asset audits and item-level workflows."
-      },
-      "industrialTablets": {
-        "eyebrow": "INDUSTRIAL TABLETS",
-        "titleLine1": "A larger screen",
-        "titleLine2": "for bigger workflows.",
-        "body": "Rugged Android and Windows tablets for inspection, field service, vehicle use and equipment-adjacent work."
-      }
+      "eyebrow": "THREE PRODUCT LINES",
+      "titleLine1": "One range,",
+      "titleLine2": "three ways to work.",
+      "body": "Each platform has a different balance of read range, screen size and field configuration."
     },
     "comparison": {
       "eyebrow": "COMPARE THE RANGE",
@@ -433,27 +415,13 @@
       "body": "Form factor and capture method are the fastest way to narrow the range. Final configuration follows the application review.",
       "headers": {
         "series": "Series",
-        "family": "Family",
         "formFactor": "Form factor",
-        "capture": "Capture / I/O",
-        "os": "OS family",
-        "workflow": "Typical workflow"
-      },
-      "rows": [
-        { "series": "HT400", "family": "Rugged PDA", "form": "Compact handheld", "capture": "1D / 2D barcode", "os": "Confirm by SKU", "workflow": "Receiving, picking, field capture" },
-        { "series": "HT510 family", "family": "Rugged PDA", "form": "Standard / pistol-grip / medical", "capture": "Barcode", "os": "Confirm by SKU", "workflow": "Scan-intensive tasks, healthcare-oriented" },
-        { "series": "HT520", "family": "Rugged PDA", "form": "Multifunction handheld", "capture": "Barcode / NFC options", "os": "Confirm by SKU", "workflow": "Enterprise data collection" },
-        { "series": "HT530", "family": "Rugged PDA", "form": "Specialized handheld", "capture": "Document / ID reader", "os": "Confirm by SKU", "workflow": "Identity and document workflows" },
-        { "series": "HT800", "family": "Rugged PDA", "form": "Handheld with printer", "capture": "Barcode + mobile print", "os": "Confirm by SKU", "workflow": "On-the-spot labeling" },
-        { "series": "HT540", "family": "RFID", "form": "RFID handheld", "capture": "Short-range RFID", "os": "Confirm by SKU", "workflow": "Close-proximity identification" },
-        { "series": "HT550", "family": "RFID", "form": "UHF RFID handheld", "capture": "UHF RFID, 860–960 MHz", "os": "Android 10", "workflow": "Bulk inventory, asset tracking" },
-        { "series": "Y100 RFID", "family": "RFID", "form": "10.1-inch rugged tablet", "capture": "UHF RFID + optional modules", "os": "Android 13", "workflow": "Inventory, logistics, asset management" },
-        { "series": "Y100 Android", "family": "Industrial Tablet", "form": "10.1-inch rugged tablet", "capture": "Barcode / NFC / RFID options", "os": "Android", "workflow": "Mobile workforce, inspection" },
-        { "series": "Y70", "family": "Industrial Tablet", "form": "7-inch compact tablet", "capture": "Barcode options", "os": "Android / Windows", "workflow": "Field operations" },
-        { "series": "A100", "family": "Industrial Tablet", "form": "10.1-inch Windows tablet", "capture": "RJ45, RS232 / RS485, USB", "os": "Windows 10 / 11", "workflow": "Equipment connectivity, field service" },
-        { "series": "T120A", "family": "Industrial Tablet", "form": "12.6-inch Windows tablet", "capture": "Confirm by SKU", "os": "Windows", "workflow": "Large-screen industrial applications" }
-      ],
-      "note": "“Confirm by SKU” means the value depends on the selected model and market. It is not a published specification."
+        "rfid": "RFID",
+        "os": "OS",
+        "battery": "Battery",
+        "protection": "Protection",
+        "bestFor": "Best for"
+      }
     },
     "modules": {
       "eyebrow": "MODULES, ACCESSORIES & DEPLOYMENT",
@@ -464,17 +432,32 @@
         {
           "title": "Capture modules",
           "body": "Module availability depends on the model and market.",
-          "items": ["1D / 2D scan engines", "UHF RFID and short-range RFID", "NFC and document readers", "Optional camera configurations"]
+          "items": [
+            "1D / 2D scan engines",
+            "UHF RFID and short-range RFID",
+            "NFC and document readers",
+            "Optional camera configurations"
+          ]
         },
         {
           "title": "Accessories",
           "body": "The accessory range is confirmed per SKU and project.",
-          "items": ["Chargers and multi-bay cradles", "Pistol grips and hand straps", "Protective cases and covers", "Vehicle mounts and brackets"]
+          "items": [
+            "Chargers and multi-bay cradles",
+            "Pistol grips and hand straps",
+            "Protective cases and covers",
+            "Vehicle mounts and brackets"
+          ]
         },
         {
           "title": "Software & rollout",
           "body": "Deployment scope is agreed before the order.",
-          "items": ["Android or Windows image", "Preloaded applications", "MDM enrollment and staging", "Pilot and rollout planning"]
+          "items": [
+            "Android or Windows image",
+            "Preloaded applications",
+            "MDM enrollment and staging",
+            "Pilot and rollout planning"
+          ]
         }
       ]
     },
@@ -516,78 +499,62 @@
       "home": "Home",
       "products": "Products"
     },
-    "detailHeading": "Designed for demanding workflows.",
-    "requestDatasheetQuote": "Request Datasheet & Quote",
-    "talkToSales": "Talk to Sales",
-    "whereItFits": {
-      "eyebrow": "WHERE IT FITS",
-      "titleLine1": "Built for",
-      "titleLine2": "a specific job.",
-      "body": "These are the workflows this family is most often specified for. The final fit depends on your application, environment and target market.",
-      "groups": {
-        "ruggedPda": [
-          { "title": "Dock-to-stock receiving", "body": "Scan the ASN, verify counts and flag exceptions before put-away.", "href": "/solutions/logistics/" },
-          { "title": "Work-order execution", "body": "Capture production data at the station and update WIP.", "href": "/solutions/manufacturing/" },
-          { "title": "Store replenishment", "body": "Check shelf stock and price during normal store walks.", "href": "/solutions/retail/" }
-        ],
-        "rfid": [
-          { "title": "RFID cycle counting", "body": "Read tags in bulk, review exceptions and post the count.", "href": "/solutions/logistics/" },
-          { "title": "RFID item-level stocktake", "body": "Sweep fixtures, resolve duplicates and recount high-variance zones.", "href": "/solutions/retail/" },
-          { "title": "Asset tagging and audits", "body": "Walk the site, capture tags and flag missing or moved assets.", "href": "/solutions/field-service/" }
-        ],
-        "industrialTablet": [
-          { "title": "Equipment inspection rounds", "body": "Use a larger screen for checklists, readings and photo evidence.", "href": "/solutions/manufacturing/" },
-          { "title": "Field inspection and work orders", "body": "Run digital job sheets, capture signatures and sync when online.", "href": "/solutions/field-service/" },
-          { "title": "Line-side kitting", "body": "Validate components and lots against the work order at the station.", "href": "/solutions/manufacturing/" }
-        ]
-      }
+    "hero": {
+      "requestQuote": "Request a quote",
+      "talkToSales": "Talk to sales",
+      "requestDatasheet": "Request the datasheet"
     },
-    "configuration": {
-      "eyebrow": "CONFIGURATION",
-      "titleLine1": "What can be",
-      "titleLine2": "adapted.",
-      "body": "Configuration options are confirmed against the selected SKU and target market. Some combinations require tooling, minimum quantities or regional approval.",
-      "groups": {
-        "ruggedPda": [
-          { "title": "Capture modules", "intro": "Selected per SKU and workflow.", "items": ["1D / 2D scan engine", "NFC options", "Document reader on specialized models", "Camera configuration"] },
-          { "title": "Form factor & accessories", "intro": "Ergonomics matched to the task.", "items": ["Standard or pistol-grip", "Hand straps and protective cases", "Charging cradles", "Vehicle or desk mounting"] },
-          { "title": "Software & deployment", "intro": "Agreed before the order.", "items": ["OS image and preload", "MDM enrollment", "Pilot and staging", "Spares planning"] }
-        ],
-        "rfid": [
-          { "title": "RFID module & regional bands", "intro": "Configured for the target market.", "items": ["UHF or short-range RFID module", "Regional frequency band", "Tag protocol support", "Read-range validation with the chosen tag"] },
-          { "title": "Form factor & accessories", "intro": "Matched to the counting method.", "items": ["Handheld or tablet form factor", "Grip, strap and case options", "Charging cradles", "Vehicle or desk mounting"] },
-          { "title": "Software & deployment", "intro": "Planned with your software stack.", "items": ["Middleware or application integration", "Preload and MDM", "Pilot count and acceptance", "Spares planning"] }
-        ],
-        "industrialTablet": [
-          { "title": "OS & compute", "intro": "Selected by application and market.", "items": ["Android or Windows variant", "Memory and storage option", "Processor option", "Regional OS image"] },
-          { "title": "I/O & modules", "intro": "Matched to the equipment beside it.", "items": ["RS232 / RS485 and RJ45 where available", "USB and HDMI", "Barcode, NFC or RFID options", "Docking and cable requirements"] },
-          { "title": "Mounting & accessories", "intro": "Planned for the work environment.", "items": ["Vehicle docks and mounts", "Desk docks and chargers", "Hand straps and cases", "Protective covers"] }
-        ]
-      }
+    "nav": {
+      "overview": "Overview",
+      "variants": "Variants",
+      "features": "Key features",
+      "specs": "Specifications",
+      "applications": "Applications",
+      "labelAria": "Product sections"
+    },
+    "overview": {
+      "eyebrow": "OVERVIEW",
+      "titleLine1": "Built around",
+      "titleLine2": "the work."
+    },
+    "variants": {
+      "eyebrow": "CONFIGURATIONS",
+      "titleLine1": "Choose the",
+      "titleLine2": "configuration.",
+      "body": "Versions share one platform where possible. Select a version to see its images, key specifications and target workflows.",
+      "compareLabel": "Variant comparison",
+      "labelAria": "Product configurations"
+    },
+    "features": {
+      "eyebrow": "KEY FEATURES",
+      "titleLine1": "What matters",
+      "titleLine2": "in the field."
     },
     "specs": {
-      "eyebrow": "TECHNICAL SPECIFICATIONS",
-      "titleLine1": "Confirmed values,",
-      "titleLine2": "not assumptions.",
-      "body": "Only source-confirmed specifications are shown. Complete configuration details, options and regional approvals are provided with the approved datasheet.",
-      "englishNote": "",
-      "emptyTitle": "Full specification sheet available on request",
-      "emptyBody": "This model has configuration-dependent specifications. Request the approved datasheet for your target market and configuration.",
-      "requestDatasheet": "Request Datasheet",
-      "fineprint": "Specifications shown are confirmed values. Optional modules, regional variants and protection ratings must be confirmed against the approved datasheet before quotation."
+      "eyebrow": "SPECIFICATIONS",
+      "titleLine1": "Technical",
+      "titleLine2": "details.",
+      "body": "Shared platform specifications are followed by configuration-specific details. Confirm the approved datasheet before ordering.",
+      "fineprint": "Specifications are for the listed configuration and may change without notice. Confirm the approved datasheet before ordering.",
+      "optionsLabel": "Options and modules"
+    },
+    "applications": {
+      "eyebrow": "WHERE IT FITS",
+      "titleLine1": "Built for",
+      "titleLine2": "specific work.",
+      "body": "These are the workflows this configuration is most often specified for. Final fit depends on the application, environment and target market."
     },
     "related": {
-      "eyebrow": "RELATED MODELS",
-      "titleLine1": "Other options",
-      "titleLine2": "in this family.",
-      "body": "Compare form factors and capture methods across the range."
+      "eyebrow": "RELATED SERIES",
+      "titleLine1": "Explore the",
+      "titleLine2": "other platforms."
     },
     "cta": {
-      "eyebrow": "READY TO SPECIFY?",
-      "titleLine1": "Request the datasheet",
-      "titleLine2": "and a configuration review.",
-      "body": "Tell us the workflow, target market and expected volume. We will confirm the model, options and documentation path.",
-      "button": "Send an Inquiry"
+      "eyebrow": "NEXT STEP",
+      "titleLine1": "Need a configured",
+      "titleLine2": "quote?",
+      "body": "Share the workflow, environment and target market. We will confirm the version, modules and documentation path.",
+      "button": "Talk to sales"
     }
   },
   "solutions": {
@@ -659,10 +626,22 @@
       "paragraph1": "Shenzhen Yiliya Co., Ltd. is a Shenzhen-based manufacturer and solution provider of rugged PDAs, RFID handhelds and industrial tablets. For more than 15 years, we have focused on the devices, modules and configurations that connect frontline work to the business systems behind it.",
       "paragraph2": "We work with distributors, solution providers and enterprise teams across global markets, covering data capture, identification and mobile workflow projects from device selection and configuration to OEM / ODM cooperation. More than 1,000 companies have worked with us to solve operational problems with mobile data capture.",
       "facts": [
-        { "value": "15+ years", "label": "Industry experience" },
-        { "value": "1,000+", "label": "Companies served worldwide" },
-        { "value": "Shenzhen, China", "label": "Headquarters" },
-        { "value": "Rugged PDA · RFID · Tablets", "label": "Product focus" }
+        {
+          "value": "15+ years",
+          "label": "Industry experience"
+        },
+        {
+          "value": "1,000+",
+          "label": "Companies served worldwide"
+        },
+        {
+          "value": "Shenzhen, China",
+          "label": "Headquarters"
+        },
+        {
+          "value": "Rugged PDA · RFID · Tablets",
+          "label": "Product focus"
+        }
       ],
       "photoAlt": "Racked inventory and pallets in a distribution warehouse.",
       "photoCaption": "Built for warehouse and logistics operations"
@@ -676,17 +655,31 @@
         {
           "title": "Product platforms",
           "body": "Rugged PDA computers, RFID devices and industrial tablets for enterprise data capture.",
-          "items": ["Barcode and multifunction handhelds", "Short-range and UHF RFID", "Android and Windows rugged tablets"]
+          "items": [
+            "Barcode and multifunction handhelds",
+            "Short-range and UHF RFID",
+            "Android and Windows rugged tablets"
+          ]
         },
         {
           "title": "Configuration & branding",
           "body": "Platform options aligned to the application, market and brand.",
-          "items": ["Capture module selection", "Accessories and mounting", "OS image and preload", "Private label and packaging"]
+          "items": [
+            "Capture module selection",
+            "Accessories and mounting",
+            "OS image and preload",
+            "Private label and packaging"
+          ]
         },
         {
           "title": "Deployment support",
           "body": "A practical plan for piloting, documenting and sustaining the fleet.",
-          "items": ["Workflow and exception mapping", "Pilot planning", "Documentation package", "Spares planning"]
+          "items": [
+            "Workflow and exception mapping",
+            "Pilot planning",
+            "Documentation package",
+            "Spares planning"
+          ]
         }
       ],
       "photoAlt": "Engineering drawings, a caliper and hands reviewing a hardware design.",
@@ -698,10 +691,22 @@
       "titleLine2": "a real deployment.",
       "body": "These are the standards we apply to a single device order and to a multi-site rollout.",
       "pillars": [
-        { "title": "Workflow first", "body": "We start with the task and the exception, not with a device category." },
-        { "title": "Honest specifications", "body": "Only confirmed values are published. Configuration details are confirmed against the approved datasheet." },
-        { "title": "Practical engineering", "body": "Devices, modules and accessories are selected for the environment they will actually work in." },
-        { "title": "Support after rollout", "body": "Spares, documentation and change notification are part of the plan, not an afterthought." }
+        {
+          "title": "Workflow first",
+          "body": "We start with the task and the exception, not with a device category."
+        },
+        {
+          "title": "Honest specifications",
+          "body": "Only confirmed values are published. Configuration details are confirmed against the approved datasheet."
+        },
+        {
+          "title": "Practical engineering",
+          "body": "Devices, modules and accessories are selected for the environment they will actually work in."
+        },
+        {
+          "title": "Support after rollout",
+          "body": "Spares, documentation and change notification are part of the plan, not an afterthought."
+        }
       ]
     },
     "capability": {
@@ -709,14 +714,35 @@
       "titleLine1": "What we can",
       "titleLine2": "cover for you.",
       "body": "Availability and scope are confirmed per product, platform and project. The map below shows where we typically work with partners.",
-      "headers": { "capability": "Capability", "coverage": "What it covers" },
+      "headers": {
+        "capability": "Capability",
+        "coverage": "What it covers"
+      },
       "rows": [
-        { "capability": "Product platforms", "coverage": "Rugged PDA, short-range and UHF RFID handhelds, Android and Windows industrial tablets" },
-        { "capability": "Auto-ID", "coverage": "1D / 2D barcode, UHF and short-range RFID, NFC, ID / document capture" },
-        { "capability": "Configuration", "coverage": "Capture modules, memory and OS variants, accessories, mounting" },
-        { "capability": "Branding", "coverage": "Private label, boot animation, packaging, manuals, serialization" },
-        { "capability": "Documentation", "coverage": "Datasheets, user manuals, quick guides, packaging artwork, test documentation" },
-        { "capability": "Support", "coverage": "Pilot planning, staging, spares, after-sales coordination" }
+        {
+          "capability": "Product platforms",
+          "coverage": "Rugged PDA, short-range and UHF RFID handhelds, Android and Windows industrial tablets"
+        },
+        {
+          "capability": "Auto-ID",
+          "coverage": "1D / 2D barcode, UHF and short-range RFID, NFC, ID / document capture"
+        },
+        {
+          "capability": "Configuration",
+          "coverage": "Capture modules, memory and OS variants, accessories, mounting"
+        },
+        {
+          "capability": "Branding",
+          "coverage": "Private label, boot animation, packaging, manuals, serialization"
+        },
+        {
+          "capability": "Documentation",
+          "coverage": "Datasheets, user manuals, quick guides, packaging artwork, test documentation"
+        },
+        {
+          "capability": "Support",
+          "coverage": "Pilot planning, staging, spares, after-sales coordination"
+        }
       ]
     },
     "quality": {
@@ -725,9 +751,30 @@
       "titleLine2": "assurances.",
       "body": "We do not publish certifications we cannot evidence. The applicable test plan, document package and market approvals are agreed per product and project.",
       "cards": [
-        { "title": "Incoming and in-process", "items": ["Incoming material checks", "Assembly and process checks", "Process records retained"] },
-        { "title": "Final inspection", "items": ["Functional checks", "Packaging and label verification", "Test records retained per batch"] },
-        { "title": "Documentation", "items": ["Datasheet and user manual", "Quick guide and packaging artwork", "Conformity documentation where available"] }
+        {
+          "title": "Incoming and in-process",
+          "items": [
+            "Incoming material checks",
+            "Assembly and process checks",
+            "Process records retained"
+          ]
+        },
+        {
+          "title": "Final inspection",
+          "items": [
+            "Functional checks",
+            "Packaging and label verification",
+            "Test records retained per batch"
+          ]
+        },
+        {
+          "title": "Documentation",
+          "items": [
+            "Datasheet and user manual",
+            "Quick guide and packaging artwork",
+            "Conformity documentation where available"
+          ]
+        }
       ],
       "note": "Certifications, test reports and factory information are provided to qualified partners during due diligence."
     },
@@ -741,7 +788,11 @@
           "label": "DISTRIBUTORS",
           "title": "Range and brand",
           "body": "A product range, configuration support and OEM options for your market.",
-          "points": ["Product range and accessories", "Private label and packaging", "Regional documentation"],
+          "points": [
+            "Product range and accessories",
+            "Private label and packaging",
+            "Regional documentation"
+          ],
           "link": "Explore OEM / ODM",
           "href": "/oem-odm/"
         },
@@ -749,7 +800,11 @@
           "label": "SOLUTION PROVIDERS",
           "title": "Fit to the application",
           "body": "Devices and modules selected around the application, with pilot support.",
-          "points": ["Capture module selection", "Pilot planning", "Software and MDM integration"],
+          "points": [
+            "Capture module selection",
+            "Pilot planning",
+            "Software and MDM integration"
+          ],
           "link": "Explore solutions",
           "href": "/solutions/"
         },
@@ -757,7 +812,11 @@
           "label": "ENTERPRISE TEAMS",
           "title": "From review to rollout",
           "body": "A practical path from workflow review to device shortlist and fleet rollout.",
-          "points": ["Workflow review", "Device shortlist and configuration", "Rollout and spares planning"],
+          "points": [
+            "Workflow review",
+            "Device shortlist and configuration",
+            "Rollout and spares planning"
+          ],
           "link": "Talk to our team",
           "href": "/contact/"
         }
@@ -768,7 +827,11 @@
         "label": "COMPANY INFORMATION",
         "title": "Due diligence, without the theatre.",
         "body": "Registered entity details, manufacturing location, certifications and test reports are provided to qualified partners on request. We prefer to share evidence rather than unverifiable claims.",
-        "points": ["Registered company details", "Manufacturing and quality documentation", "Certification and test reports where applicable"]
+        "points": [
+          "Registered company details",
+          "Manufacturing and quality documentation",
+          "Certification and test reports where applicable"
+        ]
       },
       "talk": {
         "label": "TALK TO US",
@@ -822,10 +885,22 @@
       "titleLine2": "to a clear next step.",
       "body": "We do not send a catalogue and hope for the best. Each inquiry is reviewed against the workflow and the market.",
       "items": [
-        { "title": "Requirement review", "body": "We read the workflow, target market, expected volume and any OEM / ODM scope." },
-        { "title": "Clarification", "body": "We come back with the configuration questions that matter — modules, environment, software and timing." },
-        { "title": "Recommendation", "body": "You receive a shortlist, the relevant specifications and the documentation path for each option." },
-        { "title": "Quotation", "body": "Commercial terms, sample policy and lead time are confirmed for the selected configuration." }
+        {
+          "title": "Requirement review",
+          "body": "We read the workflow, target market, expected volume and any OEM / ODM scope."
+        },
+        {
+          "title": "Clarification",
+          "body": "We come back with the configuration questions that matter — modules, environment, software and timing."
+        },
+        {
+          "title": "Recommendation",
+          "body": "You receive a shortlist, the relevant specifications and the documentation path for each option."
+        },
+        {
+          "title": "Quotation",
+          "body": "Commercial terms, sample policy and lead time are confirmed for the selected configuration."
+        }
       ]
     },
     "support": {
@@ -833,13 +908,21 @@
         "label": "INTERNATIONAL SUPPORT",
         "title": "Working across markets.",
         "body": "We work with distributors, solution providers and enterprise teams across markets. Regional availability, approvals and lead times are confirmed per project.",
-        "points": ["Device and module availability by market", "Regional UHF RFID bands and approvals", "Documentation and packaging requirements"]
+        "points": [
+          "Device and module availability by market",
+          "Regional UHF RFID bands and approvals",
+          "Documentation and packaging requirements"
+        ]
       },
       "existing": {
         "label": "EXISTING CUSTOMER?",
         "title": "Order and support queries.",
         "body": "For order status, spare parts or an RMA discussion, contact the sales contact on your order and include the model, serial number and a short description of the issue.",
-        "points": ["Model and serial number", "Order or invoice reference", "Photos or logs where relevant"]
+        "points": [
+          "Model and serial number",
+          "Order or invoice reference",
+          "Photos or logs where relevant"
+        ]
       }
     },
     "faq": {
@@ -910,7 +993,12 @@
           "kicker": "MODEL 01",
           "title": "Private label",
           "body": "Bring an existing platform to market under your brand, with your identity on the device and the packaging.",
-          "points": ["Logo, boot animation and wallpapers", "Packaging and documentation branding", "Accessory branding", "Regional configuration and serialization"],
+          "points": [
+            "Logo, boot animation and wallpapers",
+            "Packaging and documentation branding",
+            "Accessory branding",
+            "Regional configuration and serialization"
+          ],
           "best": "Best for distributors and brands with an existing product plan."
         },
         {
@@ -918,14 +1006,24 @@
           "badge": "MOST COMMON",
           "title": "Configured product",
           "body": "Adapt the platform to your application, market and software environment before it reaches your customers.",
-          "points": ["Barcode, RFID, NFC or ID module selection", "Memory, OS and accessory configuration", "Software image, preload and MDM enrollment", "Pilot build and acceptance testing"],
+          "points": [
+            "Barcode, RFID, NFC or ID module selection",
+            "Memory, OS and accessory configuration",
+            "Software image, preload and MDM enrollment",
+            "Pilot build and acceptance testing"
+          ],
           "best": "Best for solution providers with a defined use case."
         },
         {
           "kicker": "MODEL 03",
           "title": "Project development",
           "body": "Define, prototype and industrialize a device around a requirement that the standard range does not cover.",
-          "points": ["Requirement and market definition", "Industrial design and prototype coordination", "Validation plan and field pilot", "Pilot production, mass production and lifecycle support"],
+          "points": [
+            "Requirement and market definition",
+            "Industrial design and prototype coordination",
+            "Validation plan and field pilot",
+            "Pilot production, mass production and lifecycle support"
+          ],
           "best": "Best for partners with a differentiated device roadmap."
         }
       ],
@@ -936,16 +1034,60 @@
       "titleLine1": "What can be",
       "titleLine2": "adapted.",
       "body": "The matrix below is a working starting point. Each item is reviewed against the selected platform, the target market and the production plan.",
-      "headers": { "layer": "Layer", "options": "Options to discuss", "status": "Status" },
+      "headers": {
+        "layer": "Layer",
+        "options": "Options to discuss",
+        "status": "Status"
+      },
       "rows": [
-        { "layer": "Brand identity", "options": "Logo, boot animation, wallpapers, device labels, packaging, manuals", "status": "Project-defined", "accent": true },
-        { "layer": "Capture modules", "options": "1D / 2D scan engine, UHF RFID, NFC, ID / document reader", "status": "SKU-dependent", "accent": false },
-        { "layer": "Compute & memory", "options": "Android or Windows variant, RAM / storage, processor option", "status": "SKU-dependent", "accent": false },
-        { "layer": "I/O & connectivity", "options": "RS232 / RS485, RJ45, USB, HDMI, cellular and Wi-Fi options", "status": "SKU-dependent", "accent": false },
-        { "layer": "Accessories", "options": "Chargers, cradles, grips, cases, straps, vehicle mounts", "status": "Tooling-dependent", "accent": false },
-        { "layer": "Software", "options": "OS image, preloaded applications, MDM enrollment, regional settings", "status": "Project-defined", "accent": true },
-        { "layer": "Documentation", "options": "Datasheet, user manual, quick guide, packaging artwork", "status": "Project-defined", "accent": true },
-        { "layer": "Production", "options": "Serialization, QC plan, packaging, spares planning", "status": "Project-defined", "accent": true }
+        {
+          "layer": "Brand identity",
+          "options": "Logo, boot animation, wallpapers, device labels, packaging, manuals",
+          "status": "Project-defined",
+          "accent": true
+        },
+        {
+          "layer": "Capture modules",
+          "options": "1D / 2D scan engine, UHF RFID, NFC, ID / document reader",
+          "status": "SKU-dependent",
+          "accent": false
+        },
+        {
+          "layer": "Compute & memory",
+          "options": "Android or Windows variant, RAM / storage, processor option",
+          "status": "SKU-dependent",
+          "accent": false
+        },
+        {
+          "layer": "I/O & connectivity",
+          "options": "RS232 / RS485, RJ45, USB, HDMI, cellular and Wi-Fi options",
+          "status": "SKU-dependent",
+          "accent": false
+        },
+        {
+          "layer": "Accessories",
+          "options": "Chargers, cradles, grips, cases, straps, vehicle mounts",
+          "status": "Tooling-dependent",
+          "accent": false
+        },
+        {
+          "layer": "Software",
+          "options": "OS image, preloaded applications, MDM enrollment, regional settings",
+          "status": "Project-defined",
+          "accent": true
+        },
+        {
+          "layer": "Documentation",
+          "options": "Datasheet, user manual, quick guide, packaging artwork",
+          "status": "Project-defined",
+          "accent": true
+        },
+        {
+          "layer": "Production",
+          "options": "Serialization, QC plan, packaging, spares planning",
+          "status": "Project-defined",
+          "accent": true
+        }
       ],
       "note": "Availability is confirmed against the selected platform. Some options require tooling, minimum quantities or certification review."
     },
@@ -955,12 +1097,30 @@
       "titleLine2": "to mass production.",
       "body": "Each stage has a defined output and an acceptance point. We do not move to the next gate until both sides agree the previous one is closed.",
       "steps": [
-        { "title": "Discovery", "body": "Application, target market, expected volume, compliance requirements and commercial expectations are discussed in one structured intake." },
-        { "title": "Proposal", "body": "Recommended platform or development path, configuration, branding scope, MOQ and a stage-by-stage commercial framework." },
-        { "title": "Prototype", "body": "Sample build with the agreed branding, software image and accessory set. Open issues are recorded for the validation stage." },
-        { "title": "Validation", "body": "Test plan, field pilot and acceptance criteria. Documentation and outstanding engineering items are closed before pilot production." },
-        { "title": "Pilot production", "body": "Pre-production run to confirm process, packaging, serialization and QC. Both sides sign off on the production baseline." },
-        { "title": "Production & support", "body": "Mass production against the approved baseline, with spares planning, documentation control and after-sales coordination." }
+        {
+          "title": "Discovery",
+          "body": "Application, target market, expected volume, compliance requirements and commercial expectations are discussed in one structured intake."
+        },
+        {
+          "title": "Proposal",
+          "body": "Recommended platform or development path, configuration, branding scope, MOQ and a stage-by-stage commercial framework."
+        },
+        {
+          "title": "Prototype",
+          "body": "Sample build with the agreed branding, software image and accessory set. Open issues are recorded for the validation stage."
+        },
+        {
+          "title": "Validation",
+          "body": "Test plan, field pilot and acceptance criteria. Documentation and outstanding engineering items are closed before pilot production."
+        },
+        {
+          "title": "Pilot production",
+          "body": "Pre-production run to confirm process, packaging, serialization and QC. Both sides sign off on the production baseline."
+        },
+        {
+          "title": "Production & support",
+          "body": "Mass production against the approved baseline, with spares planning, documentation control and after-sales coordination."
+        }
       ],
       "note": "Sample policy, MOQ, lead time and tooling terms are defined in the proposal for the specific project."
     },
@@ -972,15 +1132,33 @@
       "cards": [
         {
           "title": "Quality approach",
-          "items": ["Incoming material checks", "In-process checks", "Final inspection", "Test records retained per batch", "Packaging and label verification"]
+          "items": [
+            "Incoming material checks",
+            "In-process checks",
+            "Final inspection",
+            "Test records retained per batch",
+            "Packaging and label verification"
+          ]
         },
         {
           "title": "Document package",
-          "items": ["Product datasheet", "User manual and quick guide", "Packaging artwork", "Test and conformity documentation where available", "Change-control records"]
+          "items": [
+            "Product datasheet",
+            "User manual and quick guide",
+            "Packaging artwork",
+            "Test and conformity documentation where available",
+            "Change-control records"
+          ]
         },
         {
           "title": "Lifecycle support",
-          "items": ["Spares planning", "Accessory continuity", "Software image control", "Change notification", "After-sales coordination"]
+          "items": [
+            "Spares planning",
+            "Accessory continuity",
+            "Software image control",
+            "Change notification",
+            "After-sales coordination"
+          ]
         }
       ]
     },

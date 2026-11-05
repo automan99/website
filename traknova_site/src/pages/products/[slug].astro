@@ -1,11 +1,14 @@
 ---
 import ProductDetailView from '../../views/ProductDetailView.astro';
-import { getProducts } from '../../data/products';
+import { getProductFamilies } from '../../data/products/catalog';
 
 export function getStaticPaths() {
-  return getProducts('en').map((product) => ({ params: { slug: product.slug }, props: { product } }));
+  return getProductFamilies('en').map((family) => ({
+    params: { slug: family.slug },
+    props: { family }
+  }));
 }
 
-const { product } = Astro.props;
+const { family } = Astro.props;
 ---
-<ProductDetailView locale="en" product={product} />
+<ProductDetailView locale="en" family={family} />

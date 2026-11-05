@@ -3,9 +3,12 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { getProducts } from '../data/products';
-import { localizedPath } from '../utils/paths';
+import {
+  getCategoryLabel,
+  getProductFamilies,
+  getProductHref
+} from '../data/products/catalog';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -16,48 +19,134 @@ interface Props {
 const { locale } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.products;
-const products = getProducts(locale);
-
-const pdas = products.filter((product) => product.category === 'Rugged PDA');
-const rfid = products.filter((product) => product.category === 'RFID');
-const tablets = products.filter((product) => product.category === 'Industrial Tablet');
+const families = getProductFamilies(locale);
 ---
 <BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
   <Header locale={locale} />
   <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <span class="eyebrow">{copy.hero.eyebrow}</span>
-        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
-        <p>{copy.hero.body}</p>
-        <div class="anchor-chips">
-          <a class="anchor-chip" href="#task-selector">{copy.anchors.taskSelector}</a>
-          <a class="anchor-chip" href="#rugged-pda">{copy.anchors.ruggedPda}</a>
-          <a class="anchor-chip" href="#rfid">{copy.anchors.rfid}</a>
-          <a class="anchor-chip" href="#industrial-tablets">{copy.anchors.industrialTablets}</a>
-          <a class="anchor-chip" href="#comparison">{copy.anchors.comparison}</a>
+    <section class="page-hero product-range-hero">
+      <div class="wrap product-range-hero-grid">
+        <div>
+          <span class="eyebrow">{copy.hero.eyebrow}</span>
+          <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+          <p>{copy.hero.body}</p>
+          <div class="anchor-chips">
+            {families.map((family) => (
+              <a class="anchor-chip" href={`#${family.slug}`}>{family.name}</a>
+            ))}
+            <a class="anchor-chip" href="#compare">{copy.anchors.compare}</a>
+          </div>
+        </div>
+        <div class="product-range-lineup" aria-hidden="true">
+          {families.map((family) => (
+            <figure class="lineup-item">
+              <img src={withBase(family.heroImage)} alt="" loading="eager" decoding="async" />
+              <figcaption>{family.name}</figcaption>
+            </figure>
+          ))}
         </div>
       </div>
     </section>
 
-    <section class="section" id="task-selector">
+    <section class="section" id="work">
       <div class="wrap">
         <div class="split-intro">
-          <div><span class="eyebrow">{copy.taskSelector.eyebrow}</span><h2>{copy.taskSelector.titleLine1}<br />{copy.taskSelector.titleLine2}</h2></div>
-          <p>{copy.taskSelector.body}</p>
+          <div>
+            <span class="eyebrow">{copy.work.eyebrow}</span>
+            <h2>{copy.work.titleLine1}<br />{copy.work.titleLine2}</h2>
+          </div>
+          <p>{copy.work.body}</p>
         </div>
-        <div class="task-grid">
-          {copy.taskSelector.cards.map((task) => (
-            <article class="task-card">
-              <h3>{task.title}</h3>
-              <p>{task.body}</p>
-              <div class="device-list">
-                {task.models.map((model) => (
-                  <a class="device-link" href={localizedPath(locale, `/products/${model.slug}/`)}>{model.label} <span>›</span></a>
-                ))}
+        <div class="work-grid">
+          {copy.work.cards.map((card) => (
+            <a class="work-card" href={localizedPath(locale, card.href)}>
+              <span class="work-tag">{card.tag}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <span class="text-link">{dict.common.actions.exploreSeries} →</span>
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="series">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.sections.eyebrow}</span>
+            <h2>{copy.sections.titleLine1}<br />{copy.sections.titleLine2}</h2>
+          </div>
+          <p>{copy.sections.body}</p>
+        </div>
+
+        {families.map((family, index) => {
+          const defaultVariant =
+            family.variants.find((variant) => variant.id === family.defaultVariant) ?? family.variants[0];
+          const href = localizedPath(locale, getProductHref(family));
+          return (
+            <article class:list={['family-showcase', { 'is-reversed': index % 2 === 1 }]} id={family.slug}>
+              <div class="family-showcase-media">
+                <img src={withBase(family.heroImage)} alt={defaultVariant.name} loading="lazy" decoding="async" />
+              </div>
+              <div class="family-showcase-copy">
+                <span class="family-index">{String(index + 1).padStart(2, '0')}</span>
+                <span class="eyebrow">{getCategoryLabel(locale, family.category)}</span>
+                <h2>{family.name}</h2>
+                <p class="family-tagline">{family.tagline}</p>
+                <p>{family.summary}</p>
+                <div class="kpi-row">
+                  {family.kpis.map((kpi) => (
+                    <div class="kpi"><b>{kpi.value}</b><span>{kpi.label}</span></div>
+                  ))}
+                </div>
+                <ul class="variant-tags">
+                  {family.variants.map((variant) => <li>{variant.label}</li>)}
+                </ul>
+                <a class="button button-outline" href={href}>{dict.common.actions.exploreSeries} ↗</a>
               </div>
             </article>
-          ))}
+          );
+        })}
+      </div>
+    </section>
+
+    <section class="section" id="compare">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.comparison.eyebrow}</span>
+            <h2>{copy.comparison.titleLine1}<br />{copy.comparison.titleLine2}</h2>
+          </div>
+          <p>{copy.comparison.body}</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table compare-table">
+            <thead>
+              <tr>
+                <th>{copy.comparison.headers.series}</th>
+                <th>{copy.comparison.headers.formFactor}</th>
+                <th>{copy.comparison.headers.rfid}</th>
+                <th>{copy.comparison.headers.os}</th>
+                <th>{copy.comparison.headers.battery}</th>
+                <th>{copy.comparison.headers.protection}</th>
+                <th>{copy.comparison.headers.bestFor}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {families.map((family) => (
+                <tr>
+                  <td><a href={localizedPath(locale, getProductHref(family))}>{family.name}</a></td>
+                  <td>{family.comparison.formFactor}</td>
+                  <td>{family.comparison.rfid}</td>
+                  <td>{family.comparison.os}</td>
+                  <td>{family.comparison.battery}</td>
+                  <td>{family.comparison.protection}</td>
+                  <td>{family.comparison.bestFor}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
         </div>
       </div>
     </section>
@@ -65,79 +154,10 @@ const tablets = products.filter((product) => product.category === 'Industrial Ta
     <section class="section section-soft">
       <div class="wrap">
         <div class="split-intro">
-          <div><span class="eyebrow">{copy.families.eyebrow}</span><h2>{copy.families.titleLine1}<br />{copy.families.titleLine2}</h2></div>
-          <p>{copy.families.body}</p>
-        </div>
-        <div class="family-grid">
-          {copy.families.cards.map((card) => (
-            <article class="family-card">
-              <span class="family-count">{card.count}</span>
-              <h3>{card.title}</h3>
-              <p>{card.body}</p>
-              <ul>{card.points.map((point) => <li>{point}</li>)}</ul>
-              <a class="text-link" href={card.anchor}>{card.link} →</a>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section" id="rugged-pda">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.sections.ruggedPda.eyebrow}</span><h2>{copy.sections.ruggedPda.titleLine1}<br />{copy.sections.ruggedPda.titleLine2}</h2></div>
-          <p>{copy.sections.ruggedPda.body}</p>
-        </div>
-        <div class="product-grid">{pdas.map((product) => <ProductCard product={product} locale={locale} />)}</div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="rfid">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.sections.rfid.eyebrow}</span><h2>{copy.sections.rfid.titleLine1}<br />{copy.sections.rfid.titleLine2}</h2></div>
-          <p>{copy.sections.rfid.body}</p>
-        </div>
-        <div class="product-grid">{rfid.map((product) => <ProductCard product={product} locale={locale} />)}</div>
-      </div>
-    </section>
-
-    <section class="section" id="industrial-tablets">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.sections.industrialTablets.eyebrow}</span><h2>{copy.sections.industrialTablets.titleLine1}<br />{copy.sections.industrialTablets.titleLine2}</h2></div>
-          <p>{copy.sections.industrialTablets.body}</p>
-        </div>
-        <div class="product-grid">{tablets.map((product) => <ProductCard product={product} locale={locale} />)}</div>
-      </div>
-    </section>
-
-    <section class="section section-soft" id="comparison">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.comparison.eyebrow}</span><h2>{copy.comparison.titleLine1}<br />{copy.comparison.titleLine2}</h2></div>
-          <p>{copy.comparison.body}</p>
-        </div>
-        <div class="matrix-wrap">
-          <table class="matrix-table series-table">
-            <thead>
-              <tr><th>{copy.comparison.headers.series}</th><th>{copy.comparison.headers.family}</th><th>{copy.comparison.headers.formFactor}</th><th>{copy.comparison.headers.capture}</th><th>{copy.comparison.headers.os}</th><th>{copy.comparison.headers.workflow}</th></tr>
-            </thead>
-            <tbody>
-              {copy.comparison.rows.map((row) => (
-                <tr><td>{row.series}</td><td>{row.family}</td><td>{row.form}</td><td>{row.capture}</td><td>{row.os}</td><td>{row.workflow}</td></tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        <p class="note-line">{copy.comparison.note}</p>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.modules.eyebrow}</span><h2>{copy.modules.titleLine1}<br />{copy.modules.titleLine2}</h2></div>
+          <div>
+            <span class="eyebrow">{copy.modules.eyebrow}</span>
+            <h2>{copy.modules.titleLine1}<br />{copy.modules.titleLine2}</h2>
+          </div>
           <p>{copy.modules.body}</p>
         </div>
         <div class="quality-grid">
@@ -158,7 +178,9 @@ const tablets = products.filter((product) => product.category === 'Industrial Ta
           <span class="eyebrow">{copy.faq.eyebrow}</span>
           <h2>{copy.faq.titleLine1}<br />{copy.faq.titleLine2}</h2>
           <p>{copy.faq.body}</p>
-          <div class="mt-36"><a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.faq.cta} ↗</a></div>
+          <div class="mt-36">
+            <a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.faq.cta} ↗</a>
+          </div>
         </div>
         <div class="faq-list">
           {copy.faq.items.map((faq) => (

@@ -1,19 +1,19 @@
 ---
 import ProductDetailView from '../../../views/ProductDetailView.astro';
-import { getProducts } from '../../../data/products';
+import { getProductFamilies } from '../../../data/products/catalog';
 import { localizedRouteParams } from '../../../i18n/routes';
 import type { Locale } from '../../../i18n/config';
 
 export function getStaticPaths() {
   return localizedRouteParams().flatMap(({ params }) =>
-    getProducts(params.lang).map((product) => ({
-      params: { lang: params.lang, slug: product.slug },
-      props: { product }
+    getProductFamilies(params.lang).map((family) => ({
+      params: { lang: params.lang, slug: family.slug },
+      props: { family }
     }))
   );
 }
 
 const locale = Astro.params.lang as Locale;
-const { product } = Astro.props;
+const { family } = Astro.props;
 ---
-<ProductDetailView locale={locale} product={product} />
+<ProductDetailView locale={locale} family={family} />
