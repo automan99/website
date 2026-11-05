@@ -1,4 +1,5 @@
 import enProducts from '../../i18n/content/en/products.json';
+import zhProducts from '../../i18n/content/zh/products.json';
 import { getDictionary } from '../../i18n';
 import type { Locale } from '../../i18n/config';
 import { productBase, type ProductBase, type ProductCategory } from './base';
@@ -14,7 +15,8 @@ export type ProductCopy = {
 export type Product = ProductBase & ProductCopy;
 
 const copyByLocale: Partial<Record<Locale, Record<string, ProductCopy>>> = {
-  en: enProducts
+  en: enProducts,
+  zh: zhProducts
 };
 
 export function getProducts(locale: Locale): Product[] {

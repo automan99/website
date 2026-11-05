@@ -1,0 +1,12 @@
+---
+import ContactView from '../../views/ContactView.astro';
+import { localizedRouteParams } from '../../i18n/routes';
+import type { Locale } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return localizedRouteParams();
+}
+
+const locale = Astro.params.lang as Locale;
+---
+<ContactView locale={locale} />

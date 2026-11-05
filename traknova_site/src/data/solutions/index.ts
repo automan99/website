@@ -1,4 +1,5 @@
 import en from '../../i18n/content/en/solutions.json';
+import zh from '../../i18n/content/zh/solutions.json';
 import type { Locale } from '../../i18n/config';
 
 export type DeviceRef = {
@@ -59,7 +60,8 @@ export type SolutionsContent = {
 };
 
 const contentByLocale: Partial<Record<Locale, SolutionsContent>> = {
-  en
+  en,
+  zh
 };
 
 export function getSolutions(locale: Locale): SolutionsContent {

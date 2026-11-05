@@ -1,0 +1,12 @@
+---
+import SolutionsView from '../../../views/SolutionsView.astro';
+import { localizedRouteParams } from '../../../i18n/routes';
+import type { Locale } from '../../../i18n/config';
+
+export function getStaticPaths() {
+  return localizedRouteParams();
+}
+
+const locale = Astro.params.lang as Locale;
+---
+<SolutionsView locale={locale} />

@@ -5,7 +5,7 @@ export const DEFAULT_LOCALE: Locale = 'en';
 
 // Only these locales are built and offered in the language switcher.
 // Add a locale here after its dictionary and content files exist.
-export const ENABLED_LOCALES: readonly Locale[] = ['en'];
+export const ENABLED_LOCALES: readonly Locale[] = ['en', 'zh'];
 
 export type LocaleMeta = {
   nativeName: string;

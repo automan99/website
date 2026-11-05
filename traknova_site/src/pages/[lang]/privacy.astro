@@ -1,0 +1,13 @@
+---
+import LegalView from '../../views/LegalView.astro';
+import { privacyDocument } from '../../data/legal/en';
+import { localizedRouteParams } from '../../i18n/routes';
+import type { Locale } from '../../i18n/config';
+
+export function getStaticPaths() {
+  return localizedRouteParams();
+}
+
+const locale = Astro.params.lang as Locale;
+---
+<LegalView locale={locale} document={privacyDocument} />
