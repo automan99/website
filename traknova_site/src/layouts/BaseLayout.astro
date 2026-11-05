@@ -5,6 +5,7 @@ import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i1
 import { getDictionary } from '../i18n';
 import '../styles/global.css';
 import '../styles/enterprise.css';
+import '../styles/theme.css';
 
 interface Props {
   title?: string;
@@ -64,7 +65,7 @@ const organizationSchema = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="description" content={pageDescription} />
-    <meta name="theme-color" content="#101c2d" />
+    <meta name="theme-color" content="#08111c" />
     <link rel="icon" href={withBase('/favicon.svg')} type="image/svg+xml" />
     <link rel="canonical" href={canonical} />
     {ENABLED_LOCALES.map((enabled) => (
