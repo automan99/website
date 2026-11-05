@@ -6,8 +6,9 @@ import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import SolutionDeviceCard from '../components/SolutionDeviceCard.astro';
 import { localizedPath, withBase } from '../utils/paths';
-import { getSolutions, type Industry } from '../data/solutions';
-import { getProduct } from '../data/products';
+import { getSolutions, type DeviceRef, type Industry } from '../data/solutions';
+import { getProductHref } from '../data/products/catalog';
+import { resolveDeviceRef, type ResolvedDevice } from '../data/solutions/devices';
 import { site } from '../data/site';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
@@ -21,12 +22,34 @@ const { locale, industry } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.solutions;
 const { detail, deploymentSteps, industries } = getSolutions(locale);
-const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
+const resolveScenarioDevices = (refs: DeviceRef[]): ResolvedDevice[] => {
+  const seen = new Set<string>();
+  const resolvedDevices: ResolvedDevice[] = [];
+  for (const ref of refs) {
+    const resolved = resolveDeviceRef(locale, ref);
+    const key = `${resolved.family.id}#${resolved.variant.id}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    resolvedDevices.push(resolved);
+  }
+  return resolvedDevices;
+};
 
-const deviceSlugs = [...new Set(industry.scenarios.flatMap((scenario) => scenario.devices.map((device) => device.slug)))];
-const devices = deviceSlugs
-  .map((slug) => getProduct(locale, slug))
-  .filter((product): product is NonNullable<typeof product> => Boolean(product));
+const deviceRefs = [
+  ...new Map(
+    industry.scenarios
+      .flatMap((scenario) => scenario.devices)
+      .map((device) => [`${device.slug}#${device.variant ?? ''}`, device])
+  ).values()
+];
+const devices = [
+  ...new Map(
+    deviceRefs.map((ref) => {
+      const resolved = resolveDeviceRef(locale, ref);
+      return [`${resolved.family.id}#${resolved.variant.id}`, resolved];
+    })
+  ).values()
+];
 const otherIndustries = industries.filter((item) => item.slug !== industry.slug);
 
 const imagePath = withBase(`/images/solutions/${industry.image.base}-2000.webp`);
@@ -155,8 +178,10 @@ const serviceSchema = {
                   <div>
                     <span class="mini-label">{copy.setupLabel}</span>
                     <div class="sol-device-links">
-                      {scenario.devices.map((device) => (
-                        <a href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span aria-hidden="true">›</span></a>
+                      {resolveScenarioDevices(scenario.devices).map(({ family, variant }) => (
+                        <a href={localizedPath(locale, getProductHref(family, variant.id))}>
+                          {variant.name} <span aria-hidden="true">›</span>
+                        </a>
                       ))}
                     </div>
                   </div>
@@ -179,7 +204,14 @@ const serviceSchema = {
           <p>{detail.devicesBody}</p>
         </div>
         <div class:list={['sol-device-grid', `is-${devices.length}`]}>
-          {devices.map((product) => <SolutionDeviceCard product={product} locale={locale} label={detail.viewProduct} />)}
+          {devices.map((device) => (
+            <SolutionDeviceCard
+              family={device.family}
+              variant={device.variant}
+              locale={locale}
+              label={detail.viewProduct}
+            />
+          ))}
         </div>
       </div>
     </section>

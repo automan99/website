@@ -16,7 +16,8 @@
       "title": "计算",
       "body": "单手任务选择手持终端；需要更大屏幕、Windows 软件和设备 I/O 时选择平板。",
       "tags": [
-        "加固型 PDA",
+        "RFID 手持终端",
+        "条码手持终端",
         "Android 平板",
         "Windows 平板"
       ]
@@ -66,16 +67,20 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             },
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -83,7 +88,7 @@
             "码头人员把时间花在搬运货物上，而不是反复清点。",
             "WMS 库存在收货班次内即可反映现场实际情况。"
           ],
-          "note": "异常标签使用配置好的 HT800 或兼容的配对打印机。请确认该 SKU 的介质和打印宽度。"
+          "note": "异常标签使用配置好的条码采集设备或兼容的配对打印机。请确认该 SKU 的介质和打印宽度。"
         },
         {
           "title": "RFID 循环盘点",
@@ -97,13 +102,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -124,13 +132,12 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "ht800-scan-print-pda"
-            },
-            {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -138,7 +145,7 @@
             "减少打包台与办公室打印机之间的往返和重打。",
             "客服可以实时查看发运状态。"
           ],
-          "note": "工位打印需要配置好的 HT800 或兼容的标签打印机。"
+          "note": "工位打印需要配置好的设备或兼容的标签打印机。"
         }
       ],
       "slug": "logistics",
@@ -219,13 +226,12 @@
           ],
           "devices": [
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "ht520-multifunction-pda"
-            },
-            {
-              "slug": "y100-rugged-android-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -246,13 +252,12 @@
           ],
           "devices": [
             {
-              "slug": "ht510-rugged-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "ht520-multifunction-pda"
-            },
-            {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -273,13 +278,12 @@
           ],
           "devices": [
             {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "y100-rugged-android-tablet"
-            },
-            {
-              "slug": "ht510-rugged-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             }
           ],
           "outcomes": [
@@ -287,7 +291,7 @@
             "发现的问题在下一班次前到达维护团队。",
             "在需要时通过有线方式连接 legacy 设备。"
           ],
-          "note": "RS232 / RS485 和 RJ45 连接取决于 A100 的 SKU 和配置。报价前请确认所需端口。"
+          "note": "连接与转接要求取决于所选平板配置。报价前请确认所需端口与转接线。"
         }
       ],
       "slug": "manufacturing",
@@ -368,13 +372,12 @@
           ],
           "devices": [
             {
-              "slug": "ht400-rugged-barcode-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "ht510-rugged-pda"
-            },
-            {
-              "slug": "y70-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -395,13 +398,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -422,13 +428,12 @@
           ],
           "devices": [
             {
-              "slug": "ht800-scan-print-pda"
+              "slug": "y100-series",
+              "variant": "standard"
             },
             {
-              "slug": "ht400-rugged-barcode-pda"
-            },
-            {
-              "slug": "ht510-rugged-pda"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             }
           ],
           "outcomes": [
@@ -436,7 +441,7 @@
             "减少前往后台打印机的往返。",
             "价格变更保持一致。"
           ],
-          "note": "HT800 移动打印取决于配置。部署前请确认打印模块、介质和打印宽度。"
+          "note": "标签工作流使用配置好的扫描设备或兼容的配对打印机。部署前请确认介质和打印宽度。"
         }
       ],
       "slug": "retail",
@@ -517,13 +522,8 @@
           ],
           "devices": [
             {
-              "slug": "y70-rugged-tablet"
-            },
-            {
-              "slug": "y100-rugged-android-tablet"
-            },
-            {
-              "slug": "a100-windows-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -544,13 +544,16 @@
           ],
           "devices": [
             {
-              "slug": "ht550-uhf-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-rfid-handheld"
+              "slug": "rfid-handhelds",
+              "variant": "uhf"
             },
             {
-              "slug": "y100-uhf-rfid-tablet"
+              "slug": "y100-series",
+              "variant": "rfid"
             }
           ],
           "outcomes": [
@@ -571,13 +574,8 @@
           ],
           "devices": [
             {
-              "slug": "ht800-scan-print-pda"
-            },
-            {
-              "slug": "ht530-document-id-pda"
-            },
-            {
-              "slug": "y70-rugged-tablet"
+              "slug": "y100-series",
+              "variant": "standard"
             }
           ],
           "outcomes": [
@@ -585,7 +583,7 @@
             "现场贴标和文档处理。",
             "减少因缺少文书而产生的返访。"
           ],
-          "note": "HT530 文档读取需要相应的区域模块和获批的文档支持。部署前请确认。"
+          "note": "文档与身份采集要求需按所选配置和目标区域确认，部署前请核实。"
         }
       ],
       "slug": "field-service",
@@ -650,32 +648,34 @@
   ],
   "specializedWorkflows": [
     {
-      "eyebrow": "面向医疗的工作流程",
-      "title": "HT510 医疗版",
-      "body": "面向床旁识别、样本与给药支持以及设备检查的手持配置。医疗部署需要结合当地要求进行工作流程验证。",
+      "eyebrow": "近距离识别",
+      "title": "RFID 手持终端系列 HF 配置",
+      "body": "面向卡片、标签与 NFC 近距离识别工作流的 HF RFID 手持机。配置与配件按项目工作流和区域要求确认。",
       "points": [
-        "患者、样本和资产识别",
-        "适合床旁任务的单手形态",
-        "清洁和消毒要求以获批配置确认"
+        "卡片、标签与 NFC 识别",
+        "5.5 英寸单手手持形态",
+        "条码与 PSAM 模块可选"
       ],
       "devices": [
         {
-          "slug": "ht510-rugged-pda"
+          "slug": "rfid-handhelds",
+          "variant": "hf"
         }
       ]
     },
     {
-      "eyebrow": "文档与身份采集",
-      "title": "HT530 文档与证件采集",
-      "body": "面向服务柜台、受控出入和现场核验的专用手持终端，用于读取并记录身份或文档。读取器兼容性因国家和文档类型而异。",
+      "eyebrow": "文档与身份工作流",
+      "title": "Y100 Series 加固平板",
+      "body": "面向柜台、现场与巡检工作流的 10.1 英寸加固平板，适合需要更大屏幕与可选数据采集的场景。身份与文档模块按项目和目标国家确认。",
       "points": [
-        "柜台与现场身份工作流程",
-        "文档读取模块按区域确认",
-        "面向受控的企业和公共服务部署"
+        "更大屏幕用于核验与记录",
+        "条码、NFC、UHF RFID 或指纹可选",
+        "配置按区域确认"
       ],
       "devices": [
         {
-          "slug": "ht530-document-id-pda"
+          "slug": "y100-series",
+          "variant": "standard"
         }
       ]
     }
@@ -684,25 +684,25 @@
     {
       "industry": "仓储与物流",
       "tasks": "收货、上架、循环盘点、拣选、打包、发运",
-      "devices": "HT400 · HT550 · HT800 · Y100 RFID",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "1D / 2D 条码、UHF RFID、移动打印"
     },
     {
       "industry": "制造",
       "tasks": "工单、在制品、配料、追溯、维护巡检",
-      "devices": "HT510 · HT520 · A100 · Y100",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "条码、NFC、有线 I/O、照片证据"
     },
     {
       "industry": "零售与商业",
       "tasks": "补货、价格检查、盘点、标签打印",
-      "devices": "HT400 · HT540 · HT550 · HT800 · Y70",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "条码、UHF RFID、移动打印"
     },
     {
       "industry": "现场服务与资产",
       "tasks": "巡检、工单、资产盘点、现场文档",
-      "devices": "Y70 · Y100 · HT550 · HT530 · HT800",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "条码、UHF RFID、文档读取、移动打印"
     }
   ],
@@ -757,7 +757,7 @@
         "label": "现场场景"
       },
       {
-        "value": "03",
+        "value": "04",
         "label": "设备系列"
       },
       {

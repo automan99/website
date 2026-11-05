@@ -1,8 +1,9 @@
 ---
 import { site } from '../data/site';
-import { localizedPath } from '../utils/paths';
+import { withBase, localizedPath } from '../utils/paths';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
+import { getProductFamilies } from '../data/products/catalog';
 
 interface Props {
   locale?: Locale;
@@ -10,17 +11,18 @@ interface Props {
 
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale);
+const families = getProductFamilies(locale);
 ---
 <footer class="footer"><div class="wrap footer-grid">
   <div>
-    <a class="logo logo-light" href={localizedPath(locale, '/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
+    <a class="logo logo-light" href={localizedPath(locale, '/')}><img class="logo-mark" src={withBase('/images/brand/logo.png')} alt="" width="38" height="38" decoding="async" /><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
     <p>{dict.footer.description}</p>
   </div>
   <div>
     <h4>{dict.footer.columns.productsTitle}</h4>
-    <a href={localizedPath(locale, '/products/#rugged-pda')}>{dict.footer.columns.productsRuggedPda}</a>
-    <a href={localizedPath(locale, '/products/#rfid')}>{dict.footer.columns.productsRfid}</a>
-    <a href={localizedPath(locale, '/products/#industrial-tablets')}>{dict.footer.columns.productsTablets}</a>
+    {families.map((family) => (
+      <a href={localizedPath(locale, `/products/${family.slug}/`)}>{family.name}</a>
+    ))}
     <a href={localizedPath(locale, '/products/')}>{dict.footer.columns.productsAll}</a>
   </div>
   <div>

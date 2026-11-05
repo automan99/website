@@ -6,7 +6,8 @@ import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import { localizedPath, withBase } from '../utils/paths';
 import { getSolutions } from '../data/solutions';
-import { getProduct } from '../data/products';
+import { getProductHref } from '../data/products/catalog';
+import { resolveDeviceRef } from '../data/solutions/devices';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -25,7 +26,6 @@ const {
   deploymentSteps,
   overview
 } = getSolutions(locale);
-const labelFor = (slug: string) => getProduct(locale, slug)?.name ?? slug;
 const heroAlt = locale === 'zh'
   ? '仓库员工使用手持终端和平板扫描库存'
   : 'Warehouse associate scanning inventory with a handheld computer and tablet';
@@ -181,9 +181,14 @@ const heroImageUrl = Astro.site ? new URL(heroImagePath, Astro.site).href : hero
               <p>{item.body}</p>
               <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
               <div class="device-list special-devices">
-                {item.devices.map((device) => (
-                  <a class="device-link" href={localizedPath(locale, `/products/${device.slug}/`)}>{labelFor(device.slug)} <span>›</span></a>
-                ))}
+                {item.devices.map((device) => {
+                  const { family, variant } = resolveDeviceRef(locale, device);
+                  return (
+                    <a class="device-link" href={localizedPath(locale, getProductHref(family, variant.id))}>
+                      {variant.name} <span>›</span>
+                    </a>
+                  );
+                })}
               </div>
             </article>
           ))}

@@ -1,0 +1,688 @@
+{
+  "id": "rfid-handhelds",
+  "order": 1,
+  "slug": "rfid-handhelds",
+  "series": "RFID Handheld Series",
+  "category": "rfid-handheld",
+  "formFactor": "5.5-inch handhelds",
+  "tags": [
+    "LF · HF · UHF",
+    "Android 10 / 13",
+    "IP65 / IP67"
+  ],
+  "defaultVariant": "uhf",
+  "heroImage": "/images/products/ht550/ht550-front.webp",
+  "kpis": [
+    {
+      "label": "RFID",
+      "value": "LF / HF / UHF"
+    },
+    {
+      "label": "Read range",
+      "value": "Up to 15 m"
+    },
+    {
+      "label": "Protection",
+      "value": "IP65 / IP67"
+    }
+  ],
+  "comparison": {
+    "formFactor": "5.5-inch handhelds",
+    "capture": "LF, HF or UHF RFID; optional 1D/2D scanner",
+    "os": "Android 10 / 13",
+    "battery": "4,900 / 9,600 mAh",
+    "protection": "IP65 / IP67",
+    "bestFor": "Close-range identification, bulk inventory and asset audits"
+  },
+  "variantComparison": [
+    {
+      "label": "RFID band",
+      "values": {
+        "lf": "125 / 134.2 kHz",
+        "hf": "13.56 MHz",
+        "uhf": "860–960 MHz",
+        "ht550": "860–960 MHz"
+      }
+    },
+    {
+      "label": "Read range",
+      "values": {
+        "lf": "≤10 cm",
+        "hf": "1–3 cm",
+        "uhf": "1–3 m",
+        "ht550": "Up to 15 m (MR6 tag)"
+      }
+    },
+    {
+      "label": "Platform",
+      "values": {
+        "lf": "HT540 · Android 10 · IP65",
+        "hf": "HT540 · Android 10 · IP65",
+        "uhf": "HT540 · Android 10 · IP65",
+        "ht550": "HT550 · Android 13 · IP67"
+      }
+    },
+    {
+      "label": "Battery",
+      "values": {
+        "lf": "4,900 mAh",
+        "hf": "4,900 mAh",
+        "uhf": "4,900 mAh",
+        "ht550": "9,600 mAh"
+      }
+    },
+    {
+      "label": "Typical use",
+      "values": {
+        "lf": "Animal ID, access control and close-range asset tags",
+        "hf": "Cards, labels and NFC workflows",
+        "uhf": "Item-level stock counts and asset audits",
+        "ht550": "Bulk inventory, asset tracking and long-range counting"
+      }
+    }
+  ],
+  "sharedSpecGroups": [
+    {
+      "id": "common",
+      "label": "Common platform",
+      "items": [
+        {
+          "label": "Display",
+          "value": "5.5 in, 720 × 1440"
+        },
+        {
+          "label": "Connectivity",
+          "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0"
+        },
+        {
+          "label": "GNSS",
+          "value": "GPS, GLONASS, Galileo, BeiDou"
+        },
+        {
+          "label": "Interface",
+          "value": "USB Type-C with OTG"
+        },
+        {
+          "label": "Scan keys",
+          "value": "Physical scan keys"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "lf",
+      "model": "HT540-LF",
+      "image": "/images/products/ht540/ht540-lf-front.webp",
+      "gallery": [
+        {
+          "src": "/images/products/ht540/ht540-lf-front.webp",
+          "view": "front"
+        },
+        {
+          "src": "/images/products/ht540/ht540-lf-angle.webp",
+          "view": "angle"
+        }
+      ],
+      "keySpecs": [
+        {
+          "label": "RFID",
+          "value": "125 / 134.2 kHz"
+        },
+        {
+          "label": "Read range",
+          "value": "≤10 cm"
+        },
+        {
+          "label": "OS",
+          "value": "Android 10"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65"
+        }
+      ],
+      "specGroups": [
+        {
+          "id": "platform",
+          "label": "Platform",
+          "items": [
+            {
+              "label": "Display",
+              "value": "5.5 in, 720 × 1440"
+            },
+            {
+              "label": "Processor",
+              "value": "MediaTek MT6762, 8-core up to 2.0 GHz"
+            },
+            {
+              "label": "Operating system",
+              "value": "Android 10"
+            },
+            {
+              "label": "Memory / storage",
+              "value": "2 GB + 16 GB standard; 4 GB + 64 GB optional"
+            },
+            {
+              "label": "Storage expansion",
+              "value": "microSD up to 256 GB"
+            },
+            {
+              "label": "Rear camera",
+              "value": "13 MP with autofocus and flash"
+            },
+            {
+              "label": "Front camera",
+              "value": "5 MP optional"
+            },
+            {
+              "label": "Battery",
+              "value": "4,900 mAh, replaceable"
+            },
+            {
+              "label": "Connectivity",
+              "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0"
+            },
+            {
+              "label": "GNSS",
+              "value": "GPS, GLONASS, Galileo, BeiDou"
+            },
+            {
+              "label": "Interface",
+              "value": "USB Type-C with OTG"
+            }
+          ]
+        },
+        {
+          "id": "rfid",
+          "label": "LF RFID",
+          "items": [
+            {
+              "label": "Frequency",
+              "value": "125 kHz / 134.2 kHz (FDX-B / HDX)"
+            },
+            {
+              "label": "Protocol",
+              "value": "ISO 11784 / ISO 11785"
+            },
+            {
+              "label": "Read range",
+              "value": "Within 10 cm"
+            },
+            {
+              "label": "Typical tags",
+              "value": "Animal ID, access control and close-range asset tags"
+            }
+          ]
+        },
+        {
+          "id": "durability",
+          "label": "Durability",
+          "items": [
+            {
+              "label": "Protection",
+              "value": "IP65"
+            },
+            {
+              "label": "Drop resistance",
+              "value": "1.2 m"
+            },
+            {
+              "label": "Operating temperature",
+              "value": "-20 to 55 °C"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": [
+            "1D/2D barcode scanner",
+            "NFC"
+          ]
+        }
+      ],
+      "label": "HT540 LF"
+    },
+    {
+      "id": "hf",
+      "model": "HT540-HF",
+      "image": "/images/products/ht540/ht540-hf-front.webp",
+      "gallery": [
+        {
+          "src": "/images/products/ht540/ht540-hf-front.webp",
+          "view": "front"
+        },
+        {
+          "src": "/images/products/ht540/ht540-hf-angle.webp",
+          "view": "angle"
+        }
+      ],
+      "keySpecs": [
+        {
+          "label": "RFID",
+          "value": "13.56 MHz"
+        },
+        {
+          "label": "Read range",
+          "value": "1–3 cm"
+        },
+        {
+          "label": "OS",
+          "value": "Android 10"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65"
+        }
+      ],
+      "specGroups": [
+        {
+          "id": "platform",
+          "label": "Platform",
+          "items": [
+            {
+              "label": "Display",
+              "value": "5.5 in, 720 × 1440"
+            },
+            {
+              "label": "Processor",
+              "value": "MediaTek MT6762, 8-core up to 2.0 GHz"
+            },
+            {
+              "label": "Operating system",
+              "value": "Android 10"
+            },
+            {
+              "label": "Memory / storage",
+              "value": "2 GB + 16 GB standard; 4 GB + 64 GB optional"
+            },
+            {
+              "label": "Storage expansion",
+              "value": "microSD up to 256 GB"
+            },
+            {
+              "label": "Rear camera",
+              "value": "13 MP with autofocus and flash"
+            },
+            {
+              "label": "Front camera",
+              "value": "5 MP optional"
+            },
+            {
+              "label": "Battery",
+              "value": "4,900 mAh, replaceable"
+            },
+            {
+              "label": "Connectivity",
+              "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0"
+            },
+            {
+              "label": "GNSS",
+              "value": "GPS, GLONASS, Galileo, BeiDou"
+            },
+            {
+              "label": "Interface",
+              "value": "USB Type-C with OTG"
+            }
+          ]
+        },
+        {
+          "id": "rfid",
+          "label": "HF RFID",
+          "items": [
+            {
+              "label": "Frequency",
+              "value": "13.56 MHz"
+            },
+            {
+              "label": "Protocol",
+              "value": "ISO 14443A/B, ISO 15693, NFC"
+            },
+            {
+              "label": "Read range",
+              "value": "1–3 cm"
+            },
+            {
+              "label": "Typical tags",
+              "value": "Cards, labels and NFC workflows"
+            }
+          ]
+        },
+        {
+          "id": "durability",
+          "label": "Durability",
+          "items": [
+            {
+              "label": "Protection",
+              "value": "IP65"
+            },
+            {
+              "label": "Drop resistance",
+              "value": "1.2 m"
+            },
+            {
+              "label": "Operating temperature",
+              "value": "-20 to 55 °C"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": [
+            "1D/2D barcode scanner",
+            "PSAM"
+          ]
+        }
+      ],
+      "label": "HT540 HF"
+    },
+    {
+      "id": "uhf",
+      "model": "HT540-UHF",
+      "image": "/images/products/ht540/ht540-uhf-front.webp",
+      "gallery": [
+        {
+          "src": "/images/products/ht540/ht540-uhf-front.webp",
+          "view": "front"
+        },
+        {
+          "src": "/images/products/ht540/ht540-uhf-angle.webp",
+          "view": "angle"
+        }
+      ],
+      "keySpecs": [
+        {
+          "label": "RFID",
+          "value": "UHF 860–960 MHz"
+        },
+        {
+          "label": "Read range",
+          "value": "1–3 m"
+        },
+        {
+          "label": "OS",
+          "value": "Android 10"
+        },
+        {
+          "label": "Protection",
+          "value": "IP65"
+        }
+      ],
+      "specGroups": [
+        {
+          "id": "platform",
+          "label": "Platform",
+          "items": [
+            {
+              "label": "Display",
+              "value": "5.5 in, 720 × 1440"
+            },
+            {
+              "label": "Processor",
+              "value": "MediaTek MT6762, 8-core up to 2.0 GHz"
+            },
+            {
+              "label": "Operating system",
+              "value": "Android 10"
+            },
+            {
+              "label": "Memory / storage",
+              "value": "2 GB + 16 GB standard; 4 GB + 64 GB optional"
+            },
+            {
+              "label": "Storage expansion",
+              "value": "microSD up to 256 GB"
+            },
+            {
+              "label": "Rear camera",
+              "value": "13 MP with autofocus and flash"
+            },
+            {
+              "label": "Front camera",
+              "value": "5 MP optional"
+            },
+            {
+              "label": "Battery",
+              "value": "4,900 mAh, replaceable"
+            },
+            {
+              "label": "Connectivity",
+              "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0"
+            },
+            {
+              "label": "GNSS",
+              "value": "GPS, GLONASS, Galileo, BeiDou"
+            },
+            {
+              "label": "Interface",
+              "value": "USB Type-C with OTG"
+            }
+          ]
+        },
+        {
+          "id": "rfid",
+          "label": "UHF RFID",
+          "items": [
+            {
+              "label": "Frequency",
+              "value": "865–868 / 902–928 / 920–925 MHz"
+            },
+            {
+              "label": "Protocol",
+              "value": "EPC C1 Gen2 / ISO 18000-6C"
+            },
+            {
+              "label": "Antenna",
+              "value": "3 dBi circularly polarized ceramic antenna"
+            },
+            {
+              "label": "Read range",
+              "value": "1–3 m, depending on tag and environment"
+            }
+          ]
+        },
+        {
+          "id": "durability",
+          "label": "Durability",
+          "items": [
+            {
+              "label": "Protection",
+              "value": "IP65"
+            },
+            {
+              "label": "Drop resistance",
+              "value": "1.2 m"
+            },
+            {
+              "label": "Operating temperature",
+              "value": "-20 to 55 °C"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": [
+            "1D/2D barcode scanner",
+            "NFC",
+            "PSAM"
+          ]
+        }
+      ],
+      "label": "HT540 UHF"
+    },
+    {
+      "id": "ht550",
+      "model": "HT550",
+      "image": "/images/products/ht550/ht550-front.webp",
+      "gallery": [
+        {
+          "src": "/images/products/ht550/ht550-front.webp",
+          "view": "front"
+        },
+        {
+          "src": "/images/products/ht550/ht550-angle.webp",
+          "view": "angle"
+        }
+      ],
+      "keySpecs": [
+        {
+          "label": "RFID",
+          "value": "UHF 860–960 MHz"
+        },
+        {
+          "label": "Read range",
+          "value": "1–20 m"
+        },
+        {
+          "label": "OS",
+          "value": "Android 13"
+        },
+        {
+          "label": "Protection",
+          "value": "IP67"
+        }
+      ],
+      "specGroups": [
+        {
+          "id": "platform",
+          "label": "Platform",
+          "items": [
+            {
+              "label": "Processor",
+              "value": "8-core, 4×A53 2.0 GHz + 4×A53 1.5 GHz"
+            },
+            {
+              "label": "Operating system",
+              "value": "Android 13"
+            },
+            {
+              "label": "Memory / storage",
+              "value": "3 GB + 32 GB standard; 4 GB + 64 GB optional"
+            },
+            {
+              "label": "Storage expansion",
+              "value": "microSD up to 256 GB"
+            },
+            {
+              "label": "Display",
+              "value": "5.5 in, 720 × 1440"
+            },
+            {
+              "label": "Rear camera",
+              "value": "16 MP with autofocus and flash"
+            },
+            {
+              "label": "Front camera",
+              "value": "5 MP optional"
+            },
+            {
+              "label": "Battery",
+              "value": "9,600 mAh polymer lithium battery"
+            },
+            {
+              "label": "Charging",
+              "value": "18 W fast charging; Type-C 5 V / 2 A; 3–4 h typical"
+            },
+            {
+              "label": "Runtime",
+              "value": "Standby >350 h; working >10 h depending on environment"
+            },
+            {
+              "label": "Connectivity",
+              "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0"
+            },
+            {
+              "label": "GNSS",
+              "value": "GPS, GLONASS, Galileo, BeiDou"
+            },
+            {
+              "label": "Dimensions",
+              "value": "171 × 88 × 138 mm"
+            },
+            {
+              "label": "Weight",
+              "value": "680 g"
+            }
+          ]
+        },
+        {
+          "id": "environment",
+          "label": "Environment",
+          "items": [
+            {
+              "label": "Protection",
+              "value": "IP67, host only (excluding shield and handle)"
+            },
+            {
+              "label": "Drop resistance",
+              "value": "1.2 m onto concrete"
+            },
+            {
+              "label": "Operating temperature",
+              "value": "-20 to 55 °C"
+            },
+            {
+              "label": "Storage temperature",
+              "value": "-40 to 70 °C without battery"
+            },
+            {
+              "label": "Humidity",
+              "value": "0–95%, non-condensing"
+            },
+            {
+              "label": "ESD",
+              "value": "±15 kV air discharge; ±8 kV contact discharge"
+            }
+          ]
+        },
+        {
+          "id": "rfid",
+          "label": "UHF RFID",
+          "items": [
+            {
+              "label": "Module",
+              "value": "Impinj E-series UHF RFID module"
+            },
+            {
+              "label": "Frequency",
+              "value": "860–960 MHz; China 920–925 MHz, US 902–928 MHz, other bands customizable"
+            },
+            {
+              "label": "Protocol",
+              "value": "EPC C1 Gen2 / ISO 18000-6C; GJB7377.1A-2018 optional"
+            },
+            {
+              "label": "Antenna",
+              "value": "4 dBi circularly polarized four-arm spiral antenna"
+            },
+            {
+              "label": "Read distance",
+              "value": "Module rating 1–20 m; about 15 m with Impinj MR6 tag in open outdoor conditions"
+            },
+            {
+              "label": "Group read rate",
+              "value": "Up to 2,000 tags per 10 seconds"
+            }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": [
+            "1D/2D barcode scanner",
+            "5 MP front camera",
+            "Charging dock"
+          ]
+        }
+      ],
+      "label": "HT550"
+    }
+  ]
+}

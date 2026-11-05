@@ -14,5 +14,11 @@ export default defineConfig({
     })
   ],
   output: 'static',
-  build: { format: 'directory' }
+  build: { format: 'directory' },
+  redirects: {
+    '/products/ht540-series': '/website/products/rfid-handhelds',
+    '/products/ht550': '/website/products/rfid-handhelds',
+    '/zh/products/ht540-series': '/website/zh/products/rfid-handhelds',
+    '/zh/products/ht550': '/website/zh/products/rfid-handhelds'
+  }
 });

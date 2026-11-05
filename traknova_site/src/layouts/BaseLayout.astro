@@ -11,10 +11,20 @@ interface Props {
   description?: string;
   image?: string;
   imageAlt?: string;
+  imageWidth?: number;
+  imageHeight?: number;
   locale?: Locale;
 }
 
-const { title, description, image, imageAlt, locale = DEFAULT_LOCALE } = Astro.props;
+const {
+  title,
+  description,
+  image,
+  imageAlt,
+  imageWidth = 2000,
+  imageHeight = 1125,
+  locale = DEFAULT_LOCALE
+} = Astro.props;
 const dict = getDictionary(locale);
 const pageTitle = title ?? site.brand;
 const pageDescription = description ?? dict.site.description;
@@ -68,8 +78,8 @@ const organizationSchema = {
     <meta property="og:url" content={canonical} />
     {socialImage && <meta property="og:image" content={socialImage} />}
     {socialImage && <meta property="og:image:alt" content={imageAlt ?? pageTitle} />}
-    {socialImage && <meta property="og:image:width" content="2000" />}
-    {socialImage && <meta property="og:image:height" content="1125" />}
+    {socialImage && <meta property="og:image:width" content={String(imageWidth)} />}
+    {socialImage && <meta property="og:image:height" content={String(imageHeight)} />}
     <meta property="og:locale" content={LOCALE_META[locale].ogLocale} />
     {ENABLED_LOCALES.filter((enabled) => enabled !== locale).map((enabled) => (
       <meta property="og:locale:alternate" content={LOCALE_META[enabled].ogLocale} />
@@ -98,23 +108,6 @@ const organizationSchema = {
       document.querySelector('#inquiry-dialog')?.addEventListener('click', (e) => {
         if (e.target === e.currentTarget) e.currentTarget.classList.remove('is-open');
       });
-      document.querySelectorAll('.product-image img, .detail-image img').forEach((img) => {
-        img.addEventListener('error', () => {
-          if (!img.dataset.fallbackApplied) {
-            img.dataset.fallbackApplied = 'true';
-            img.src = import.meta.env.BASE_URL + '/images/products/product-placeholder.svg';
-          }
-        });
-      });
-      document.querySelectorAll('[data-filter]').forEach((button) => button.addEventListener('click', () => {
-        document.querySelectorAll('[data-filter]').forEach((b) => b.classList.remove('active'));
-        button.classList.add('active');
-        const category = button.getAttribute('data-filter');
-        document.querySelectorAll('[data-product-category]').forEach((card) => {
-          const match = category === 'all' || card.getAttribute('data-product-category') === category;
-          card.classList.toggle('is-hidden', !match);
-        });
-      }));
       document.querySelectorAll('[data-print-brief]').forEach((el) => {
         el.addEventListener('click', () => window.print());
       });

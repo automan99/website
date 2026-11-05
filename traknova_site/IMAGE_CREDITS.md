@@ -1,5 +1,24 @@
 # Image credits
 
+## Home page
+
+- `public/images/home/oem-assembly.webp` — Exploded view of an RFID handheld
+  showing its screen, housing, mainboard, battery and scan handle.
+  Source: company-supplied product artwork
+  (`产品素材/首页/RFID-PDA部件分解图-精简版.png`).
+  Background removed and converted to WebP by
+  `scripts/prepare-oem-assembly.py`.
+
+Company product artwork, not stock photography.
+
+## Products page
+
+- `public/images/products/hero-lineup.webp` — Composed lineup of the RFID
+  handheld, barcode handheld and rugged tablet cut-outs.
+  Sources: company-supplied product artwork under `public/images/products/`
+  (HT550, HT600 and Y100 front renders).
+  Composed on a transparent background by `scripts/prepare-product-hero.py`.
+
 ## About page
 
 - `public/images/about-warehouse.webp` — Warehouse racking and inventory.

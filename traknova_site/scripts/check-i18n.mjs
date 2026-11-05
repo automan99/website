@@ -4,7 +4,7 @@
  *
  * - Every dictionary must have exactly the same key paths as en.json.
  * - No dictionary string may contain HTML tags (plain text only).
- * - Product content must cover the same 12 slugs in every locale.
+ * - Product content must cover the same product-line ids in every locale.
  * - Solution content must have the same top-level keys, industry ids and
  *   scenario counts in every locale.
  *
@@ -108,20 +108,11 @@ for (const file of localeFiles) {
 }
 
 // ---- product content ----
-const EXPECTED_SLUGS = [
-  'ht400-rugged-barcode-pda',
-  'ht510-rugged-pda',
-  'ht520-multifunction-pda',
-  'ht530-document-id-pda',
-  'ht800-scan-print-pda',
-  'ht540-rfid-handheld',
-  'ht550-uhf-rfid-handheld',
-  'y100-uhf-rfid-tablet',
-  'y100-rugged-android-tablet',
-  'y70-rugged-tablet',
-  'a100-windows-rugged-tablet',
-  't120a-windows-industrial-tablet'
-];
+const productDataDir = join(root, 'src/data/products');
+const EXPECTED_SLUGS = readdirSync(productDataDir)
+  .filter((name) => name.endsWith('.json'))
+  .map((name) => readJson(join(productDataDir, name))?.id)
+  .filter(Boolean);
 
 function contentLocales(subdir) {
   const dir = join(contentDir, subdir);
@@ -145,6 +136,9 @@ if (enProducts) {
   const enSlugs = Object.keys(enProducts).sort();
   for (const slug of EXPECTED_SLUGS) {
     if (!enSlugs.includes(slug)) errors.push(`en products: missing slug "${slug}"`);
+  }
+  for (const slug of enSlugs) {
+    if (!EXPECTED_SLUGS.includes(slug)) errors.push(`en products: extra slug "${slug}"`);
   }
   for (const locale of productLocales.filter((name) => name !== 'en')) {
     const data = readJson(join(contentDir, locale, 'products.json'));

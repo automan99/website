@@ -1,0 +1,407 @@
+{
+  "id": "y100",
+  "order": 3,
+  "slug": "y100-series",
+  "series": "Y100 Series",
+  "category": "rugged-tablet",
+  "formFactor": "10.1-inch tablet",
+  "tags": ["10.1\"", "Android 16", "IP67"],
+  "defaultVariant": "standard",
+  "heroImage": "/images/products/y100/y100-standard-front.webp",
+  "kpis": [
+    { "label": "Display", "value": "10.1 in" },
+    { "label": "Battery", "value": "10,000 mAh" },
+    { "label": "Protection", "value": "IP67" }
+  ],
+  "comparison": {
+    "formFactor": "10.1-inch tablet",
+    "capture": "Optional 1D/2D scanner; optional UHF or dedicated RFID version",
+    "os": "Android 16 (5G: Android 13)",
+    "battery": "10,000 mAh, 30 W PD",
+    "protection": "IP67",
+    "bestFor": "Inventory, inspection, field service and surveying"
+  },
+  "variantComparison": [
+    {
+      "label": "OS",
+      "values": {
+        "standard": "Android 16",
+        "rfid": "Android 16",
+        "rtk": "Android 16",
+        "fingerprint": "Android 16",
+        "5g": "Android 13"
+      }
+    },
+    {
+      "label": "Processor",
+      "values": {
+        "standard": "MT6789, 8-core 2.2 GHz",
+        "rfid": "MT6789, 8-core 2.2 GHz",
+        "rtk": "MT6789, 8-core 2.2 GHz",
+        "fingerprint": "MT6789, 8-core 2.2 GHz",
+        "5g": "UNISOC 7885, 8-core 2.7 GHz"
+      }
+    },
+    {
+      "label": "Memory",
+      "values": {
+        "standard": "8 GB + 128 GB",
+        "rfid": "8 GB + 128 GB",
+        "rtk": "6 GB + 128 GB",
+        "fingerprint": "6 GB + 128 GB",
+        "5g": "4 GB + 64 GB"
+      }
+    },
+    {
+      "label": "RFID",
+      "values": {
+        "standard": "Optional UHF module",
+        "rfid": "Impinj E-series, up to 10 m",
+        "rtk": "—",
+        "fingerprint": "—",
+        "5g": "Optional UHF module"
+      }
+    },
+    {
+      "label": "RTK",
+      "values": {
+        "standard": "Optional RTK module",
+        "rfid": "—",
+        "rtk": "1408 channels, 2.5 cm",
+        "fingerprint": "—",
+        "5g": "Optional module"
+      }
+    },
+    {
+      "label": "5G",
+      "values": {
+        "standard": "—",
+        "rfid": "—",
+        "rtk": "—",
+        "fingerprint": "—",
+        "5g": "5G NR"
+      }
+    }
+  ],
+  "sharedSpecGroups": [
+    {
+      "id": "power",
+      "label": "Power",
+      "items": [
+        { "label": "Battery", "value": "10,000 mAh polymer lithium battery" },
+        { "label": "Charging", "value": "30 W PD over Type-C; 2–3 h typical" },
+        { "label": "Standby time", "value": ">350 h" },
+        { "label": "Working time", "value": ">10 h depending on environment; 5G version >12 h" }
+      ]
+    },
+    {
+      "id": "body",
+      "label": "Display and body",
+      "items": [
+        { "label": "Display", "value": "10.1 in capacitive multi-touch, glove mode" },
+        { "label": "Rear camera", "value": "16 MP with autofocus and flash" },
+        { "label": "Front camera", "value": "5 MP optional" },
+        { "label": "Dimensions", "value": "290.6 × 182.5 × 18.5 mm" },
+        { "label": "Weight", "value": "980 g" },
+        { "label": "Protection", "value": "IP67" },
+        { "label": "Drop resistance", "value": "1.0 m onto concrete" },
+        { "label": "Operating temperature", "value": "-20 to 55 °C" },
+        { "label": "Storage temperature", "value": "-40 to 70 °C without battery" },
+        { "label": "Humidity", "value": "0–95%, non-condensing" },
+        { "label": "ESD", "value": "±15 kV air discharge; ±8 kV contact discharge" }
+      ]
+    },
+    {
+      "id": "connectivity",
+      "label": "Connectivity",
+      "items": [
+        { "label": "Cellular", "value": "4G LTE" },
+        { "label": "Wi-Fi", "value": "Dual-band 2.4 / 5 GHz, Wi-Fi 5" },
+        { "label": "Bluetooth", "value": "Bluetooth 5.0" },
+        { "label": "GNSS", "value": "GPS, GLONASS, Galileo, BeiDou" },
+        { "label": "Interfaces", "value": "USB-A 2.0 ×1; Type-C 2.0 ×1 with OTG, charging and data" },
+        { "label": "SIM / storage", "value": "2 nano SIM, or 1 nano SIM + TF card" }
+      ]
+    },
+    {
+      "id": "compliance",
+      "label": "Compliance",
+      "items": [
+        {
+          "label": "Certifications",
+          "value": "CE (NB), FCC, CCC, RoHS, MIL-STD-810H, UN38.3, MSDS, IEC 62133"
+        },
+        {
+          "label": "Documentation",
+          "value": "Per configuration; certificates available on request"
+        }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "standard",
+      "model": "Y100 Standard",
+      "image": "/images/products/y100/y100-standard-front.webp",
+      "gallery": [
+        { "src": "/images/products/y100/y100-standard-front.webp", "view": "front" },
+        { "src": "/images/products/y100/y100-standard-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "Display", "value": "10.1 in · 800 × 1280 · 550 nits" },
+        { "label": "OS", "value": "Android 16" },
+        { "label": "Battery", "value": "10,000 mAh · 30 W PD" },
+        { "label": "Protection", "value": "IP67 · 1.0 m drop" }
+      ],
+      "specGroups": [
+        {
+          "id": "system",
+          "label": "System",
+          "items": [
+            { "label": "Processor", "value": "MediaTek MT6789, 8-core up to 2.2 GHz" },
+            { "label": "Operating system", "value": "Android 16" },
+            { "label": "Memory / storage", "value": "8 GB + 128 GB; 8 GB + 256 GB optional" },
+            { "label": "Storage expansion", "value": "microSD up to 1 TB" }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "Display",
+          "items": [
+            { "label": "Standard", "value": "10.1 in, 800 × 1280, 550 nits" },
+            { "label": "Optional", "value": "10.1 in, 1920 × 1200 IPS, 600 nits" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC", "UHF RFID", "Fingerprint"]
+        }
+      ]
+    },
+    {
+      "id": "rfid",
+      "model": "Y100 RFID",
+      "image": "/images/products/y100/y100-rfid-front.webp",
+      "gallery": [
+        { "src": "/images/products/y100/y100-rfid-front.webp", "view": "front" },
+        { "src": "/images/products/y100/y100-rfid-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RFID", "value": "UHF 860–960 MHz" },
+        { "label": "Read range", "value": "Up to 10 m" },
+        { "label": "OS", "value": "Android 16" },
+        { "label": "Battery", "value": "10,000 mAh" }
+      ],
+      "specGroups": [
+        {
+          "id": "system",
+          "label": "System",
+          "items": [
+            { "label": "Processor", "value": "MediaTek MT6789, 8-core up to 2.2 GHz" },
+            { "label": "Operating system", "value": "Android 16" },
+            { "label": "Memory / storage", "value": "8 GB + 128 GB" },
+            { "label": "Storage expansion", "value": "microSD up to 1 TB" }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "Display",
+          "items": [
+            { "label": "Standard", "value": "10.1 in, 800 × 1280, 550 nits" },
+            { "label": "Optional", "value": "10.1 in, 1920 × 1200 IPS, 600 nits" }
+          ]
+        },
+        {
+          "id": "rfid",
+          "label": "UHF RFID",
+          "items": [
+            { "label": "Module", "value": "Impinj E710, E510 or Indy R2000" },
+            {
+              "label": "Frequency",
+              "value": "902–928 MHz / 865–868 MHz / 920–925 MHz; 860–960 MHz open range"
+            },
+            { "label": "Protocol", "value": "EPC C1 Gen2 / ISO 18000-6C" },
+            { "label": "Antenna", "value": "4 dBi circular polarization" },
+            { "label": "Read range", "value": "Up to 10 m in open outdoor conditions" },
+            { "label": "Read rate", "value": "150+ tags per second" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC", "Fingerprint"]
+        }
+      ]
+    },
+    {
+      "id": "rtk",
+      "model": "Y100 RTK",
+      "image": "/images/products/y100/y100-rtk-front.webp",
+      "gallery": [
+        { "src": "/images/products/y100/y100-rtk-front.webp", "view": "front" },
+        { "src": "/images/products/y100/y100-rtk-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RTK", "value": "1408 channels" },
+        { "label": "Accuracy", "value": "2.5 cm horizontal" },
+        { "label": "OS", "value": "Android 16" },
+        { "label": "Display", "value": "10.1 in · 800 nits" }
+      ],
+      "specGroups": [
+        {
+          "id": "system",
+          "label": "System",
+          "items": [
+            { "label": "Processor", "value": "MediaTek MT6789, 8-core up to 2.2 GHz" },
+            { "label": "Operating system", "value": "Android 16" },
+            {
+              "label": "Memory / storage",
+              "value": "6 GB + 128 GB; 8 GB + 128 GB / 8 GB + 256 GB optional"
+            },
+            { "label": "Storage expansion", "value": "microSD up to 1 TB" }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "Display",
+          "items": [
+            { "label": "Standard", "value": "10.1 in, 800 × 1280, 800 nits" },
+            { "label": "Optional", "value": "10.1 in, 1920 × 1200 IPS, 600 nits" }
+          ]
+        },
+        {
+          "id": "rtk",
+          "label": "GNSS RTK",
+          "items": [
+            { "label": "Channels", "value": "1408" },
+            {
+              "label": "Signals",
+              "value": "GPS/QZSS L1C/A, L2C, L5; Galileo, GLONASS and BeiDou constellations"
+            },
+            { "label": "RTK accuracy", "value": "2.5 cm horizontal" },
+            { "label": "Antenna", "value": "Top-mounted RTK antenna port" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC"]
+        }
+      ]
+    },
+    {
+      "id": "fingerprint",
+      "model": "Y100 Fingerprint",
+      "image": "/images/products/y100/y100-fingerprint-front.webp",
+      "gallery": [
+        { "src": "/images/products/y100/y100-fingerprint-front.webp", "view": "front" },
+        { "src": "/images/products/y100/y100-fingerprint-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "Fingerprint", "value": "FAP10 / FAP20" },
+        { "label": "OS", "value": "Android 16" },
+        { "label": "Memory", "value": "6 GB + 128 GB" },
+        { "label": "Battery", "value": "10,000 mAh" }
+      ],
+      "specGroups": [
+        {
+          "id": "system",
+          "label": "System",
+          "items": [
+            { "label": "Processor", "value": "MediaTek MT6789, 8-core up to 2.2 GHz" },
+            { "label": "Operating system", "value": "Android 16" },
+            {
+              "label": "Memory / storage",
+              "value": "6 GB + 128 GB; 8 GB + 128 GB / 8 GB + 256 GB optional"
+            },
+            { "label": "Storage expansion", "value": "microSD up to 512 GB" }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "Display",
+          "items": [
+            { "label": "Standard", "value": "10.1 in, 800 × 1280, 550 nits" },
+            { "label": "Optional", "value": "10.1 in, 1920 × 1200 IPS, 600 nits" }
+          ]
+        },
+        {
+          "id": "fingerprint",
+          "label": "Fingerprint",
+          "items": [
+            { "label": "Module", "value": "FAP10 or FAP20 capacitive fingerprint module" },
+            { "label": "Use", "value": "Identity verification and operator login" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC", "UHF RFID"]
+        }
+      ]
+    },
+    {
+      "id": "5g",
+      "model": "Y100 5G",
+      "image": "/images/products/y100/y100-5g-front.webp",
+      "gallery": [
+        { "src": "/images/products/y100/y100-5g-front.webp", "view": "front" },
+        { "src": "/images/products/y100/y100-5g-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "Network", "value": "5G NR" },
+        { "label": "Processor", "value": "UNISOC 7885, 2.7 GHz" },
+        { "label": "OS", "value": "Android 13" },
+        { "label": "Battery", "value": "10,000 mAh" }
+      ],
+      "specGroups": [
+        {
+          "id": "system",
+          "label": "System",
+          "items": [
+            { "label": "Processor", "value": "UNISOC 7885, 8-core up to 2.7 GHz" },
+            { "label": "Operating system", "value": "Android 13" },
+            {
+              "label": "Memory / storage",
+              "value": "4 GB + 64 GB; 6 GB + 128 GB / 8 GB + 128 GB / 8 GB + 256 GB optional"
+            },
+            { "label": "Storage expansion", "value": "microSD up to 512 GB" }
+          ]
+        },
+        {
+          "id": "display",
+          "label": "Display",
+          "items": [
+            { "label": "Standard", "value": "10.1 in, 800 × 1280, 550 nits" },
+            { "label": "Optional", "value": "10.1 in, 1920 × 1200 IPS, 600 nits" }
+          ]
+        },
+        {
+          "id": "cellular",
+          "label": "5G and cellular",
+          "items": [
+            {
+              "label": "5G NR",
+              "value": "n1 / n3 / n5 / n8 / n28 / n41 / n78 / n79"
+            },
+            { "label": "LTE", "value": "FDD B1/B3/B5/B8; TDD B34/B38/B39/B40/B41" },
+            { "label": "Legacy", "value": "WCDMA B1/B5/B8; GSM B3/B8" },
+            { "label": "Bluetooth", "value": "Bluetooth 5.0" },
+            { "label": "Working time", "value": ">12 h depending on environment" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC", "UHF RFID", "Fingerprint", "RTK"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,101 @@
+{
+  "id": "ht550",
+  "order": 2,
+  "slug": "ht550",
+  "series": "HT550",
+  "category": "rfid-handheld",
+  "formFactor": "5.5-inch handheld",
+  "tags": ["UHF RFID", "1–20 m", "9,600 mAh"],
+  "defaultVariant": "standard",
+  "heroImage": "/images/products/ht550/ht550-front.webp",
+  "kpis": [
+    { "label": "Read range", "value": "Up to 15 m (MR6 tag)" },
+    { "label": "Battery", "value": "9,600 mAh" },
+    { "label": "Protection", "value": "IP67" }
+  ],
+  "comparison": {
+    "formFactor": "5.5-inch handheld",
+    "capture": "UHF 860–960 MHz, Impinj E-series; optional 1D/2D scanner",
+    "os": "Android 13",
+    "battery": "9,600 mAh, 18 W charging",
+    "protection": "IP67, 1.2 m drop",
+    "bestFor": "Bulk inventory, asset tracking and long-range counting"
+  },
+  "variantComparison": [],
+  "sharedSpecGroups": [
+    {
+      "id": "platform",
+      "label": "Platform",
+      "items": [
+        { "label": "Processor", "value": "8-core, 4×A53 2.0 GHz + 4×A53 1.5 GHz" },
+        { "label": "Operating system", "value": "Android 13" },
+        { "label": "Memory / storage", "value": "3 GB + 32 GB standard; 4 GB + 64 GB optional" },
+        { "label": "Storage expansion", "value": "microSD up to 256 GB" },
+        { "label": "Display", "value": "5.5 in, 720 × 1440" },
+        { "label": "Rear camera", "value": "16 MP with autofocus and flash" },
+        { "label": "Front camera", "value": "5 MP optional" },
+        { "label": "Battery", "value": "9,600 mAh polymer lithium battery" },
+        { "label": "Charging", "value": "18 W fast charging; Type-C 5 V / 2 A; 3–4 h typical" },
+        { "label": "Runtime", "value": "Standby >350 h; working >10 h depending on environment" },
+        { "label": "Connectivity", "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0" },
+        { "label": "GNSS", "value": "GPS, GLONASS, Galileo, BeiDou" },
+        { "label": "Dimensions", "value": "171 × 88 × 138 mm" },
+        { "label": "Weight", "value": "680 g" }
+      ]
+    },
+    {
+      "id": "environment",
+      "label": "Environment",
+      "items": [
+        { "label": "Protection", "value": "IP67, host only (excluding shield and handle)" },
+        { "label": "Drop resistance", "value": "1.2 m onto concrete" },
+        { "label": "Operating temperature", "value": "-20 to 55 °C" },
+        { "label": "Storage temperature", "value": "-40 to 70 °C without battery" },
+        { "label": "Humidity", "value": "0–95%, non-condensing" },
+        { "label": "ESD", "value": "±15 kV air discharge; ±8 kV contact discharge" }
+      ]
+    },
+    {
+      "id": "rfid",
+      "label": "UHF RFID",
+      "items": [
+        { "label": "Module", "value": "Impinj E-series UHF RFID module" },
+        {
+          "label": "Frequency",
+          "value": "860–960 MHz; China 920–925 MHz, US 902–928 MHz, other bands customizable"
+        },
+        { "label": "Protocol", "value": "EPC C1 Gen2 / ISO 18000-6C; GJB7377.1A-2018 optional" },
+        { "label": "Antenna", "value": "4 dBi circularly polarized four-arm spiral antenna" },
+        {
+          "label": "Read distance",
+          "value": "Module rating 1–20 m; about 15 m with Impinj MR6 tag in open outdoor conditions"
+        },
+        { "label": "Group read rate", "value": "Up to 2,000 tags per 10 seconds" }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "standard",
+      "model": "HT550",
+      "image": "/images/products/ht550/ht550-front.webp",
+      "gallery": [
+        { "src": "/images/products/ht550/ht550-front.webp", "view": "front" },
+        { "src": "/images/products/ht550/ht550-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RFID", "value": "UHF 860–960 MHz" },
+        { "label": "Read range", "value": "1–20 m" },
+        { "label": "OS", "value": "Android 13" },
+        { "label": "Protection", "value": "IP67" }
+      ],
+      "specGroups": [],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "5 MP front camera", "Charging dock"]
+        }
+      ]
+    }
+  ]
+}

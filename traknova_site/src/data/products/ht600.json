@@ -1,0 +1,151 @@
+{
+  "id": "ht600",
+  "order": 2,
+  "slug": "ht600",
+  "series": "HT600",
+  "category": "barcode-handheld",
+  "formFactor": "6.0-inch handheld",
+  "tags": ["1D / 2D", "Android 13", "IP68"],
+  "defaultVariant": "standard",
+  "heroImage": "/images/products/ht600/ht600-front.webp",
+  "kpis": [
+    { "label": "Scanning", "value": "1D / 2D" },
+    { "label": "Battery", "value": "8,000 mAh" },
+    { "label": "Protection", "value": "IP68" }
+  ],
+  "comparison": {
+    "formFactor": "6.0-inch handheld",
+    "capture": "1D/2D scan engine; NFC; LF RFID optional",
+    "os": "Android 13",
+    "battery": "8,000 mAh, fast charging",
+    "protection": "IP68, 1.8 m drop",
+    "bestFor": "Barcode-driven logistics, warehousing and field data capture"
+  },
+  "variantComparison": [],
+  "sharedSpecGroups": [
+    {
+      "id": "platform",
+      "label": "Platform",
+      "items": [
+        {
+          "label": "Display",
+          "value": "6.0 in IPS, 720 × 1440; 2160 × 1080 optional; high brightness, glove and wet touch"
+        },
+        { "label": "Processor", "value": "8-core, up to 2.2 GHz" },
+        { "label": "Operating system", "value": "Android 13" },
+        {
+          "label": "Memory / storage",
+          "value": "4 GB + 64 GB standard; 6 GB + 128 GB optional"
+        },
+        { "label": "Storage expansion", "value": "microSD up to 256 GB" },
+        { "label": "Rear camera", "value": "16 MP with autofocus and flash" },
+        { "label": "Front camera", "value": "5 MP optional" },
+        { "label": "Battery", "value": "8,000 mAh, detachable" },
+        { "label": "Charging", "value": "Fast charging; under 3 h typical" },
+        {
+          "label": "Runtime",
+          "value": "Standby >350 h; working >12 h depending on environment"
+        },
+        {
+          "label": "Connectivity",
+          "value": "4G LTE; dual-band Wi-Fi 2.4 / 5 GHz (802.11 a/b/g/n/ac); Bluetooth 5.0"
+        },
+        { "label": "GNSS", "value": "GPS, GLONASS, Galileo, BeiDou" },
+        { "label": "Interface", "value": "USB Type-C with OTG" },
+        { "label": "SIM and expansion", "value": "Nano SIM, PSAM and TF card slots" },
+        { "label": "Dimensions", "value": "169.5 × 83.2 × 18.2 mm" },
+        { "label": "Weight", "value": "Under 350 g" }
+      ]
+    },
+    {
+      "id": "scanning",
+      "label": "Barcode scanning",
+      "items": [
+        { "label": "Scan engine", "value": "1D/2D image scan engine" },
+        {
+          "label": "Engine options",
+          "value": "MD5066, Honeywell N5703 or CM60 (soft decode); N660 (hard decode)"
+        },
+        {
+          "label": "Supported codes",
+          "value": "PDF417, Micro PDF417, GS1 Composite, Aztec Code, Data Matrix, QR Code, Micro QR Code, MaxiCode, Hanxin Code"
+        },
+        { "label": "Trigger keys", "value": "Two physical scan keys" }
+      ]
+    },
+    {
+      "id": "identification",
+      "label": "NFC and LF RFID",
+      "items": [
+        {
+          "label": "NFC",
+          "value": "13.56 MHz; ISO/IEC 14443A/B and ISO/IEC 15693; optional"
+        },
+        {
+          "label": "LF RFID",
+          "value": "125 kHz (3–5 cm) or 134.2 kHz (10–17 cm); optional"
+        }
+      ]
+    },
+    {
+      "id": "environment",
+      "label": "Environment",
+      "items": [
+        { "label": "Protection", "value": "IP68" },
+        {
+          "label": "Drop resistance",
+          "value": "1.8 m onto marble, all six sides, 30 impacts"
+        },
+        { "label": "Operating temperature", "value": "-30 to 60 °C" },
+        { "label": "Storage temperature", "value": "-40 to 70 °C" },
+        { "label": "Humidity", "value": "5–95%, non-condensing" }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "standard",
+      "model": "HT600",
+      "image": "/images/products/ht600/ht600-front.webp",
+      "gallery": [
+        { "src": "/images/products/ht600/ht600-front.webp", "view": "front" },
+        { "src": "/images/products/ht600/ht600-angle.webp", "view": "angle" },
+        { "src": "/images/products/ht600/ht600-back.webp", "view": "back" }
+      ],
+      "keySpecs": [
+        { "label": "Scanning", "value": "1D / 2D image engine" },
+        { "label": "OS", "value": "Android 13" },
+        { "label": "Battery", "value": "8,000 mAh" },
+        { "label": "Protection", "value": "IP68" }
+      ],
+      "specGroups": [],
+      "options": [
+        {
+          "label": "Scan engine options",
+          "items": [
+            "MD5066",
+            "Honeywell N5703",
+            "CM60 (soft decode)",
+            "N660 (hard decode)"
+          ]
+        },
+        {
+          "label": "Optional modules",
+          "items": ["NFC 13.56 MHz", "LF RFID 125 / 134.2 kHz", "5 MP front camera", "Pistol grip"]
+        },
+        {
+          "label": "Battery options",
+          "items": [
+            "8,000 mAh standard",
+            "7,600 mAh low-temperature (-30 °C)",
+            "7,000 mAh low-temperature (-40 °C)"
+          ]
+        },
+        {
+          "label": "Accessories",
+          "items": ["Charging dock", "Hand strap"]
+        }
+      ]
+    }
+  ]
+}

@@ -22,7 +22,8 @@
       "contactTeam": "联系我们的团队",
       "askQuestion": "提交问题",
       "browseProducts": "浏览产品",
-      "viewPlatforms": "查看产品平台",
+      "viewPlatforms": "查看产品品类",
+      "viewCategory": "查看品类",
       "requestDatasheet": "索取数据手册",
       "discussProject": "讨论您的项目",
       "viewFamily": "查看完整产品系列",
@@ -30,15 +31,18 @@
       "backToHome": "返回首页",
       "allProducts": "全部产品",
       "home": "首页",
-      "productsCrumb": "产品"
+      "productsCrumb": "产品",
+      "exploreSeries": "查看系列"
     },
     "categories": {
-      "ruggedPda": "加固型 PDA",
-      "rfid": "RFID",
-      "industrialTablet": "工业平板",
-      "ruggedPdaPlural": "加固型 PDA",
-      "rfidPlural": "RFID",
-      "industrialTabletPlural": "工业平板"
+      "rfidHandheld": "RFID 手持终端",
+      "barcodeHandheld": "条码手持终端",
+      "ruggedTablet": "加固平板"
+    },
+    "categoryDescriptions": {
+      "rfidHandheld": "LF、HF 与 UHF 手持终端，适用于近距离识别、批量盘点与资产审计。",
+      "barcodeHandheld": "内置专业 1D/2D 扫描引擎的加固 Android 手持终端，适用于收货、拣选与现场数据采集。",
+      "ruggedTablet": "10.1 英寸 Android 平台，提供标准、RFID、RTK、指纹与 5G 配置。"
     },
     "languageLabel": "语言",
     "menuToggle": "切换导航"
@@ -51,12 +55,9 @@
     "quoteCta": "获取报价"
   },
   "footer": {
-    "description": "为互联运营提供加固型移动计算机、RFID 技术与工业平板。硬件、配置与 OEM / ODM 合作，一站完成。",
+    "description": "为互联运营提供加固型移动计算机、RFID 与条码手持终端及工业平板。硬件、配置与 OEM / ODM 合作，一站完成。",
     "columns": {
       "productsTitle": "产品",
-      "productsRuggedPda": "加固型 PDA",
-      "productsRfid": "RFID 设备",
-      "productsTablets": "工业平板",
       "productsAll": "全部产品",
       "solutionsTitle": "解决方案",
       "solutionsLogistics": "仓储与物流",
@@ -100,12 +101,12 @@
     },
     "options": {
       "product": {
-        "placeholder": "选择产品类别",
-        "ruggedPda": "加固型 PDA",
-        "rfid": "RFID / NFC",
-        "industrialTablet": "工业平板",
+        "placeholder": "选择产品线",
+        "rfidHandhelds": "RFID 手持终端系列",
+        "ht600": "HT600",
+        "y100": "Y100 Series",
         "oem": "OEM / ODM",
-        "notSure": "暂不确定"
+        "notSure": "不确定"
       },
       "application": {
         "placeholder": "选择应用场景",
@@ -147,7 +148,7 @@
   },
   "home": {
     "metaTitle": "TRAKNOVA | 工业移动计算与自动识别解决方案",
-    "metaDescription": "面向仓储、制造、零售和现场服务的加固型移动计算机、RFID 手持终端与工业平板。提供方案设计、配置与 OEM / ODM 合作。",
+    "metaDescription": "面向仓储、制造、零售和现场服务的加固型移动计算机、RFID 与条码手持终端及工业平板。提供方案设计、配置与 OEM / ODM 合作。",
     "hero": {
       "eyebrow": "工业移动计算与自动识别",
       "titleLine1": "让数据流动，",
@@ -156,9 +157,18 @@
       "primaryCta": "查看产品",
       "secondaryCta": "咨询我们的专家",
       "proof": [
-        { "title": "为业务而生", "text": "企业级设备" },
-        { "title": "支持 OEM / ODM", "text": "您的品牌，您的方案" },
-        { "title": "全球支持", "text": "从概念到交付" }
+        {
+          "title": "为业务而生",
+          "text": "企业级设备"
+        },
+        {
+          "title": "支持 OEM / ODM",
+          "text": "您的品牌，您的方案"
+        },
+        {
+          "title": "全球支持",
+          "text": "从概念到交付"
+        }
       ],
       "chips": {
         "rfidTitle": "RFID + NFC",
@@ -169,7 +179,13 @@
     },
     "trustStrip": {
       "label": "面向互联运营的技术",
-      "items": ["RFID", "条码", "NFC", "ANDROID", "工业 IoT"]
+      "items": [
+        "RFID",
+        "条码",
+        "NFC",
+        "ANDROID",
+        "工业 IoT"
+      ]
     },
     "why": {
       "eyebrow": "为什么选择 TRAKNOVA",
@@ -177,24 +193,48 @@
       "titleLine2": "才能真正发挥价值。",
       "body": "我们围绕任务选择并配置设备：采集方式、形态、软件，以及上线后的支持路径。",
       "pillars": [
-        { "title": "加固设计", "body": "面向仓储、现场和工业环境选择的设备。防护等级和工作限制按 SKU 确认。" },
-        { "title": "集成自动识别", "body": "条码、UHF RFID、NFC 和文档采集围绕工作流程配置，而非事后追加。" },
-        { "title": "配置灵活", "body": "Android 与 Windows 平台、多种形态和模块选项，满足区域需求。" },
-        { "title": "支持 OEM / ODM", "body": "以您的品牌和文档进行贴牌、定制配置和项目开发。" }
+        {
+          "title": "加固设计",
+          "body": "面向仓储、现场和工业环境选择的设备。防护等级和工作限制按 SKU 确认。"
+        },
+        {
+          "title": "集成自动识别",
+          "body": "条码、UHF RFID、NFC 和文档采集围绕工作流程配置，而非事后追加。"
+        },
+        {
+          "title": "配置灵活",
+          "body": "Android 平台、多种形态和模块选项，满足区域需求。"
+        },
+        {
+          "title": "支持 OEM / ODM",
+          "body": "以您的品牌和文档进行贴牌、定制配置和项目开发。"
+        }
       ]
     },
     "portfolio": {
-      "eyebrow": "产品组合",
-      "titleLine1": "与您同样努力",
-      "titleLine2": "工作的硬件。",
-      "body": "探索用于企业数据采集的加固型 PDA、RFID 手持终端和加固平板。",
+      "eyebrow": "我们的产品品类",
+      "titleLine1": "三大品类。",
+      "titleLine2": "为现场而生。",
+      "body": "RFID 手持终端、条码手持终端与 10.1 英寸加固平板。按工作选择品类，再配置版本。",
       "viewAll": "查看全部产品"
     },
     "stats": [
-      { "value": "RFID", "label": "高级识别" },
-      { "value": "1D / 2D", "label": "条码数据采集" },
-      { "value": "Android", "label": "企业移动化" },
-      { "value": "OEM / ODM", "label": "灵活定制" }
+      {
+        "value": "RFID",
+        "label": "高级识别"
+      },
+      {
+        "value": "1D / 2D",
+        "label": "条码数据采集"
+      },
+      {
+        "value": "Android",
+        "label": "企业移动化"
+      },
+      {
+        "value": "OEM / ODM",
+        "label": "灵活定制"
+      }
     ],
     "solutions": {
       "eyebrow": "解决方案实践",
@@ -206,28 +246,44 @@
           "index": "01 / 物流",
           "title": "仓储与物流",
           "body": "收货、上架、循环盘点、拣选和发运——在库存进入 WMS 之前完成采集。",
-          "tags": ["条码", "UHF RFID", "移动打印"],
+          "tags": [
+            "条码",
+            "UHF RFID",
+            "移动打印"
+          ],
           "link": "探索物流解决方案"
         },
         {
           "index": "02 / 制造",
           "title": "制造",
           "body": "工单、在制品、物料追溯和维护巡检，在工作现场完成采集。",
-          "tags": ["条码", "有线 I/O", "加固平板"],
+          "tags": [
+            "条码",
+            "有线 I/O",
+            "加固平板"
+          ],
           "link": "探索制造解决方案"
         },
         {
           "index": "03 / 零售",
           "title": "零售与商业",
           "body": "补货、价格准确性、RFID 盘点和标签打印，在决策现场完成。",
-          "tags": ["条码", "UHF RFID", "移动打印"],
+          "tags": [
+            "条码",
+            "UHF RFID",
+            "移动打印"
+          ],
           "link": "探索零售解决方案"
         },
         {
           "index": "04 / 现场服务",
           "title": "现场服务与资产",
           "body": "面向移动团队的巡检、数字工单、资产盘点和现场文档。",
-          "tags": ["加固平板", "UHF RFID", "文档记录"],
+          "tags": [
+            "加固平板",
+            "UHF RFID",
+            "文档记录"
+          ],
           "link": "探索现场解决方案"
         }
       ]
@@ -238,10 +294,22 @@
       "titleLine2": "一条务实的路径。",
       "body": "无论评估单台设备还是规划车队部署，都遵循同样的四个阶段。",
       "steps": [
-        { "title": "工作流程梳理", "body": "在选择硬件之前，梳理步骤、异常情况以及每一步必须产生的数据。" },
-        { "title": "配置", "body": "选择形态、采集模块、操作系统、配件和集成点。" },
-        { "title": "试点", "body": "在一个站点或一个班次部署，对比准确率、周期时间和异常率。" },
-        { "title": "上线与支持", "body": "准备设备、配置 MDM、培训用户、规划备件并确定支持路径。" }
+        {
+          "title": "工作流程梳理",
+          "body": "在选择硬件之前，梳理步骤、异常情况以及每一步必须产生的数据。"
+        },
+        {
+          "title": "配置",
+          "body": "选择形态、采集模块、操作系统、配件和集成点。"
+        },
+        {
+          "title": "试点",
+          "body": "在一个站点或一个班次部署，对比准确率、周期时间和异常率。"
+        },
+        {
+          "title": "上线与支持",
+          "body": "准备设备、配置 MDM、培训用户、规划备件并确定支持路径。"
+        }
       ]
     },
     "oem": {
@@ -258,7 +326,8 @@
         "生产协调"
       ],
       "cta": "了解 OEM / ODM",
-      "artLabel": "按您的规格设计"
+      "artLabel": "按您的规格设计",
+      "artAlt": "RFID 手持终端的屏幕、后壳、主板、电池与扫描手柄等部件分解展示"
     },
     "faq": {
       "eyebrow": "常见问题",
@@ -295,165 +364,69 @@
   },
   "products": {
     "metaTitle": "产品 | TRAKNOVA",
-    "metaDescription": "探索 TRAKNOVA 加固型 PDA、RFID 手持终端和工业平板。为收货、库存、制造、零售和现场服务找到合适的采集方式。",
+    "metaDescription": "了解 TRAKNOVA 的 RFID 手持终端系列、HT600 与 Y100 Series：面向近距离识别、批量盘点、条码采集与现场计算的 RFID 手持终端、条码手持终端与加固平板。",
     "hero": {
-      "eyebrow": "产品组合",
-      "titleLine1": "工业硬件，",
-      "titleLine2": "为使命而生的性能。",
-      "body": "用于数据采集、识别和移动作业的加固型 PDA、RFID 手持终端与工业平板。配置以您所在市场获批的数据手册为准。"
+      "eyebrow": "产品范围",
+      "titleLine1": "三条产品线。",
+      "titleLine2": "为现场而生。",
+      "body": "RFID 手持终端、条码手持终端与 10.1 英寸加固平板，覆盖近距离识别、批量盘点、条码采集与现场计算。按工作选择品类，再配置版本。"
     },
     "anchors": {
-      "taskSelector": "从任务出发",
-      "ruggedPda": "加固型 PDA",
-      "rfid": "RFID",
-      "industrialTablets": "工业平板",
-      "comparison": "对比"
+      "series": "产品品类",
+      "compare": "对比"
     },
-    "taskSelector": {
-      "eyebrow": "从任务出发",
-      "titleLine1": "设备需要",
-      "titleLine2": "完成什么？",
-      "body": "六类常见需求及其适配的平台系列。可将其作为候选清单，再与我们的团队确认配置。",
+    "work": {
+      "eyebrow": "按工作选择",
+      "titleLine1": "先看任务，",
+      "titleLine2": "再选设备。",
+      "body": "四个常见起点。每个起点都指向适合的产品线与配置。",
       "cards": [
         {
-          "title": "条码扫描与识别",
-          "body": "收货、拣选、工单和货架检查等需要精准近距离读取的场景。",
-          "models": [
-            { "label": "HT400", "slug": "ht400-rugged-barcode-pda" },
-            { "label": "HT510", "slug": "ht510-rugged-pda" },
-            { "label": "HT520", "slug": "ht520-multifunction-pda" }
-          ]
+          "title": "批量盘点与资产审计",
+          "body": "大批量读取标签，单次覆盖更多区域，让盘点在场地内持续推进。",
+          "href": "/products/rfid-handhelds/#variant-ht550",
+          "tag": "UHF RFID"
         },
         {
-          "title": "UHF RFID 与批量库存",
-          "body": "循环盘点、单品盘点和资产盘点等需要批量读取标签的场景。",
-          "models": [
-            { "label": "HT550", "slug": "ht550-uhf-rfid-handheld" },
-            { "label": "Y100 RFID", "slug": "y100-uhf-rfid-tablet" },
-            { "label": "HT540", "slug": "ht540-rfid-handheld" }
-          ]
+          "title": "近距离识别",
+          "body": "在同一手持平台上读取 LF、HF 或短距 UHF 标签，并可选条码与 NFC。",
+          "href": "/products/rfid-handhelds/",
+          "tag": "LF · HF · UHF"
         },
         {
-          "title": "移动打印",
-          "body": "在打包台、货架通道或现场打印标签、收据和服务单据。",
-          "models": [{ "label": "HT800", "slug": "ht800-scan-print-pda" }]
+          "title": "条码数据采集",
+          "body": "6.0 英寸 Android 手持终端，内置专业 1D/2D 扫描引擎，适用于收货、拣选与现场数据采集。",
+          "href": "/products/ht600/",
+          "tag": "1D / 2D"
         },
         {
-          "title": "工业 I/O 与 Windows 软件",
-          "body": "设备连接、产线应用和基于 Windows 的现场服务软件。",
-          "models": [
-            { "label": "A100", "slug": "a100-windows-rugged-tablet" },
-            { "label": "T120A", "slug": "t120a-windows-industrial-tablet" }
-          ]
-        },
-        {
-          "title": "证件与文档采集",
-          "body": "柜台、检查点和现场受控的身份与文档工作流程。",
-          "models": [{ "label": "HT530", "slug": "ht530-document-id-pda" }]
-        },
-        {
-          "title": "现场与车载移动办公",
-          "body": "面向技术员、巡检人员和移动团队的紧凑型及大尺寸平板。",
-          "models": [
-            { "label": "Y70", "slug": "y70-rugged-tablet" },
-            { "label": "Y100", "slug": "y100-rugged-android-tablet" },
-            { "label": "A100", "slug": "a100-windows-rugged-tablet" }
-          ]
-        }
-      ]
-    },
-    "families": {
-      "eyebrow": "三大产品系列",
-      "titleLine1": "一个产品范围，",
-      "titleLine2": "三种工作方式。",
-      "body": "每个系列在屏幕尺寸、采集能力和使用环境上各有侧重。",
-      "cards": [
-        {
-          "count": "5 款型号",
-          "title": "加固型 PDA",
-          "body": "用于单手扫描、现场采集和专用模块的手持计算机。",
-          "points": [
-            "条码与多功能手持终端",
-            "手枪柄与医疗版",
-            "扫描打印与证件采集配置"
-          ],
-          "link": "查看加固型 PDA 型号",
-          "anchor": "#rugged-pda"
-        },
-        {
-          "count": "3 款型号",
-          "title": "RFID",
-          "body": "用于单品识别、库存和资产追踪的近距与 UHF RFID 设备。",
-          "points": [
-            "UHF 批量读取手持终端",
-            "近距 RFID 手持终端",
-            "10.1 英寸 UHF RFID 平板"
-          ],
-          "link": "查看 RFID 型号",
-          "anchor": "#rfid"
-        },
-        {
-          "count": "4 款型号",
-          "title": "工业平板",
-          "body": "面向大屏幕、工业软件和设备 I/O 的加固 Android 与 Windows 平板。",
-          "points": [
-            "7 英寸与 10.1 英寸 Android",
-            "10.1 英寸带线缆 I/O 的 Windows",
-            "12.6 英寸大尺寸 Windows"
-          ],
-          "link": "查看平板型号",
-          "anchor": "#industrial-tablets"
+          "title": "现场计算与数据采集",
+          "body": "10.1 英寸 Android 平台，适用于巡检、工单与模块化数据采集。",
+          "href": "/products/y100-series/",
+          "tag": "10.1 英寸平板"
         }
       ]
     },
     "sections": {
-      "ruggedPda": {
-        "eyebrow": "加固型 PDA",
-        "titleLine1": "面向工作现场",
-        "titleLine2": "的手持终端。",
-        "body": "用于扫描、识别和专用工作流程的紧凑型可配置终端。"
-      },
-      "rfid": {
-        "eyebrow": "RFID",
-        "titleLine1": "批量识别，",
-        "titleLine2": "而非逐个读取。",
-        "body": "用于库存、资产盘点和单品工作流程的近距与 UHF RFID 平台。"
-      },
-      "industrialTablets": {
-        "eyebrow": "工业平板",
-        "titleLine1": "更大的屏幕，",
-        "titleLine2": "承载更大的工作流程。",
-        "body": "用于巡检、现场服务、车载使用和设备周边作业的加固 Android 与 Windows 平板。"
-      }
+      "eyebrow": "三条产品线",
+      "titleLine1": "一个系列，",
+      "titleLine2": "三种工作方式。",
+      "body": "每条产品线在采集方式、读取距离、屏幕尺寸与现场配置上有不同的平衡。"
     },
     "comparison": {
-      "eyebrow": "产品对比",
-      "titleLine1": "系列",
+      "eyebrow": "对比产品线",
+      "titleLine1": "产品线",
       "titleLine2": "一览。",
-      "body": "形态和采集方式是快速缩小范围的最有效方式。最终配置在应用评估后确定。",
+      "body": "形态与采集方式是缩小范围最快的方式。最终配置取决于应用评估。",
       "headers": {
-        "series": "系列",
-        "family": "系列归属",
+        "series": "产品线",
         "formFactor": "形态",
-        "capture": "采集 / I/O",
-        "os": "操作系统",
-        "workflow": "典型工作流程"
-      },
-      "rows": [
-        { "series": "HT400", "family": "加固型 PDA", "form": "紧凑型手持终端", "capture": "1D / 2D 条码", "os": "视具体 SKU 确认", "workflow": "收货、拣选、现场采集" },
-        { "series": "HT510 family", "family": "加固型 PDA", "form": "标准 / 手枪柄 / 医疗", "capture": "条码", "os": "视具体 SKU 确认", "workflow": "扫描密集型任务，面向医疗" },
-        { "series": "HT520", "family": "加固型 PDA", "form": "多功能手持终端", "capture": "条码 / NFC 选项", "os": "视具体 SKU 确认", "workflow": "企业数据采集" },
-        { "series": "HT530", "family": "加固型 PDA", "form": "专用手持终端", "capture": "文档 / 证件读取器", "os": "视具体 SKU 确认", "workflow": "身份与文档工作流程" },
-        { "series": "HT800", "family": "加固型 PDA", "form": "带打印机手持终端", "capture": "条码 + 移动打印", "os": "视具体 SKU 确认", "workflow": "现场标签打印" },
-        { "series": "HT540", "family": "RFID", "form": "RFID 手持终端", "capture": "近距 RFID", "os": "视具体 SKU 确认", "workflow": "近距离识别" },
-        { "series": "HT550", "family": "RFID", "form": "UHF RFID 手持终端", "capture": "UHF RFID，860–960 MHz", "os": "Android 10", "workflow": "批量库存、资产追踪" },
-        { "series": "Y100 RFID", "family": "RFID", "form": "10.1 英寸加固平板", "capture": "UHF RFID + 可选模块", "os": "Android 13", "workflow": "库存、物流、资产管理" },
-        { "series": "Y100 Android", "family": "工业平板", "form": "10.1 英寸加固平板", "capture": "条码 / NFC / RFID 选项", "os": "Android", "workflow": "移动办公、巡检" },
-        { "series": "Y70", "family": "工业平板", "form": "7 英寸紧凑型平板", "capture": "条码选项", "os": "Android / Windows", "workflow": "现场作业" },
-        { "series": "A100", "family": "工业平板", "form": "10.1 英寸 Windows 平板", "capture": "RJ45、RS232 / RS485、USB", "os": "Windows 10 / 11", "workflow": "设备连接、现场服务" },
-        { "series": "T120A", "family": "工业平板", "form": "12.6 英寸 Windows 平板", "capture": "视具体 SKU 确认", "os": "Windows", "workflow": "大屏工业应用" }
-      ],
-      "note": "“视具体 SKU 确认”表示该值取决于所选型号和市场，并非已发布规格。"
+        "capture": "采集方式",
+        "os": "系统",
+        "battery": "电池",
+        "protection": "防护",
+        "bestFor": "最适合"
+      }
     },
     "modules": {
       "eyebrow": "模块、配件与部署",
@@ -464,17 +437,32 @@
         {
           "title": "采集模块",
           "body": "模块供货取决于型号和市场。",
-          "items": ["1D / 2D 扫描引擎", "UHF RFID 与近距 RFID", "NFC 与文档读取器", "可选摄像头配置"]
+          "items": [
+            "1D / 2D 扫描引擎",
+            "UHF RFID 与近距 RFID",
+            "NFC、指纹与 RTK / 5G 配置",
+            "可选摄像头配置"
+          ]
         },
         {
           "title": "配件",
           "body": "配件范围按 SKU 和项目确认。",
-          "items": ["充电器与多槽充电座", "手枪柄与手带", "保护壳与保护套", "车载支架与固定件"]
+          "items": [
+            "充电器与多槽充电座",
+            "手枪柄与手带",
+            "保护壳与保护套",
+            "车载支架与固定件"
+          ]
         },
         {
           "title": "软件与上线",
           "body": "部署范围在订单前确定。",
-          "items": ["Android 或 Windows 镜像", "预装应用", "MDM 注册与备机", "试点与上线规划"]
+          "items": [
+            "Android 系统镜像",
+            "预装应用",
+            "MDM 注册与备机",
+            "试点与上线规划"
+          ]
         }
       ]
     },
@@ -487,7 +475,7 @@
       "items": [
         {
           "q": "如何在 PDA 和平板之间选择？",
-          "a": "从任务出发。PDA 更适合在货架通道、梯子上或现场进行单手扫描。平板更适合需要更大屏幕、Windows 软件、设备接口或车载安装的场景。解决方案页面中的工作流程梳理描述了常见模式。"
+          "a": "从任务出发。手持机更适合在货架通道、梯子上或现场进行单手扫描。平板更适合需要更大屏幕、巡检清单、车载安装或模块化数据采集的场景。解决方案页面中的工作流程梳理描述了常见模式。"
         },
         {
           "q": "网站上的规格是最终版本吗？",
@@ -495,7 +483,7 @@
         },
         {
           "q": "可以为特定项目配置模块吗？",
-          "a": "可以，前提是所选平台支持。条码引擎、RFID 模块、NFC、文档读取器、内存和配件都会结合应用、目标市场和生产计划进行评估。部分选项需要模具或最小起订量。"
+          "a": "可以，前提是所选平台支持。条码引擎、RFID 模块、NFC、指纹、RTK / 5G 选项、内存和配件都会结合应用、目标市场和生产计划进行评估。部分选项需要模具或最小起订量。"
         },
         {
           "q": "如何针对我的工作流程比较两款型号？",
@@ -516,78 +504,62 @@
       "home": "首页",
       "products": "产品"
     },
-    "detailHeading": "为严苛工作流程而设计。",
-    "requestDatasheetQuote": "索取数据手册与报价",
-    "talkToSales": "联系销售",
-    "whereItFits": {
-      "eyebrow": "适用场景",
-      "titleLine1": "为特定任务",
-      "titleLine2": "而生。",
-      "body": "这些是该系列最常被指定使用的工作流程。最终适配取决于您的应用、环境和目标市场。",
-      "groups": {
-        "ruggedPda": [
-          { "title": "收货入库", "body": "扫描 ASN、核对数量，并在上架前标记异常。", "href": "/solutions/logistics/" },
-          { "title": "工单执行", "body": "在工位采集生产数据并更新在制品。", "href": "/solutions/manufacturing/" },
-          { "title": "门店补货", "body": "在日常巡店中检查货架库存和价格。", "href": "/solutions/retail/" }
-        ],
-        "rfid": [
-          { "title": "RFID 循环盘点", "body": "批量读取标签，复核异常并提交盘点结果。", "href": "/solutions/logistics/" },
-          { "title": "RFID 单品盘点", "body": "扫描货架，处理重复读取并复盘点高差异区域。", "href": "/solutions/retail/" },
-          { "title": "资产贴标与盘点", "body": "巡检现场、采集标签并标记缺失或移动的资产。", "href": "/solutions/field-service/" }
-        ],
-        "industrialTablet": [
-          { "title": "设备巡检", "body": "使用更大屏幕完成检查表、读数和照片记录。", "href": "/solutions/manufacturing/" },
-          { "title": "现场巡检与工单", "body": "运行数字工单、采集签名并在联网时同步。", "href": "/solutions/field-service/" },
-          { "title": "产线配料", "body": "在工位按工单核对物料和批次。", "href": "/solutions/manufacturing/" }
-        ]
-      }
+    "hero": {
+      "requestQuote": "获取报价",
+      "talkToSales": "联系销售",
+      "requestDatasheet": "索取数据表"
     },
-    "configuration": {
+    "nav": {
+      "overview": "概览",
+      "variants": "版本",
+      "features": "核心特性",
+      "specs": "规格",
+      "applications": "应用",
+      "labelAria": "产品页面区块"
+    },
+    "overview": {
+      "eyebrow": "概览",
+      "titleLine1": "围绕工作",
+      "titleLine2": "而设计。"
+    },
+    "variants": {
       "eyebrow": "配置",
-      "titleLine1": "可调整的",
-      "titleLine2": "部分。",
-      "body": "配置选项以所选 SKU 和目标市场为准。部分组合需要模具、最小起订量或区域认证。",
-      "groups": {
-        "ruggedPda": [
-          { "title": "采集模块", "intro": "按 SKU 和工作流程选择。", "items": ["1D / 2D 扫描引擎", "NFC 选项", "专用型号的文档读取器", "摄像头配置"] },
-          { "title": "形态与配件", "intro": "符合任务的人体工学。", "items": ["标准或手枪柄", "手带与保护壳", "充电底座", "车载或桌面安装"] },
-          { "title": "软件与部署", "intro": "订单前确认。", "items": ["系统镜像与预装", "MDM 注册", "试点与备机", "备件规划"] }
-        ],
-        "rfid": [
-          { "title": "RFID 模块与区域频段", "intro": "针对目标市场配置。", "items": ["UHF 或近距 RFID 模块", "区域频段", "标签协议支持", "使用所选标签验证读取距离"] },
-          { "title": "形态与配件", "intro": "匹配盘点方式。", "items": ["手持或平板形态", "握把、手带和保护壳选项", "充电底座", "车载或桌面安装"] },
-          { "title": "软件与部署", "intro": "结合您的软件栈规划。", "items": ["中间件或应用集成", "预装与 MDM", "试点盘点与验收", "备件规划"] }
-        ],
-        "industrialTablet": [
-          { "title": "系统与算力", "intro": "按应用和市场选择。", "items": ["Android 或 Windows 版本", "内存与存储选项", "处理器选项", "区域系统镜像"] },
-          { "title": "I/O 与模块", "intro": "匹配周边设备。", "items": ["可用的 RS232 / RS485 与 RJ45", "USB 与 HDMI", "条码、NFC 或 RFID 选项", "底座与线缆要求"] },
-          { "title": "安装与配件", "intro": "针对工作环境规划。", "items": ["车载底座与支架", "桌面底座与充电器", "手带与保护壳", "保护套"] }
-        ]
-      }
+      "titleLine1": "选择",
+      "titleLine2": "合适版本。",
+      "body": "在可能的情况下，各版本共用同一平台。选择版本可查看对应图片、关键规格与目标工作流。",
+      "compareLabel": "版本对比",
+      "labelAria": "产品配置"
+    },
+    "features": {
+      "eyebrow": "核心特性",
+      "titleLine1": "现场真正",
+      "titleLine2": "重要的能力。"
     },
     "specs": {
-      "eyebrow": "技术规格",
-      "titleLine1": "确认的数值，",
-      "titleLine2": "而非假设。",
-      "body": "仅展示来源确认的规格。完整配置详情、选项和区域认证随获批数据手册提供。",
-      "englishNote": "规格参数以英文版本为准。",
-      "emptyTitle": "可应要求提供完整规格表",
-      "emptyBody": "该型号的规格取决于配置。请索取适用于您的目标市场和配置的获批数据手册。",
-      "requestDatasheet": "索取数据手册",
-      "fineprint": "所展示的规格均为已确认数值。可选模块、区域版本和防护等级须在报价前以获批数据手册为准。"
+      "eyebrow": "规格",
+      "titleLine1": "技术",
+      "titleLine2": "细节。",
+      "body": "先列出共用平台规格，再列出当前版本的特有规格。下单前请确认已批准的数据表。",
+      "fineprint": "规格以所列配置为准，可能在不另行通知的情况下变化。下单前请确认已批准的数据表。",
+      "optionsLabel": "选项与模块"
+    },
+    "applications": {
+      "eyebrow": "适用场景",
+      "titleLine1": "为具体",
+      "titleLine2": "工作而配。",
+      "body": "以下是该配置最常见的应用场景。最终适配取决于应用、环境与目标市场。"
     },
     "related": {
-      "eyebrow": "相关型号",
-      "titleLine1": "同系列中的",
-      "titleLine2": "其他选择。",
-      "body": "对比整个产品范围的形态与采集方式。"
+      "eyebrow": "相关产品线",
+      "titleLine1": "了解其他",
+      "titleLine2": "产品线。"
     },
     "cta": {
-      "eyebrow": "准备选型？",
-      "titleLine1": "索取数据手册",
-      "titleLine2": "并预约配置评估。",
-      "body": "告诉我们工作流程、目标市场和预计数量。我们将确认型号、选项和文档路径。",
-      "button": "发送询盘"
+      "eyebrow": "下一步",
+      "titleLine1": "需要一份",
+      "titleLine2": "配置报价？",
+      "body": "告诉我们工作流、环境与目标市场，我们会确认版本、模块与资料路径。",
+      "button": "联系销售"
     }
   },
   "solutions": {
@@ -645,24 +617,36 @@
   },
   "about": {
     "metaTitle": "关于 TRAKNOVA | 工业移动计算",
-    "metaDescription": "TRAKNOVA 是工业移动计算合作伙伴，提供加固型 PDA、RFID 手持终端、工业平板、配置服务与 OEM / ODM 合作。",
+    "metaDescription": "TRAKNOVA 是工业移动计算合作伙伴，提供加固型 PDA、RFID 与条码手持终端、工业平板、配置服务与 OEM / ODM 合作。",
     "hero": {
       "eyebrow": "关于 TRAKNOVA",
       "titleLine1": "扫描与系统之间，",
       "titleLine2": "值得信赖的合作伙伴。",
-      "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 手持终端和工业平板。我们关注决定部署成败的实用细节。"
+      "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 与条码手持终端及工业平板。我们关注决定部署成败的实用细节。"
     },
     "profile": {
       "eyebrow": "公司概况",
       "titleLine1": "扎根深圳的",
       "titleLine2": "工业移动计算制造企业。",
-      "paragraph1": "深圳市伊莉亚有限公司是一家扎根深圳的加固型 PDA、RFID 手持终端与工业平板制造及方案企业。15 年多来，我们专注于连接一线作业与其背后业务系统之间的设备、模块和配置。",
+      "paragraph1": "深圳市伊莉亚有限公司是一家扎根深圳的加固型 PDA、RFID 与条码手持终端及工业平板制造及方案企业。15 年多来，我们专注于连接一线作业与其背后业务系统之间的设备、模块和配置。",
       "paragraph2": "我们服务全球市场的分销商、方案商和企业团队，覆盖数据采集、识别与移动作业项目，从设备选型、配置到 OEM / ODM 合作。已有超过一千家企业与我们合作，用移动数据采集解决实际业务问题。",
       "facts": [
-        { "value": "15+ 年", "label": "行业经验" },
-        { "value": "1,000+ 家", "label": "服务企业" },
-        { "value": "中国深圳", "label": "公司所在地" },
-        { "value": "加固型 PDA · RFID · 工业平板", "label": "产品方向" }
+        {
+          "value": "15+ 年",
+          "label": "行业经验"
+        },
+        {
+          "value": "1,000+ 家",
+          "label": "服务企业"
+        },
+        {
+          "value": "中国深圳",
+          "label": "公司所在地"
+        },
+        {
+          "value": "RFID · 条码 · 平板",
+          "label": "产品方向"
+        }
       ],
       "photoAlt": "配送仓库中的货架、托盘与库存。",
       "photoCaption": "面向仓储与物流作业"
@@ -671,22 +655,36 @@
       "eyebrow": "我们的工作",
       "titleLine1": "硬件、配置，",
       "titleLine2": "以及通往上线的路径。",
-      "body": "我们不仅是设备供应商。我们帮助确定采集方式、选择平台、确认配置并规划支持路径。",
+      "body": "我们不仅是设备供应商。我们帮助确定采集方式、选择品类、确认配置并规划支持路径。",
       "cards": [
         {
-          "title": "产品平台",
-          "body": "用于企业数据采集的加固型 PDA、RFID 设备和工业平板。",
-          "items": ["条码与多功能手持终端", "近距与 UHF RFID", "Android 与 Windows 加固平板"]
+          "title": "产品品类",
+          "body": "用于企业数据采集的 RFID 与条码手持终端及工业平板。",
+          "items": [
+            "条码与多功能手持终端",
+            "近距与 UHF RFID",
+            "Android 与 Windows 加固平板"
+          ]
         },
         {
           "title": "配置与品牌",
           "body": "与应用、市场和品牌相匹配的平台选项。",
-          "items": ["采集模块选择", "配件与安装", "系统镜像与预装", "贴牌与包装"]
+          "items": [
+            "采集模块选择",
+            "配件与安装",
+            "系统镜像与预装",
+            "贴牌与包装"
+          ]
         },
         {
           "title": "部署支持",
           "body": "用于试点、文档化和持续维护车队的务实计划。",
-          "items": ["工作流程与异常梳理", "试点规划", "文档包", "备件规划"]
+          "items": [
+            "工作流程与异常梳理",
+            "试点规划",
+            "文档包",
+            "备件规划"
+          ]
         }
       ],
       "photoAlt": "工程图纸、卡尺与双手进行硬件设计评审。",
@@ -698,25 +696,58 @@
       "titleLine2": "考验的原则。",
       "body": "这些标准适用于单台设备订单，也适用于多站点上线。",
       "pillars": [
-        { "title": "工作流程优先", "body": "我们从任务和异常出发，而不是从设备类别出发。" },
-        { "title": "诚实的规格", "body": "只发布已确认的数值。配置细节以获批数据手册为准。" },
-        { "title": "务实工程", "body": "设备、模块和配件都针对实际工作环境选择。" },
-        { "title": "上线后的支持", "body": "备件、文档和变更通知是计划的一部分，而非事后补充。" }
+        {
+          "title": "工作流程优先",
+          "body": "我们从任务和异常出发，而不是从设备类别出发。"
+        },
+        {
+          "title": "诚实的规格",
+          "body": "只发布已确认的数值。配置细节以获批数据手册为准。"
+        },
+        {
+          "title": "务实工程",
+          "body": "设备、模块和配件都针对实际工作环境选择。"
+        },
+        {
+          "title": "上线后的支持",
+          "body": "备件、文档和变更通知是计划的一部分，而非事后补充。"
+        }
       ]
     },
     "capability": {
       "eyebrow": "能力图谱",
       "titleLine1": "我们能为您",
       "titleLine2": "覆盖的范围。",
-      "body": "供货和范围按产品、平台和项目确认。下表展示我们通常与合作伙伴协作的领域。",
-      "headers": { "capability": "能力", "coverage": "覆盖内容" },
+      "body": "供货和范围按产品、品类和项目确认。下表展示我们通常与合作伙伴协作的领域。",
+      "headers": {
+        "capability": "能力",
+        "coverage": "覆盖内容"
+      },
       "rows": [
-        { "capability": "产品平台", "coverage": "加固型 PDA、近距与 UHF RFID 手持终端、Android 与 Windows 工业平板" },
-        { "capability": "自动识别", "coverage": "1D / 2D 条码、UHF 与近距 RFID、NFC、证件 / 文档采集" },
-        { "capability": "配置", "coverage": "采集模块、内存与系统版本、配件、安装" },
-        { "capability": "品牌化", "coverage": "贴牌、开机动画、包装、手册、序列号管理" },
-        { "capability": "文档", "coverage": "数据手册、用户手册、快速指南、包装设计、测试文档" },
-        { "capability": "支持", "coverage": "试点规划、备机、备件、售后协调" }
+        {
+          "capability": "产品品类",
+          "coverage": "RFID 与条码手持终端、Android 与 Windows 工业平板"
+        },
+        {
+          "capability": "自动识别",
+          "coverage": "1D / 2D 条码、UHF 与近距 RFID、NFC、证件 / 文档采集"
+        },
+        {
+          "capability": "配置",
+          "coverage": "采集模块、内存与系统版本、配件、安装"
+        },
+        {
+          "capability": "品牌化",
+          "coverage": "贴牌、开机动画、包装、手册、序列号管理"
+        },
+        {
+          "capability": "文档",
+          "coverage": "数据手册、用户手册、快速指南、包装设计、测试文档"
+        },
+        {
+          "capability": "支持",
+          "coverage": "试点规划、备机、备件、售后协调"
+        }
       ]
     },
     "quality": {
@@ -725,9 +756,30 @@
       "titleLine2": "再谈保证。",
       "body": "我们不发布无法提供证据的认证。适用的测试计划、文档包和市场认证按产品和项目商定。",
       "cards": [
-        { "title": "来料与制程", "items": ["来料检查", "装配与制程检查", "保留制程记录"] },
-        { "title": "终检", "items": ["功能检查", "包装与标签核对", "按批次保留测试记录"] },
-        { "title": "文档", "items": ["数据手册与用户手册", "快速指南与包装设计", "可提供的符合性文档"] }
+        {
+          "title": "来料与制程",
+          "items": [
+            "来料检查",
+            "装配与制程检查",
+            "保留制程记录"
+          ]
+        },
+        {
+          "title": "终检",
+          "items": [
+            "功能检查",
+            "包装与标签核对",
+            "按批次保留测试记录"
+          ]
+        },
+        {
+          "title": "文档",
+          "items": [
+            "数据手册与用户手册",
+            "快速指南与包装设计",
+            "可提供的符合性文档"
+          ]
+        }
       ],
       "note": "认证、测试报告和工厂信息在尽职调查期间向合格合作伙伴提供。"
     },
@@ -741,7 +793,11 @@
           "label": "分销商",
           "title": "产品范围与品牌",
           "body": "面向您市场的产品范围、配置支持和 OEM 选项。",
-          "points": ["产品范围与配件", "贴牌与包装", "区域文档"],
+          "points": [
+            "产品范围与配件",
+            "贴牌与包装",
+            "区域文档"
+          ],
           "link": "了解 OEM / ODM",
           "href": "/oem-odm/"
         },
@@ -749,7 +805,11 @@
           "label": "方案商",
           "title": "贴合应用",
           "body": "围绕应用选择设备和模块，并提供试点支持。",
-          "points": ["采集模块选择", "试点规划", "软件与 MDM 集成"],
+          "points": [
+            "采集模块选择",
+            "试点规划",
+            "软件与 MDM 集成"
+          ],
           "link": "探索解决方案",
           "href": "/solutions/"
         },
@@ -757,7 +817,11 @@
           "label": "企业团队",
           "title": "从评估到上线",
           "body": "从工作流程梳理到设备候选清单和车队上线的务实路径。",
-          "points": ["工作流程梳理", "设备候选与配置", "上线与备件规划"],
+          "points": [
+            "工作流程梳理",
+            "设备候选与配置",
+            "上线与备件规划"
+          ],
           "link": "联系我们的团队",
           "href": "/contact/"
         }
@@ -768,7 +832,11 @@
         "label": "公司信息",
         "title": "尽职调查，不走过场。",
         "body": "注册主体信息、生产地点、认证和测试报告可应要求向合格合作伙伴提供。我们更愿意分享证据，而不是无法核实的声明。",
-        "points": ["注册公司信息", "生产与质量文档", "适用的认证与测试报告"]
+        "points": [
+          "注册公司信息",
+          "生产与质量文档",
+          "适用的认证与测试报告"
+        ]
       },
       "talk": {
         "label": "联系我们",
@@ -780,7 +848,7 @@
   },
   "contact": {
     "metaTitle": "联系 TRAKNOVA | 获取报价",
-    "metaDescription": "联系 TRAKNOVA，咨询加固型 PDA、RFID 设备、工业平板、OEM / ODM 项目以及产品数据手册。",
+    "metaDescription": "联系 TRAKNOVA，咨询加固型 PDA、RFID 与条码手持终端、工业平板、OEM / ODM 项目以及产品数据手册。",
     "hero": {
       "eyebrow": "联系我们的团队",
       "titleLine1": "让我们一起打造",
@@ -822,10 +890,22 @@
       "titleLine2": "到明确的下一步。",
       "body": "我们不会发一份产品目录然后听天由命。每个询盘都会结合工作流程和市场进行评估。",
       "items": [
-        { "title": "需求评估", "body": "我们阅读工作流程、目标市场、预计数量以及任何 OEM / ODM 范围。" },
-        { "title": "澄清", "body": "我们会就关键配置问题回复——模块、环境、软件和时间安排。" },
-        { "title": "推荐", "body": "您将收到候选清单、相关规格以及每个选项的文档路径。" },
-        { "title": "报价", "body": "针对所选配置确认商务条款、样品政策和交期。" }
+        {
+          "title": "需求评估",
+          "body": "我们阅读工作流程、目标市场、预计数量以及任何 OEM / ODM 范围。"
+        },
+        {
+          "title": "澄清",
+          "body": "我们会就关键配置问题回复——模块、环境、软件和时间安排。"
+        },
+        {
+          "title": "推荐",
+          "body": "您将收到候选清单、相关规格以及每个选项的文档路径。"
+        },
+        {
+          "title": "报价",
+          "body": "针对所选配置确认商务条款、样品政策和交期。"
+        }
       ]
     },
     "support": {
@@ -833,13 +913,21 @@
         "label": "国际支持",
         "title": "跨市场协作。",
         "body": "我们与不同市场的分销商、方案商和企业团队合作。区域供货、认证和交期按项目确认。",
-        "points": ["按市场确认设备与模块供货", "区域 UHF RFID 频段与认证", "文档与包装要求"]
+        "points": [
+          "按市场确认设备与模块供货",
+          "区域 UHF RFID 频段与认证",
+          "文档与包装要求"
+        ]
       },
       "existing": {
         "label": "现有客户？",
         "title": "订单与支持咨询。",
         "body": "如需查询订单状态、备件或讨论 RMA，请联系您订单上的销售联系人，并提供型号、序列号以及问题的简要描述。",
-        "points": ["型号与序列号", "订单或发票编号", "相关照片或日志"]
+        "points": [
+          "型号与序列号",
+          "订单或发票编号",
+          "相关照片或日志"
+        ]
       }
     },
     "faq": {
@@ -898,7 +986,7 @@
       "titleLine2": "我们的工程承诺。",
       "body": "从现有平台的品牌化版本到项目专用设备，TRAKNOVA 支持分销商、方案商和品牌方打造自有工业移动产品组合。",
       "primaryCta": "讨论您的项目",
-      "secondaryCta": "查看产品平台"
+      "secondaryCta": "查看产品品类"
     },
     "models": {
       "eyebrow": "合作模式",
@@ -910,7 +998,12 @@
           "kicker": "模式 01",
           "title": "贴牌",
           "body": "以您的品牌将现有平台推向市场，在设备和包装上体现您的标识。",
-          "points": ["Logo、开机动画和壁纸", "包装与文档品牌化", "配件品牌化", "区域配置与序列号管理"],
+          "points": [
+            "Logo、开机动画和壁纸",
+            "包装与文档品牌化",
+            "配件品牌化",
+            "区域配置与序列号管理"
+          ],
           "best": "适合已有产品计划的分销商和品牌方。"
         },
         {
@@ -918,14 +1011,24 @@
           "badge": "最常见",
           "title": "定制配置产品",
           "body": "在产品到达客户手中之前，使平台适配您的应用、市场和软件环境。",
-          "points": ["条码、RFID、NFC 或证件模块选择", "内存、系统和配件配置", "软件镜像、预装和 MDM 注册", "样机与验收测试"],
+          "points": [
+            "条码、RFID、NFC 或证件模块选择",
+            "内存、系统和配件配置",
+            "软件镜像、预装和 MDM 注册",
+            "样机与验收测试"
+          ],
           "best": "适合有明确定义用例的方案商。"
         },
         {
           "kicker": "模式 03",
           "title": "项目开发",
           "body": "围绕标准产品范围无法覆盖的需求，定义、打样并产业化一款设备。",
-          "points": ["需求与市场定义", "工业设计与样机协调", "验证计划与现场试点", "试产、量产与生命周期支持"],
+          "points": [
+            "需求与市场定义",
+            "工业设计与样机协调",
+            "验证计划与现场试点",
+            "试产、量产与生命周期支持"
+          ],
           "best": "适合拥有差异化设备路线图的合作伙伴。"
         }
       ],
@@ -936,16 +1039,60 @@
       "titleLine1": "可调整的",
       "titleLine2": "内容。",
       "body": "下表是工作的起点。每一项都会结合所选平台、目标市场和生产计划进行评估。",
-      "headers": { "layer": "层面", "options": "可讨论的选项", "status": "状态" },
+      "headers": {
+        "layer": "层面",
+        "options": "可讨论的选项",
+        "status": "状态"
+      },
       "rows": [
-        { "layer": "品牌标识", "options": "Logo、开机动画、壁纸、设备标签、包装、手册", "status": "按项目定义", "accent": true },
-        { "layer": "采集模块", "options": "1D / 2D 扫描引擎、UHF RFID、NFC、证件 / 文档读取器", "status": "视 SKU 而定", "accent": false },
-        { "layer": "算力与内存", "options": "Android 或 Windows 版本、RAM / 存储、处理器选项", "status": "视 SKU 而定", "accent": false },
-        { "layer": "I/O 与连接", "options": "RS232 / RS485、RJ45、USB、HDMI、蜂窝与 Wi-Fi 选项", "status": "视 SKU 而定", "accent": false },
-        { "layer": "配件", "options": "充电器、底座、握把、保护壳、手带、车载支架", "status": "视模具而定", "accent": false },
-        { "layer": "软件", "options": "系统镜像、预装应用、MDM 注册、区域设置", "status": "按项目定义", "accent": true },
-        { "layer": "文档", "options": "数据手册、用户手册、快速指南、包装设计", "status": "按项目定义", "accent": true },
-        { "layer": "生产", "options": "序列号管理、QC 计划、包装、备件规划", "status": "按项目定义", "accent": true }
+        {
+          "layer": "品牌标识",
+          "options": "Logo、开机动画、壁纸、设备标签、包装、手册",
+          "status": "按项目定义",
+          "accent": true
+        },
+        {
+          "layer": "采集模块",
+          "options": "1D / 2D 扫描引擎、UHF RFID、NFC、证件 / 文档读取器",
+          "status": "视 SKU 而定",
+          "accent": false
+        },
+        {
+          "layer": "算力与内存",
+          "options": "Android 或 Windows 版本、RAM / 存储、处理器选项",
+          "status": "视 SKU 而定",
+          "accent": false
+        },
+        {
+          "layer": "I/O 与连接",
+          "options": "RS232 / RS485、RJ45、USB、HDMI、蜂窝与 Wi-Fi 选项",
+          "status": "视 SKU 而定",
+          "accent": false
+        },
+        {
+          "layer": "配件",
+          "options": "充电器、底座、握把、保护壳、手带、车载支架",
+          "status": "视模具而定",
+          "accent": false
+        },
+        {
+          "layer": "软件",
+          "options": "系统镜像、预装应用、MDM 注册、区域设置",
+          "status": "按项目定义",
+          "accent": true
+        },
+        {
+          "layer": "文档",
+          "options": "数据手册、用户手册、快速指南、包装设计",
+          "status": "按项目定义",
+          "accent": true
+        },
+        {
+          "layer": "生产",
+          "options": "序列号管理、QC 计划、包装、备件规划",
+          "status": "按项目定义",
+          "accent": true
+        }
       ],
       "note": "供货情况以所选平台为准。部分选项需要模具、最小起订量或认证评估。"
     },
@@ -955,12 +1102,30 @@
       "titleLine2": "到量产。",
       "body": "每个阶段都有明确的产出和验收点。在双方确认上一阶段关闭之前，我们不会进入下一阶段。",
       "steps": [
-        { "title": "需求发现", "body": "在一次结构化沟通中讨论应用、目标市场、预计数量、合规要求和商务预期。" },
-        { "title": "方案建议", "body": "推荐平台或开发路径、配置、品牌范围、MOQ 以及分阶段商务框架。" },
-        { "title": "样机", "body": "按约定的品牌、软件镜像和配件组进行样品制作。待解决问题会记录到验证阶段。" },
-        { "title": "验证", "body": "测试计划、现场试点和验收标准。文档和未完成的工程事项在试产前关闭。" },
-        { "title": "试产", "body": "通过小批量生产确认工艺、包装、序列号管理和 QC。双方签署生产基线。" },
-        { "title": "量产与支持", "body": "按获批基线量产，并提供备件规划、文档控制和售后协调。" }
+        {
+          "title": "需求发现",
+          "body": "在一次结构化沟通中讨论应用、目标市场、预计数量、合规要求和商务预期。"
+        },
+        {
+          "title": "方案建议",
+          "body": "推荐平台或开发路径、配置、品牌范围、MOQ 以及分阶段商务框架。"
+        },
+        {
+          "title": "样机",
+          "body": "按约定的品牌、软件镜像和配件组进行样品制作。待解决问题会记录到验证阶段。"
+        },
+        {
+          "title": "验证",
+          "body": "测试计划、现场试点和验收标准。文档和未完成的工程事项在试产前关闭。"
+        },
+        {
+          "title": "试产",
+          "body": "通过小批量生产确认工艺、包装、序列号管理和 QC。双方签署生产基线。"
+        },
+        {
+          "title": "量产与支持",
+          "body": "按获批基线量产，并提供备件规划、文档控制和售后协调。"
+        }
       ],
       "note": "样品政策、MOQ、交期和模具条款在具体项目方案中确定。"
     },
@@ -972,15 +1137,33 @@
       "cards": [
         {
           "title": "质量方法",
-          "items": ["来料检查", "制程检查", "终检", "按批次保留测试记录", "包装与标签核对"]
+          "items": [
+            "来料检查",
+            "制程检查",
+            "终检",
+            "按批次保留测试记录",
+            "包装与标签核对"
+          ]
         },
         {
           "title": "文档包",
-          "items": ["产品数据手册", "用户手册与快速指南", "包装设计", "可提供的测试与符合性文档", "变更控制记录"]
+          "items": [
+            "产品数据手册",
+            "用户手册与快速指南",
+            "包装设计",
+            "可提供的测试与符合性文档",
+            "变更控制记录"
+          ]
         },
         {
           "title": "生命周期支持",
-          "items": ["备件规划", "配件延续", "软件镜像控制", "变更通知", "售后协调"]
+          "items": [
+            "备件规划",
+            "配件延续",
+            "软件镜像控制",
+            "变更通知",
+            "售后协调"
+          ]
         }
       ]
     },

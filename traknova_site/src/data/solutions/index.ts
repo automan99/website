@@ -4,6 +4,7 @@ import type { Locale } from '../../i18n/config';
 
 export type DeviceRef = {
   slug: string;
+  variant?: string;
 };
 
 export type Scenario = {

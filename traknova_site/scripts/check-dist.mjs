@@ -31,12 +31,19 @@ function walk(dir, out = []) {
 }
 
 const htmlFiles = walk(dist).filter((file) => file.endsWith('.html'));
+const redirectPages = new Set([
+  'products/ht540-series/index.html',
+  'products/ht550/index.html',
+  'zh/products/ht540-series/index.html',
+  'zh/products/ht550/index.html'
+]);
 const zh = JSON.parse(readFileSync(join(root, 'src/i18n/dictionaries/zh.json'), 'utf8'));
 const notice = zh.legal.englishVersionNotice;
 const disabledLanguages = ['hi', 'es', 'ru', 'de', 'fr', 'pt'];
 
 for (const file of htmlFiles) {
   const rel = relative(dist, file).split(sep).join('/');
+  if (redirectPages.has(rel)) continue;
   const html = readFileSync(file, 'utf8');
   const isZh = rel.startsWith('zh/');
   const expectedLanguage = isZh ? 'zh-CN' : 'en';
@@ -75,8 +82,14 @@ const requiredPages = [
   'zh/about/index.html',
   'zh/contact/index.html',
   'zh/oem-odm/index.html',
+  'products/index.html',
   'zh/products/index.html',
-  'zh/products/ht400-rugged-barcode-pda/index.html',
+  'products/rfid-handhelds/index.html',
+  'products/ht600/index.html',
+  'products/y100-series/index.html',
+  'zh/products/rfid-handhelds/index.html',
+  'zh/products/ht600/index.html',
+  'zh/products/y100-series/index.html',
   'solutions/index.html',
   'solutions/logistics/index.html',
   'solutions/manufacturing/index.html',
@@ -95,9 +108,86 @@ for (const page of requiredPages) {
   if (!existsSync(join(dist, page))) errors.push(`missing page: ${page}`);
 }
 
+for (const [page, target] of [
+  ['products/ht540-series/index.html', 'rfid-handhelds'],
+  ['products/ht550/index.html', 'rfid-handhelds'],
+  ['zh/products/ht540-series/index.html', 'rfid-handhelds'],
+  ['zh/products/ht550/index.html', 'rfid-handhelds']
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) {
+    errors.push(`missing redirect page: ${page}`);
+    continue;
+  }
+  if (!readFileSync(path, 'utf8').includes(target)) {
+    errors.push(`${page}: redirect target "${target}" is missing`);
+  }
+}
+
+for (const [page, marker] of [
+  ['products/rfid-handhelds/index.html', 'RFID Handheld Series'],
+  ['products/ht600/index.html', 'HT600'],
+  ['products/y100-series/index.html', 'Y100 Series'],
+  ['zh/products/rfid-handhelds/index.html', 'RFID 手持终端系列'],
+  ['zh/products/ht600/index.html', 'HT600'],
+  ['zh/products/y100-series/index.html', 'Y100 Series']
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  if (!html.includes('data-product-variants')) {
+    errors.push(`${page}: missing product variant root`);
+  }
+  if (!html.includes(marker)) errors.push(`${page}: missing product name "${marker}"`);
+  if (!html.includes('property="og:image"')) errors.push(`${page}: missing og:image`);
+}
+
+const legacyProductSlugs = [
+  'ht400-rugged-barcode-pda',
+  'ht510-rugged-pda',
+  'ht520-multifunction-pda',
+  'ht530-document-id-pda',
+  'ht800-scan-print-pda',
+  'ht540-rfid-handheld',
+  'ht550-uhf-rfid-handheld',
+  'y100-uhf-rfid-tablet',
+  'y100-rugged-android-tablet',
+  'y70-rugged-tablet',
+  'a100-windows-rugged-tablet',
+  't120a-windows-industrial-tablet'
+];
+for (const slug of legacyProductSlugs) {
+  for (const prefix of ['products', 'zh/products']) {
+    if (existsSync(join(dist, prefix, slug, 'index.html'))) {
+      errors.push(`legacy product page still built: ${prefix}/${slug}/`);
+    }
+  }
+}
+
+for (const page of [
+  'solutions/logistics/index.html',
+  'solutions/manufacturing/index.html',
+  'solutions/retail/index.html',
+  'solutions/field-service/index.html',
+  'zh/solutions/logistics/index.html',
+  'zh/solutions/manufacturing/index.html',
+  'zh/solutions/retail/index.html',
+  'zh/solutions/field-service/index.html'
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) continue;
+  const html = readFileSync(path, 'utf8');
+  for (const slug of legacyProductSlugs) {
+    if (html.includes(`/products/${slug}/`) || html.includes(`/products/${slug}#`)) {
+      errors.push(`${page}: still links to legacy product "${slug}"`);
+    }
+  }
+}
+
 const sentinels = [
   ['zh/index.html', 'Move Data.'],
-  ['zh/products/index.html', 'Start with the task'],
+  ['zh/index.html', 'Three categories.'],
+  ['zh/products/index.html', 'Three product lines.'],
   ['zh/solutions/index.html', 'Built around the work.']
 ];
 for (const [page, text] of sentinels) {
@@ -177,7 +267,6 @@ for (const asset of [
   'images/solutions/manufacturing-2000.webp',
   'images/solutions/retail-2000.webp',
   'images/solutions/field-service-2000.webp',
-  'images/products/device-pda.svg',
   'images/products/device-rfid.svg',
   'images/products/device-tablet.svg'
 ]) {

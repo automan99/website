@@ -3,160 +3,458 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import ProductCard from '../components/ProductCard.astro';
-import { getCategoryLabel, getProducts, type Product } from '../data/products';
-import { withBase, localizedPath } from '../utils/paths';
+import ProductFamilyCard from '../components/ProductFamilyCard.astro';
+import {
+  getCategoryLabel,
+  getProductFamilies,
+  type ProductFamily
+} from '../data/products/catalog';
+import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
+import '../styles/product-detail.css';
 
 interface Props {
   locale: Locale;
-  product: Product;
+  family: ProductFamily;
 }
 
-const { locale, product } = Astro.props;
+const { locale, family } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.productDetail;
+const isMultiVariant = family.variants.length > 1;
+const related = getProductFamilies(locale).filter((item) => item.id !== family.id);
+const defaultVariant =
+  family.variants.find((variant) => variant.id === family.defaultVariant) ?? family.variants[0];
 
-const confirmedSpecs = Object.entries(product.specs).filter(([, value]) => !/confirm/i.test(value));
-const related = getProducts(locale).filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
-const familyAnchor = product.category === 'Rugged PDA' ? '#rugged-pda' : product.category === 'RFID' ? '#rfid' : '#industrial-tablets';
-const categoryKey = product.category === 'Rugged PDA' ? 'ruggedPda' : product.category === 'RFID' ? 'rfid' : 'industrialTablet';
-const fits = copy.whereItFits.groups[categoryKey];
-const configCards = copy.configuration.groups[categoryKey];
+const sections = [
+  { id: 'overview', label: copy.nav.overview },
+  ...(isMultiVariant ? [{ id: 'variants', label: copy.nav.variants }] : []),
+  { id: 'features', label: copy.nav.features },
+  { id: 'specifications', label: copy.nav.specs },
+  { id: 'applications', label: copy.nav.applications }
+];
 
-const productImage = product.image.startsWith('http')
-  ? product.image
-  : Astro.site
-    ? new URL(withBase(product.image), Astro.site).href
-    : withBase(product.image);
+const sectionNumber = (id: string) => {
+  const index = sections.findIndex((section) => section.id === id);
+  return String(index + 1).padStart(2, '0');
+};
+
+const absolute = (path: string) =>
+  Astro.site ? new URL(path, Astro.site).href : path;
+
 const productSchema = {
   '@context': 'https://schema.org',
-  '@type': 'Product',
-  name: product.name,
-  description: product.summary,
-  category: product.category,
+  '@type': 'ProductGroup',
+  name: family.name,
+  description: family.summary,
   brand: { '@type': 'Brand', name: 'TRAKNOVA' },
-  image: productImage,
-  sku: product.model
+  productGroupID: family.id,
+  image: absolute(withBase(defaultVariant.image)),
+  hasVariant: family.variants.map((variant) => ({
+    '@type': 'Product',
+    name: variant.name,
+    sku: variant.model,
+    description: variant.summary,
+    image: absolute(withBase(variant.image)),
+    category: getCategoryLabel(locale, family.category)
+  }))
 };
 ---
-<BaseLayout title={`${product.name} | TRAKNOVA`} description={product.summary} locale={locale}>
+<BaseLayout
+  title={`${family.name} | TRAKNOVA`}
+  description={family.summary}
+  image={defaultVariant.image}
+  imageAlt={defaultVariant.name}
+  imageWidth={1200}
+  imageHeight={1200}
+  locale={locale}
+>
   <Fragment slot="head">
     <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
   </Fragment>
   <Header locale={locale} />
-  <main>
-    <section class="page-hero">
-      <div class="wrap">
-        <div class="breadcrumb">
-          <a href={localizedPath(locale, '/')}>{copy.breadcrumb.home}</a><span>/</span>
-          <a href={localizedPath(locale, '/products/')}>{copy.breadcrumb.products}</a><span>/</span>
-          <span>{product.name}</span>
-        </div>
-        <span class="eyebrow">{getCategoryLabel(locale, product.category)}</span>
-        <h1>{product.name}</h1>
-        <p>{product.summary}</p>
-      </div>
-    </section>
+  <main class="pd-page">
+    <div data-product-variants data-default-variant={family.defaultVariant} class="pd-root">
+      <section class="pd-hero" aria-labelledby="pd-product-title">
+        <div class="pd-hero-field" aria-hidden="true"></div>
+        <div class="pd-wrap pd-hero-grid">
+          <div class="pd-hero-copy">
+            <div class="pd-breadcrumb">
+              <a href={localizedPath(locale, '/')}>{copy.breadcrumb.home}</a>
+              <span aria-hidden="true">/</span>
+              <a href={localizedPath(locale, '/products/')}>{copy.breadcrumb.products}</a>
+              <span aria-hidden="true">/</span>
+              <span aria-current="page">{family.name}</span>
+            </div>
+            <p class="pd-kicker">
+              {getCategoryLabel(locale, family.category)}
+              <span aria-hidden="true">·</span>
+              {family.formFactor}
+            </p>
+            <h1 id="pd-product-title">{family.name}</h1>
+            <p class="pd-tagline">{family.tagline}</p>
+            <div class="pd-actions">
+              <button class="pd-btn pd-btn-primary" type="button" data-inquiry-open>{copy.hero.requestQuote}</button>
+              <button class="pd-btn pd-btn-ghost" type="button" data-inquiry-open>{copy.hero.requestDatasheet}</button>
+              <a class="pd-textlink" href={localizedPath(locale, '/contact/')}>{copy.hero.talkToSales}</a>
+            </div>
+            {isMultiVariant && (
+              <div class="pd-variant-index" role="tablist" aria-label={copy.variants.labelAria}>
+                {family.variants.map((variant, index) => (
+                  <button
+                    type="button"
+                    role="tab"
+                    id={`variant-tab-${variant.id}`}
+                    data-variant-tab={variant.id}
+                    aria-controls={`variant-panel-${variant.id}`}
+                    aria-selected={variant.id === family.defaultVariant ? 'true' : 'false'}
+                    tabindex={variant.id === family.defaultVariant ? '0' : '-1'}
+                    class:list={['pd-variant', { 'is-active': variant.id === family.defaultVariant }]}
+                  >
+                    <span class="pd-variant-no" aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>
+                    <span>{variant.label}</span>
+                  </button>
+                ))}
+              </div>
+            )}
+          </div>
 
-    <section class="section">
-      <div class="wrap product-detail">
-        <div class="detail-image"><img src={withBase(product.image)} alt={product.name} /></div>
-        <div>
-          <span class="product-category">{product.model}</span>
-          <h2>{copy.detailHeading}</h2>
-          <p>{product.summary}</p>
-          <ul class="check-list">{product.highlights.map((item) => <li>{item}</li>)}</ul>
-          <div class="detail-actions">
-            <button class="button button-accent" data-inquiry-open>{copy.requestDatasheetQuote} ↗</button>
-            <a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.talkToSales} ↗</a>
+          <div class="pd-hero-visual">
+            {family.variants.map((variant, index) => (
+              <figure
+                class="pd-hero-slide"
+                id={`variant-panel-${variant.id}`}
+                role={isMultiVariant ? 'tabpanel' : undefined}
+                aria-labelledby={isMultiVariant ? `variant-tab-${variant.id}` : undefined}
+                data-variant-panel={variant.id}
+                data-default={variant.id === family.defaultVariant ? 'true' : 'false'}
+                data-pd-gallery
+              >
+                <div class="pd-hero-stage">
+                  <img
+                    class="pd-hero-image"
+                    data-pd-gallery-main
+                    src={withBase(variant.image)}
+                    alt={variant.name}
+                    width="1200"
+                    height="1200"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    fetchpriority={index === 0 ? 'high' : 'auto'}
+                    decoding="async"
+                  />
+                </div>
+                {variant.gallery.length > 1 && (
+                  <div class="pd-thumbs" role="group" aria-label={variant.name}>
+                    {variant.gallery.map((image, imageIndex) => (
+                      <button
+                        class="pd-thumb"
+                        type="button"
+                        data-pd-thumb
+                        data-src={withBase(image.src)}
+                        data-alt={`${variant.name} — ${image.view}`}
+                        aria-pressed={imageIndex === 0 ? 'true' : 'false'}
+                        aria-label={`${variant.name} — ${image.view}`}
+                      >
+                        <img src={withBase(image.src)} alt="" width="120" height="120" loading="lazy" decoding="async" />
+                      </button>
+                    ))}
+                  </div>
+                )}
+                <figcaption>{variant.name}</figcaption>
+              </figure>
+            ))}
           </div>
         </div>
-      </div>
-    </section>
 
-    <section class="section section-soft">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.whereItFits.eyebrow}</span><h2>{copy.whereItFits.titleLine1}<br />{copy.whereItFits.titleLine2}</h2></div>
-          <p>{copy.whereItFits.body}</p>
-        </div>
-        <div class="fit-grid">
-          {fits.map((fit) => (
-            <article class="fit-card">
-              <h3>{fit.title}</h3>
-              <p>{fit.body}</p>
-              <a href={localizedPath(locale, fit.href)}>{dict.common.actions.seeWorkflow} →</a>
-            </article>
+        <div class="pd-wrap pd-rail">
+          {family.variants.map((variant) => (
+            <div
+              class="pd-rail-panel"
+              data-variant-panel={variant.id}
+              data-default={variant.id === family.defaultVariant ? 'true' : 'false'}
+            >
+              <div class="pd-rail-model">
+                <span class="pd-rail-dot" aria-hidden="true"></span>
+                <b>{variant.name}</b>
+              </div>
+              {variant.keySpecs.map((spec) => (
+                <div class="pd-rail-item">
+                  <span>{spec.label}</span>
+                  <b>{spec.value}</b>
+                </div>
+              ))}
+            </div>
           ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.configuration.eyebrow}</span><h2>{copy.configuration.titleLine1}<br />{copy.configuration.titleLine2}</h2></div>
-          <p>{copy.configuration.body}</p>
-        </div>
-        <div class="quality-grid">
-          {configCards.map((card) => (
-            <article class="quality-card">
-              <h3>{card.title}</h3>
-              <p>{card.intro}</p>
-              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
-            </article>
-          ))}
-        </div>
-      </div>
-    </section>
-
-    <section class="section section-soft">
-      <div class="wrap">
-        <div class="split-intro">
-          <div><span class="eyebrow">{copy.specs.eyebrow}</span><h2>{copy.specs.titleLine1}<br />{copy.specs.titleLine2}</h2></div>
-          <p>{copy.specs.body}</p>
-        </div>
-        {copy.specs.englishNote && <p class="note-line">{copy.specs.englishNote}</p>}
-        {confirmedSpecs.length >= 2 ? (
-          <table class="spec-table">
-            <tbody>{confirmedSpecs.map(([key, value]) => <tr><th>{key}</th><td>{value}</td></tr>)}</tbody>
-          </table>
-        ) : (
-          <div class="spec-empty">
-            <h3>{copy.specs.emptyTitle}</h3>
-            <p>{copy.specs.emptyBody}</p>
-            <button class="button button-accent" data-inquiry-open>{copy.specs.requestDatasheet} ↗</button>
-          </div>
-        )}
-        {confirmedSpecs.length >= 2 && <p class="fineprint">{copy.specs.fineprint}</p>}
-      </div>
-    </section>
-
-    {related.length > 0 && (
-      <section class="section">
-        <div class="wrap">
-          <div class="split-intro">
-            <div><span class="eyebrow">{copy.related.eyebrow}</span><h2>{copy.related.titleLine1}<br />{copy.related.titleLine2}</h2></div>
-            <p>{copy.related.body}</p>
-          </div>
-          <div class="related-grid">{related.map((item) => <ProductCard product={item} locale={locale} />)}</div>
-          <div class="center mt-36"><a class="button button-outline" href={localizedPath(locale, `/products/${familyAnchor}`)}>{dict.common.actions.viewFamily} ↗</a></div>
         </div>
       </section>
-    )}
 
-    <section class="section section-soft">
-      <div class="wrap cta-band">
-        <div>
-          <span class="eyebrow">{copy.cta.eyebrow}</span>
-          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
-          <p>{copy.cta.body}</p>
+      <nav class="pd-nav" aria-label={copy.nav.labelAria ?? copy.nav.overview} data-pd-nav>
+        <div class="pd-wrap pd-nav-inner">
+          {sections.map((section) => (
+            <a href={`#${section.id}`} data-pd-link={section.id}>
+              <span aria-hidden="true">{sectionNumber(section.id)}</span>
+              {section.label}
+            </a>
+          ))}
         </div>
-        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
-      </div>
-    </section>
+      </nav>
+
+      <section class="pd-section" id="overview">
+        <div class="pd-wrap pd-section-grid">
+          <header class="pd-section-head">
+            <p class="pd-index">{sectionNumber('overview')}</p>
+            <h2>{copy.overview.titleLine1}<br />{copy.overview.titleLine2}</h2>
+          </header>
+          <div class="pd-overview-body">
+            <p class="pd-lede">{family.overview[0]}</p>
+            <p>{family.overview[1]}</p>
+            <p class="pd-meta">{family.tags.join(' / ')}</p>
+          </div>
+        </div>
+      </section>
+
+      {isMultiVariant && (
+        <section class="pd-section pd-section-alt" id="variants">
+          <div class="pd-wrap">
+            <header class="pd-section-head">
+              <p class="pd-index">{sectionNumber('variants')}</p>
+              <h2>{copy.variants.titleLine1}<br />{copy.variants.titleLine2}</h2>
+              <p class="pd-deck">{copy.variants.body}</p>
+            </header>
+            <div class="pd-table-scroll">
+              <table class="pd-table compare-table variant-compare-table">
+                <thead>
+                  <tr>
+                    <th>{copy.variants.compareLabel}</th>
+                    {family.variants.map((variant) => (
+                      <th
+                        data-variant-column={variant.id}
+                        class:list={[variant.id === family.defaultVariant ? 'is-active' : '']}
+                      >
+                        <button
+                          type="button"
+                          data-variant-jump={variant.id}
+                          aria-pressed={variant.id === family.defaultVariant ? 'true' : 'false'}
+                        >{variant.label}</button>
+                      </th>
+                    ))}
+                  </tr>
+                </thead>
+                <tbody>
+                  {family.variantComparison.map((row) => (
+                    <tr>
+                      <th scope="row">{row.label}</th>
+                      {family.variants.map((variant) => (
+                        <td data-variant-column={variant.id}>{row.values[variant.id]}</td>
+                      ))}
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+      )}
+
+      <section class="pd-section" id="features">
+        <div class="pd-wrap">
+          {family.variants.map((variant) => (
+            <div
+              class="variant-panel pd-variant-block"
+              data-variant-panel={variant.id}
+              data-default={variant.id === family.defaultVariant ? 'true' : 'false'}
+            >
+              <header class="pd-section-head">
+                <p class="pd-index">{sectionNumber('features')}</p>
+                <h2>{copy.features.titleLine1}<br />{copy.features.titleLine2}</h2>
+                <p class="pd-deck">{variant.summary}</p>
+              </header>
+              <div class="pd-feature-list">
+                {variant.features.map((feature) => (
+                  <article class="pd-feature">
+                    <h3>{feature.title}</h3>
+                    <p>{feature.body}</p>
+                  </article>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="pd-section pd-section-alt" id="specifications">
+        <div class="pd-wrap">
+          {family.variants.map((variant) => (
+            <div
+              class="variant-panel pd-spec-layout"
+              data-variant-panel={variant.id}
+              data-default={variant.id === family.defaultVariant ? 'true' : 'false'}
+            >
+              <aside class="pd-spec-aside">
+                <p class="pd-index">{sectionNumber('specifications')}</p>
+                <h2>{copy.specs.titleLine1}<br />{copy.specs.titleLine2}</h2>
+                <p>{copy.specs.body}</p>
+                <button class="pd-btn pd-btn-dark" type="button" data-inquiry-open>{copy.hero.requestDatasheet}</button>
+              </aside>
+
+              <div class="pd-spec-body">
+                {[...family.sharedSpecGroups, ...variant.specGroups].map((group) => (
+                  <section class="pd-spec-group">
+                    <h3>{group.label}</h3>
+                    <dl class="pd-spec-list">
+                      {group.items.map((item) => (
+                        <div class="pd-spec-row">
+                          <dt>{item.label}</dt>
+                          <dd>{item.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                  </section>
+                ))}
+
+                {variant.options.length > 0 && (
+                  <section class="pd-options">
+                    <h3>{copy.specs.optionsLabel}</h3>
+                    {variant.options.map((option) => (
+                      <div class="pd-option">
+                        <b>{option.label}</b>
+                        <ul>{option.items.map((item) => <li>{item}</li>)}</ul>
+                      </div>
+                    ))}
+                  </section>
+                )}
+
+                <p class="pd-fineprint">{copy.specs.fineprint}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="pd-section pd-section-dark" id="applications">
+        <div class="pd-wrap">
+          {family.variants.map((variant) => (
+            <div
+              class="variant-panel"
+              data-variant-panel={variant.id}
+              data-default={variant.id === family.defaultVariant ? 'true' : 'false'}
+            >
+              <header class="pd-section-head">
+                <p class="pd-index">{sectionNumber('applications')}</p>
+                <h2>{copy.applications.titleLine1}<br />{copy.applications.titleLine2}</h2>
+                <p class="pd-deck">{copy.applications.body}</p>
+              </header>
+              <div class="pd-app-list">
+                {variant.applications.map((application) => (
+                  <a class="pd-app-row" href={localizedPath(locale, `/solutions/${application.solution}/`)}>
+                    <span>{application.label}</span>
+                    <span class="pd-app-arrow" aria-hidden="true">→</span>
+                  </a>
+                ))}
+              </div>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section class="pd-section pd-related-section">
+        <div class="pd-wrap">
+          <header class="pd-section-head">
+            <p class="pd-index">{String(sections.length + 1).padStart(2, '0')}</p>
+            <h2>{copy.related.titleLine1}<br />{copy.related.titleLine2}</h2>
+          </header>
+          <div class="pd-related-grid">
+            {related.map((item) => <ProductFamilyCard family={item} locale={locale} compact />)}
+          </div>
+        </div>
+      </section>
+
+      <section class="pd-cta">
+        <div class="pd-cta-field" aria-hidden="true"></div>
+        <div class="pd-wrap pd-cta-inner">
+          <div>
+            <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+            <p>{copy.cta.body}</p>
+          </div>
+          <a class="pd-btn pd-btn-primary" href={localizedPath(locale, '/contact/')}>{copy.cta.button}</a>
+        </div>
+      </section>
+    </div>
   </main>
   <Footer locale={locale} /><InquiryDialog locale={locale} />
+
+  <script>
+    import { enhanceVariantSelector } from '../scripts/product-variants.mjs';
+
+    document.querySelectorAll('[data-product-variants]').forEach((root) => {
+      enhanceVariantSelector(root);
+    });
+
+    // Gallery thumbnails swap the main image for the active variant.
+    document.querySelectorAll('[data-pd-gallery]').forEach((gallery) => {
+      const main = gallery.querySelector<HTMLImageElement>('[data-pd-gallery-main]');
+      const thumbs = Array.from(gallery.querySelectorAll<HTMLButtonElement>('[data-pd-thumb]'));
+      if (!main) return;
+
+      thumbs.forEach((thumb) => {
+        thumb.addEventListener('click', () => {
+          const { src, alt } = thumb.dataset;
+          if (!src || !alt) return;
+          main.classList.add('is-swapping');
+          const next = new Image();
+          next.onload = () => {
+            main.src = src;
+            main.alt = alt;
+            main.classList.remove('is-swapping');
+          };
+          next.src = src;
+          thumbs.forEach((item) => item.setAttribute('aria-pressed', String(item === thumb)));
+        });
+      });
+    });
+
+    // Scroll spy for the section index.
+    const nav = document.querySelector('[data-pd-nav]');
+    if (nav) {
+      const links = Array.from(nav.querySelectorAll<HTMLAnchorElement>('[data-pd-link]'));
+      const targets = links
+        .map((link) => document.getElementById(link.dataset.pdLink ?? ''))
+        .filter((target): target is HTMLElement => Boolean(target));
+
+      const setActive = (id: string) => {
+        links.forEach((link) => link.classList.toggle('is-active', link.dataset.pdLink === id));
+      };
+
+      let frame = 0;
+      const update = () => {
+        frame = 0;
+        const marker = window.scrollY + 160;
+        let current = targets[0]?.id ?? '';
+        for (const target of targets) {
+          if (target.getBoundingClientRect().top + window.scrollY <= marker) {
+            current = target.id;
+          }
+        }
+        const atBottom =
+          window.innerHeight + window.scrollY >= document.documentElement.scrollHeight - 4;
+        if (atBottom && targets.length > 0) {
+          current = targets[targets.length - 1]?.id ?? current;
+        }
+        setActive(current);
+      };
+
+      const schedule = () => {
+        if (frame) return;
+        frame = window.requestAnimationFrame(update);
+      };
+
+      window.addEventListener('scroll', schedule, { passive: true });
+      window.addEventListener('resize', schedule);
+      links.forEach((link) => {
+        link.addEventListener('click', () => setActive(link.dataset.pdLink ?? ''));
+      });
+      update();
+    }
+  </script>
 </BaseLayout>

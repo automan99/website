@@ -1,0 +1,181 @@
+{
+  "id": "ht540",
+  "order": 1,
+  "slug": "ht540-series",
+  "series": "HT540 Series",
+  "category": "rfid-handheld",
+  "formFactor": "5.5-inch handheld",
+  "tags": ["5.5\"", "Android 10", "IP65"],
+  "defaultVariant": "uhf",
+  "heroImage": "/images/products/ht540/ht540-uhf-front.webp",
+  "kpis": [
+    { "label": "RFID", "value": "LF / HF / UHF" },
+    { "label": "Read range", "value": "Up to 3 m UHF" },
+    { "label": "Protection", "value": "IP65" }
+  ],
+  "comparison": {
+    "formFactor": "5.5-inch handheld",
+    "capture": "LF, HF or UHF version; optional 1D/2D scanner",
+    "os": "Android 10",
+    "battery": "4,900 mAh, replaceable",
+    "protection": "IP65, 1.2 m drop",
+    "bestFor": "Close-range RFID, stock counts and field data capture"
+  },
+  "variantComparison": [
+    {
+      "label": "RFID band",
+      "values": {
+        "lf": "125 / 134.2 kHz",
+        "hf": "13.56 MHz",
+        "uhf": "860–960 MHz"
+      }
+    },
+    {
+      "label": "Read range",
+      "values": {
+        "lf": "≤10 cm",
+        "hf": "1–3 cm",
+        "uhf": "1–3 m"
+      }
+    },
+    {
+      "label": "Protocol",
+      "values": {
+        "lf": "ISO 11784 / ISO 11785",
+        "hf": "ISO 14443A/B, ISO 15693, NFC",
+        "uhf": "EPC C1 Gen2 / ISO 18000-6C"
+      }
+    },
+    {
+      "label": "Typical use",
+      "values": {
+        "lf": "Animal ID, access control and close-range asset tags",
+        "hf": "Cards, labels and NFC workflows",
+        "uhf": "Item-level stock counts and asset audits"
+      }
+    }
+  ],
+  "sharedSpecGroups": [
+    {
+      "id": "platform",
+      "label": "Platform",
+      "items": [
+        { "label": "Display", "value": "5.5 in, 720 × 1440" },
+        { "label": "Processor", "value": "MediaTek MT6762, 8-core up to 2.0 GHz" },
+        { "label": "Operating system", "value": "Android 10" },
+        { "label": "Memory / storage", "value": "2 GB + 16 GB standard; 4 GB + 64 GB optional" },
+        { "label": "Storage expansion", "value": "microSD up to 256 GB" },
+        { "label": "Rear camera", "value": "13 MP with autofocus and flash" },
+        { "label": "Front camera", "value": "5 MP optional" },
+        { "label": "Battery", "value": "4,900 mAh, replaceable" },
+        { "label": "Connectivity", "value": "4G LTE, Wi-Fi 5, Bluetooth 5.0" },
+        { "label": "GNSS", "value": "GPS, GLONASS, Galileo, BeiDou" },
+        { "label": "Interface", "value": "USB Type-C with OTG" }
+      ]
+    },
+    {
+      "id": "durability",
+      "label": "Durability",
+      "items": [
+        { "label": "Protection", "value": "IP65" },
+        { "label": "Drop resistance", "value": "1.2 m" },
+        { "label": "Operating temperature", "value": "-20 to 55 °C" }
+      ]
+    }
+  ],
+  "variants": [
+    {
+      "id": "lf",
+      "model": "HT540-LF",
+      "image": "/images/products/ht540/ht540-lf-front.webp",
+      "gallery": [
+        { "src": "/images/products/ht540/ht540-lf-front.webp", "view": "front" },
+        { "src": "/images/products/ht540/ht540-lf-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RFID", "value": "125 / 134.2 kHz" },
+        { "label": "Read range", "value": "≤10 cm" },
+        { "label": "OS", "value": "Android 10" },
+        { "label": "Protection", "value": "IP65" }
+      ],
+      "specGroups": [
+        {
+          "id": "rfid",
+          "label": "LF RFID",
+          "items": [
+            { "label": "Frequency", "value": "125 kHz / 134.2 kHz (FDX-B / HDX)" },
+            { "label": "Protocol", "value": "ISO 11784 / ISO 11785" },
+            { "label": "Read range", "value": "Within 10 cm" },
+            { "label": "Typical tags", "value": "Animal ID, access control and close-range asset tags" }
+          ]
+        }
+      ],
+      "options": [
+        { "label": "Optional modules", "items": ["1D/2D barcode scanner", "NFC"] }
+      ]
+    },
+    {
+      "id": "hf",
+      "model": "HT540-HF",
+      "image": "/images/products/ht540/ht540-hf-front.webp",
+      "gallery": [
+        { "src": "/images/products/ht540/ht540-hf-front.webp", "view": "front" },
+        { "src": "/images/products/ht540/ht540-hf-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RFID", "value": "13.56 MHz" },
+        { "label": "Read range", "value": "1–3 cm" },
+        { "label": "OS", "value": "Android 10" },
+        { "label": "Protection", "value": "IP65" }
+      ],
+      "specGroups": [
+        {
+          "id": "rfid",
+          "label": "HF RFID",
+          "items": [
+            { "label": "Frequency", "value": "13.56 MHz" },
+            { "label": "Protocol", "value": "ISO 14443A/B, ISO 15693, NFC" },
+            { "label": "Read range", "value": "1–3 cm" },
+            { "label": "Typical tags", "value": "Cards, labels and NFC workflows" }
+          ]
+        }
+      ],
+      "options": [
+        { "label": "Optional modules", "items": ["1D/2D barcode scanner", "PSAM"] }
+      ]
+    },
+    {
+      "id": "uhf",
+      "model": "HT540-UHF",
+      "image": "/images/products/ht540/ht540-uhf-front.webp",
+      "gallery": [
+        { "src": "/images/products/ht540/ht540-uhf-front.webp", "view": "front" },
+        { "src": "/images/products/ht540/ht540-uhf-angle.webp", "view": "angle" }
+      ],
+      "keySpecs": [
+        { "label": "RFID", "value": "UHF 860–960 MHz" },
+        { "label": "Read range", "value": "1–3 m" },
+        { "label": "OS", "value": "Android 10" },
+        { "label": "Protection", "value": "IP65" }
+      ],
+      "specGroups": [
+        {
+          "id": "rfid",
+          "label": "UHF RFID",
+          "items": [
+            { "label": "Frequency", "value": "865–868 / 902–928 / 920–925 MHz" },
+            { "label": "Protocol", "value": "EPC C1 Gen2 / ISO 18000-6C" },
+            { "label": "Antenna", "value": "3 dBi circularly polarized ceramic antenna" },
+            { "label": "Read range", "value": "1–3 m, depending on tag and environment" }
+          ]
+        }
+      ],
+      "options": [
+        {
+          "label": "Optional modules",
+          "items": ["1D/2D barcode scanner", "NFC", "PSAM"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,110 +1,498 @@
 {
-  "ht400-rugged-barcode-pda": {
-    "name": "HT400 加固型条码 PDA",
-    "summary": "面向条码收货、拣选、盘点和现场数据采集的紧凑型 Android 移动计算机。",
-    "highlights": [
-      "1D / 2D 条码采集配置",
-      "便携式手持形态",
-      "适用于物流、零售和现场作业"
-    ]
+  "rfid-handhelds": {
+    "name": "RFID 手持终端系列",
+    "eyebrow": "LF / HF / UHF RFID 手持终端",
+    "tagline": "一个系列，三种 RFID 频段，两档性能。",
+    "summary": "5.5 英寸 Android RFID 手持终端系列，提供 LF、HF 与 UHF 配置，并以远距离 UHF 型号覆盖批量盘点与资产审计。",
+    "overview": [
+      "RFID 手持终端系列把 LF、HF 与 UHF 识别整合到统一的 5.5 英寸 Android 手持形态。HT540 配置覆盖近距离标签、卡片与单品级 UHF 盘点；HT550 则加入远距离 UHF 模块与更大容量电池，面向批量库存。",
+      "按工作选择频段与性能档，再确认扫描头、NFC、PSAM 与配件选项。UHF 区域频段与最终规格以获批数据表为准。"
+    ],
+    "variants": {
+      "lf": {
+        "label": "HT540 LF",
+        "name": "HT540-LF",
+        "summary": "LF RFID 手持机，适用于动物识别、门禁与近距离资产标签。",
+        "highlights": [
+          "125 / 134.2 kHz LF RFID",
+          "ISO 11784 / ISO 11785",
+          "条码扫描与 NFC 可选"
+        ],
+        "features": [
+          {
+            "title": "适合低频读取的场景",
+            "body": "在 10 cm 内读取 125 kHz 与 134.2 kHz FDX-B/HDX 标签，对非金属材料周边环境有较好的适应性。"
+          },
+          {
+            "title": "面向动物与门禁标签",
+            "body": "在加固 Android 手持机上支持畜牧、动物识别与门禁工作流。"
+          },
+          {
+            "title": "可叠加条码与 NFC",
+            "body": "在 LF 识别之外，可选 1D/2D 条码扫描与 NFC，覆盖混合数据采集任务。"
+          },
+          {
+            "title": "同一套加固平台",
+            "body": "IP65 防护、1.2 m 跌落与可更换 4,900 mAh 电池，满足整班次现场使用。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "畜牧与动物识别",
+            "solution": "field-service"
+          },
+          {
+            "label": "门禁与考勤",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "资产贴标",
+            "solution": "logistics"
+          },
+          {
+            "label": "零售服务检查",
+            "solution": "retail"
+          }
+        ]
+      },
+      "hf": {
+        "label": "HT540 HF",
+        "name": "HT540-HF",
+        "summary": "HF RFID 手持机，适用于近距离卡片、标签与 NFC 识别。",
+        "highlights": [
+          "13.56 MHz HF RFID",
+          "ISO 14443A/B、ISO 15693 与 NFC",
+          "条码扫描与 PSAM 可选"
+        ],
+        "features": [
+          {
+            "title": "近距离卡片与标签读取",
+            "body": "在 1–3 cm 内读取 HF 卡片、标签与 NFC 标签，适用于需要可控识别的核验流程。"
+          },
+          {
+            "title": "内置 NFC",
+            "body": "在同一设备上支持 NFC-IP1/2、M1 卡与 CPU 卡，以及 HF RFID。"
+          },
+          {
+            "title": "PSAM 安全模块",
+            "body": "需要安全卡片认证或区域接入标准时，可选 PSAM 模块。"
+          },
+          {
+            "title": "共用的 Android 平台",
+            "body": "Android 10、5.5 英寸屏幕，与系列其他版本共用电池和配件生态。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "员工与资产识别",
+            "solution": "field-service"
+          },
+          {
+            "label": "零售库存准确性",
+            "solution": "retail"
+          },
+          {
+            "label": "在制品追踪",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "收货与核验",
+            "solution": "logistics"
+          }
+        ]
+      },
+      "uhf": {
+        "label": "HT540 UHF",
+        "name": "HT540-UHF",
+        "summary": "UHF RFID 手持机，适用于单品盘点、资产审计与短距离库存读取。",
+        "highlights": [
+          "UHF 860–960 MHz，支持区域频段配置",
+          "3 dBi 陶瓷天线，读取距离 1–3 m",
+          "条码扫描、NFC 与 PSAM 可选"
+        ],
+        "features": [
+          {
+            "title": "适合货架与通道的短距 UHF",
+            "body": "使用 3 dBi 圆极化天线在 1–3 m 内读取单品标签，适合货架盘点、循环盘点与资产审计。"
+          },
+          {
+            "title": "一个平台，操作一致",
+            "body": "与 LF/HF 版本共用 5.5 英寸 Android 10 设备、扫描键、电池与配件，降低培训成本。"
+          },
+          {
+            "title": "扫描与识别合一",
+            "body": "可选 1D/2D 条码扫描，将标签读取与标签、货架和资产核验放在同一工作流中。"
+          },
+          {
+            "title": "面向日常高强度使用",
+            "body": "IP65 防护、1.2 m 跌落与易更换电池，支持整班次使用。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产审计",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      },
+      "ht550": {
+        "label": "HT550",
+        "name": "HT550",
+        "summary": "长距离 UHF RFID 手持机，Android 13、9,600 mAh 电池，可选条码扫描。",
+        "highlights": [
+          "Impinj E 系列 UHF 模块，4 dBi 圆极化天线",
+          "模块标称 1–20 m；开阔环境 Impinj MR6 标签约 15 m",
+          "9,600 mAh 电池与 IP67 防护"
+        ],
+        "features": [
+          {
+            "title": "远距离批量读取",
+            "body": "开阔环境下使用 Impinj MR6 标签可达约 15 m；模块标称 1–20 m，实际取决于标签与环境。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "9,600 mAh 电池支持 10 小时以上工作，18 W 快充适合高强度盘点班次。"
+          },
+          {
+            "title": "快速群读",
+            "body": "最高每秒读取 200 个标签（2,000 个/10 秒），缩短循环盘点与资产审计时间。"
+          },
+          {
+            "title": "手持人体工学",
+            "body": "5.5 英寸 720 × 1440 屏幕、实体扫描键、680 g 机身与 IP67 主机防护。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产追踪",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   },
-  "ht510-rugged-pda": {
-    "name": "HT510 加固型 PDA",
-    "summary": "可配置的手持终端系列，提供标准版、手枪柄版和面向医疗的版本。",
-    "highlights": [
-      "多种形态版本",
-      "条码数据采集配置",
-      "按版本提供配件和工作流程"
-    ]
+  "ht600": {
+    "name": "HT600",
+    "eyebrow": "6.0 英寸条码手持终端",
+    "tagline": "条码采集，整班次续航。",
+    "summary": "6.0 英寸 Android 13 工业手持终端，内置专业 1D/2D 扫描引擎、IP68 防护与 8,000 mAh 电池，适用于物流、仓储与现场数据采集。",
+    "overview": [
+      "HT600 是一台围绕专业 1D/2D 影像扫描引擎打造的 6.0 英寸 Android 13 工业手持终端。8,000 mAh 可拆卸电池、IP68 防护与 1.8 m 跌落规格面向仓储、配送与现场作业的整班次使用。",
+      "平台配备 1600 万像素后摄、4G LTE、双频 Wi-Fi 与蓝牙 5.0，并可选 NFC、LF RFID 与手枪握把。扫描引擎、内存与模块选项按配置和目标市场确认，下单前以获批数据表为准。"
+    ],
+    "variants": {
+      "standard": {
+        "label": "标准版",
+        "name": "HT600",
+        "summary": "6.0 英寸 Android 13 条码手持终端，8,000 mAh 电池、IP68 防护与专业 1D/2D 扫描引擎。",
+        "highlights": [
+          "专业 1D/2D 影像扫描引擎，多种解码配置可选",
+          "8,000 mAh 可拆卸电池与 IP68 防护",
+          "6.0 英寸高亮屏，支持手套与湿手触控"
+        ],
+        "features": [
+          {
+            "title": "快速条码采集",
+            "body": "专业 1D/2D 影像引擎可读取常见一维码与二维码，软解 / 硬解型号按配置确认。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "8,000 mAh 可拆卸电池支持 12 小时以上工作，支持快速充电与 RTC 电池更换，便于换班连续作业。"
+          },
+          {
+            "title": "现场级防护",
+            "body": "IP68 防护、1.8 m 六面跌落与 -30 至 60 °C 工作温度，覆盖仓储、配送与户外作业。"
+          },
+          {
+            "title": "Android 平台与连接能力",
+            "body": "Android 13、4G LTE、双频 Wi-Fi、蓝牙 5.0，并可选 NFC 或 LF RFID，连接现场工作与企业系统。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "配送与收货",
+            "solution": "logistics"
+          },
+          {
+            "label": "生产追溯",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "零售与服务网点",
+            "solution": "retail"
+          },
+          {
+            "label": "电力巡检与现场服务",
+            "solution": "field-service"
+          }
+        ]
+      }
+    }
   },
-  "ht520-multifunction-pda": {
-    "name": "HT520 多功能 PDA",
-    "summary": "面向移动数据采集和运营工作流程的多功能企业手持终端。",
-    "highlights": [
-      "多功能移动终端平台",
-      "条码 / 数据采集选项待确认",
-      "适合企业应用集成"
-    ]
-  },
-  "ht530-document-id-pda": {
-    "name": "HT530 文档与证件采集 PDA",
-    "summary": "面向身份证件相关工作流程的专用手持终端。区域文档读取兼容性需按项目确认。",
-    "highlights": [
-      "专用文档 / 证件工作流程定位",
-      "读取模块和支持标准需按项目确认",
-      "适用于受控的企业和公共服务部署"
-    ]
-  },
-  "ht800-scan-print-pda": {
-    "name": "HT800 扫描打印 PDA",
-    "summary": "集移动数据采集与打印于一体的方案，面向移动标签打印和交易工作流程。",
-    "highlights": [
-      "扫描与移动打印集于一身",
-      "适用于配送、零售和现场作业",
-      "打印宽度、介质和引擎细节待确认"
-    ]
-  },
-  "ht540-rfid-handheld": {
-    "name": "HT540 RFID 手持终端",
-    "summary": "用于近距离识别和数据采集的近距 RFID 手持终端。",
-    "highlights": [
-      "近距 RFID 读取器类别",
-      "适用于识别和单品工作流程",
-      "RFID 标准、读取距离和支持标签待确认"
-    ]
-  },
-  "ht550-uhf-rfid-handheld": {
-    "name": "HT550 UHF RFID 手持终端",
-    "summary": "用于批量库存、资产追踪、仓储作业和现场识别的远距 UHF RFID 手持终端。",
-    "highlights": [
-      "来源页面标注 Impinj E710 UHF RFID 模块",
-      "公布读取距离：1–20 米，取决于标签和环境",
-      "来源页面标注 Android 10；5.5 英寸显示屏；10,700 mAh 电池"
-    ]
-  },
-  "y100-uhf-rfid-tablet": {
-    "name": "Y100 UHF RFID 加固平板",
-    "summary": "集成 UHF RFID 的 10.1 英寸加固 Android 平板，面向库存、物流和资产管理流程。",
-    "highlights": [
-      "列出基于 Impinj E710 的 UHF RFID 模块",
-      "列出 Android 13 与 6 GB + 128 GB",
-      "可选条码扫描、NFC、指纹和 PSAM 模块"
-    ]
-  },
-  "y100-rugged-android-tablet": {
-    "name": "Y100 加固 Android 平板",
-    "summary": "面向移动办公、巡检和工业数据采集的 10.1 英寸加固平板平台。",
-    "highlights": [
-      "10.1 英寸加固平板系列",
-      "可选条码 / NFC / RFID 配置因型号而异",
-      "报价前请确认 Android 版本规格"
-    ]
-  },
-  "y70-rugged-tablet": {
-    "name": "Y70 7 英寸加固平板",
-    "summary": "提供 Android 和 Windows 版本的紧凑型 7 英寸加固平板系列，面向移动现场作业。",
-    "highlights": [
-      "7 英寸紧凑型加固平板",
-      "列出 Android 和 Windows 版本",
-      "配置和防护等级因版本而异"
-    ]
-  },
-  "a100-windows-rugged-tablet": {
-    "name": "A100 Windows 加固平板",
-    "summary": "10.1 英寸 Windows 加固平板，提供原生工业 I/O 选项，面向设备连接和现场服务。",
-    "highlights": [
-      "10.1 英寸 Windows 平板；列出 Intel N 系列选项",
-      "千兆 RJ45 与可配置 RS232 / RS485",
-      "来源页面标注 550 尼特显示屏和 IP67；最终 SKU 需核实"
-    ]
-  },
-  "t120a-windows-industrial-tablet": {
-    "name": "T120A Windows 工业平板",
-    "summary": "面向高要求移动工作站和工业应用的 12.6 英寸大尺寸 Windows 工业平板。",
-    "highlights": [
-      "12.6 英寸 Windows 工业平板",
-      "面向工业软件和现场工作流程的大屏平台",
-      "处理器、I/O 和防护细节需按 SKU 确认"
-    ]
+  "y100": {
+    "name": "Y100 Series",
+    "eyebrow": "10.1 英寸加固平板平台",
+    "tagline": "一个平台，五种现场配置。",
+    "summary": "10.1 英寸 Android 加固平板平台，提供标准、RFID、RTK、指纹与 5G 专用版本，适用于库存、巡检、现场服务与测绘。",
+    "overview": [
+      "Y100 Series 以 10.1 英寸 Android 平板为基础，配备 10,000 mAh 电池、IP67 防护和共用配件生态。标准版覆盖日常移动计算与可选的数据采集模块。",
+      "专用版本分别加入一体化 UHF RFID、厘米级 RTK、指纹模块或 5G 连接。先按工作场景选择版本，再确认模块选项、区域频段与目标市场认证。"
+    ],
+    "variants": {
+      "standard": {
+        "label": "标准版",
+        "name": "Y100 Standard",
+        "summary": "10.1 英寸 Android 16 基础平板，适用于移动办公、巡检与可选数据采集。",
+        "highlights": [
+          "10.1 英寸屏幕，8 GB + 128 GB",
+          "10,000 mAh 电池，30 W PD 快充",
+          "条码、NFC、UHF RFID 与指纹可选"
+        ],
+        "features": [
+          {
+            "title": "面向现场的 Android 平板",
+            "body": "10.1 英寸屏幕、MT6789 八核平台与 Android 16，可运行巡检、工单与资产管理应用。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "10,000 mAh 电池与 30 W PD 快充，支持长时间现场使用。"
+          },
+          {
+            "title": "按需配置采集能力",
+            "body": "可按工作流选配 1D/2D 扫描、NFC、UHF RFID 或指纹模块。"
+          },
+          {
+            "title": "加固设计",
+            "body": "IP67 防护、1.0 m 跌落，并支持手套与湿手触控。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储作业",
+            "solution": "logistics"
+          },
+          {
+            "label": "生产与质量",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "零售运营",
+            "solution": "retail"
+          },
+          {
+            "label": "现场巡检",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "rfid": {
+        "label": "RFID",
+        "name": "Y100 RFID",
+        "summary": "10.1 英寸加固平板，集成 Impinj UHF RFID 模块，适用于库存与资产盘点。",
+        "highlights": [
+          "Impinj E710 / E510 / R2000 UHF 模块",
+          "读取距离最高 10 m，150+ 标签/秒",
+          "Android 16，8 GB + 128 GB"
+        ],
+        "features": [
+          {
+            "title": "一体化 UHF RFID",
+            "body": "内置 Impinj 模块与 4 dBi 天线，可读写 EPC C1 Gen2 / ISO 18000-6C 标签。"
+          },
+          {
+            "title": "单次覆盖更多",
+            "body": "开阔环境下读取距离最高 10 m，每秒可读取 150 个以上标签。"
+          },
+          {
+            "title": "更大的 RFID 工作区",
+            "body": "10.1 英寸屏幕比手持机提供更大的库存与异常处理界面。"
+          },
+          {
+            "title": "共用加固平台",
+            "body": "IP67、10,000 mAh 电池，与 Y100 Series 其他版本共用配件。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "仓储库存",
+            "solution": "logistics"
+          },
+          {
+            "label": "资产审计",
+            "solution": "field-service"
+          },
+          {
+            "label": "门店盘点",
+            "solution": "retail"
+          },
+          {
+            "label": "物料追溯",
+            "solution": "manufacturing"
+          }
+        ]
+      },
+      "rtk": {
+        "label": "RTK",
+        "name": "Y100 RTK",
+        "summary": "10.1 英寸加固 RTK 平板，适用于厘米级测绘、GIS 与现场定位。",
+        "highlights": [
+          "1408 通道 RTK GNSS",
+          "水平精度 2.5 cm",
+          "10.1 英寸 800 尼特屏幕"
+        ],
+        "features": [
+          {
+            "title": "厘米级定位",
+            "body": "1408 通道 RTK 模块提供 2.5 cm 水平精度，适用于测绘、GIS 与高精度现场作业。"
+          },
+          {
+            "title": "户外可读屏幕",
+            "body": "10.1 英寸 800 尼特屏幕，在强光环境下仍可用于地图与巡检。"
+          },
+          {
+            "title": "RTK 天线接口",
+            "body": "顶部天线接口可连接外置 RTK 天线，适应现场架设。"
+          },
+          {
+            "title": "现场级续航",
+            "body": "10,000 mAh 电池与 30 W PD 快充，支持长时间测绘作业。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "土地测绘",
+            "solution": "field-service"
+          },
+          {
+            "label": "GIS 与制图",
+            "solution": "field-service"
+          },
+          {
+            "label": "精准农业",
+            "solution": "field-service"
+          },
+          {
+            "label": "公用设施巡检",
+            "solution": "field-service"
+          }
+        ]
+      },
+      "fingerprint": {
+        "label": "指纹版",
+        "name": "Y100 Fingerprint",
+        "summary": "10.1 英寸加固平板，配备 FAP10/FAP20 指纹模块，适用于需要身份核验的工作流。",
+        "highlights": [
+          "FAP10 / FAP20 电容式指纹",
+          "6 GB + 128 GB，Android 16",
+          "10,000 mAh 电池与 IP67"
+        ],
+        "features": [
+          {
+            "title": "作业现场身份核验",
+            "body": "FAP10/FAP20 指纹模块支持操作员登录与身份核验。"
+          },
+          {
+            "title": "一台设备完成多种任务",
+            "body": "在同一 10.1 英寸平台上叠加指纹、条码、NFC 或 UHF RFID。"
+          },
+          {
+            "title": "适合共用设备",
+            "body": "指纹登录便于团队共用设备，同时保留个人操作责任记录。"
+          },
+          {
+            "title": "加固且便携",
+            "body": "IP67 防护、1.0 m 跌落与 10,000 mAh 电池。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "人员身份核验",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "现场服务签核",
+            "solution": "field-service"
+          },
+          {
+            "label": "受控巡检",
+            "solution": "logistics"
+          },
+          {
+            "label": "零售班次操作",
+            "solution": "retail"
+          }
+        ]
+      },
+      "5g": {
+        "label": "5G",
+        "name": "Y100 5G",
+        "summary": "10.1 英寸 5G 加固平板，适用于需要持续连接与高带宽的现场作业。",
+        "highlights": [
+          "UNISOC 7885 与 5G NR",
+          "4 GB + 64 GB，Android 13",
+          "10,000 mAh 电池，IP67"
+        ],
+        "features": [
+          {
+            "title": "现场 5G 连接",
+            "body": "5G NR 连接支持实时视频、大文件上传与云端现场应用。"
+          },
+          {
+            "title": "面向连接的平台",
+            "body": "UNISOC 7885、Android 13 与 5G NR 频段，覆盖具备 5G 网络的市场。"
+          },
+          {
+            "title": "可选现场模块",
+            "body": "可按工作流选配条码、NFC、UHF RFID、指纹或 RTK 模块。"
+          },
+          {
+            "title": "整班次现场续航",
+            "body": "10,000 mAh 电池在典型环境下可支持 12 小时以上工作。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "联网现场服务",
+            "solution": "field-service"
+          },
+          {
+            "label": "远程巡检",
+            "solution": "field-service"
+          },
+          {
+            "label": "物流实时更新",
+            "solution": "logistics"
+          },
+          {
+            "label": "联网制造",
+            "solution": "manufacturing"
+          }
+        ]
+      }
+    }
   }
 }
