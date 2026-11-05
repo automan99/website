@@ -22,7 +22,8 @@
       "contactTeam": "Contact Our Team",
       "askQuestion": "Ask a Question",
       "browseProducts": "Browse Products",
-      "viewPlatforms": "View Platforms",
+      "viewPlatforms": "View Product Categories",
+      "viewCategory": "View category",
       "requestDatasheet": "Request a Datasheet",
       "discussProject": "Discuss Your Project",
       "viewFamily": "View the full family",
@@ -34,8 +35,14 @@
       "exploreSeries": "Explore the series"
     },
     "categories": {
-      "rfidHandheld": "RFID Handheld",
-      "ruggedTablet": "Rugged Tablet"
+      "rfidHandheld": "RFID Handhelds",
+      "barcodeHandheld": "Barcode Handhelds",
+      "ruggedTablet": "Rugged Tablets"
+    },
+    "categoryDescriptions": {
+      "rfidHandheld": "LF, HF and UHF handhelds for close-range identification, bulk counts and asset audits.",
+      "barcodeHandheld": "Rugged Android handhelds with professional 1D/2D scan engines for receiving, picking and field data capture.",
+      "ruggedTablet": "A 10.1-inch Android platform with standard, RFID, RTK, fingerprint and 5G configurations."
     },
     "languageLabel": "Language",
     "menuToggle": "Toggle navigation"
@@ -48,7 +55,7 @@
     "quoteCta": "Get a Quote"
   },
   "footer": {
-    "description": "Rugged mobile computers, RFID technology and industrial tablets for connected operations. Hardware, configuration and OEM / ODM cooperation from one partner.",
+    "description": "Rugged mobile computers, RFID and barcode handhelds and industrial tablets for connected operations. Hardware, configuration and OEM / ODM cooperation from one partner.",
     "columns": {
       "productsTitle": "Products",
       "productsAll": "All Products",
@@ -95,8 +102,8 @@
     "options": {
       "product": {
         "placeholder": "Select a product line",
-        "ht540": "HT540 Series",
-        "ht550": "HT550",
+        "rfidHandhelds": "RFID Handheld Series",
+        "ht600": "HT600",
         "y100": "Y100 Series",
         "oem": "OEM / ODM",
         "notSure": "Not sure"
@@ -141,7 +148,7 @@
   },
   "home": {
     "metaTitle": "TRAKNOVA | Industrial Mobility & Auto-ID Solutions",
-    "metaDescription": "Rugged mobile computers, RFID handhelds and industrial tablets for warehouse, manufacturing, retail and field service. Solution design, configuration and OEM / ODM cooperation.",
+    "metaDescription": "Rugged mobile computers, RFID and barcode handhelds and industrial tablets for warehouse, manufacturing, retail and field service. Solution design, configuration and OEM / ODM cooperation.",
     "hero": {
       "eyebrow": "INDUSTRIAL MOBILITY & AUTO-ID",
       "titleLine1": "Move Data.",
@@ -205,10 +212,10 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "OUR PRODUCT PLATFORMS",
-      "titleLine1": "Three platforms.",
+      "eyebrow": "OUR PRODUCT CATEGORIES",
+      "titleLine1": "Three categories.",
       "titleLine2": "Built for the field.",
-      "body": "RFID handhelds and a 10.1-inch rugged tablet platform. Choose the platform for the work, then configure the version.",
+      "body": "RFID handhelds, barcode handhelds and a 10.1-inch rugged tablet platform. Choose the category for the work, then configure the version.",
       "viewAll": "View All Products"
     },
     "stats": [
@@ -319,7 +326,8 @@
         "Production coordination"
       ],
       "cta": "Explore OEM / ODM",
-      "artLabel": "ENGINEERED TO YOUR SPECIFICATION"
+      "artLabel": "ENGINEERED TO YOUR SPECIFICATION",
+      "artAlt": "Exploded view of an RFID handheld showing its screen, housing, mainboard, battery and scan handle"
     },
     "faq": {
       "eyebrow": "COMMON QUESTIONS",
@@ -356,34 +364,40 @@
   },
   "products": {
     "metaTitle": "Products | TRAKNOVA",
-    "metaDescription": "Explore the TRAKNOVA HT540 Series, HT550 and Y100 Series: RFID handhelds and a rugged tablet platform for close-range identification, bulk inventory and field computing.",
+    "metaDescription": "Explore the TRAKNOVA RFID Handheld Series, HT600 and Y100 Series: RFID handhelds, a barcode handheld and a rugged tablet platform for close-range identification, bulk inventory, barcode data capture and field computing.",
     "hero": {
       "eyebrow": "PRODUCT RANGE",
-      "titleLine1": "Three platforms.",
+      "titleLine1": "Three product lines.",
       "titleLine2": "Built for the field.",
-      "body": "RFID handhelds and a 10.1-inch rugged tablet platform for close-range identification, bulk inventory and field computing. Choose the platform, then configure the version for the work."
+      "body": "RFID handhelds, a barcode handheld and a 10.1-inch rugged tablet platform for close-range identification, bulk inventory, barcode data capture and field computing. Choose the category for the work, then configure the version."
     },
     "anchors": {
-      "series": "Product lines",
+      "series": "Product categories",
       "compare": "Compare"
     },
     "work": {
       "eyebrow": "CHOOSE BY WORK",
       "titleLine1": "Start with the job,",
       "titleLine2": "then the device.",
-      "body": "Three common starting points. Each one leads to the platform and configuration that fits it.",
+      "body": "Four common starting points. Each one leads to the product line and configuration that fits it.",
       "cards": [
         {
           "title": "Bulk inventory and asset audits",
           "body": "Read tags in volume, cover more per pass and keep the count moving across the site.",
-          "href": "/products/ht550/",
+          "href": "/products/rfid-handhelds/#variant-ht550",
           "tag": "UHF RFID"
         },
         {
           "title": "Close-range identification",
           "body": "Read LF, HF or short-range UHF tags on one handheld platform, with barcode and NFC options.",
-          "href": "/products/ht540-series/",
+          "href": "/products/rfid-handhelds/",
           "tag": "LF · HF · UHF"
+        },
+        {
+          "title": "Barcode data capture",
+          "body": "A 6.0-inch Android handheld with a professional 1D/2D scan engine for receiving, picking and field data capture.",
+          "href": "/products/ht600/",
+          "tag": "1D / 2D"
         },
         {
           "title": "Field computing and capture",
@@ -397,17 +411,17 @@
       "eyebrow": "THREE PRODUCT LINES",
       "titleLine1": "One range,",
       "titleLine2": "three ways to work.",
-      "body": "Each platform has a different balance of read range, screen size and field configuration."
+      "body": "Each product line has a different balance of capture method, read range, screen size and field configuration."
     },
     "comparison": {
       "eyebrow": "COMPARE THE RANGE",
-      "titleLine1": "Series at",
+      "titleLine1": "Product lines at",
       "titleLine2": "a glance.",
       "body": "Form factor and capture method are the fastest way to narrow the range. Final configuration follows the application review.",
       "headers": {
-        "series": "Series",
+        "series": "Product line",
         "formFactor": "Form factor",
-        "rfid": "RFID",
+        "capture": "Data capture",
         "os": "OS",
         "battery": "Battery",
         "protection": "Protection",
@@ -538,7 +552,7 @@
     "related": {
       "eyebrow": "RELATED SERIES",
       "titleLine1": "Explore the",
-      "titleLine2": "other platforms."
+      "titleLine2": "other product lines."
     },
     "cta": {
       "eyebrow": "NEXT STEP",
@@ -603,18 +617,18 @@
   },
   "about": {
     "metaTitle": "About TRAKNOVA | Industrial Mobility",
-    "metaDescription": "TRAKNOVA is an industrial mobility partner for rugged PDA computers, RFID handhelds, industrial tablets, configuration and OEM / ODM cooperation.",
+    "metaDescription": "TRAKNOVA is an industrial mobility partner for rugged PDA computers, RFID and barcode handhelds, industrial tablets, configuration and OEM / ODM cooperation.",
     "hero": {
       "eyebrow": "ABOUT TRAKNOVA",
       "titleLine1": "A partner for the work",
       "titleLine2": "between the scan and the system.",
-      "body": "TRAKNOVA builds and configures rugged mobile computers, RFID handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
+      "body": "TRAKNOVA builds and configures rugged mobile computers, RFID and barcode handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
     },
     "profile": {
       "eyebrow": "COMPANY PROFILE",
       "titleLine1": "A Shenzhen-based",
       "titleLine2": "industrial mobility manufacturer.",
-      "paragraph1": "Shenzhen Yiliya Co., Ltd. is a Shenzhen-based manufacturer and solution provider of rugged PDAs, RFID handhelds and industrial tablets. For more than 15 years, we have focused on the devices, modules and configurations that connect frontline work to the business systems behind it.",
+      "paragraph1": "Shenzhen Yiliya Co., Ltd. is a Shenzhen-based manufacturer and solution provider of rugged PDAs, RFID and barcode handhelds and industrial tablets. For more than 15 years, we have focused on the devices, modules and configurations that connect frontline work to the business systems behind it.",
       "paragraph2": "We work with distributors, solution providers and enterprise teams across global markets, covering data capture, identification and mobile workflow projects from device selection and configuration to OEM / ODM cooperation. More than 1,000 companies have worked with us to solve operational problems with mobile data capture.",
       "facts": [
         {
@@ -630,7 +644,7 @@
           "label": "Headquarters"
         },
         {
-          "value": "Rugged PDA · RFID · Tablets",
+          "value": "RFID · Barcode · Tablets",
           "label": "Product focus"
         }
       ],
@@ -644,8 +658,8 @@
       "body": "We are not only a device supplier. We help define the capture method, select the platform, confirm the configuration and plan the support path.",
       "cards": [
         {
-          "title": "Product platforms",
-          "body": "Rugged PDA computers, RFID devices and industrial tablets for enterprise data capture.",
+          "title": "Product categories",
+          "body": "RFID and barcode handhelds and industrial tablets for enterprise data capture.",
           "items": [
             "Barcode and multifunction handhelds",
             "Short-range and UHF RFID",
@@ -704,15 +718,15 @@
       "eyebrow": "CAPABILITY MAP",
       "titleLine1": "What we can",
       "titleLine2": "cover for you.",
-      "body": "Availability and scope are confirmed per product, platform and project. The map below shows where we typically work with partners.",
+      "body": "Availability and scope are confirmed per product, category and project. The map below shows where we typically work with partners.",
       "headers": {
         "capability": "Capability",
         "coverage": "What it covers"
       },
       "rows": [
         {
-          "capability": "Product platforms",
-          "coverage": "Rugged PDA, short-range and UHF RFID handhelds, Android and Windows industrial tablets"
+          "capability": "Product categories",
+          "coverage": "RFID and barcode handhelds, Android and Windows industrial tablets"
         },
         {
           "capability": "Auto-ID",
@@ -834,7 +848,7 @@
   },
   "contact": {
     "metaTitle": "Contact TRAKNOVA | Request a Quote",
-    "metaDescription": "Contact TRAKNOVA about rugged PDA computers, RFID devices, industrial tablets, OEM / ODM projects and product datasheets.",
+    "metaDescription": "Contact TRAKNOVA about rugged PDA computers, RFID and barcode handhelds, industrial tablets, OEM / ODM projects and product datasheets.",
     "hero": {
       "eyebrow": "CONTACT OUR TEAM",
       "titleLine1": "Let's build the right",
@@ -972,7 +986,7 @@
       "titleLine2": "Our engineering commitment.",
       "body": "From a branded variant of an existing platform to a project-specific device, TRAKNOVA supports distributors, solution providers and brands building their own industrial mobility portfolio.",
       "primaryCta": "Discuss Your Project",
-      "secondaryCta": "View Platforms"
+      "secondaryCta": "View Product Categories"
     },
     "models": {
       "eyebrow": "ENGAGEMENT MODELS",

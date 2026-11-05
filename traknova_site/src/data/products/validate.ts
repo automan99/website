@@ -2,22 +2,22 @@ import { existsSync } from 'node:fs';
 import { join } from 'node:path';
 import type { Locale } from '../../i18n/config';
 import type {
-  ProductCategory,
   ProductFamilyBase,
   ProductFamilyCopy,
   SpecGroup
 } from './types';
+import { CATEGORY_IDS } from './categories.ts';
 
 export type ValidateOptions = {
   publicDir: string;
   locales: readonly Locale[];
 };
 
-const CATEGORIES = new Set<ProductCategory>(['rfid-handheld', 'rugged-tablet']);
+const CATEGORIES = CATEGORY_IDS;
 const SOLUTIONS = new Set(['logistics', 'manufacturing', 'retail', 'field-service']);
 const COMPARISON_FIELDS = [
   'formFactor',
-  'rfid',
+  'capture',
   'os',
   'battery',
   'protection',

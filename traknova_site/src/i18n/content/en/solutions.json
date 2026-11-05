@@ -16,7 +16,8 @@
       "title": "Compute",
       "body": "Choose a handheld for one-handed tasks, or a tablet for larger screens, Windows software and equipment I/O.",
       "tags": [
-        "Rugged PDA",
+        "RFID handheld",
+        "Barcode handheld",
         "Android tablet",
         "Windows tablet"
       ]
@@ -66,12 +67,12 @@
           ],
           "devices": [
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
-              "slug": "ht550",
-              "variant": "standard"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
               "slug": "y100-series",
@@ -101,11 +102,11 @@
           ],
           "devices": [
             {
-              "slug": "ht550",
-              "variant": "standard"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -131,7 +132,7 @@
           ],
           "devices": [
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -225,7 +226,7 @@
           ],
           "devices": [
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -251,7 +252,7 @@
           ],
           "devices": [
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -281,7 +282,7 @@
               "variant": "standard"
             },
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             }
           ],
@@ -371,7 +372,7 @@
           ],
           "devices": [
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -397,11 +398,11 @@
           ],
           "devices": [
             {
-              "slug": "ht550",
-              "variant": "standard"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -431,7 +432,7 @@
               "variant": "standard"
             },
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             }
           ],
@@ -543,11 +544,11 @@
           ],
           "devices": [
             {
-              "slug": "ht550",
-              "variant": "standard"
+              "slug": "rfid-handhelds",
+              "variant": "ht550"
             },
             {
-              "slug": "ht540-series",
+              "slug": "rfid-handhelds",
               "variant": "uhf"
             },
             {
@@ -648,7 +649,7 @@
   "specializedWorkflows": [
     {
       "eyebrow": "CLOSE-RANGE IDENTIFICATION",
-      "title": "HT540 Series HF RFID handheld",
+      "title": "RFID Handheld Series HF configuration",
       "body": "An HF RFID handheld for cards, labels and NFC workflows where identification happens at close range. Configuration and accessory choices are confirmed against the project's workflow and regional requirements.",
       "points": [
         "Card, label and NFC identification",
@@ -657,7 +658,7 @@
       ],
       "devices": [
         {
-          "slug": "ht540-series",
+          "slug": "rfid-handhelds",
           "variant": "hf"
         }
       ]
@@ -683,25 +684,25 @@
     {
       "industry": "Warehouse & Logistics",
       "tasks": "Receiving, put-away, cycle counting, picking, packing, dispatch",
-      "devices": "HT540 Series · HT550 · Y100 Series",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "1D / 2D barcode, UHF RFID, mobile print"
     },
     {
       "industry": "Manufacturing",
       "tasks": "Work orders, WIP, kitting, traceability, maintenance rounds",
-      "devices": "HT540 Series · Y100 Series",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "Barcode, NFC, wired I/O, photo evidence"
     },
     {
       "industry": "Retail & Commerce",
       "tasks": "Replenishment, price checks, stocktakes, labeling",
-      "devices": "HT540 Series · HT550 · Y100 Series",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "Barcode, UHF RFID, mobile print"
     },
     {
       "industry": "Field Service & Assets",
       "tasks": "Inspections, work orders, asset audits, on-site documentation",
-      "devices": "HT540 Series · HT550 · Y100 Series",
+      "devices": "RFID Handheld Series · HT600 · Y100 Series",
       "capture": "Barcode, UHF RFID, document reading, mobile print"
     }
   ],
@@ -756,7 +757,7 @@
         "label": "Field scenarios"
       },
       {
-        "value": "03",
+        "value": "04",
         "label": "Device families"
       },
       {

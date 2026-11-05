@@ -7,8 +7,8 @@
 
 | 文件 | 内容 |
 | --- | --- |
-| `ht540.json` | HT540 Series，版本 `lf` / `hf` / `uhf`，默认 `uhf` |
-| `ht550.json` | HT550，单版本 `standard` |
+| `rfid-handhelds.json` | RFID Handheld Series，版本 `lf` / `hf` / `uhf` / `ht550`，默认 `uhf` |
+| `ht600.json` | HT600，单版本 `standard`，条码手持终端 |
 | `y100.json` | Y100 Series，版本 `standard` / `rfid` / `rtk` / `fingerprint` / `5g` |
 | `types.ts` | 数据类型 |
 | `validate.ts` | 构建期校验 |
@@ -20,6 +20,8 @@
 2. 在 `src/i18n/content/en/products.json` 和 `zh/products.json` 增加同名顶层键。
 3. 在 `catalog.ts` 的 `catalogFiles` 增加文件名。
 4. 运行 `npm test && npm run build`。
+
+> `legacy/` 目录保留合并前的 HT540 / HT550 原始数据，仅供追溯；不要加入 `catalogFiles`。
 
 ## 新增版本
 
@@ -45,7 +47,15 @@
 
 ```bash
 python3 scripts/remove-product-backgrounds.py   # 仅重新处理已有 WebP
+python3 scripts/remove-product-backgrounds.py ht600 160  # 仅处理 ht600，使用更高阈值
 node scripts/prepare-product-images.mjs         # 从 产品素材/ 重新生成
+PRODUCT_IMAGE_FILTER=ht600 PRODUCT_BG_THRESHOLD=160 node scripts/prepare-product-images.mjs
 ```
+
+HT600 的源图与裁切：
+
+- 正面 `HT600 - 简化版/HT600-主图-英/HT600主图120260907.jpg`：`cropLeft: 210` + `cropTop: 70`，去除左上角 LQVIS logo。
+- 角度 `DSC02084.jpg`、背面 `DSC02126.jpg`：`cropTop: 330`，去除顶部色带与 logo。
+- `产品素材/首页/HT600-抠图.png` 是打印版 PDA，不用于标准 HT600。
 
 重新生成需要 `sharp`（npm devDependency）和 Python Pillow。

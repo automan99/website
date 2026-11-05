@@ -1,6 +1,8 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
 import {
+  getCategoryLabel,
+  getProductCategories,
   getProductFamilies,
   getProductFamily,
   getProductVariant,
@@ -9,8 +11,34 @@ import {
 
 test('returns three families in order', () => {
   const families = getProductFamilies('en');
-  assert.deepEqual(families.map((family) => family.id), ['ht540', 'ht550', 'y100']);
+  assert.deepEqual(families.map((family) => family.id), ['rfid-handhelds', 'ht600', 'y100']);
   assert.deepEqual(families.map((family) => family.order), [1, 2, 3]);
+});
+
+test('groups families into three categories', () => {
+  const categories = getProductCategories('en');
+  assert.deepEqual(
+    categories.map((category) => category.id),
+    ['rfid-handheld', 'barcode-handheld', 'rugged-tablet']
+  );
+  assert.deepEqual(
+    categories.map((category) => category.label),
+    ['RFID Handhelds', 'Barcode Handhelds', 'Rugged Tablets']
+  );
+  assert.deepEqual(
+    categories.map((category) => category.members.map((family) => family.id)),
+    [['rfid-handhelds'], ['ht600'], ['y100']]
+  );
+  assert.deepEqual(
+    categories.map((category) => category.representative.id),
+    ['rfid-handhelds', 'ht600', 'y100']
+  );
+});
+
+test('labels every product category', () => {
+  assert.equal(getCategoryLabel('en', 'rfid-handheld'), 'RFID Handhelds');
+  assert.equal(getCategoryLabel('en', 'barcode-handheld'), 'Barcode Handhelds');
+  assert.equal(getCategoryLabel('en', 'rugged-tablet'), 'Rugged Tablets');
 });
 
 test('merges localized variant copy', () => {
@@ -21,7 +49,7 @@ test('merges localized variant copy', () => {
 });
 
 test('resolves variants by id', () => {
-  const family = getProductFamily('en', 'ht540-series');
+  const family = getProductFamily('en', 'rfid-handhelds');
   assert.equal(getProductVariant(family, 'uhf').model, 'HT540-UHF');
   assert.equal(getProductVariant(family, 'missing'), undefined);
 });

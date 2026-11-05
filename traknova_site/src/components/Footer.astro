@@ -1,6 +1,6 @@
 ---
 import { site } from '../data/site';
-import { localizedPath } from '../utils/paths';
+import { withBase, localizedPath } from '../utils/paths';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import { getProductFamilies } from '../data/products/catalog';
@@ -15,7 +15,7 @@ const families = getProductFamilies(locale);
 ---
 <footer class="footer"><div class="wrap footer-grid">
   <div>
-    <a class="logo logo-light" href={localizedPath(locale, '/')}><span class="logo-mark">T<span>↗</span></span><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
+    <a class="logo logo-light" href={localizedPath(locale, '/')}><img class="logo-mark" src={withBase('/images/brand/logo.png')} alt="" width="38" height="38" decoding="async" /><span>{site.brand}<small>{dict.site.logoSubline}</small></span></a>
     <p>{dict.footer.description}</p>
   </div>
   <div>

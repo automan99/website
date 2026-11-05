@@ -31,12 +31,19 @@ function walk(dir, out = []) {
 }
 
 const htmlFiles = walk(dist).filter((file) => file.endsWith('.html'));
+const redirectPages = new Set([
+  'products/ht540-series/index.html',
+  'products/ht550/index.html',
+  'zh/products/ht540-series/index.html',
+  'zh/products/ht550/index.html'
+]);
 const zh = JSON.parse(readFileSync(join(root, 'src/i18n/dictionaries/zh.json'), 'utf8'));
 const notice = zh.legal.englishVersionNotice;
 const disabledLanguages = ['hi', 'es', 'ru', 'de', 'fr', 'pt'];
 
 for (const file of htmlFiles) {
   const rel = relative(dist, file).split(sep).join('/');
+  if (redirectPages.has(rel)) continue;
   const html = readFileSync(file, 'utf8');
   const isZh = rel.startsWith('zh/');
   const expectedLanguage = isZh ? 'zh-CN' : 'en';
@@ -77,11 +84,11 @@ const requiredPages = [
   'zh/oem-odm/index.html',
   'products/index.html',
   'zh/products/index.html',
-  'products/ht540-series/index.html',
-  'products/ht550/index.html',
+  'products/rfid-handhelds/index.html',
+  'products/ht600/index.html',
   'products/y100-series/index.html',
-  'zh/products/ht540-series/index.html',
-  'zh/products/ht550/index.html',
+  'zh/products/rfid-handhelds/index.html',
+  'zh/products/ht600/index.html',
   'zh/products/y100-series/index.html',
   'solutions/index.html',
   'solutions/logistics/index.html',
@@ -101,12 +108,28 @@ for (const page of requiredPages) {
   if (!existsSync(join(dist, page))) errors.push(`missing page: ${page}`);
 }
 
+for (const [page, target] of [
+  ['products/ht540-series/index.html', 'rfid-handhelds'],
+  ['products/ht550/index.html', 'rfid-handhelds'],
+  ['zh/products/ht540-series/index.html', 'rfid-handhelds'],
+  ['zh/products/ht550/index.html', 'rfid-handhelds']
+]) {
+  const path = join(dist, page);
+  if (!existsSync(path)) {
+    errors.push(`missing redirect page: ${page}`);
+    continue;
+  }
+  if (!readFileSync(path, 'utf8').includes(target)) {
+    errors.push(`${page}: redirect target "${target}" is missing`);
+  }
+}
+
 for (const [page, marker] of [
-  ['products/ht540-series/index.html', 'HT540 Series'],
-  ['products/ht550/index.html', 'HT550'],
+  ['products/rfid-handhelds/index.html', 'RFID Handheld Series'],
+  ['products/ht600/index.html', 'HT600'],
   ['products/y100-series/index.html', 'Y100 Series'],
-  ['zh/products/ht540-series/index.html', 'HT540 Series'],
-  ['zh/products/ht550/index.html', 'HT550'],
+  ['zh/products/rfid-handhelds/index.html', 'RFID 手持终端系列'],
+  ['zh/products/ht600/index.html', 'HT600'],
   ['zh/products/y100-series/index.html', 'Y100 Series']
 ]) {
   const path = join(dist, page);
@@ -163,8 +186,8 @@ for (const page of [
 
 const sentinels = [
   ['zh/index.html', 'Move Data.'],
-  ['zh/index.html', 'Three platforms.'],
-  ['zh/products/index.html', 'Three platforms.'],
+  ['zh/index.html', 'Three categories.'],
+  ['zh/products/index.html', 'Three product lines.'],
   ['zh/solutions/index.html', 'Built around the work.']
 ];
 for (const [page, text] of sentinels) {

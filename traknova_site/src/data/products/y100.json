@@ -15,7 +15,7 @@
   ],
   "comparison": {
     "formFactor": "10.1-inch tablet",
-    "rfid": "UHF optional or dedicated RFID version",
+    "capture": "Optional 1D/2D scanner; optional UHF or dedicated RFID version",
     "os": "Android 16 (5G: Android 13)",
     "battery": "10,000 mAh, 30 W PD",
     "protection": "IP67",

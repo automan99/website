@@ -15,7 +15,7 @@
   ],
   "comparison": {
     "formFactor": "5.5-inch handheld",
-    "rfid": "LF, HF or UHF version",
+    "capture": "LF, HF or UHF version; optional 1D/2D scanner",
     "os": "Android 10",
     "battery": "4,900 mAh, replaceable",
     "protection": "IP65, 1.2 m drop",

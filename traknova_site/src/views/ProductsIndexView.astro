@@ -5,6 +5,7 @@ import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
 import {
   getCategoryLabel,
+  getProductCategories,
   getProductFamilies,
   getProductHref
 } from '../data/products/catalog';
@@ -20,30 +21,39 @@ const { locale } = Astro.props;
 const dict = getDictionary(locale);
 const copy = dict.products;
 const families = getProductFamilies(locale);
+const categories = getProductCategories(locale);
+const familyIndex = new Map(
+  families.map((family, index) => [family.id, index])
+);
 ---
 <BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
   <Header locale={locale} />
   <main>
-    <section class="page-hero product-range-hero">
+    <section class="sol-hero product-range-hero">
+      <span class="product-range-hero-halo" aria-hidden="true"></span>
       <div class="wrap product-range-hero-grid">
-        <div>
+        <div class="product-range-hero-copy">
           <span class="eyebrow">{copy.hero.eyebrow}</span>
           <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
           <p>{copy.hero.body}</p>
-          <div class="anchor-chips">
-            {families.map((family) => (
-              <a class="anchor-chip" href={`#${family.slug}`}>{family.name}</a>
+          <div class="sol-hero-chips">
+            {categories.map((category) => (
+              <a href={`#category-${category.id}`}>{category.label}</a>
             ))}
-            <a class="anchor-chip" href="#compare">{copy.anchors.compare}</a>
+            <a href="#compare">{copy.anchors.compare}</a>
           </div>
         </div>
-        <div class="product-range-lineup" aria-hidden="true">
-          {families.map((family) => (
-            <figure class="lineup-item">
-              <img src={withBase(family.heroImage)} alt="" loading="eager" decoding="async" />
-              <figcaption>{family.name}</figcaption>
-            </figure>
-          ))}
+        <div class="product-range-hero-visual" aria-hidden="true">
+          <img
+            class="product-range-hero-lineup"
+            src={withBase('/images/products/hero-lineup.webp')}
+            alt=""
+            width="1473"
+            height="810"
+            loading="eager"
+            decoding="async"
+            fetchpriority="high"
+          />
         </div>
       </div>
     </section>
@@ -57,7 +67,7 @@ const families = getProductFamilies(locale);
           </div>
           <p>{copy.work.body}</p>
         </div>
-        <div class="work-grid">
+        <div class="work-grid work-grid-4">
           {copy.work.cards.map((card) => (
             <a class="work-card" href={localizedPath(locale, card.href)}>
               <span class="work-tag">{card.tag}</span>
@@ -80,34 +90,43 @@ const families = getProductFamilies(locale);
           <p>{copy.sections.body}</p>
         </div>
 
-        {families.map((family, index) => {
-          const defaultVariant =
-            family.variants.find((variant) => variant.id === family.defaultVariant) ?? family.variants[0];
-          const href = localizedPath(locale, getProductHref(family));
-          return (
-            <article class:list={['family-showcase', { 'is-reversed': index % 2 === 1 }]} id={family.slug}>
-              <div class="family-showcase-media">
-                <img src={withBase(family.heroImage)} alt={defaultVariant.name} loading="lazy" decoding="async" />
-              </div>
-              <div class="family-showcase-copy">
-                <span class="family-index">{String(index + 1).padStart(2, '0')}</span>
-                <span class="eyebrow">{getCategoryLabel(locale, family.category)}</span>
-                <h2>{family.name}</h2>
-                <p class="family-tagline">{family.tagline}</p>
-                <p>{family.summary}</p>
-                <div class="kpi-row">
-                  {family.kpis.map((kpi) => (
-                    <div class="kpi"><b>{kpi.value}</b><span>{kpi.label}</span></div>
-                  ))}
-                </div>
-                <ul class="variant-tags">
-                  {family.variants.map((variant) => <li>{variant.label}</li>)}
-                </ul>
-                <a class="button button-outline" href={href}>{dict.common.actions.exploreSeries} ↗</a>
-              </div>
-            </article>
-          );
-        })}
+        {categories.map((category) => (
+          <div class="category-group" id={`category-${category.id}`}>
+            <div class="category-heading">
+              <h3>{category.label}</h3>
+              <p>{dict.common.categoryDescriptions[category.labelKey]}</p>
+            </div>
+            {category.members.map((family) => {
+              const index = familyIndex.get(family.id) ?? 0;
+              const defaultVariant =
+                family.variants.find((variant) => variant.id === family.defaultVariant) ?? family.variants[0];
+              const href = localizedPath(locale, getProductHref(family));
+              return (
+                <article class:list={['family-showcase', { 'is-reversed': index % 2 === 1 }]} id={family.slug}>
+                  <div class="family-showcase-media">
+                    <img src={withBase(family.heroImage)} alt={defaultVariant.name} loading="lazy" decoding="async" />
+                  </div>
+                  <div class="family-showcase-copy">
+                    <span class="family-index">{String(index + 1).padStart(2, '0')}</span>
+                    <span class="eyebrow">{getCategoryLabel(locale, family.category)}</span>
+                    <h2>{family.name}</h2>
+                    <p class="family-tagline">{family.tagline}</p>
+                    <p>{family.summary}</p>
+                    <div class="kpi-row">
+                      {family.kpis.map((kpi) => (
+                        <div class="kpi"><b>{kpi.value}</b><span>{kpi.label}</span></div>
+                      ))}
+                    </div>
+                    <ul class="variant-tags">
+                      {family.variants.map((variant) => <li>{variant.label}</li>)}
+                    </ul>
+                    <a class="button button-outline" href={href}>{dict.common.actions.exploreSeries} ↗</a>
+                  </div>
+                </article>
+              );
+            })}
+          </div>
+        ))}
       </div>
     </section>
 
@@ -126,7 +145,7 @@ const families = getProductFamilies(locale);
               <tr>
                 <th>{copy.comparison.headers.series}</th>
                 <th>{copy.comparison.headers.formFactor}</th>
-                <th>{copy.comparison.headers.rfid}</th>
+                <th>{copy.comparison.headers.capture}</th>
                 <th>{copy.comparison.headers.os}</th>
                 <th>{copy.comparison.headers.battery}</th>
                 <th>{copy.comparison.headers.protection}</th>
@@ -138,7 +157,7 @@ const families = getProductFamilies(locale);
                 <tr>
                   <td><a href={localizedPath(locale, getProductHref(family))}>{family.name}</a></td>
                   <td>{family.comparison.formFactor}</td>
-                  <td>{family.comparison.rfid}</td>
+                  <td>{family.comparison.capture}</td>
                   <td>{family.comparison.os}</td>
                   <td>{family.comparison.battery}</td>
                   <td>{family.comparison.protection}</td>

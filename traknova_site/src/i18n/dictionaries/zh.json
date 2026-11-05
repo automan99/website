@@ -22,7 +22,8 @@
       "contactTeam": "联系我们的团队",
       "askQuestion": "提交问题",
       "browseProducts": "浏览产品",
-      "viewPlatforms": "查看产品平台",
+      "viewPlatforms": "查看产品品类",
+      "viewCategory": "查看品类",
       "requestDatasheet": "索取数据手册",
       "discussProject": "讨论您的项目",
       "viewFamily": "查看完整产品系列",
@@ -34,8 +35,14 @@
       "exploreSeries": "查看系列"
     },
     "categories": {
-      "rfidHandheld": "RFID 手持机",
+      "rfidHandheld": "RFID 手持终端",
+      "barcodeHandheld": "条码手持终端",
       "ruggedTablet": "加固平板"
+    },
+    "categoryDescriptions": {
+      "rfidHandheld": "LF、HF 与 UHF 手持终端，适用于近距离识别、批量盘点与资产审计。",
+      "barcodeHandheld": "内置专业 1D/2D 扫描引擎的加固 Android 手持终端，适用于收货、拣选与现场数据采集。",
+      "ruggedTablet": "10.1 英寸 Android 平台，提供标准、RFID、RTK、指纹与 5G 配置。"
     },
     "languageLabel": "语言",
     "menuToggle": "切换导航"
@@ -48,7 +55,7 @@
     "quoteCta": "获取报价"
   },
   "footer": {
-    "description": "为互联运营提供加固型移动计算机、RFID 技术与工业平板。硬件、配置与 OEM / ODM 合作，一站完成。",
+    "description": "为互联运营提供加固型移动计算机、RFID 与条码手持终端及工业平板。硬件、配置与 OEM / ODM 合作，一站完成。",
     "columns": {
       "productsTitle": "产品",
       "productsAll": "全部产品",
@@ -95,8 +102,8 @@
     "options": {
       "product": {
         "placeholder": "选择产品线",
-        "ht540": "HT540 Series",
-        "ht550": "HT550",
+        "rfidHandhelds": "RFID 手持终端系列",
+        "ht600": "HT600",
         "y100": "Y100 Series",
         "oem": "OEM / ODM",
         "notSure": "不确定"
@@ -141,7 +148,7 @@
   },
   "home": {
     "metaTitle": "TRAKNOVA | 工业移动计算与自动识别解决方案",
-    "metaDescription": "面向仓储、制造、零售和现场服务的加固型移动计算机、RFID 手持终端与工业平板。提供方案设计、配置与 OEM / ODM 合作。",
+    "metaDescription": "面向仓储、制造、零售和现场服务的加固型移动计算机、RFID 与条码手持终端及工业平板。提供方案设计、配置与 OEM / ODM 合作。",
     "hero": {
       "eyebrow": "工业移动计算与自动识别",
       "titleLine1": "让数据流动，",
@@ -205,10 +212,10 @@
       ]
     },
     "portfolio": {
-      "eyebrow": "我们的产品平台",
-      "titleLine1": "三条平台。",
+      "eyebrow": "我们的产品品类",
+      "titleLine1": "三大品类。",
       "titleLine2": "为现场而生。",
-      "body": "RFID 手持机与 10.1 英寸加固平板平台。按工作选择平台，再配置版本。",
+      "body": "RFID 手持终端、条码手持终端与 10.1 英寸加固平板。按工作选择品类，再配置版本。",
       "viewAll": "查看全部产品"
     },
     "stats": [
@@ -319,7 +326,8 @@
         "生产协调"
       ],
       "cta": "了解 OEM / ODM",
-      "artLabel": "按您的规格设计"
+      "artLabel": "按您的规格设计",
+      "artAlt": "RFID 手持终端的屏幕、后壳、主板、电池与扫描手柄等部件分解展示"
     },
     "faq": {
       "eyebrow": "常见问题",
@@ -356,34 +364,40 @@
   },
   "products": {
     "metaTitle": "产品 | TRAKNOVA",
-    "metaDescription": "了解 TRAKNOVA 的 HT540 Series、HT550 与 Y100 Series：面向近距离识别、批量盘点与现场计算的 RFID 手持机与加固平板。",
+    "metaDescription": "了解 TRAKNOVA 的 RFID 手持终端系列、HT600 与 Y100 Series：面向近距离识别、批量盘点、条码采集与现场计算的 RFID 手持终端、条码手持终端与加固平板。",
     "hero": {
       "eyebrow": "产品范围",
-      "titleLine1": "三条平台。",
+      "titleLine1": "三条产品线。",
       "titleLine2": "为现场而生。",
-      "body": "RFID 手持机与 10.1 英寸加固平板平台，覆盖近距离识别、批量盘点与现场计算。先选择平台，再按工作配置版本。"
+      "body": "RFID 手持终端、条码手持终端与 10.1 英寸加固平板，覆盖近距离识别、批量盘点、条码采集与现场计算。按工作选择品类，再配置版本。"
     },
     "anchors": {
-      "series": "产品线",
+      "series": "产品品类",
       "compare": "对比"
     },
     "work": {
       "eyebrow": "按工作选择",
       "titleLine1": "先看任务，",
       "titleLine2": "再选设备。",
-      "body": "三个常见起点。每个起点都指向适合的平台与配置。",
+      "body": "四个常见起点。每个起点都指向适合的产品线与配置。",
       "cards": [
         {
           "title": "批量盘点与资产审计",
           "body": "大批量读取标签，单次覆盖更多区域，让盘点在场地内持续推进。",
-          "href": "/products/ht550/",
+          "href": "/products/rfid-handhelds/#variant-ht550",
           "tag": "UHF RFID"
         },
         {
           "title": "近距离识别",
           "body": "在同一手持平台上读取 LF、HF 或短距 UHF 标签，并可选条码与 NFC。",
-          "href": "/products/ht540-series/",
+          "href": "/products/rfid-handhelds/",
           "tag": "LF · HF · UHF"
+        },
+        {
+          "title": "条码数据采集",
+          "body": "6.0 英寸 Android 手持终端，内置专业 1D/2D 扫描引擎，适用于收货、拣选与现场数据采集。",
+          "href": "/products/ht600/",
+          "tag": "1D / 2D"
         },
         {
           "title": "现场计算与数据采集",
@@ -397,17 +411,17 @@
       "eyebrow": "三条产品线",
       "titleLine1": "一个系列，",
       "titleLine2": "三种工作方式。",
-      "body": "每个平台在读取距离、屏幕尺寸与现场配置上有不同的平衡。"
+      "body": "每条产品线在采集方式、读取距离、屏幕尺寸与现场配置上有不同的平衡。"
     },
     "comparison": {
       "eyebrow": "对比产品线",
-      "titleLine1": "一眼看清",
-      "titleLine2": "三条产品线。",
+      "titleLine1": "产品线",
+      "titleLine2": "一览。",
       "body": "形态与采集方式是缩小范围最快的方式。最终配置取决于应用评估。",
       "headers": {
         "series": "产品线",
         "formFactor": "形态",
-        "rfid": "RFID",
+        "capture": "采集方式",
         "os": "系统",
         "battery": "电池",
         "protection": "防护",
@@ -538,7 +552,7 @@
     "related": {
       "eyebrow": "相关产品线",
       "titleLine1": "了解其他",
-      "titleLine2": "平台。"
+      "titleLine2": "产品线。"
     },
     "cta": {
       "eyebrow": "下一步",
@@ -603,18 +617,18 @@
   },
   "about": {
     "metaTitle": "关于 TRAKNOVA | 工业移动计算",
-    "metaDescription": "TRAKNOVA 是工业移动计算合作伙伴，提供加固型 PDA、RFID 手持终端、工业平板、配置服务与 OEM / ODM 合作。",
+    "metaDescription": "TRAKNOVA 是工业移动计算合作伙伴，提供加固型 PDA、RFID 与条码手持终端、工业平板、配置服务与 OEM / ODM 合作。",
     "hero": {
       "eyebrow": "关于 TRAKNOVA",
       "titleLine1": "扫描与系统之间，",
       "titleLine2": "值得信赖的合作伙伴。",
-      "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 手持终端和工业平板。我们关注决定部署成败的实用细节。"
+      "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 与条码手持终端及工业平板。我们关注决定部署成败的实用细节。"
     },
     "profile": {
       "eyebrow": "公司概况",
       "titleLine1": "扎根深圳的",
       "titleLine2": "工业移动计算制造企业。",
-      "paragraph1": "深圳市伊莉亚有限公司是一家扎根深圳的加固型 PDA、RFID 手持终端与工业平板制造及方案企业。15 年多来，我们专注于连接一线作业与其背后业务系统之间的设备、模块和配置。",
+      "paragraph1": "深圳市伊莉亚有限公司是一家扎根深圳的加固型 PDA、RFID 与条码手持终端及工业平板制造及方案企业。15 年多来，我们专注于连接一线作业与其背后业务系统之间的设备、模块和配置。",
       "paragraph2": "我们服务全球市场的分销商、方案商和企业团队，覆盖数据采集、识别与移动作业项目，从设备选型、配置到 OEM / ODM 合作。已有超过一千家企业与我们合作，用移动数据采集解决实际业务问题。",
       "facts": [
         {
@@ -630,7 +644,7 @@
           "label": "公司所在地"
         },
         {
-          "value": "加固型 PDA · RFID · 工业平板",
+          "value": "RFID · 条码 · 平板",
           "label": "产品方向"
         }
       ],
@@ -641,11 +655,11 @@
       "eyebrow": "我们的工作",
       "titleLine1": "硬件、配置，",
       "titleLine2": "以及通往上线的路径。",
-      "body": "我们不仅是设备供应商。我们帮助确定采集方式、选择平台、确认配置并规划支持路径。",
+      "body": "我们不仅是设备供应商。我们帮助确定采集方式、选择品类、确认配置并规划支持路径。",
       "cards": [
         {
-          "title": "产品平台",
-          "body": "用于企业数据采集的加固型 PDA、RFID 设备和工业平板。",
+          "title": "产品品类",
+          "body": "用于企业数据采集的 RFID 与条码手持终端及工业平板。",
           "items": [
             "条码与多功能手持终端",
             "近距与 UHF RFID",
@@ -704,15 +718,15 @@
       "eyebrow": "能力图谱",
       "titleLine1": "我们能为您",
       "titleLine2": "覆盖的范围。",
-      "body": "供货和范围按产品、平台和项目确认。下表展示我们通常与合作伙伴协作的领域。",
+      "body": "供货和范围按产品、品类和项目确认。下表展示我们通常与合作伙伴协作的领域。",
       "headers": {
         "capability": "能力",
         "coverage": "覆盖内容"
       },
       "rows": [
         {
-          "capability": "产品平台",
-          "coverage": "加固型 PDA、近距与 UHF RFID 手持终端、Android 与 Windows 工业平板"
+          "capability": "产品品类",
+          "coverage": "RFID 与条码手持终端、Android 与 Windows 工业平板"
         },
         {
           "capability": "自动识别",
@@ -834,7 +848,7 @@
   },
   "contact": {
     "metaTitle": "联系 TRAKNOVA | 获取报价",
-    "metaDescription": "联系 TRAKNOVA，咨询加固型 PDA、RFID 设备、工业平板、OEM / ODM 项目以及产品数据手册。",
+    "metaDescription": "联系 TRAKNOVA，咨询加固型 PDA、RFID 与条码手持终端、工业平板、OEM / ODM 项目以及产品数据手册。",
     "hero": {
       "eyebrow": "联系我们的团队",
       "titleLine1": "让我们一起打造",
@@ -972,7 +986,7 @@
       "titleLine2": "我们的工程承诺。",
       "body": "从现有平台的品牌化版本到项目专用设备，TRAKNOVA 支持分销商、方案商和品牌方打造自有工业移动产品组合。",
       "primaryCta": "讨论您的项目",
-      "secondaryCta": "查看产品平台"
+      "secondaryCta": "查看产品品类"
     },
     "models": {
       "eyebrow": "合作模式",

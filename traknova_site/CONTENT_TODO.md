@@ -27,7 +27,7 @@ placeholder contact details and spec gaps still need to be replaced.
 
 ## Product data
 
-Product data is now owned by `src/data/products/` (HT540 Series, HT550, Y100 Series).
+Product data is now owned by `src/data/products/` (HT540 Series, HT550, HT600, Y100 Series).
 Public pages show only values transcribed from the supplied specification documents.
 
 - [ ] Re-check the conflict-resolution table in

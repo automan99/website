@@ -1,4 +1,7 @@
-export type ProductCategory = 'rfid-handheld' | 'rugged-tablet';
+export type ProductCategory =
+  | 'rfid-handheld'
+  | 'barcode-handheld'
+  | 'rugged-tablet';
 
 export type SolutionSlug = 'logistics' | 'manufacturing' | 'retail' | 'field-service';
 
@@ -35,7 +38,7 @@ export type ProductVariantBase = {
 
 export type ProductComparison = {
   formFactor: string;
-  rfid: string;
+  capture: string;
   os: string;
   battery: string;
   protection: string;

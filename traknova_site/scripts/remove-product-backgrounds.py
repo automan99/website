@@ -8,6 +8,7 @@ connected background transparent.
 """
 
 from pathlib import Path
+import sys
 
 import numpy as np
 from PIL import Image, ImageDraw, ImageFilter
@@ -16,14 +17,15 @@ ROOT = Path(__file__).resolve().parent.parent / "public" / "images" / "products"
 SENTINEL = (255, 0, 254)
 
 
-def process(path: Path) -> None:
+def process(path: Path, threshold: int) -> None:
     image = Image.open(path).convert("RGBA")
     width, height = image.size
-    work = image.convert("RGB").copy()
+    work = Image.new("RGB", (width, height), (255, 255, 255))
+    work.paste(image, mask=image.getchannel("A"))
 
     for point in ((2, 2), (width - 3, 2), (2, height - 3), (width - 3, height - 3)):
         try:
-            ImageDraw.floodfill(work, point, SENTINEL, thresh=28)
+            ImageDraw.floodfill(work, point, SENTINEL, thresh=threshold)
         except ValueError:
             continue
 
@@ -61,9 +63,12 @@ def process(path: Path) -> None:
 
 
 def main() -> None:
-    files = sorted(ROOT.glob("**/*.webp"))
+    target = sys.argv[1] if len(sys.argv) > 1 else None
+    threshold = int(sys.argv[2]) if len(sys.argv) > 2 else 28
+    pattern = f"{target}/**/*.webp" if target else "**/*.webp"
+    files = sorted(ROOT.glob(pattern))
     for path in files:
-        process(path)
+        process(path, threshold)
     print(f"processed {len(files)} product images")
 
 

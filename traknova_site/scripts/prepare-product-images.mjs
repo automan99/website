@@ -80,25 +80,48 @@ const MAPPINGS = [
   {
     output: 'y100/y100-5g-angle.webp',
     source: 'Y100 rugged tablet/Y100-5G rugged tablet/主图15- 5G rugged tablet -Y100-5G/主图2.jpg'
+  },
+  {
+    output: 'ht600/ht600-front.webp',
+    source: 'HT600 - 简化版/HT600-主图-英/HT600主图120260907.jpg',
+    cropLeft: 210,
+    cropTop: 70
+  },
+  {
+    output: 'ht600/ht600-angle.webp',
+    source: 'HT600 - 简化版/HT600-主图-英/DSC02084.jpg',
+    cropTop: 330
+  },
+  {
+    output: 'ht600/ht600-back.webp',
+    source: 'HT600 - 简化版/HT600-主图-英/DSC02126.jpg',
+    cropTop: 330
   }
 ];
 
-for (const mapping of MAPPINGS) {
+const filter = process.env.PRODUCT_IMAGE_FILTER;
+const mappings = filter
+  ? MAPPINGS.filter((mapping) => mapping.output.startsWith(`${filter}/`))
+  : MAPPINGS;
+
+for (const mapping of mappings) {
   const sourcePath = join(sourceRoot, mapping.source);
   const outputPath = join(outputRoot, mapping.output);
   await mkdir(dirname(outputPath), { recursive: true });
 
   let image = sharp(sourcePath);
-  if (mapping.cropTop) {
+  if (mapping.cropLeft || mapping.cropTop) {
     const metadata = await image.metadata();
     if (!metadata.width || !metadata.height) {
       throw new Error(`Cannot read dimensions for ${sourcePath}`);
     }
+    const left = mapping.cropLeft ?? 0;
+    const top = mapping.cropTop ?? 0;
     image = image.extract({
-      left: 0,
-      top: mapping.cropTop,
-      width: metadata.width,
-      height: metadata.height - mapping.cropTop
+      left,
+      top,
+      width: metadata.width - left,
+      height: metadata.height - top
     });
   }
 
@@ -111,6 +134,12 @@ for (const mapping of MAPPINGS) {
   console.log(`wrote ${mapping.output}`);
 }
 
-execFileSync('python3', [join(process.cwd(), 'scripts/remove-product-backgrounds.py')], {
-  stdio: 'inherit'
-});
+execFileSync(
+  'python3',
+  [
+    join(process.cwd(), 'scripts/remove-product-backgrounds.py'),
+    ...(filter ? [filter] : []),
+    ...(process.env.PRODUCT_BG_THRESHOLD ? [process.env.PRODUCT_BG_THRESHOLD] : [])
+  ],
+  { stdio: 'inherit' }
+);

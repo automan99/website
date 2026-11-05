@@ -18,12 +18,22 @@ const copy = dict.oem;
 <BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
   <Header locale={locale} />
   <main>
-    <section class="page-hero">
-      <div class="wrap">
+    <section class="sol-hero oem-hero">
+      <img
+        class="sol-hero-bg oem-hero-bg"
+        src={withBase('/images/oem-production.webp')}
+        alt={copy.photos.productionAlt}
+        width="1600"
+        height="640"
+        loading="eager"
+        fetchpriority="high"
+      />
+      <div class="sol-hero-overlay oem-hero-overlay"></div>
+      <div class="wrap sol-hero-inner">
         <span class="eyebrow">{copy.hero.eyebrow}</span>
         <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
         <p>{copy.hero.body}</p>
-        <div class="cta-actions">
+        <div class="sol-hero-actions">
           <button class="button button-accent" data-inquiry-open>{copy.hero.primaryCta} ↗</button>
           <a class="button button-glass" href={localizedPath(locale, '/products/')}>{copy.hero.secondaryCta} ↗</a>
         </div>
@@ -32,10 +42,6 @@ const copy = dict.oem;
 
     <section class="section">
       <div class="wrap">
-        <figure class="media-band media-band-inline">
-          <img src={withBase('/images/oem-production.webp')} alt={copy.photos.productionAlt} width="1600" height="640" loading="lazy" />
-          <figcaption>{copy.photos.productionCaption}</figcaption>
-        </figure>
         <div class="split-intro">
           <div>
             <span class="eyebrow">{copy.models.eyebrow}</span>

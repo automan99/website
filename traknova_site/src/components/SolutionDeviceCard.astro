@@ -7,6 +7,7 @@ import {
 } from '../data/products/catalog';
 import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
+import type { ProductCategory } from '../data/products/types';
 
 interface Props {
   family: ProductFamily;
@@ -16,7 +17,12 @@ interface Props {
 }
 
 const { family, variant, locale, label } = Astro.props;
-const silhouette = family.category === 'rugged-tablet' ? 'device-tablet.svg' : 'device-rfid.svg';
+const silhouettes: Record<ProductCategory, string> = {
+  'rfid-handheld': 'device-rfid.svg',
+  'barcode-handheld': 'device-barcode.svg',
+  'rugged-tablet': 'device-tablet.svg'
+};
+const silhouette = silhouettes[family.category] ?? 'device-rfid.svg';
 const image = withBase(`/images/products/${silhouette}`);
 ---
 <article class="sol-device-card">

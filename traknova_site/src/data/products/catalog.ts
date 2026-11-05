@@ -8,6 +8,11 @@ import type {
   ProductFamilyCopy,
   ProductVariant
 } from './types';
+import {
+  PRODUCT_CATEGORIES,
+  getCategoryDefinition,
+  type CategoryLabelKey
+} from './categories.ts';
 import { validateProductCatalog } from './validate.ts';
 
 type ProductDictionary = {
@@ -16,7 +21,7 @@ type ProductDictionary = {
   };
 };
 
-const catalogFiles = ['ht540.json', 'ht550.json', 'y100.json'] as const;
+const catalogFiles = ['rfid-handhelds.json', 'ht600.json', 'y100.json'] as const;
 const supportedLocales: readonly Locale[] = ['en', 'zh'];
 const projectRoot = process.cwd();
 
@@ -41,6 +46,49 @@ const errors = validateProductCatalog(catalog, contents, {
 if (errors.length > 0) {
   throw new Error(`Product data invalid:\n- ${errors.join('\n- ')}`);
 }
+
+function assertCategoryCoverage(families: ProductFamilyBase[]): void {
+  const catalogIds = new Set(families.map((family) => family.id));
+  const assigned = new Map<string, ProductCategory>();
+
+  for (const definition of PRODUCT_CATEGORIES) {
+    if (!definition.memberIds.includes(definition.representativeId)) {
+      throw new Error(
+        `Product category "${definition.id}" representative "${definition.representativeId}" is not a member`
+      );
+    }
+    for (const familyId of definition.memberIds) {
+      if (!catalogIds.has(familyId)) {
+        throw new Error(
+          `Product category "${definition.id}" references unknown family "${familyId}"`
+        );
+      }
+      const existing = assigned.get(familyId);
+      if (existing) {
+        throw new Error(
+          `Product family "${familyId}" is assigned to both "${existing}" and "${definition.id}"`
+        );
+      }
+      assigned.set(familyId, definition.id);
+    }
+  }
+
+  for (const family of families) {
+    const categoryId = assigned.get(family.id);
+    if (!categoryId) {
+      throw new Error(
+        `Product family "${family.id}" is not assigned to a product category`
+      );
+    }
+    if (family.category !== categoryId) {
+      throw new Error(
+        `Product family "${family.id}" category "${family.category}" does not match category registry "${categoryId}"`
+      );
+    }
+  }
+}
+
+assertCategoryCoverage(catalog);
 
 const familyCache = new Map<Locale, ProductFamily[]>();
 const dictionaryCache = new Map<Locale, ProductDictionary>();
@@ -93,14 +141,57 @@ export function getProductVariant(
   return family.variants.find((variant) => variant.id === variantId);
 }
 
-export function getCategoryLabel(locale: Locale, category: ProductCategory): string {
+function getProductDictionary(locale: Locale): ProductDictionary {
   let dictionary = dictionaryCache.get(locale);
   if (!dictionary) {
     dictionary = readJson<ProductDictionary>(`src/i18n/dictionaries/${locale}.json`);
     dictionaryCache.set(locale, dictionary);
   }
-  const key = category === 'rfid-handheld' ? 'rfidHandheld' : 'ruggedTablet';
+  return dictionary;
+}
+
+export function getCategoryLabel(locale: Locale, category: ProductCategory): string {
+  const dictionary = getProductDictionary(locale);
+  const key = getCategoryDefinition(category).labelKey;
   return dictionary.common.categories[key] ?? category;
+}
+
+export type ProductCategoryGroup = {
+  id: ProductCategory;
+  labelKey: CategoryLabelKey;
+  label: string;
+  members: ProductFamily[];
+  representative: ProductFamily;
+};
+
+export function getProductCategories(locale: Locale): ProductCategoryGroup[] {
+  const families = getProductFamilies(locale);
+  const byId = new Map(families.map((family) => [family.id, family]));
+
+  return PRODUCT_CATEGORIES.map((definition) => {
+    const members = definition.memberIds.map((familyId) => {
+      const family = byId.get(familyId);
+      if (!family) {
+        throw new Error(
+          `Product category "${definition.id}" references unknown family "${familyId}" (${locale})`
+        );
+      }
+      return family;
+    });
+    const representative = byId.get(definition.representativeId);
+    if (!representative) {
+      throw new Error(
+        `Product category "${definition.id}" representative "${definition.representativeId}" is missing (${locale})`
+      );
+    }
+    return {
+      id: definition.id,
+      labelKey: definition.labelKey,
+      label: getCategoryLabel(locale, definition.id),
+      members,
+      representative
+    };
+  });
 }
 
 export function getProductHref(

@@ -1,16 +1,16 @@
 {
-  "ht540": {
-    "name": "HT540 Series",
-    "eyebrow": "Android RFID handheld",
-    "tagline": "One handheld platform. LF, HF and UHF workflows.",
-    "summary": "A 5.5-inch Android RFID handheld available in LF, HF and UHF versions for close-range identification, stock counts and field data capture.",
+  "rfid-handhelds": {
+    "name": "RFID Handheld Series",
+    "eyebrow": "LF / HF / UHF RFID handhelds",
+    "tagline": "One range. Three RFID bands. Two performance tiers.",
+    "summary": "A 5.5-inch Android RFID handheld range with LF, HF and UHF configurations, plus a long-range UHF model for bulk inventory and asset audits.",
     "overview": [
-      "The HT540 Series puts three RFID bands on one proven Android handheld platform. The 5.5-inch display, physical scan keys and replaceable 4,900 mAh battery are shared across every version, so training, accessories and deployment stay consistent.",
-      "Choose LF for animal ID, access control and close-range asset tags; HF for cards, labels and NFC workflows; or UHF for item-level stock counts and asset audits. Barcode scanning, NFC and PSAM options are configured per version and project."
+      "The RFID Handheld Series brings LF, HF and UHF identification onto a shared 5.5-inch Android handheld format. HT540 configurations cover close-range tags, cards and item-level UHF counts, while HT550 adds a long-range UHF module and a larger battery for bulk inventory.",
+      "Choose the band and performance tier for the work, then confirm the scan engine, NFC, PSAM and accessory options for the target market. Regional UHF bands and final specifications are confirmed against the approved datasheet."
     ],
     "variants": {
       "lf": {
-        "label": "LF",
+        "label": "HT540 LF",
         "name": "HT540-LF",
         "summary": "LF RFID handheld for animal ID, access control and close-range asset tags.",
         "highlights": [
@@ -56,7 +56,7 @@
         ]
       },
       "hf": {
-        "label": "HF",
+        "label": "HT540 HF",
         "name": "HT540-HF",
         "summary": "HF RFID handheld for cards, labels and NFC identification at close range.",
         "highlights": [
@@ -102,7 +102,7 @@
         ]
       },
       "uhf": {
-        "label": "UHF",
+        "label": "HT540 UHF",
         "name": "HT540-UHF",
         "summary": "UHF RFID handheld for item-level stock counts, asset audits and short-range inventory reads.",
         "highlights": [
@@ -146,21 +146,9 @@
             "solution": "manufacturing"
           }
         ]
-      }
-    }
-  },
-  "ht550": {
-    "name": "HT550",
-    "eyebrow": "Long-range UHF RFID handheld",
-    "tagline": "Long-range UHF reads. Full-shift power.",
-    "summary": "A 5.5-inch Android 13 UHF RFID handheld built for bulk inventory, asset tracking and long-range counting in warehouses, yards and field operations.",
-    "overview": [
-      "HT550 combines an Impinj E-series UHF module, a 4 dBi circular antenna and a 9,600 mAh battery in a 680 g handheld. It is designed for long shifts of bulk counting where read range and uptime matter more than a compact form factor.",
-      "The Android 13 platform, 5.5-inch display and optional 1D/2D scanner support inventory, asset and logistics applications. Regional UHF bands are configured for the target market, and read performance depends on tag, orientation and environment."
-    ],
-    "variants": {
-      "standard": {
-        "label": "Standard",
+      },
+      "ht550": {
+        "label": "HT550",
         "name": "HT550",
         "summary": "Long-range UHF RFID handheld with Android 13, a 9,600 mAh battery and optional barcode scanning.",
         "highlights": [
@@ -202,6 +190,64 @@
           {
             "label": "Material traceability",
             "solution": "manufacturing"
+          }
+        ]
+      }
+    }
+  },
+  "ht600": {
+    "name": "HT600",
+    "eyebrow": "6.0-inch barcode handheld",
+    "tagline": "Barcode capture. Full-shift power.",
+    "summary": "A 6.0-inch Android 13 industrial handheld with a professional 1D/2D scan engine, IP68 protection and an 8,000 mAh battery for logistics, warehousing and field data capture.",
+    "overview": [
+      "HT600 is a 6.0-inch Android 13 industrial handheld built around a professional 1D/2D image scan engine. The 8,000 mAh detachable battery, IP68 protection and 1.8 m drop rating are specified for full-shift work in warehouses, delivery and field operations.",
+      "The platform pairs a 16 MP rear camera, 4G LTE, dual-band Wi-Fi and Bluetooth 5.0 with optional NFC, LF RFID and a pistol grip. Scan engine, memory and module options are confirmed per configuration and target market; the approved datasheet is the reference for ordering."
+    ],
+    "variants": {
+      "standard": {
+        "label": "Standard",
+        "name": "HT600",
+        "summary": "6.0-inch Android 13 barcode handheld with an 8,000 mAh battery, IP68 protection and a professional 1D/2D scan engine.",
+        "highlights": [
+          "Professional 1D/2D image scan engine with multiple decode options",
+          "8,000 mAh detachable battery and IP68 protection",
+          "6.0-inch high-brightness display with glove and wet touch"
+        ],
+        "features": [
+          {
+            "title": "Fast barcode capture",
+            "body": "A professional 1D/2D image engine reads common 1D and 2D codes, with soft- and hard-decode engine options confirmed per configuration."
+          },
+          {
+            "title": "Full-shift power",
+            "body": "The 8,000 mAh detachable battery supports more than 12 hours of work, with fast charging and RTC battery replacement for shift changes."
+          },
+          {
+            "title": "Rugged field design",
+            "body": "IP68 protection, a 1.8 m six-sided drop rating and an operating range of -30 to 60 °C support warehouse, delivery and outdoor work."
+          },
+          {
+            "title": "Android platform and connectivity",
+            "body": "Android 13, 4G LTE, dual-band Wi-Fi, Bluetooth 5.0 and optional NFC or LF RFID connect the device to the workflow and the systems behind it."
+          }
+        ],
+        "applications": [
+          {
+            "label": "Delivery and receiving",
+            "solution": "logistics"
+          },
+          {
+            "label": "Production traceability",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "Retail and service points",
+            "solution": "retail"
+          },
+          {
+            "label": "Power inspection and field service",
+            "solution": "field-service"
           }
         ]
       }

@@ -32,7 +32,7 @@ function validFamily() {
     ],
     comparison: {
       formFactor: 'tablet',
-      rfid: 'optional',
+      capture: 'optional',
       os: 'Android 16',
       battery: '10,000 mAh',
       protection: 'IP67',

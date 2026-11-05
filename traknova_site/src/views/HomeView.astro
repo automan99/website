@@ -3,8 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import InquiryDialog from '../components/InquiryDialog.astro';
-import ProductFamilyCard from '../components/ProductFamilyCard.astro';
-import { getProductFamilies } from '../data/products/catalog';
+import ProductCategoryCard from '../components/ProductCategoryCard.astro';
+import { getProductCategories } from '../data/products/catalog';
 import { localizedPath, withBase } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
@@ -16,15 +16,18 @@ interface Props {
 const { locale } = Astro.props;
 const dict = getDictionary(locale);
 const home = dict.home;
-const families = getProductFamilies(locale);
+const categories = getProductCategories(locale);
 const solutionLinks = ['/solutions/logistics/', '/solutions/manufacturing/', '/solutions/retail/', '/solutions/field-service/'];
 const solutionImages = ['hero-logistics', 'manufacturing', 'retail', 'field-service'];
+const heroAlt = locale === 'zh'
+  ? 'TRAKNOVA 三防平板、RFID 手持机与条码手持终端产品组合'
+  : 'Traknova rugged tablet, RFID handheld and barcode handheld lineup';
 ---
 <BaseLayout title={home.metaTitle} description={home.metaDescription} locale={locale}>
   <Header locale={locale} />
   <main>
     <section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><span class="eyebrow">{home.hero.eyebrow}</span><h1>{home.hero.titleLine1}<br /><em>{home.hero.titleLine2}</em></h1><p>{home.hero.body}</p><div class="hero-actions"><a class="button button-accent" href={localizedPath(locale, '/products/')}>{home.hero.primaryCta} →</a><a class="button button-glass" href={localizedPath(locale, '/contact/')}>{home.hero.secondaryCta} ↗</a></div><div class="hero-proof">{home.hero.proof.map((item) => <span><b>{item.title}</b>{item.text}</span>)}</div></div>
-    <div class="hero-visual"><div class="hero-orbit"></div><div class="device-stack"><div class="device device-tablet"><div class="screen"></div></div><div class="device device-pda"><div class="screen"></div><div class="keypad"></div></div><div class="device device-reader"><div class="reader-head"></div><div class="reader-grip"></div></div></div><div class="visual-chip chip-a">{home.hero.chips.rfidTitle}<small>{home.hero.chips.rfidText}</small></div><div class="visual-chip chip-b">{home.hero.chips.ruggedTitle}<small>{home.hero.chips.ruggedText}</small></div></div></div></section>
+    <div class="hero-visual"><div class="hero-orbit"></div><img class="hero-lineup" src={withBase('/images/home/hero-family.webp')} alt={heroAlt} width="1800" height="846" loading="eager" fetchpriority="high" decoding="async" /></div></div></section>
     <section class="trust-strip"><div class="wrap trust-inner"><span>{home.trustStrip.label}</span>{home.trustStrip.items.map((item) => <b>{item}</b>)}</div></section>
 
     <section class="section">
@@ -41,7 +44,7 @@ const solutionImages = ['hero-logistics', 'manufacturing', 'retail', 'field-serv
       </div>
     </section>
 
-    <section class="section section-soft"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">{home.portfolio.eyebrow}</span><h2>{home.portfolio.titleLine1}<br />{home.portfolio.titleLine2}</h2></div><p>{home.portfolio.body}</p></div><div class="product-grid product-grid-families">{families.map((family) => <ProductFamilyCard family={family} locale={locale} compact />)}</div><div class="center mt-36"><a class="button button-outline" href={localizedPath(locale, '/products/')}>{home.portfolio.viewAll} ↗</a></div></div></section>
+    <section class="section section-soft"><div class="wrap"><div class="section-heading"><div><span class="eyebrow">{home.portfolio.eyebrow}</span><h2>{home.portfolio.titleLine1}<br />{home.portfolio.titleLine2}</h2></div><p>{home.portfolio.body}</p></div><div class="product-grid product-grid-families">{categories.map((category) => <ProductCategoryCard category={category} locale={locale} description={dict.common.categoryDescriptions[category.labelKey]} />)}</div><div class="center mt-36"><a class="button button-outline" href={localizedPath(locale, '/products/')}>{home.portfolio.viewAll} ↗</a></div></div></section>
 
     <section class="dark-stats"><div class="wrap stats-grid">{home.stats.map((stat) => <div><b>{stat.value}</b><span>{stat.label}</span></div>)}</div></section>
 
@@ -83,7 +86,7 @@ const solutionImages = ['hero-logistics', 'manufacturing', 'retail', 'field-serv
       </div>
     </section>
 
-    <section class="section"><div class="wrap"><div class="oem-panel"><div><span class="eyebrow">{home.oem.eyebrow}</span><h2>{home.oem.titleLine1}<br /><em>{home.oem.titleLine2}</em></h2><p>{home.oem.body}</p><ul>{home.oem.points.map((point) => <li>{point}</li>)}</ul><a class="button button-accent" href={localizedPath(locale, '/oem-odm/')}>{home.oem.cta} →</a></div><div class="oem-art"><div class="oem-ring"></div><div class="oem-device"></div><span>{home.oem.artLabel}</span></div></div></div></section>
+    <section class="section"><div class="wrap"><div class="oem-panel"><div><span class="eyebrow">{home.oem.eyebrow}</span><h2>{home.oem.titleLine1}<br /><em>{home.oem.titleLine2}</em></h2><p>{home.oem.body}</p><ul>{home.oem.points.map((point) => <li>{point}</li>)}</ul><a class="button button-accent" href={localizedPath(locale, '/oem-odm/')}>{home.oem.cta} →</a></div><figure class="oem-art"><img src={withBase('/images/home/oem-assembly.webp')} alt={home.oem.artAlt} width="1600" height="656" loading="lazy" decoding="async" /><figcaption>{home.oem.artLabel}</figcaption></figure></div></div></section>
 
     <section class="section section-soft">
       <div class="wrap faq-split">

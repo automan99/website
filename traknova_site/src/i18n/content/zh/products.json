@@ -1,16 +1,16 @@
 {
-  "ht540": {
-    "name": "HT540 Series",
-    "eyebrow": "Android RFID 手持机",
-    "tagline": "一个手持平台，覆盖 LF、HF 与 UHF 工作流。",
-    "summary": "5.5 英寸 Android RFID 手持机，提供 LF、HF、UHF 三个版本，适用于近距离识别、库存盘点与现场数据采集。",
+  "rfid-handhelds": {
+    "name": "RFID 手持终端系列",
+    "eyebrow": "LF / HF / UHF RFID 手持终端",
+    "tagline": "一个系列，三种 RFID 频段，两档性能。",
+    "summary": "5.5 英寸 Android RFID 手持终端系列，提供 LF、HF 与 UHF 配置，并以远距离 UHF 型号覆盖批量盘点与资产审计。",
     "overview": [
-      "HT540 Series 在同一套成熟的 Android 手持平台上覆盖三种 RFID 频段。5.5 英寸屏幕、实体扫描键与可更换的 4,900 mAh 电池在各版本间共用，培训、配件与部署方式保持一致。",
-      "LF 适合动物识别、门禁与近距离资产标签；HF 适合卡片、标签与 NFC 工作流；UHF 适合单品盘点与资产审计。条码扫描、NFC 与 PSAM 选项按版本和项目配置。"
+      "RFID 手持终端系列把 LF、HF 与 UHF 识别整合到统一的 5.5 英寸 Android 手持形态。HT540 配置覆盖近距离标签、卡片与单品级 UHF 盘点；HT550 则加入远距离 UHF 模块与更大容量电池，面向批量库存。",
+      "按工作选择频段与性能档，再确认扫描头、NFC、PSAM 与配件选项。UHF 区域频段与最终规格以获批数据表为准。"
     ],
     "variants": {
       "lf": {
-        "label": "LF",
+        "label": "HT540 LF",
         "name": "HT540-LF",
         "summary": "LF RFID 手持机，适用于动物识别、门禁与近距离资产标签。",
         "highlights": [
@@ -56,7 +56,7 @@
         ]
       },
       "hf": {
-        "label": "HF",
+        "label": "HT540 HF",
         "name": "HT540-HF",
         "summary": "HF RFID 手持机，适用于近距离卡片、标签与 NFC 识别。",
         "highlights": [
@@ -102,7 +102,7 @@
         ]
       },
       "uhf": {
-        "label": "UHF",
+        "label": "HT540 UHF",
         "name": "HT540-UHF",
         "summary": "UHF RFID 手持机，适用于单品盘点、资产审计与短距离库存读取。",
         "highlights": [
@@ -146,21 +146,9 @@
             "solution": "manufacturing"
           }
         ]
-      }
-    }
-  },
-  "ht550": {
-    "name": "HT550",
-    "eyebrow": "长距离 UHF RFID 手持机",
-    "tagline": "远距离 UHF 读取，整班次续航。",
-    "summary": "5.5 英寸 Android 13 UHF RFID 手持机，适用于仓储、堆场与现场作业中的批量盘点、资产追踪和远距离读取。",
-    "overview": [
-      "HT550 在 680 g 的手持机身中集成了 Impinj E 系列 UHF 模块、4 dBi 圆极化天线和 9,600 mAh 电池。它面向长时间、大批量盘点场景，优先保证读取距离与续航，而不是追求最紧凑的机身。",
-      "Android 13 平台、5.5 英寸屏幕与可选 1D/2D 扫描头可覆盖库存、资产与物流应用。UHF 频段按目标市场配置，实际读取性能取决于标签、朝向与环境。"
-    ],
-    "variants": {
-      "standard": {
-        "label": "标准版",
+      },
+      "ht550": {
+        "label": "HT550",
         "name": "HT550",
         "summary": "长距离 UHF RFID 手持机，Android 13、9,600 mAh 电池，可选条码扫描。",
         "highlights": [
@@ -202,6 +190,64 @@
           {
             "label": "物料追溯",
             "solution": "manufacturing"
+          }
+        ]
+      }
+    }
+  },
+  "ht600": {
+    "name": "HT600",
+    "eyebrow": "6.0 英寸条码手持终端",
+    "tagline": "条码采集，整班次续航。",
+    "summary": "6.0 英寸 Android 13 工业手持终端，内置专业 1D/2D 扫描引擎、IP68 防护与 8,000 mAh 电池，适用于物流、仓储与现场数据采集。",
+    "overview": [
+      "HT600 是一台围绕专业 1D/2D 影像扫描引擎打造的 6.0 英寸 Android 13 工业手持终端。8,000 mAh 可拆卸电池、IP68 防护与 1.8 m 跌落规格面向仓储、配送与现场作业的整班次使用。",
+      "平台配备 1600 万像素后摄、4G LTE、双频 Wi-Fi 与蓝牙 5.0，并可选 NFC、LF RFID 与手枪握把。扫描引擎、内存与模块选项按配置和目标市场确认，下单前以获批数据表为准。"
+    ],
+    "variants": {
+      "standard": {
+        "label": "标准版",
+        "name": "HT600",
+        "summary": "6.0 英寸 Android 13 条码手持终端，8,000 mAh 电池、IP68 防护与专业 1D/2D 扫描引擎。",
+        "highlights": [
+          "专业 1D/2D 影像扫描引擎，多种解码配置可选",
+          "8,000 mAh 可拆卸电池与 IP68 防护",
+          "6.0 英寸高亮屏，支持手套与湿手触控"
+        ],
+        "features": [
+          {
+            "title": "快速条码采集",
+            "body": "专业 1D/2D 影像引擎可读取常见一维码与二维码，软解 / 硬解型号按配置确认。"
+          },
+          {
+            "title": "整班次续航",
+            "body": "8,000 mAh 可拆卸电池支持 12 小时以上工作，支持快速充电与 RTC 电池更换，便于换班连续作业。"
+          },
+          {
+            "title": "现场级防护",
+            "body": "IP68 防护、1.8 m 六面跌落与 -30 至 60 °C 工作温度，覆盖仓储、配送与户外作业。"
+          },
+          {
+            "title": "Android 平台与连接能力",
+            "body": "Android 13、4G LTE、双频 Wi-Fi、蓝牙 5.0，并可选 NFC 或 LF RFID，连接现场工作与企业系统。"
+          }
+        ],
+        "applications": [
+          {
+            "label": "配送与收货",
+            "solution": "logistics"
+          },
+          {
+            "label": "生产追溯",
+            "solution": "manufacturing"
+          },
+          {
+            "label": "零售与服务网点",
+            "solution": "retail"
+          },
+          {
+            "label": "电力巡检与现场服务",
+            "solution": "field-service"
           }
         ]
       }
