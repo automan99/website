@@ -1,0 +1,149 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.about;
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.hero.eyebrow}</span>
+        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+        <p>{copy.hero.body}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.whatWeDo.eyebrow}</span><h2>{copy.whatWeDo.titleLine1}<br />{copy.whatWeDo.titleLine2}</h2></div>
+          <p>{copy.whatWeDo.body}</p>
+        </div>
+        <div class="quality-grid">
+          {copy.whatWeDo.cards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.principles.eyebrow}</span><h2>{copy.principles.titleLine1}<br />{copy.principles.titleLine2}</h2></div>
+          <p>{copy.principles.body}</p>
+        </div>
+        <div class="pillar-grid">
+          {copy.principles.pillars.map((pillar, index) => (
+            <article class="pillar"><b>{String(index + 1).padStart(2, '0')}</b><h3>{pillar.title}</h3><p>{pillar.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.capability.eyebrow}</span><h2>{copy.capability.titleLine1}<br />{copy.capability.titleLine2}</h2></div>
+          <p>{copy.capability.body}</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table series-table">
+            <thead><tr><th>{copy.capability.headers.capability}</th><th>{copy.capability.headers.coverage}</th></tr></thead>
+            <tbody>
+              {copy.capability.rows.map((row) => (
+                <tr><td>{row.capability}</td><td>{row.coverage}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.quality.eyebrow}</span><h2>{copy.quality.titleLine1}<br />{copy.quality.titleLine2}</h2></div>
+          <p>{copy.quality.body}</p>
+        </div>
+        <div class="quality-grid">
+          {copy.quality.cards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+        <p class="note-line">{copy.quality.note}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.partners.eyebrow}</span><h2>{copy.partners.titleLine1}<br />{copy.partners.titleLine2}</h2></div>
+          <p>{copy.partners.body}</p>
+        </div>
+        <div class="family-grid">
+          {copy.partners.cards.map((card) => (
+            <article class="family-card">
+              <span class="family-count">{card.label}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul>{card.points.map((point) => <li>{point}</li>)}</ul>
+              <a class="text-link" href={localizedPath(locale, card.href)}>{card.link} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="special-grid">
+          <article class="special-card">
+            <span class="mini-label">{copy.special.company.label}</span>
+            <h3>{copy.special.company.title}</h3>
+            <p>{copy.special.company.body}</p>
+            <ul>{copy.special.company.points.map((point) => <li>{point}</li>)}</ul>
+          </article>
+          <article class="special-card">
+            <span class="mini-label">{copy.special.talk.label}</span>
+            <h3>{copy.special.talk.title}</h3>
+            <p>{copy.special.talk.body}</p>
+            <div class="mt-36"><button class="button button-accent" data-inquiry-open>{copy.special.talk.button} ↗</button></div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

@@ -1,0 +1,115 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import { site } from '../data/site';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.contact;
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.hero.eyebrow}</span>
+        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+        <p>{copy.hero.body}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap contact-grid">
+        <div>
+          <span class="eyebrow">{copy.channels.eyebrow}</span>
+          <h2>{copy.channels.titleLine1}<br />{copy.channels.titleLine2}</h2>
+          <p>{copy.channels.body}</p>
+          <a class="contact-row" href={`mailto:${site.email}`}><b>{copy.channels.emailLabel}</b><span>{site.email}</span></a>
+          <a class="contact-row" href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer"><b>{copy.channels.whatsappLabel}</b><span>{copy.channels.whatsappText} ↗</span></a>
+          <a class="contact-row" href={site.facebook} target="_blank" rel="noreferrer"><b>{copy.channels.facebookLabel}</b><span>{copy.channels.facebookText} ↗</span></a>
+          <div class="mt-36">
+            <span class="mini-label">{copy.channels.includeLabel}</span>
+            <ul class="outcome-list">{copy.channels.items.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        </div>
+        <div class="contact-card">
+          <span class="eyebrow">{copy.inquiryCard.eyebrow}</span>
+          <h2>{copy.inquiryCard.title}</h2>
+          <p>{copy.inquiryCard.body}</p>
+          <button class="button button-accent" data-inquiry-open>{copy.inquiryCard.button} ↗</button>
+          <p class="note-line">{dict.inquiry.privacyPrefix}<a href={localizedPath(locale, '/privacy/')}>{dict.inquiry.privacyLinkLabel}</a>{dict.inquiry.privacySuffix}</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.steps.eyebrow}</span><h2>{copy.steps.titleLine1}<br />{copy.steps.titleLine2}</h2></div>
+          <p>{copy.steps.body}</p>
+        </div>
+        <div class="deploy-grid">
+          {copy.steps.items.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="special-grid">
+          <article class="special-card">
+            <span class="mini-label">{copy.support.international.label}</span>
+            <h3>{copy.support.international.title}</h3>
+            <p>{copy.support.international.body}</p>
+            <ul>{copy.support.international.points.map((point) => <li>{point}</li>)}</ul>
+          </article>
+          <article class="special-card">
+            <span class="mini-label">{copy.support.existing.label}</span>
+            <h3>{copy.support.existing.title}</h3>
+            <p>{copy.support.existing.body}</p>
+            <ul>{copy.support.existing.points.map((point) => <li>{point}</li>)}</ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap faq-split">
+        <div>
+          <span class="eyebrow">{copy.faq.eyebrow}</span>
+          <h2>{copy.faq.titleLine1}<br />{copy.faq.titleLine2}</h2>
+          <p>{copy.faq.body}</p>
+          <div class="mt-36"><a class="button button-outline" href={localizedPath(locale, '/products/')}>{copy.faq.cta} ↗</a></div>
+        </div>
+        <div class="faq-list">
+          {copy.faq.items.map((faq) => (
+            <details><summary>{faq.q}</summary><p>{faq.a}</p></details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <button class="button button-accent" data-inquiry-open>{copy.cta.button} ↗</button>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

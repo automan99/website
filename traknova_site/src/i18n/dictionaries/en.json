@@ -642,5 +642,230 @@
       "body": "We will map the steps, the exceptions and the data — then recommend a device and configuration.",
       "button": "Discuss Your Scenario"
     }
+  },
+  "about": {
+    "metaTitle": "About TRAKNOVA | Industrial Mobility",
+    "metaDescription": "TRAKNOVA is an industrial mobility partner for rugged PDA computers, RFID handhelds, industrial tablets, configuration and OEM / ODM cooperation.",
+    "hero": {
+      "eyebrow": "ABOUT TRAKNOVA",
+      "titleLine1": "A partner for the work",
+      "titleLine2": "between the scan and the system.",
+      "body": "TRAKNOVA builds and configures rugged mobile computers, RFID handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
+    },
+    "whatWeDo": {
+      "eyebrow": "WHAT WE DO",
+      "titleLine1": "Hardware, configuration",
+      "titleLine2": "and a path to rollout.",
+      "body": "We are not only a device supplier. We help define the capture method, select the platform, confirm the configuration and plan the support path.",
+      "cards": [
+        {
+          "title": "Product platforms",
+          "body": "Rugged PDA computers, RFID devices and industrial tablets for enterprise data capture.",
+          "items": ["Barcode and multifunction handhelds", "Short-range and UHF RFID", "Android and Windows rugged tablets"]
+        },
+        {
+          "title": "Configuration & branding",
+          "body": "Platform options aligned to the application, market and brand.",
+          "items": ["Capture module selection", "Accessories and mounting", "OS image and preload", "Private label and packaging"]
+        },
+        {
+          "title": "Deployment support",
+          "body": "A practical plan for piloting, documenting and sustaining the fleet.",
+          "items": ["Workflow and exception mapping", "Pilot planning", "Documentation package", "Spares planning"]
+        }
+      ]
+    },
+    "principles": {
+      "eyebrow": "HOW WE WORK",
+      "titleLine1": "Principles that survive",
+      "titleLine2": "a real deployment.",
+      "body": "These are the standards we apply to a single device order and to a multi-site rollout.",
+      "pillars": [
+        { "title": "Workflow first", "body": "We start with the task and the exception, not with a device category." },
+        { "title": "Honest specifications", "body": "Only confirmed values are published. Configuration details are confirmed against the approved datasheet." },
+        { "title": "Practical engineering", "body": "Devices, modules and accessories are selected for the environment they will actually work in." },
+        { "title": "Support after rollout", "body": "Spares, documentation and change notification are part of the plan, not an afterthought." }
+      ]
+    },
+    "capability": {
+      "eyebrow": "CAPABILITY MAP",
+      "titleLine1": "What we can",
+      "titleLine2": "cover for you.",
+      "body": "Availability and scope are confirmed per product, platform and project. The map below shows where we typically work with partners.",
+      "headers": { "capability": "Capability", "coverage": "What it covers" },
+      "rows": [
+        { "capability": "Product platforms", "coverage": "Rugged PDA, short-range and UHF RFID handhelds, Android and Windows industrial tablets" },
+        { "capability": "Auto-ID", "coverage": "1D / 2D barcode, UHF and short-range RFID, NFC, ID / document capture" },
+        { "capability": "Configuration", "coverage": "Capture modules, memory and OS variants, accessories, mounting" },
+        { "capability": "Branding", "coverage": "Private label, boot animation, packaging, manuals, serialization" },
+        { "capability": "Documentation", "coverage": "Datasheets, user manuals, quick guides, packaging artwork, test documentation" },
+        { "capability": "Support", "coverage": "Pilot planning, staging, spares, after-sales coordination" }
+      ]
+    },
+    "quality": {
+      "eyebrow": "QUALITY & DOCUMENTATION",
+      "titleLine1": "Evidence before",
+      "titleLine2": "assurances.",
+      "body": "We do not publish certifications we cannot evidence. The applicable test plan, document package and market approvals are agreed per product and project.",
+      "cards": [
+        { "title": "Incoming and in-process", "items": ["Incoming material checks", "Assembly and process checks", "Process records retained"] },
+        { "title": "Final inspection", "items": ["Functional checks", "Packaging and label verification", "Test records retained per batch"] },
+        { "title": "Documentation", "items": ["Datasheet and user manual", "Quick guide and packaging artwork", "Conformity documentation where available"] }
+      ],
+      "note": "Certifications, test reports and factory information are provided to qualified partners during due diligence."
+    },
+    "partners": {
+      "eyebrow": "WHO WE WORK WITH",
+      "titleLine1": "Different partners,",
+      "titleLine2": "different depth.",
+      "body": "Our cooperation model adapts to whether you distribute, integrate or operate the deployment.",
+      "cards": [
+        {
+          "label": "DISTRIBUTORS",
+          "title": "Range and brand",
+          "body": "A product range, configuration support and OEM options for your market.",
+          "points": ["Product range and accessories", "Private label and packaging", "Regional documentation"],
+          "link": "Explore OEM / ODM",
+          "href": "/oem-odm/"
+        },
+        {
+          "label": "SOLUTION PROVIDERS",
+          "title": "Fit to the application",
+          "body": "Devices and modules selected around the application, with pilot support.",
+          "points": ["Capture module selection", "Pilot planning", "Software and MDM integration"],
+          "link": "Explore solutions",
+          "href": "/solutions/"
+        },
+        {
+          "label": "ENTERPRISE TEAMS",
+          "title": "From review to rollout",
+          "body": "A practical path from workflow review to device shortlist and fleet rollout.",
+          "points": ["Workflow review", "Device shortlist and configuration", "Rollout and spares planning"],
+          "link": "Talk to our team",
+          "href": "/contact/"
+        }
+      ]
+    },
+    "special": {
+      "company": {
+        "label": "COMPANY INFORMATION",
+        "title": "Due diligence, without the theatre.",
+        "body": "Registered entity details, manufacturing location, certifications and test reports are provided to qualified partners on request. We prefer to share evidence rather than unverifiable claims.",
+        "points": ["Registered company details", "Manufacturing and quality documentation", "Certification and test reports where applicable"]
+      },
+      "talk": {
+        "label": "TALK TO US",
+        "title": "Start with your workflow.",
+        "body": "Tell us the application, target market and expected volume. We will confirm the right platform and the information you need to evaluate it.",
+        "button": "Send an Inquiry"
+      }
+    },
+    "cta": {
+      "eyebrow": "HAVE A PROJECT TO DISCUSS?",
+      "titleLine1": "Let's find the right",
+      "titleLine2": "starting point.",
+      "body": "Share the workflow, target market and volume. We will take it from there.",
+      "button": "Contact Our Team"
+    }
+  },
+  "contact": {
+    "metaTitle": "Contact TRAKNOVA | Request a Quote",
+    "metaDescription": "Contact TRAKNOVA about rugged PDA computers, RFID devices, industrial tablets, OEM / ODM projects and product datasheets.",
+    "hero": {
+      "eyebrow": "CONTACT OUR TEAM",
+      "titleLine1": "Let's build the right",
+      "titleLine2": "solution together.",
+      "body": "Share your workflow, target market and configuration questions. We will come back with a device shortlist and the information you need to evaluate it."
+    },
+    "channels": {
+      "eyebrow": "TALK TO OUR SALES TEAM",
+      "titleLine1": "Choose the channel",
+      "titleLine2": "that works for you.",
+      "body": "Use email or WhatsApp for a direct conversation. For a longer requirement, the inquiry form captures the details we need to respond properly.",
+      "emailLabel": "Email",
+      "whatsappLabel": "WhatsApp",
+      "whatsappText": "Start a conversation",
+      "facebookLabel": "Facebook",
+      "facebookText": "Visit our page",
+      "includeLabel": "What to include",
+      "items": [
+        "The workflow or task to be captured",
+        "Target market and expected quantity",
+        "Required capture method: barcode, RFID, print or document",
+        "Timeline and OEM / ODM interest"
+      ]
+    },
+    "inquiryCard": {
+      "eyebrow": "PROJECT INQUIRY",
+      "title": "Request a Quote",
+      "body": "Send us your requirements and we will confirm the next step.",
+      "button": "Open Inquiry Form"
+    },
+    "steps": {
+      "eyebrow": "WHAT HAPPENS NEXT",
+      "titleLine1": "From inquiry",
+      "titleLine2": "to a clear next step.",
+      "body": "We do not send a catalogue and hope for the best. Each inquiry is reviewed against the workflow and the market.",
+      "items": [
+        { "title": "Requirement review", "body": "We read the workflow, target market, expected volume and any OEM / ODM scope." },
+        { "title": "Clarification", "body": "We come back with the configuration questions that matter — modules, environment, software and timing." },
+        { "title": "Recommendation", "body": "You receive a shortlist, the relevant specifications and the documentation path for each option." },
+        { "title": "Quotation", "body": "Commercial terms, sample policy and lead time are confirmed for the selected configuration." }
+      ]
+    },
+    "support": {
+      "international": {
+        "label": "INTERNATIONAL SUPPORT",
+        "title": "Working across markets.",
+        "body": "We work with distributors, solution providers and enterprise teams across markets. Regional availability, approvals and lead times are confirmed per project.",
+        "points": ["Device and module availability by market", "Regional UHF RFID bands and approvals", "Documentation and packaging requirements"]
+      },
+      "existing": {
+        "label": "EXISTING CUSTOMER?",
+        "title": "Order and support queries.",
+        "body": "For order status, spare parts or an RMA discussion, contact the sales contact on your order and include the model, serial number and a short description of the issue.",
+        "points": ["Model and serial number", "Order or invoice reference", "Photos or logs where relevant"]
+      }
+    },
+    "faq": {
+      "eyebrow": "CONTACT FAQ",
+      "titleLine1": "Before you",
+      "titleLine2": "write to us.",
+      "body": "If your question is not here, include it in the inquiry. We will answer it against your workflow and target market.",
+      "cta": "Browse Products",
+      "items": [
+        {
+          "q": "What information should I include in an inquiry?",
+          "a": "The workflow or task, the target market, the expected quantity and any required capture method (barcode, UHF RFID, mobile print or document reading). If you already have a device or software platform in mind, include it."
+        },
+        {
+          "q": "Will I receive a datasheet before ordering?",
+          "a": "Yes. Once the model and target market are clear, we provide the applicable datasheet and confirm the configuration-dependent values. For some models the public page shows only confirmed values, with the full sheet available on request."
+        },
+        {
+          "q": "Do you support samples?",
+          "a": "Sample and pilot policy is agreed per project. For configured products, a prototype or pilot build is the usual acceptance step before a production order."
+        },
+        {
+          "q": "Can you sign an NDA?",
+          "a": "Yes, where the project involves confidential workflow, software or commercial information. Raise it in the inquiry and we will agree the process before detailed information is exchanged."
+        },
+        {
+          "q": "Do you handle OEM / ODM inquiries through the same form?",
+          "a": "Yes. Select the cooperation interest in the form and describe the branding, configuration or development requirement. The OEM / ODM page describes the three engagement models and the six-stage process."
+        },
+        {
+          "q": "How are regional approvals handled?",
+          "a": "Certification scope depends on the target market, device configuration and applicable standard. We review the requirement during discovery and confirm the documentation path for the selected configuration."
+        }
+      ]
+    },
+    "cta": {
+      "eyebrow": "READY WHEN YOU ARE",
+      "titleLine1": "Tell us what",
+      "titleLine2": "you are trying to do.",
+      "body": "A short description of the workflow is enough to start. We will ask for the rest.",
+      "button": "Send an Inquiry"
+    }
   }
 }
