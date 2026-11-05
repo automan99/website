@@ -169,7 +169,8 @@
       }
     },
     "trustStrip": {
-      "label": "TECHNOLOGY FOR CONNECTED OPERATIONS"
+      "label": "TECHNOLOGY FOR CONNECTED OPERATIONS",
+      "items": ["RFID", "BARCODE", "NFC", "ANDROID", "INDUSTRIAL IoT"]
     },
     "why": {
       "eyebrow": "WHY TRAKNOVA",
@@ -793,7 +794,8 @@
         "Target market and expected quantity",
         "Required capture method: barcode, RFID, print or document",
         "Timeline and OEM / ODM interest"
-      ]
+      ],
+      "privacyPrefix": "We use your information only to respond to this inquiry. See our "
     },
     "inquiryCard": {
       "eyebrow": "PROJECT INQUIRY",

@@ -24,7 +24,7 @@ const solutionLinks = ['/solutions/#logistics', '/solutions/#manufacturing', '/s
   <main>
     <section class="hero"><div class="wrap hero-grid"><div class="hero-copy"><span class="eyebrow">{home.hero.eyebrow}</span><h1>{home.hero.titleLine1}<br /><em>{home.hero.titleLine2}</em></h1><p>{home.hero.body}</p><div class="hero-actions"><a class="button button-accent" href={localizedPath(locale, '/products/')}>{home.hero.primaryCta} →</a><a class="button button-glass" href={localizedPath(locale, '/contact/')}>{home.hero.secondaryCta} ↗</a></div><div class="hero-proof">{home.hero.proof.map((item) => <span><b>{item.title}</b>{item.text}</span>)}</div></div>
     <div class="hero-visual"><div class="hero-orbit"></div><div class="device-stack"><div class="device device-tablet"><div class="screen"></div></div><div class="device device-pda"><div class="screen"></div><div class="keypad"></div></div><div class="device device-reader"><div class="reader-head"></div><div class="reader-grip"></div></div></div><div class="visual-chip chip-a">{home.hero.chips.rfidTitle}<small>{home.hero.chips.rfidText}</small></div><div class="visual-chip chip-b">{home.hero.chips.ruggedTitle}<small>{home.hero.chips.ruggedText}</small></div></div></div></section>
-    <section class="trust-strip"><div class="wrap trust-inner"><span>{home.trustStrip.label}</span><b>RFID</b><b>BARCODE</b><b>NFC</b><b>ANDROID</b><b>INDUSTRIAL IoT</b></div></section>
+    <section class="trust-strip"><div class="wrap trust-inner"><span>{home.trustStrip.label}</span>{home.trustStrip.items.map((item) => <b>{item}</b>)}</div></section>
 
     <section class="section">
       <div class="wrap">

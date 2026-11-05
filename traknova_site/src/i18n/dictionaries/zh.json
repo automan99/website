@@ -169,7 +169,8 @@
       }
     },
     "trustStrip": {
-      "label": "面向互联运营的技术"
+      "label": "面向互联运营的技术",
+      "items": ["RFID", "条码", "NFC", "ANDROID", "工业 IoT"]
     },
     "why": {
       "eyebrow": "为什么选择 TRAKNOVA",
@@ -793,7 +794,8 @@
         "目标市场与预计数量",
         "所需采集方式：条码、RFID、打印或文档",
         "时间表与 OEM / ODM 意向"
-      ]
+      ],
+      "privacyPrefix": "我们仅使用您的信息来回复此询盘。请参阅我们的"
     },
     "inquiryCard": {
       "eyebrow": "项目询盘",

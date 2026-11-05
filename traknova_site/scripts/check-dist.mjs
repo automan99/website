@@ -10,6 +10,7 @@
 import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { hasHtmlLanguage, hasAlternateLanguage } from './lib/html-checks.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
@@ -38,21 +39,21 @@ for (const file of htmlFiles) {
   const rel = relative(dist, file).split(sep).join('/');
   const html = readFileSync(file, 'utf8');
   const isZh = rel.startsWith('zh/');
-  const expectedLanguage = isZh ? 'lang="zh-CN"' : 'lang="en"';
+  const expectedLanguage = isZh ? 'zh-CN' : 'en';
 
-  if (!html.includes(expectedLanguage)) {
-    errors.push(`${rel}: missing ${expectedLanguage}`);
+  if (!hasHtmlLanguage(html, expectedLanguage)) {
+    errors.push(`${rel}: missing <html lang="${expectedLanguage}">`);
   }
 
   for (const language of ['en', 'zh-CN', 'x-default']) {
-    if (!html.includes(`hreflang="${language}"`)) {
-      errors.push(`${rel}: missing hreflang="${language}"`);
+    if (!hasAlternateLanguage(html, language)) {
+      errors.push(`${rel}: missing <link rel="alternate" hreflang="${language}">`);
     }
   }
 
   for (const language of disabledLanguages) {
-    if (html.includes(`hreflang="${language}"`)) {
-      errors.push(`${rel}: disabled language hreflang="${language}" is present`);
+    if (hasAlternateLanguage(html, language)) {
+      errors.push(`${rel}: disabled language alternate hreflang="${language}" is present`);
     }
   }
 
@@ -95,6 +96,22 @@ for (const [page, text] of sentinels) {
   if (existsSync(path) && readFileSync(path, 'utf8').includes(text)) {
     errors.push(`${page}: still contains English marketing copy "${text}"`);
   }
+}
+
+const zhHomePath = join(dist, 'zh/index.html');
+if (existsSync(zhHomePath)) {
+  const html = readFileSync(zhHomePath, 'utf8');
+  if (html.includes('>BARCODE<') || html.includes('>INDUSTRIAL IoT<')) {
+    errors.push('zh/index.html: the trust strip still contains English terms');
+  }
+  if (!html.includes('>条码<')) {
+    errors.push('zh/index.html: the trust strip is missing the Chinese barcode label');
+  }
+}
+
+const contactPath = join(dist, 'contact/index.html');
+if (existsSync(contactPath) && !readFileSync(contactPath, 'utf8').includes('only to respond to this inquiry')) {
+  errors.push('contact/index.html: privacy sentence no longer says "only to respond"');
 }
 
 for (const page of ['zh/privacy/index.html', 'zh/terms/index.html']) {

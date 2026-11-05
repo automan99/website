@@ -40,14 +40,15 @@ const navItems = [
   <a class="button button-accent nav-cta" href={localizedPath(locale, '/contact/')}>{dict.header.quoteCta} <span>↗</span></a>
   <button class="menu-toggle" data-menu-toggle aria-label={dict.common.menuToggle}>☰</button>
 </div><nav class="mobile-nav" aria-label={dict.header.mobileNavAria} data-mobile-menu>{navItems.map((item) => <a href={localizedPath(locale, item.href)} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>)}<div class="mobile-lang">{ENABLED_LOCALES.map((enabled) => <a href={localizedPath(enabled, pathInfo.path)} hreflang={LOCALE_META[enabled].htmlLang} class:list={{ 'is-active': enabled === locale }} data-lang-link data-lang={enabled}>{LOCALE_META[enabled].nativeName}</a>)}</div></nav></header>
-<script is:inline>
-  (() => {
-    const hash = window.location.hash;
-    document.querySelectorAll('[data-lang-link]').forEach((link) => {
-      if (hash && !link.hash) link.href = link.pathname + link.search + hash;
-      link.addEventListener('click', () => {
-        try { localStorage.setItem('traknova.lang', link.dataset.lang || ''); } catch (error) {}
-      });
-    });
-  })();
+<script>
+  import { applyHashToLanguageLinks, rememberLanguage } from '../scripts/lang-switcher.mjs';
+
+  const links = Array.from(document.querySelectorAll('[data-lang-link]'));
+  const sync = () => applyHashToLanguageLinks(links, window.location.hash);
+
+  sync();
+  window.addEventListener('hashchange', sync);
+  for (const link of links) {
+    link.addEventListener('click', () => rememberLanguage(link));
+  }
 </script>
