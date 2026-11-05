@@ -1,0 +1,162 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getCategoryLabel, getProducts, type Product } from '../data/products';
+import { withBase, localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+  product: Product;
+}
+
+const { locale, product } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.productDetail;
+
+const confirmedSpecs = Object.entries(product.specs).filter(([, value]) => !/confirm/i.test(value));
+const related = getProducts(locale).filter((item) => item.category === product.category && item.slug !== product.slug).slice(0, 3);
+const familyAnchor = product.category === 'Rugged PDA' ? '#rugged-pda' : product.category === 'RFID' ? '#rfid' : '#industrial-tablets';
+const categoryKey = product.category === 'Rugged PDA' ? 'ruggedPda' : product.category === 'RFID' ? 'rfid' : 'industrialTablet';
+const fits = copy.whereItFits.groups[categoryKey];
+const configCards = copy.configuration.groups[categoryKey];
+
+const productImage = product.image.startsWith('http')
+  ? product.image
+  : Astro.site
+    ? new URL(withBase(product.image), Astro.site).href
+    : withBase(product.image);
+const productSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Product',
+  name: product.name,
+  description: product.summary,
+  category: product.category,
+  brand: { '@type': 'Brand', name: 'TRAKNOVA' },
+  image: productImage,
+  sku: product.model
+};
+---
+<BaseLayout title={`${product.name} | TRAKNOVA`} description={product.summary} locale={locale}>
+  <Fragment slot="head">
+    <script type="application/ld+json" set:html={JSON.stringify(productSchema)} />
+  </Fragment>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <div class="breadcrumb">
+          <a href={localizedPath(locale, '/')}>{copy.breadcrumb.home}</a><span>/</span>
+          <a href={localizedPath(locale, '/products/')}>{copy.breadcrumb.products}</a><span>/</span>
+          <span>{product.name}</span>
+        </div>
+        <span class="eyebrow">{getCategoryLabel(locale, product.category)}</span>
+        <h1>{product.name}</h1>
+        <p>{product.summary}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap product-detail">
+        <div class="detail-image"><img src={withBase(product.image)} alt={product.name} /></div>
+        <div>
+          <span class="product-category">{product.model}</span>
+          <h2>{copy.detailHeading}</h2>
+          <p>{product.summary}</p>
+          <ul class="check-list">{product.highlights.map((item) => <li>{item}</li>)}</ul>
+          <div class="detail-actions">
+            <button class="button button-accent" data-inquiry-open>{copy.requestDatasheetQuote} ↗</button>
+            <a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.talkToSales} ↗</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.whereItFits.eyebrow}</span><h2>{copy.whereItFits.titleLine1}<br />{copy.whereItFits.titleLine2}</h2></div>
+          <p>{copy.whereItFits.body}</p>
+        </div>
+        <div class="fit-grid">
+          {fits.map((fit) => (
+            <article class="fit-card">
+              <h3>{fit.title}</h3>
+              <p>{fit.body}</p>
+              <a href={localizedPath(locale, fit.href)}>{dict.common.actions.seeWorkflow} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.configuration.eyebrow}</span><h2>{copy.configuration.titleLine1}<br />{copy.configuration.titleLine2}</h2></div>
+          <p>{copy.configuration.body}</p>
+        </div>
+        <div class="quality-grid">
+          {configCards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <p>{card.intro}</p>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.specs.eyebrow}</span><h2>{copy.specs.titleLine1}<br />{copy.specs.titleLine2}</h2></div>
+          <p>{copy.specs.body}</p>
+        </div>
+        {copy.specs.englishNote && <p class="note-line">{copy.specs.englishNote}</p>}
+        {confirmedSpecs.length >= 2 ? (
+          <table class="spec-table">
+            <tbody>{confirmedSpecs.map(([key, value]) => <tr><th>{key}</th><td>{value}</td></tr>)}</tbody>
+          </table>
+        ) : (
+          <div class="spec-empty">
+            <h3>{copy.specs.emptyTitle}</h3>
+            <p>{copy.specs.emptyBody}</p>
+            <button class="button button-accent" data-inquiry-open>{copy.specs.requestDatasheet} ↗</button>
+          </div>
+        )}
+        {confirmedSpecs.length >= 2 && <p class="fineprint">{copy.specs.fineprint}</p>}
+      </div>
+    </section>
+
+    {related.length > 0 && (
+      <section class="section">
+        <div class="wrap">
+          <div class="split-intro">
+            <div><span class="eyebrow">{copy.related.eyebrow}</span><h2>{copy.related.titleLine1}<br />{copy.related.titleLine2}</h2></div>
+            <p>{copy.related.body}</p>
+          </div>
+          <div class="related-grid">{related.map((item) => <ProductCard product={item} locale={locale} />)}</div>
+          <div class="center mt-36"><a class="button button-outline" href={localizedPath(locale, `/products/${familyAnchor}`)}>{dict.common.actions.viewFamily} ↗</a></div>
+        </div>
+      </section>
+    )}
+
+    <section class="section section-soft">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>

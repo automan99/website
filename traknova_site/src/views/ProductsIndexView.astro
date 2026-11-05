@@ -1,0 +1,183 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import InquiryDialog from '../components/InquiryDialog.astro';
+import ProductCard from '../components/ProductCard.astro';
+import { getProducts } from '../data/products';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+import { getDictionary } from '../i18n';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.products;
+const products = getProducts(locale);
+
+const pdas = products.filter((product) => product.category === 'Rugged PDA');
+const rfid = products.filter((product) => product.category === 'RFID');
+const tablets = products.filter((product) => product.category === 'Industrial Tablet');
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.hero.eyebrow}</span>
+        <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
+        <p>{copy.hero.body}</p>
+        <div class="anchor-chips">
+          <a class="anchor-chip" href="#task-selector">{copy.anchors.taskSelector}</a>
+          <a class="anchor-chip" href="#rugged-pda">{copy.anchors.ruggedPda}</a>
+          <a class="anchor-chip" href="#rfid">{copy.anchors.rfid}</a>
+          <a class="anchor-chip" href="#industrial-tablets">{copy.anchors.industrialTablets}</a>
+          <a class="anchor-chip" href="#comparison">{copy.anchors.comparison}</a>
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="task-selector">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.taskSelector.eyebrow}</span><h2>{copy.taskSelector.titleLine1}<br />{copy.taskSelector.titleLine2}</h2></div>
+          <p>{copy.taskSelector.body}</p>
+        </div>
+        <div class="task-grid">
+          {copy.taskSelector.cards.map((task) => (
+            <article class="task-card">
+              <h3>{task.title}</h3>
+              <p>{task.body}</p>
+              <div class="device-list">
+                {task.models.map((model) => (
+                  <a class="device-link" href={localizedPath(locale, `/products/${model.slug}/`)}>{model.label} <span>›</span></a>
+                ))}
+              </div>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.families.eyebrow}</span><h2>{copy.families.titleLine1}<br />{copy.families.titleLine2}</h2></div>
+          <p>{copy.families.body}</p>
+        </div>
+        <div class="family-grid">
+          {copy.families.cards.map((card) => (
+            <article class="family-card">
+              <span class="family-count">{card.count}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul>{card.points.map((point) => <li>{point}</li>)}</ul>
+              <a class="text-link" href={card.anchor}>{card.link} →</a>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section" id="rugged-pda">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.sections.ruggedPda.eyebrow}</span><h2>{copy.sections.ruggedPda.titleLine1}<br />{copy.sections.ruggedPda.titleLine2}</h2></div>
+          <p>{copy.sections.ruggedPda.body}</p>
+        </div>
+        <div class="product-grid">{pdas.map((product) => <ProductCard product={product} locale={locale} />)}</div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="rfid">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.sections.rfid.eyebrow}</span><h2>{copy.sections.rfid.titleLine1}<br />{copy.sections.rfid.titleLine2}</h2></div>
+          <p>{copy.sections.rfid.body}</p>
+        </div>
+        <div class="product-grid">{rfid.map((product) => <ProductCard product={product} locale={locale} />)}</div>
+      </div>
+    </section>
+
+    <section class="section" id="industrial-tablets">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.sections.industrialTablets.eyebrow}</span><h2>{copy.sections.industrialTablets.titleLine1}<br />{copy.sections.industrialTablets.titleLine2}</h2></div>
+          <p>{copy.sections.industrialTablets.body}</p>
+        </div>
+        <div class="product-grid">{tablets.map((product) => <ProductCard product={product} locale={locale} />)}</div>
+      </div>
+    </section>
+
+    <section class="section section-soft" id="comparison">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.comparison.eyebrow}</span><h2>{copy.comparison.titleLine1}<br />{copy.comparison.titleLine2}</h2></div>
+          <p>{copy.comparison.body}</p>
+        </div>
+        <div class="matrix-wrap">
+          <table class="matrix-table series-table">
+            <thead>
+              <tr><th>{copy.comparison.headers.series}</th><th>{copy.comparison.headers.family}</th><th>{copy.comparison.headers.formFactor}</th><th>{copy.comparison.headers.capture}</th><th>{copy.comparison.headers.os}</th><th>{copy.comparison.headers.workflow}</th></tr>
+            </thead>
+            <tbody>
+              {copy.comparison.rows.map((row) => (
+                <tr><td>{row.series}</td><td>{row.family}</td><td>{row.form}</td><td>{row.capture}</td><td>{row.os}</td><td>{row.workflow}</td></tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+        <p class="note-line">{copy.comparison.note}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div><span class="eyebrow">{copy.modules.eyebrow}</span><h2>{copy.modules.titleLine1}<br />{copy.modules.titleLine2}</h2></div>
+          <p>{copy.modules.body}</p>
+        </div>
+        <div class="quality-grid">
+          {copy.modules.cards.map((card) => (
+            <article class="quality-card">
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+              <ul>{card.items.map((item) => <li>{item}</li>)}</ul>
+            </article>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section section-soft">
+      <div class="wrap faq-split">
+        <div>
+          <span class="eyebrow">{copy.faq.eyebrow}</span>
+          <h2>{copy.faq.titleLine1}<br />{copy.faq.titleLine2}</h2>
+          <p>{copy.faq.body}</p>
+          <div class="mt-36"><a class="button button-outline" href={localizedPath(locale, '/contact/')}>{copy.faq.cta} ↗</a></div>
+        </div>
+        <div class="faq-list">
+          {copy.faq.items.map((faq) => (
+            <details><summary>{faq.q}</summary><p>{faq.a}</p></details>
+          ))}
+        </div>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap cta-band">
+        <div>
+          <span class="eyebrow">{copy.cta.eyebrow}</span>
+          <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
+          <p>{copy.cta.body}</p>
+        </div>
+        <a class="button button-accent" href={localizedPath(locale, '/contact/')}>{copy.cta.button} ↗</a>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} /><InquiryDialog locale={locale} />
+</BaseLayout>
