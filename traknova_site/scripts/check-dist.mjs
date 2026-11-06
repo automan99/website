@@ -267,8 +267,10 @@ for (const asset of [
   'images/solutions/manufacturing-2000.webp',
   'images/solutions/retail-2000.webp',
   'images/solutions/field-service-2000.webp',
-  'images/products/device-rfid.svg',
-  'images/products/device-tablet.svg'
+  'images/products/ht540/ht540-uhf-front.webp',
+  'images/products/ht550/ht550-front.webp',
+  'images/products/y100/y100-rfid-front.webp',
+  'images/products/y100/y100-standard-front.webp'
 ]) {
   if (!existsSync(join(dist, asset))) errors.push(`solutions image is missing from dist: ${asset}`);
 }
