@@ -132,6 +132,38 @@ npm run dev
 - `npm run check:dist`：构建后检查 `lang`、hreflang、`/website` 链接前缀、中文页面翻译完整性、
   法律页英文正文标注和未启用语言是否误生成
 
+## 9. 付费广告、Cookie 同意与转化追踪（新增）
+
+### 9.1 开启 Google Ads 标签
+编辑 `src/data/site.ts`：
+
+- `googleAds.tagId`：Google Ads 标签 ID，例如 `AW-1234567890`。为空时不加载任何 Google 标签。
+- `googleAds.conversionLabel`：Google Ads 转化操作的标签，例如 `AbC-D_efGhIjKlMn`。为空时不发送转化事件。
+- `consent.enabled`：是否显示 Cookie 同意横幅和页脚「Cookie 设置」入口，默认 `true`。
+
+填入后：
+
+1. 页面头部会先设置 Consent Mode v2 默认值（默认 denied），再加载 Google tag。
+2. 用户点击「全部接受」后，`ad_storage`、`ad_user_data`、`ad_personalization`、`analytics_storage` 更新为 granted；拒绝则保持 denied。
+3. 同意状态保存在 `localStorage` 的 `traknova-consent-v1`，页脚可随时重新打开设置。
+4. `/thank-you/` 页面会在已同意广告衡量的情况下发送 `conversion` 事件；同一会话只发一次。
+
+> 注意：这是轻量级第一方 CMP + Consent Mode v2。投放 EEA/UK 前建议让法务复核；如果 Google 或合作方要求 Google 认证 CMP，可替换为 Cookiebot、Usercentrics 等，并保持同样的 consent 更新逻辑。
+
+### 9.2 表单跳转
+`InquiryForm.astro` 和 `InquiryDialog.astro` 已给 Formspree 表单增加隐藏字段 `_next`，提交成功后跳转到 `/thank-you/`（中文为 `/zh/thank-you/`）。上线前请用真实 Formspree endpoint 提交一次，确认跳转和邮件都正常。
+
+### 9.3 字体
+DM Sans 和 Manrope 已从 Google Fonts 改为自托管，文件在 `public/fonts/`，不再请求 `fonts.googleapis.com`。如果以后更换字体，更新 `public/fonts/fonts.css` 即可。
+
+### 9.4 验证命令
+```bash
+npm run i18n:check
+npm test            # 包含 consent 逻辑测试
+npm run build
+npm run check:dist  # 检查 _next、thank-you noindex、sitemap 排除
+```
+
 ## 当前项目状态
 这是一份扩展开发版本，已录入选定产品线，部分参数取自原始资料。
 不少产品目前还是占位数据，因为爬取的国内产品页面没有公开完整的型号专属参数。**发布前所有参数、频段、认证、防护等级、选配项，都必须和官方产品手册二次核对。**

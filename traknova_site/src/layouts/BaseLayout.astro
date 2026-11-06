@@ -3,6 +3,8 @@ import { site } from '../data/site';
 import { withBase, localizedPath, getPathInfo } from '../utils/paths';
 import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
+import ConsentBanner from '../components/ConsentBanner.astro';
+import { CONSENT_STORAGE_KEY, CONSENT_VERSION } from '../scripts/consent.mjs';
 import '../styles/global.css';
 import '../styles/enterprise.css';
 import '../styles/theme.css';
@@ -43,6 +45,7 @@ const alternateUrl = (target: Locale) => {
   const path = localizedPath(target, logicalPath);
   return Astro.site ? new URL(path, Astro.site).href : path;
 };
+const googleAdsTagId = site.googleAds?.tagId?.trim() ?? '';
 
 const organizationSchema = {
   '@context': 'https://schema.org',
@@ -90,25 +93,57 @@ const organizationSchema = {
     <meta name="twitter:description" content={pageDescription} />
     {socialImage && <meta name="twitter:image" content={socialImage} />}
     <title>{pageTitle}</title>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    {googleAdsTagId && (
+      <Fragment>
+        <script
+          is:inline
+          define:vars={{ googleAdsTagId, consentKey: CONSENT_STORAGE_KEY, consentVersion: CONSENT_VERSION }}
+        >
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = window.gtag || function () {
+            window.dataLayer.push(arguments);
+          };
+          window.gtag('js', new Date());
+
+          let storedConsent = null;
+          try {
+            storedConsent = JSON.parse(window.localStorage.getItem(consentKey) || 'null');
+          } catch (error) {
+            storedConsent = null;
+          }
+
+          const granted =
+            storedConsent &&
+            storedConsent.version === consentVersion &&
+            storedConsent.advertising === true
+              ? 'granted'
+              : 'denied';
+
+          window.gtag('consent', 'default', {
+            ad_storage: granted,
+            ad_user_data: granted,
+            ad_personalization: granted,
+            analytics_storage: granted,
+            functionality_storage: 'granted',
+            security_storage: 'granted',
+            wait_for_update: 500
+          });
+          window.gtag('config', googleAdsTagId);
+        </script>
+        <script is:inline async src={`https://www.googletagmanager.com/gtag/js?id=${googleAdsTagId}`}></script>
+      </Fragment>
+    )}
+    <link rel="stylesheet" href={withBase('/fonts/fonts.css')} />
     <script type="application/ld+json" set:html={JSON.stringify(organizationSchema)} />
     <slot name="head" />
   </head>
   <body>
     <slot />
+    <ConsentBanner locale={locale} />
     <script>
       const toggle = document.querySelector('[data-menu-toggle]');
       const panel = document.querySelector('[data-mobile-menu]');
       toggle?.addEventListener('click', () => panel?.classList.toggle('is-open'));
-      document.querySelectorAll('[data-inquiry-open]').forEach((el) => {
-        el.addEventListener('click', () => document.querySelector('#inquiry-dialog')?.classList.add('is-open'));
-      });
-      document.querySelector('[data-dialog-close]')?.addEventListener('click', () => document.querySelector('#inquiry-dialog')?.classList.remove('is-open'));
-      document.querySelector('#inquiry-dialog')?.addEventListener('click', (e) => {
-        if (e.target === e.currentTarget) e.currentTarget.classList.remove('is-open');
-      });
       document.querySelectorAll('[data-print-brief]').forEach((el) => {
         el.addEventListener('click', () => window.print());
       });

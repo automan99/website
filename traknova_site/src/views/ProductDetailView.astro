@@ -2,14 +2,13 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import InquiryDialog from '../components/InquiryDialog.astro';
 import ProductFamilyCard from '../components/ProductFamilyCard.astro';
 import {
   getCategoryLabel,
   getProductFamilies,
   type ProductFamily
 } from '../data/products/catalog';
-import { localizedPath, withBase } from '../utils/paths';
+import { localizedPath, withBase, inquiryPath } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import '../styles/product-detail.css';
@@ -95,8 +94,8 @@ const productSchema = {
             <h1 id="pd-product-title">{family.name}</h1>
             <p class="pd-tagline">{family.tagline}</p>
             <div class="pd-actions">
-              <button class="pd-btn pd-btn-primary" type="button" data-inquiry-open>{copy.hero.requestQuote}</button>
-              <button class="pd-btn pd-btn-ghost" type="button" data-inquiry-open>{copy.hero.requestDatasheet}</button>
+              <a class="pd-btn pd-btn-primary" href={inquiryPath(locale)}>{copy.hero.requestQuote}</a>
+              <a class="pd-btn pd-btn-ghost" href={inquiryPath(locale)}>{copy.hero.requestDatasheet}</a>
               <a class="pd-textlink" href={localizedPath(locale, '/contact/')}>{copy.hero.talkToSales}</a>
             </div>
             {isMultiVariant && (
@@ -295,7 +294,7 @@ const productSchema = {
                 <p class="pd-index">{sectionNumber('specifications')}</p>
                 <h2>{copy.specs.titleLine1}<br />{copy.specs.titleLine2}</h2>
                 <p>{copy.specs.body}</p>
-                <button class="pd-btn pd-btn-dark" type="button" data-inquiry-open>{copy.hero.requestDatasheet}</button>
+                <a class="pd-btn pd-btn-dark" href={inquiryPath(locale)}>{copy.hero.requestDatasheet}</a>
               </aside>
 
               <div class="pd-spec-body">
@@ -382,7 +381,7 @@ const productSchema = {
       </section>
     </div>
   </main>
-  <Footer locale={locale} /><InquiryDialog locale={locale} />
+  <Footer locale={locale} />
 
   <script>
     import { enhanceVariantSelector } from '../scripts/product-variants.mjs';

@@ -94,3 +94,16 @@ items below are content dependencies; the pages currently use approved fallbacks
       `https://automan99.github.io` + `/website`) before pointing a custom domain
 - [ ] Add a social preview image (`og:image`) if link previews are required
 - [ ] Replace or approve the generated SVG favicon
+
+## Paid advertising and consent (added 2026-11-06)
+
+- [ ] Replace the Formspree endpoint, WhatsApp number and Facebook URL in
+      `src/data/site.ts` before running any ads
+- [ ] Fill `googleAds.tagId` and `googleAds.conversionLabel` in `src/data/site.ts`
+- [ ] Create the website conversion action in Google Ads, submit a real inquiry,
+      and confirm the conversion fires on `/thank-you/`
+- [ ] Verify Consent Mode v2 with Google Tag Assistant: default denied in the EEA/UK,
+      granted only after "Accept all"
+- [ ] Have the cookie banner and privacy policy reviewed for the operating jurisdiction;
+      replace the first-party CMP with a Google-certified CMP if required
+- [ ] Confirm the self-hosted DM Sans and Manrope licenses remain in `public/fonts/`

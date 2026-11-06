@@ -21,6 +21,13 @@ export function localizedPath(locale: Locale, path: string): string {
 }
 
 /**
+ * Link to the inquiry form embedded on the contact page.
+ */
+export function inquiryPath(locale: Locale): string {
+  return `${localizedPath(locale, '/contact/')}#request-a-quote`;
+}
+
+/**
  * Split a request pathname into the active locale and the locale-neutral
  * path. Handles the deployment base (for example /website/zh/products/).
  */

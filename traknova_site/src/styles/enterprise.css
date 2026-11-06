@@ -1483,6 +1483,14 @@
   align-items: start;
 }
 
+.contact-grid-inquiry {
+  grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.15fr);
+}
+
+#request-a-quote {
+  scroll-margin-top: 96px;
+}
+
 .contact-company span {
   color: #344256;
   font-weight: 700;
@@ -1495,6 +1503,10 @@
 
   .contact-page-hero + .section {
     padding-top: 42px;
+  }
+
+  .contact-grid-inquiry {
+    grid-template-columns: 1fr;
   }
 }
 

@@ -1,0 +1,232 @@
+---
+import { site } from '../data/site';
+import { getDictionary } from '../i18n';
+import { localizedPath } from '../utils/paths';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.consent;
+const enabled = site.consent?.enabled !== false;
+---
+{enabled && (
+  <div class="consent" id="consent-banner" role="region" aria-label={copy.ariaLabel} data-consent-banner hidden>
+    <div class="consent-inner">
+      <div class="consent-copy">
+        <strong>{copy.title}</strong>
+        <p>{copy.body} <a href={localizedPath(locale, '/privacy/')}>{dict.footer.privacy}</a></p>
+      </div>
+      <div class="consent-actions" data-consent-main>
+        <button type="button" class="consent-button consent-button-ghost" data-consent-reject>{copy.reject}</button>
+        <button type="button" class="consent-button consent-button-outline" data-consent-preferences>{copy.preferences}</button>
+        <button type="button" class="consent-button consent-button-accept" data-consent-accept>{copy.accept}</button>
+      </div>
+    </div>
+    <div class="consent-prefs" data-consent-prefs hidden>
+      <div class="consent-prefs-head">
+        <h2>{copy.preferencesTitle}</h2>
+        <p>{copy.preferencesBody}</p>
+      </div>
+      <label class="consent-option">
+        <input type="checkbox" data-consent-category="necessary" checked disabled />
+        <span><b>{copy.necessaryTitle}</b><small>{copy.necessaryBody}</small></span>
+      </label>
+      <label class="consent-option">
+        <input type="checkbox" data-consent-category="advertising" />
+        <span><b>{copy.advertisingTitle}</b><small>{copy.advertisingBody}</small></span>
+      </label>
+      <div class="consent-actions">
+        <button type="button" class="consent-button consent-button-ghost" data-consent-cancel>{copy.cancel}</button>
+        <button type="button" class="consent-button consent-button-accept" data-consent-save>{copy.save}</button>
+      </div>
+    </div>
+  </div>
+)}
+<script>
+  import { initConsent } from '../scripts/consent.mjs';
+
+  initConsent();
+</script>
+<style>
+  .consent {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: 25;
+    padding: 16px 0 max(16px, env(safe-area-inset-bottom));
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+    background: var(--night);
+    box-shadow: 0 -18px 50px rgba(0, 0, 0, 0.28);
+    color: #e9eef5;
+    font-size: 12px;
+  }
+
+  .consent[hidden] {
+    display: none;
+  }
+
+  .consent-inner,
+  .consent-prefs {
+    width: min(1160px, calc(100% - 40px));
+    margin: 0 auto;
+  }
+
+  .consent-inner {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 22px;
+  }
+
+  .consent-copy {
+    max-width: 680px;
+  }
+
+  .consent-copy strong {
+    display: block;
+    margin-bottom: 4px;
+    color: #fff;
+    font: 800 13px Manrope, sans-serif;
+    letter-spacing: -0.01em;
+  }
+
+  .consent-copy p {
+    margin: 0;
+    color: #b9c6d6;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .consent-copy a {
+    color: var(--amber-bright);
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+
+  .consent-actions {
+    display: flex;
+    flex: 0 0 auto;
+    flex-wrap: wrap;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .consent-actions[hidden] {
+    display: none;
+  }
+
+  .consent-button {
+    padding: 10px 14px;
+    border: 1px solid transparent;
+    border-radius: 2px;
+    font: 800 10px 'DM Sans', sans-serif;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    cursor: pointer;
+  }
+
+  .consent-button-ghost {
+    border-color: rgba(255, 255, 255, 0.18);
+    background: transparent;
+    color: #b9c6d6;
+  }
+
+  .consent-button-ghost:hover {
+    border-color: rgba(255, 255, 255, 0.4);
+    color: #fff;
+  }
+
+  .consent-button-outline {
+    border-color: rgba(255, 255, 255, 0.35);
+    background: transparent;
+    color: #f2f5f9;
+  }
+
+  .consent-button-outline:hover {
+    border-color: var(--amber);
+    color: var(--amber-bright);
+  }
+
+  .consent-button-accept {
+    background: var(--amber);
+    color: #141a22;
+  }
+
+  .consent-button-accept:hover {
+    background: var(--amber-bright);
+  }
+
+  .consent-prefs {
+    display: grid;
+    gap: 10px;
+    margin-top: 14px;
+    padding-top: 14px;
+    border-top: 1px solid rgba(255, 255, 255, 0.14);
+  }
+
+  .consent-prefs[hidden] {
+    display: none;
+  }
+
+  .consent-prefs h2 {
+    margin: 0 0 2px;
+    color: #fff;
+    font-size: 14px;
+  }
+
+  .consent-prefs p {
+    margin: 0;
+    color: #b9c6d6;
+    font-size: 11px;
+    line-height: 1.6;
+  }
+
+  .consent-option {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    padding: 10px 12px;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    background: rgba(255, 255, 255, 0.03);
+  }
+
+  .consent-option input {
+    margin-top: 3px;
+    accent-color: var(--amber);
+  }
+
+  .consent-option b {
+    display: block;
+    color: #fff;
+    font-size: 11px;
+  }
+
+  .consent-option small {
+    display: block;
+    margin-top: 2px;
+    color: #9fb1c8;
+    font-size: 10px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 760px) {
+    .consent-inner {
+      flex-direction: column;
+      align-items: stretch;
+      gap: 12px;
+    }
+
+    .consent-copy {
+      max-width: none;
+    }
+
+    .consent-actions .consent-button {
+      flex: 1 1 100%;
+    }
+  }
+</style>
