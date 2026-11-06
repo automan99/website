@@ -31,7 +31,7 @@ Company product artwork, not stock photography.
   License: Unsplash License (free for commercial use; attribution not required).
   Cropped and converted to WebP.
 
-Both images are illustrative stock photography, not photographs of TRAKNOVA or
+Both images are illustrative stock photography, not photographs of ENPFOX or
 Shenzhen Yiliya facilities or staff. Replace them with approved company
 photography when available.
 
@@ -47,7 +47,7 @@ photography when available.
   License: Unsplash License (free for commercial use; attribution not required).
   Cropped and converted to WebP.
 
-These images are illustrative stock photography, not photographs of TRAKNOVA or
+These images are illustrative stock photography, not photographs of ENPFOX or
 Shenzhen Yiliya facilities or staff.
 
 ## Solutions pages
@@ -80,11 +80,11 @@ to 16:9 and exported at 800, 1200 and 2000 pixels wide as WebP.
   Source: https://www.pexels.com/photo/woman-in-white-hardhat-holding-silver-touchscreen-device-8960944/
   License: Pexels License (free for commercial use; attribution not required).
 
-These are illustrative scenes, not photographs of TRAKNOVA or Shenzhen Yiliya
+These are illustrative scenes, not photographs of ENPFOX or Shenzhen Yiliya
 facilities, staff or customers. They are not intended to imply customer status,
 deployment or endorsement. Replace them with approved company photography when
 available.
 
 The device silhouettes under `public/images/products/device-*.svg` are original
-TRAKNOVA assets drawn for this site.
+ENPFOX assets drawn for this site.
 

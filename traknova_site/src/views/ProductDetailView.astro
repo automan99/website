@@ -47,7 +47,7 @@ const productSchema = {
   '@type': 'ProductGroup',
   name: family.name,
   description: family.summary,
-  brand: { '@type': 'Brand', name: 'TRAKNOVA' },
+  brand: { '@type': 'Brand', name: 'ENPFOX' },
   productGroupID: family.id,
   image: absolute(withBase(defaultVariant.image)),
   hasVariant: family.variants.map((variant) => ({
@@ -61,7 +61,7 @@ const productSchema = {
 };
 ---
 <BaseLayout
-  title={`${family.name} | TRAKNOVA`}
+  title={`${family.name} | ENPFOX`}
   description={family.summary}
   image={defaultVariant.image}
   imageAlt={defaultVariant.name}

@@ -137,7 +137,7 @@
     "privacyLinkLabel": "Privacy Policy",
     "privacySuffix": ".",
     "submit": "Submit Inquiry",
-    "subject": "New TRAKNOVA website inquiry"
+    "subject": "New ENPFOX website inquiry"
   },
   "consent": {
     "ariaLabel": "Cookie consent",
@@ -156,7 +156,7 @@
     "advertisingBody": "Google Ads conversion measurement. Loaded only after you accept."
   },
   "home": {
-    "metaTitle": "TRAKNOVA | Industrial Mobility & Auto-ID Solutions",
+    "metaTitle": "ENPFOX | Industrial Mobility & Auto-ID Solutions",
     "metaDescription": "Rugged mobile computers, RFID and barcode handhelds and industrial tablets for warehouse, manufacturing, retail and field service. Solution design, configuration and OEM / ODM cooperation.",
     "hero": {
       "eyebrow": "INDUSTRIAL MOBILITY & AUTO-ID",
@@ -197,7 +197,7 @@
       ]
     },
     "why": {
-      "eyebrow": "WHY TRAKNOVA",
+      "eyebrow": "WHY ENPFOX",
       "titleLine1": "Hardware is only useful",
       "titleLine2": "when it fits the work.",
       "body": "We select and configure devices around the task: the capture method, the form factor, the software and the support path after rollout.",
@@ -325,7 +325,7 @@
       "eyebrow": "OEM / ODM PARTNERSHIP",
       "titleLine1": "Build your next device.",
       "titleLine2": "Under your brand.",
-      "body": "From logo customization to tailored hardware configurations, TRAKNOVA supports partners developing and scaling their own industrial mobility portfolio.",
+      "body": "From logo customization to tailored hardware configurations, ENPFOX supports partners developing and scaling their own industrial mobility portfolio.",
       "points": [
         "Private label & branding",
         "Hardware configuration",
@@ -372,8 +372,8 @@
     }
   },
   "products": {
-    "metaTitle": "Products | TRAKNOVA",
-    "metaDescription": "Explore the TRAKNOVA RFID Handheld Series, HT600 and Y100 Series: RFID handhelds, a barcode handheld and a rugged tablet platform for close-range identification, bulk inventory, barcode data capture and field computing.",
+    "metaTitle": "Products | ENPFOX",
+    "metaDescription": "Explore the ENPFOX RFID Handheld Series, HT600 and Y100 Series: RFID handhelds, a barcode handheld and a rugged tablet platform for close-range identification, bulk inventory, barcode data capture and field computing.",
     "hero": {
       "eyebrow": "PRODUCT RANGE",
       "titleLine1": "Three product lines.",
@@ -572,7 +572,7 @@
     }
   },
   "solutions": {
-    "metaTitle": "Industry Solutions | TRAKNOVA",
+    "metaTitle": "Industry Solutions | ENPFOX",
     "metaDescription": "Scenario-based industrial mobility solutions for warehouse and logistics, manufacturing, retail and field service: barcode, RFID, mobile printing and rugged tablets.",
     "hero": {
       "eyebrow": "INDUSTRY SOLUTIONS",
@@ -584,7 +584,7 @@
       "eyebrow": "SOLUTION ANATOMY",
       "titleLine1": "One solution.",
       "titleLine2": "Four connected layers.",
-      "body": "Every deployment starts with a physical event — a scan, a tag read, a signature — and ends in a business system. TRAKNOVA supplies the layers in between, and works with the software stack you already run.",
+      "body": "Every deployment starts with a physical event — a scan, a tag read, a signature — and ends in a business system. ENPFOX supplies the layers in between, and works with the software stack you already run.",
       "note": "Accessories, spares and deployment support are planned with the device, not added after it."
     },
     "scenarioLabel": "SCENARIO",
@@ -625,13 +625,13 @@
     }
   },
   "about": {
-    "metaTitle": "About TRAKNOVA | Industrial Mobility",
-    "metaDescription": "TRAKNOVA is an industrial mobility partner for rugged PDA computers, RFID and barcode handhelds, industrial tablets, configuration and OEM / ODM cooperation.",
+    "metaTitle": "About ENPFOX | Industrial Mobility",
+    "metaDescription": "ENPFOX is an industrial mobility partner for rugged PDA computers, RFID and barcode handhelds, industrial tablets, configuration and OEM / ODM cooperation.",
     "hero": {
-      "eyebrow": "ABOUT TRAKNOVA",
+      "eyebrow": "ABOUT ENPFOX",
       "titleLine1": "A partner for the work",
       "titleLine2": "between the scan and the system.",
-      "body": "TRAKNOVA builds and configures rugged mobile computers, RFID and barcode handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
+      "body": "ENPFOX builds and configures rugged mobile computers, RFID and barcode handhelds and industrial tablets for distributors, solution providers and enterprise teams. Our focus is the practical detail that decides whether a deployment works."
     },
     "profile": {
       "eyebrow": "COMPANY PROFILE",
@@ -856,8 +856,8 @@
     }
   },
   "contact": {
-    "metaTitle": "Contact TRAKNOVA | Request a Quote",
-    "metaDescription": "Contact TRAKNOVA about rugged PDA computers, RFID and barcode handhelds, industrial tablets, OEM / ODM projects and product datasheets.",
+    "metaTitle": "Contact ENPFOX | Request a Quote",
+    "metaDescription": "Contact ENPFOX about rugged PDA computers, RFID and barcode handhelds, industrial tablets, OEM / ODM projects and product datasheets.",
     "hero": {
       "eyebrow": "CONTACT OUR TEAM",
       "titleLine1": "Let's build the right",
@@ -981,8 +981,8 @@
     }
   },
   "thankYou": {
-    "metaTitle": "Thank you | TRAKNOVA",
-    "metaDescription": "Your inquiry has been received by TRAKNOVA.",
+    "metaTitle": "Thank you | ENPFOX",
+    "metaDescription": "Your inquiry has been received by ENPFOX.",
     "eyebrow": "INQUIRY RECEIVED",
     "titleLine1": "Thank you.",
     "titleLine2": "We have your inquiry.",
@@ -1007,7 +1007,7 @@
     "note": "If you need to add information, reply to the confirmation email or contact us again."
   },
   "oem": {
-    "metaTitle": "OEM / ODM Partnership | TRAKNOVA",
+    "metaTitle": "OEM / ODM Partnership | ENPFOX",
     "metaDescription": "OEM and ODM cooperation for industrial mobility: private label, configured rugged devices and project development, from prototype to mass production.",
     "photos": {
       "productionAlt": "Hands operating precision machinery during production.",
@@ -1019,7 +1019,7 @@
       "eyebrow": "OEM / ODM PARTNERSHIP",
       "titleLine1": "Your brand.",
       "titleLine2": "Our engineering commitment.",
-      "body": "From a branded variant of an existing platform to a project-specific device, TRAKNOVA supports distributors, solution providers and brands building their own industrial mobility portfolio.",
+      "body": "From a branded variant of an existing platform to a project-specific device, ENPFOX supports distributors, solution providers and brands building their own industrial mobility portfolio.",
       "primaryCta": "Discuss Your Project",
       "secondaryCta": "View Product Categories"
     },
@@ -1248,16 +1248,16 @@
   },
   "legal": {
     "privacy": {
-      "metaTitle": "Privacy Policy | TRAKNOVA",
-      "metaDescription": "How TRAKNOVA handles information submitted through this website and in the course of a business inquiry.",
+      "metaTitle": "Privacy Policy | ENPFOX",
+      "metaDescription": "How ENPFOX handles information submitted through this website and in the course of a business inquiry.",
       "eyebrow": "LEGAL",
       "titleLine1": "Privacy",
       "titleLine2": "Policy.",
       "intro": "How we handle information submitted through this website and in the course of a business inquiry."
     },
     "terms": {
-      "metaTitle": "Terms of Use | TRAKNOVA",
-      "metaDescription": "Terms of use for the TRAKNOVA website, including product information, inquiries and intellectual property.",
+      "metaTitle": "Terms of Use | ENPFOX",
+      "metaDescription": "Terms of use for the ENPFOX website, including product information, inquiries and intellectual property.",
       "eyebrow": "LEGAL",
       "titleLine1": "Terms of",
       "titleLine2": "Use.",
@@ -1267,7 +1267,7 @@
     "englishVersionNotice": ""
   },
   "notFound": {
-    "metaTitle": "Page Not Found | TRAKNOVA",
+    "metaTitle": "Page Not Found | ENPFOX",
     "metaDescription": "The requested page could not be found.",
     "eyebrow": "404",
     "titleLine1": "Page not",

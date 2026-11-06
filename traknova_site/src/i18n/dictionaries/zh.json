@@ -137,7 +137,7 @@
     "privacyLinkLabel": "隐私政策",
     "privacySuffix": "。",
     "submit": "提交询盘",
-    "subject": "TRAKNOVA 网站新询盘"
+    "subject": "ENPFOX 网站新询盘"
   },
   "consent": {
     "ariaLabel": "Cookie 同意",
@@ -156,7 +156,7 @@
     "advertisingBody": "Google Ads 转化衡量。仅在您接受后加载。"
   },
   "home": {
-    "metaTitle": "TRAKNOVA | 工业移动计算与自动识别解决方案",
+    "metaTitle": "ENPFOX | 工业移动计算与自动识别解决方案",
     "metaDescription": "面向仓储、制造、零售和现场服务的加固型移动计算机、RFID 与条码手持终端及工业平板。提供方案设计、配置与 OEM / ODM 合作。",
     "hero": {
       "eyebrow": "工业移动计算与自动识别",
@@ -197,7 +197,7 @@
       ]
     },
     "why": {
-      "eyebrow": "为什么选择 TRAKNOVA",
+      "eyebrow": "为什么选择 ENPFOX",
       "titleLine1": "硬件只有贴合工作，",
       "titleLine2": "才能真正发挥价值。",
       "body": "我们围绕任务选择并配置设备：采集方式、形态、软件，以及上线后的支持路径。",
@@ -325,7 +325,7 @@
       "eyebrow": "OEM / ODM 合作",
       "titleLine1": "打造您的下一款设备，",
       "titleLine2": "以您的品牌。",
-      "body": "从 Logo 定制到量身定制的硬件配置，TRAKNOVA 支持合作伙伴开发和扩展自有工业移动产品组合。",
+      "body": "从 Logo 定制到量身定制的硬件配置，ENPFOX 支持合作伙伴开发和扩展自有工业移动产品组合。",
       "points": [
         "贴牌与品牌化",
         "硬件配置",
@@ -372,8 +372,8 @@
     }
   },
   "products": {
-    "metaTitle": "产品 | TRAKNOVA",
-    "metaDescription": "了解 TRAKNOVA 的 RFID 手持终端系列、HT600 与 Y100 Series：面向近距离识别、批量盘点、条码采集与现场计算的 RFID 手持终端、条码手持终端与加固平板。",
+    "metaTitle": "产品 | ENPFOX",
+    "metaDescription": "了解 ENPFOX 的 RFID 手持终端系列、HT600 与 Y100 Series：面向近距离识别、批量盘点、条码采集与现场计算的 RFID 手持终端、条码手持终端与加固平板。",
     "hero": {
       "eyebrow": "产品范围",
       "titleLine1": "三条产品线。",
@@ -572,7 +572,7 @@
     }
   },
   "solutions": {
-    "metaTitle": "行业解决方案 | TRAKNOVA",
+    "metaTitle": "行业解决方案 | ENPFOX",
     "metaDescription": "面向仓储物流、制造、零售和现场服务的场景化工业移动解决方案：条码、RFID、移动打印和加固平板。",
     "hero": {
       "eyebrow": "行业解决方案",
@@ -584,7 +584,7 @@
       "eyebrow": "方案构成",
       "titleLine1": "一个方案，",
       "titleLine2": "四个互联层次。",
-      "body": "每次部署都始于一个物理事件——一次扫描、一次标签读取、一个签名——并最终进入业务系统。TRAKNOVA 提供中间各层，并与您现有的软件栈协作。",
+      "body": "每次部署都始于一个物理事件——一次扫描、一次标签读取、一个签名——并最终进入业务系统。ENPFOX 提供中间各层，并与您现有的软件栈协作。",
       "note": "配件、备件和部署支持与设备一同规划，而非事后追加。"
     },
     "scenarioLabel": "场景",
@@ -625,13 +625,13 @@
     }
   },
   "about": {
-    "metaTitle": "关于 TRAKNOVA | 工业移动计算",
-    "metaDescription": "TRAKNOVA 是工业移动计算合作伙伴，提供加固型 PDA、RFID 与条码手持终端、工业平板、配置服务与 OEM / ODM 合作。",
+    "metaTitle": "关于 ENPFOX | 工业移动计算",
+    "metaDescription": "ENPFOX 是工业移动计算合作伙伴，提供加固型 PDA、RFID 与条码手持终端、工业平板、配置服务与 OEM / ODM 合作。",
     "hero": {
-      "eyebrow": "关于 TRAKNOVA",
+      "eyebrow": "关于 ENPFOX",
       "titleLine1": "扫描与系统之间，",
       "titleLine2": "值得信赖的合作伙伴。",
-      "body": "TRAKNOVA 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 与条码手持终端及工业平板。我们关注决定部署成败的实用细节。"
+      "body": "ENPFOX 为分销商、方案商和企业团队构建并配置加固型移动计算机、RFID 与条码手持终端及工业平板。我们关注决定部署成败的实用细节。"
     },
     "profile": {
       "eyebrow": "公司概况",
@@ -856,8 +856,8 @@
     }
   },
   "contact": {
-    "metaTitle": "联系 TRAKNOVA | 获取报价",
-    "metaDescription": "联系 TRAKNOVA，咨询加固型 PDA、RFID 与条码手持终端、工业平板、OEM / ODM 项目以及产品数据手册。",
+    "metaTitle": "联系 ENPFOX | 获取报价",
+    "metaDescription": "联系 ENPFOX，咨询加固型 PDA、RFID 与条码手持终端、工业平板、OEM / ODM 项目以及产品数据手册。",
     "hero": {
       "eyebrow": "联系我们的团队",
       "titleLine1": "让我们一起打造",
@@ -981,8 +981,8 @@
     }
   },
   "thankYou": {
-    "metaTitle": "感谢您的询盘 | TRAKNOVA",
-    "metaDescription": "TRAKNOVA 已收到您的询盘。",
+    "metaTitle": "感谢您的询盘 | ENPFOX",
+    "metaDescription": "ENPFOX 已收到您的询盘。",
     "eyebrow": "询盘已收到",
     "titleLine1": "谢谢。",
     "titleLine2": "我们已收到您的询盘。",
@@ -1007,7 +1007,7 @@
     "note": "如需补充信息，请回复确认邮件或再次联系我们。"
   },
   "oem": {
-    "metaTitle": "OEM / ODM 合作 | TRAKNOVA",
+    "metaTitle": "OEM / ODM 合作 | ENPFOX",
     "metaDescription": "面向工业移动计算的 OEM 与 ODM 合作：贴牌、定制加固设备和项目开发，从样机到量产。",
     "photos": {
       "productionAlt": "生产过程中双手操作精密加工设备的场景。",
@@ -1019,7 +1019,7 @@
       "eyebrow": "OEM / ODM 合作",
       "titleLine1": "您的品牌，",
       "titleLine2": "我们的工程承诺。",
-      "body": "从现有平台的品牌化版本到项目专用设备，TRAKNOVA 支持分销商、方案商和品牌方打造自有工业移动产品组合。",
+      "body": "从现有平台的品牌化版本到项目专用设备，ENPFOX 支持分销商、方案商和品牌方打造自有工业移动产品组合。",
       "primaryCta": "讨论您的项目",
       "secondaryCta": "查看产品品类"
     },
@@ -1248,16 +1248,16 @@
   },
   "legal": {
     "privacy": {
-      "metaTitle": "隐私政策 | TRAKNOVA",
-      "metaDescription": "TRAKNOVA 如何处理通过本网站及业务询盘过程中提交的信息。",
+      "metaTitle": "隐私政策 | ENPFOX",
+      "metaDescription": "ENPFOX 如何处理通过本网站及业务询盘过程中提交的信息。",
       "eyebrow": "法律信息",
       "titleLine1": "隐私",
       "titleLine2": "政策。",
       "intro": "我们如何处理通过本网站及业务询盘过程中提交的信息。"
     },
     "terms": {
-      "metaTitle": "使用条款 | TRAKNOVA",
-      "metaDescription": "TRAKNOVA 网站使用条款，包括产品信息、询盘和知识产权。",
+      "metaTitle": "使用条款 | ENPFOX",
+      "metaDescription": "ENPFOX 网站使用条款，包括产品信息、询盘和知识产权。",
       "eyebrow": "法律信息",
       "titleLine1": "使用",
       "titleLine2": "条款。",
@@ -1267,7 +1267,7 @@
     "englishVersionNotice": "本页为法律条款的英文正式版本；如有歧义，以英文版本为准。"
   },
   "notFound": {
-    "metaTitle": "页面未找到 | TRAKNOVA",
+    "metaTitle": "页面未找到 | ENPFOX",
     "metaDescription": "无法找到请求的页面。",
     "eyebrow": "404",
     "titleLine1": "页面未",

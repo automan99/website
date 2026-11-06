@@ -1,4 +1,4 @@
-# TRAKNOVA site expansion — design
+# ENPFOX site expansion — design
 
 Date: 2026-11-05
 Status: approved direction; content blueprint for phased implementation

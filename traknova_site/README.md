@@ -1,4 +1,4 @@
-# TRAKNOVA 全球官网
+# ENPFOX 全球官网
 基于 Astro 的静态网站模板，用于部署到 Cloudflare Pages
 ## 1. 环境要求
 - Node.js 20.3 及以上版本（推荐当前长期支持版 LTS）

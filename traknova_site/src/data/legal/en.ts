@@ -22,7 +22,7 @@ export const privacyDocument: LegalDocument = {
     {
       type: 'paragraph',
       content: [
-        text('This website is operated by TRAKNOVA. For questions about this policy or the information we hold, contact us at '),
+        text('This website is operated by ENPFOX. For questions about this policy or the information we hold, contact us at '),
         email,
         text('.')
       ]
@@ -128,7 +128,7 @@ export const termsDocument: LegalDocument = {
     { type: 'heading', text: '3. Intellectual property' },
     {
       type: 'paragraph',
-      content: [text('The site content, brand, graphics and text are owned by or licensed to TRAKNOVA. You may not reproduce, modify or distribute them for commercial use without written permission.')]
+      content: [text('The site content, brand, graphics and text are owned by or licensed to ENPFOX. You may not reproduce, modify or distribute them for commercial use without written permission.')]
     },
     { type: 'heading', text: '4. Inquiries and quotations' },
     {
@@ -148,12 +148,12 @@ export const termsDocument: LegalDocument = {
     { type: 'heading', text: '7. Limitation of liability' },
     {
       type: 'paragraph',
-      content: [text('To the extent permitted by law, TRAKNOVA is not liable for indirect or consequential loss arising from the use of this website. Nothing in these terms excludes liability that cannot be excluded by law.')]
+      content: [text('To the extent permitted by law, ENPFOX is not liable for indirect or consequential loss arising from the use of this website. Nothing in these terms excludes liability that cannot be excluded by law.')]
     },
     { type: 'heading', text: '8. Governing law' },
     {
       type: 'paragraph',
-      content: [text('These terms are governed by the laws applicable to the TRAKNOVA operating entity. The applicable jurisdiction is confirmed in the commercial agreement.')]
+      content: [text('These terms are governed by the laws applicable to the ENPFOX operating entity. The applicable jurisdiction is confirmed in the commercial agreement.')]
     },
     { type: 'heading', text: '9. Changes' },
     {

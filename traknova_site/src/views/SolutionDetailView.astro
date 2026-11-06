@@ -68,7 +68,7 @@ const breadcrumbSchema = {
 const serviceSchema = {
   '@context': 'https://schema.org',
   '@type': 'Service',
-  name: `${industry.name} — TRAKNOVA`,
+  name: `${industry.name} — ENPFOX`,
   serviceType: `${industry.eyebrow} solutions`,
   description: industry.seo.description,
   url: absolute(localizedPath(locale, `/solutions/${industry.slug}/`)),
@@ -89,7 +89,7 @@ const serviceSchema = {
   <Header locale={locale} />
   <main>
     <div class="sol-print-head">
-      <span class="sol-print-brand">TRAKNOVA</span>
+      <span class="sol-print-brand">ENPFOX</span>
       <span>{industry.name} · {locale === 'zh' ? '解决方案简报' : 'Solution brief'}</span>
       <span>{site.email}</span>
     </div>

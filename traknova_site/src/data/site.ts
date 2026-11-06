@@ -1,5 +1,5 @@
 export const site = {
-  brand: 'TRAKNOVA',
+  brand: 'ENPFOX',
   tagline: 'Move Data. Move Business.',
   description: 'Rugged handhelds, RFID and barcode data capture and industrial tablets for connected operations.',
   email: 'sales@enpfox.com',

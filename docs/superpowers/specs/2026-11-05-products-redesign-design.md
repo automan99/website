@@ -1,4 +1,4 @@
-# TRAKNOVA 产品模块重构设计
+# ENPFOX 产品模块重构设计
 
 日期：2026-11-05
 状态：已确认（2026-11-05）
@@ -400,7 +400,7 @@ getCategoryLabel(locale, category): string
 ## 5. 视觉方向
 
 参考同类国际厂商的产品页结构（Zebra、Honeywell、Chainway、Getac、Urovo），
-但沿用 TRAKNOVA 现有品牌资产：
+但沿用 ENPFOX 现有品牌资产：
 
 - **色彩**：继续使用 `--navy #101c2d`、`--blue #2563eb`、`--orange #f59e0b`；
   产品页以白/浅灰为主，深色只用于 hero、对比条和 CTA。
