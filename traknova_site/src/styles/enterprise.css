@@ -2058,10 +2058,21 @@
   object-fit: contain;
 }
 
-.sol-device-media.is-silhouette img {
-  width: 78%;
-  height: auto;
-  opacity: .9;
+.sol-device-media.is-product {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.sol-device-media.is-product img {
+  width: 100%;
+  height: 100%;
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: contain;
+  transform: scale(1.12);
+  filter: drop-shadow(0 10px 12px rgba(8, 17, 28, 0.14));
 }
 
 .sol-device-copy {
