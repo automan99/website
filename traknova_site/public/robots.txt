@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://automan99.github.io/website/sitemap-index.xml
+Sitemap: https://enpfox.com/sitemap-index.xml

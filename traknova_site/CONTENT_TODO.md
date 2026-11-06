@@ -6,7 +6,7 @@ placeholder contact details and spec gaps still need to be replaced.
 
 ## Contact and form
 
-- [ ] Replace `sales@traknova.com` in `src/data/site.ts`
+- [ ] Confirm `sales@enpfox.com` in `src/data/site.ts` is a working mailbox
 - [ ] Replace the WhatsApp number (`10000000000`)
 - [ ] Replace the Facebook page URL
 - [ ] Create and replace the Formspree endpoint
@@ -90,8 +90,9 @@ items below are content dependencies; the pages currently use approved fallbacks
 - [ ] Terms of Use content and governing-law clause
 - [ ] Image licensing for any stock photography used
 - [ ] Final proofreading of English copy by a native reviewer
-- [ ] Confirm the canonical site URL and base path in `astro.config.mjs` (currently
-      `https://automan99.github.io` + `/website`) before pointing a custom domain
+- [ ] Confirm the canonical site URL in `astro.config.mjs` (currently
+      `https://enpfox.com`, with no `base` for Cloudflare Pages) before pointing
+      the custom domain
 - [ ] Add a social preview image (`og:image`) if link previews are required
 - [ ] Replace or approve the generated SVG favicon
 

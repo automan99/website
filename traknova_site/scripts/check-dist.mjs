@@ -3,7 +3,8 @@
  * Validates the built site for i18n correctness:
  * - language attributes and hreflang coverage for enabled locales
  * - no hreflang or pages for disabled locales
- * - every root-relative link keeps the /website deployment base
+ * - every root-relative link keeps the configured deployment base
+ *   (empty when deploying at the domain root, e.g. Cloudflare Pages)
  * - Chinese marketing pages no longer contain English sentinel copy
  * - Chinese legal pages keep the English body and show the notice
  */
@@ -11,9 +12,12 @@ import { readFileSync, readdirSync, existsSync } from 'node:fs';
 import { join, dirname, relative, sep } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { hasHtmlLanguage, hasAlternateLanguage } from './lib/html-checks.mjs';
+import astroConfig from '../astro.config.mjs';
 
 const root = join(dirname(fileURLToPath(import.meta.url)), '..');
 const dist = join(root, 'dist');
+const base = (astroConfig.base || '').replace(/\/$/, '');
+const basePrefix = base ? `${base}/` : '/';
 const errors = [];
 
 if (!existsSync(dist)) {
@@ -69,8 +73,23 @@ for (const file of htmlFiles) {
     let match;
     while ((match = pattern.exec(html)) !== null) {
       const value = match[1];
-      if (value.startsWith('/') && !value.startsWith('/website/')) {
-        errors.push(`${rel}: ${attribute}="${value}" is missing the /website base`);
+      if (value.startsWith('//')) continue;
+      if (base && !value.startsWith(basePrefix)) {
+        errors.push(`${rel}: ${attribute}="${value}" is missing the ${basePrefix} base`);
+        continue;
+      }
+      const withoutBase = base ? value.slice(base.length) : value;
+      const [pathPart] = withoutBase.split(/[?#]/);
+      const target = pathPart.endsWith('/')
+        ? join(dist, pathPart, 'index.html')
+        : join(dist, pathPart);
+      const candidates = [target, join(dist, pathPart, 'index.html')];
+      // Astro emits the root 404 route as dist/404.html, not dist/404/index.html.
+      if (pathPart === '/404' || pathPart === '/404/') {
+        candidates.push(join(dist, '404.html'));
+      }
+      if (!candidates.some((candidate) => existsSync(candidate))) {
+        errors.push(`${rel}: ${attribute}="${value}" does not resolve to a built file`);
       }
     }
   }
@@ -254,13 +273,13 @@ for (const [page, marker, description] of [
   ['about/index.html', 'A Shenzhen-based', 'company profile heading'],
   ['about/index.html', '15+ years', 'experience fact'],
   ['about/index.html', 'Companies served worldwide', 'companies served fact'],
-  ['about/index.html', '/website/images/about-warehouse.webp', 'warehouse photo'],
-  ['about/index.html', '/website/images/about-engineering.webp', 'engineering photo'],
+  ['about/index.html', `${base}/images/about-warehouse.webp`, 'warehouse photo'],
+  ['about/index.html', `${base}/images/about-engineering.webp`, 'engineering photo'],
   ['zh/about/index.html', '扎根深圳的', 'company profile heading'],
   ['zh/about/index.html', '15+ 年', 'experience fact'],
   ['zh/about/index.html', '1,000+ 家', 'companies served fact'],
-  ['zh/about/index.html', '/website/images/about-warehouse.webp', 'warehouse photo'],
-  ['zh/about/index.html', '/website/images/about-engineering.webp', 'engineering photo']
+  ['zh/about/index.html', `${base}/images/about-warehouse.webp`, 'warehouse photo'],
+  ['zh/about/index.html', `${base}/images/about-engineering.webp`, 'engineering photo']
 ]) {
   const path = join(dist, page);
   if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
@@ -273,10 +292,10 @@ for (const asset of ['images/about-warehouse.webp', 'images/about-engineering.we
 }
 
 for (const [page, marker, description] of [
-  ['oem-odm/index.html', '/website/images/oem-production.webp', 'OEM production photo'],
-  ['oem-odm/index.html', '/website/images/oem-testing.webp', 'OEM testing photo'],
-  ['zh/oem-odm/index.html', '/website/images/oem-production.webp', 'OEM production photo'],
-  ['zh/oem-odm/index.html', '/website/images/oem-testing.webp', 'OEM testing photo']
+  ['oem-odm/index.html', `${base}/images/oem-production.webp`, 'OEM production photo'],
+  ['oem-odm/index.html', `${base}/images/oem-testing.webp`, 'OEM testing photo'],
+  ['zh/oem-odm/index.html', `${base}/images/oem-production.webp`, 'OEM production photo'],
+  ['zh/oem-odm/index.html', `${base}/images/oem-testing.webp`, 'OEM testing photo']
 ]) {
   const path = join(dist, page);
   if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
@@ -379,4 +398,4 @@ if (errors.length > 0) {
   process.exit(1);
 }
 
-console.log(`dist check OK (${htmlFiles.length} HTML pages, en + zh, base-prefixed links)`);
+console.log(`dist check OK (${htmlFiles.length} HTML pages, en + zh, ${base ? `base ${basePrefix}` : 'root-relative'} links)`);

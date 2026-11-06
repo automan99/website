@@ -1,8 +1,8 @@
 # TRAKNOVA 全球官网
-基于 Astro 的静态网站模板，用于部署到 GitHub Pages
+基于 Astro 的静态网站模板，用于部署到 Cloudflare Pages
 ## 1. 环境要求
 - Node.js 20.3 及以上版本（推荐当前长期支持版 LTS）
-- Git 工具以及 GitHub 账号
+- Git 工具以及 GitHub、Cloudflare 账号
 
 ## 2. 本地运行
 ```bash
@@ -43,23 +43,31 @@ npm run dev
 
 > 静态网站本身不会存储表单提交数据
 
-## 6. GitHub Pages 部署
-仓库根目录是 `website`，Astro 项目位于子目录 `traknova_site/`。部署工作流放在仓库根目录的 `.github/workflows/deploy.yml`（GitHub Actions 只读取仓库根目录下的工作流）。
+## 6. Cloudflare Pages 部署
 
-1. 确认仓库为 **public**（免费账号的私有仓库不支持 Pages）
-2. 将代码推送到 `main` 分支
-3. 首次部署前，在 GitHub 后台：设置（Settings）→ Pages → 构建与部署（Build and deployment）→ 部署源选择：**GitHub Actions**
-4. 之后每次推送到 `main` 都会自动构建并发布，也可以在 Actions 页面手动触发（workflow_dispatch）
-5. 默认发布地址：`https://automan99.github.io/website/`
-   - `astro.config.mjs` 已配置 `site: 'https://automan99.github.io'` 和 `base: '/website'`
-   - 站内链接通过 `src/utils/paths.ts` 的 `withBase()` 自动加上 `/website` 前缀
+仓库根目录是 `website`，Astro 项目位于子目录 `traknova_site/`。Cloudflare Pages 会直接连接 Git 仓库并在云端执行构建，构建参数在 Cloudflare 控制台配置，不需要 GitHub Actions。
 
-如果使用独立自定义域名：
-1. 将 `astro.config.mjs` 中的 `site` 改为 `https://你的域名.com`，并删除 `base` 配置
-2. 在 `public/` 下添加 `CNAME` 文件，内容为你的域名
-3. 在 GitHub Pages 设置中绑定域名，并按提示配置 DNS 解析记录
+| 配置项 | 值 |
+| --- | --- |
+| Framework preset | Astro |
+| Root directory | `traknova_site` |
+| Build command | `npm run build` |
+| Build output directory | `dist` |
+| 环境变量 | `NODE_VERSION=20`（Astro 5 需要 Node ≥ 18.17，建议固定 20） |
 
-如果仓库名不是 `website`，同步修改 `astro.config.mjs` 中的 `site` 和 `base` 即可。
+部署步骤：
+
+1. 在 Cloudflare 控制台进入 Workers & Pages → Create → Pages → Connect to Git，选择本仓库。
+2. 按上表填写构建参数并完成首次部署。
+3. 部署成功后，在项目 Settings → Custom domains 绑定 `enpfox.com`；如果域名已托管在 Cloudflare，DNS 记录会自动创建，否则按提示手动添加。
+4. 之后每次推送到 `main` 都会自动构建并发布；推送其他分支会生成预览地址。
+
+配置说明：
+
+- 站点部署在域名根路径，因此 `astro.config.mjs` 使用 `site: 'https://enpfox.com'`，且**不设置** `base`。
+- 站内链接通过 `src/utils/paths.ts` 的 `withBase()` 生成；base 为空时会自动输出根路径链接（例如 `/products/`）。
+- `public/robots.txt` 中的 Sitemap 地址必须与正式域名保持一致，更换域名时同步修改。
+- 旧版 GitHub Pages 工作流已移除，部署统一由 Cloudflare Pages 完成。
 
 ## 7. 上线核对清单（重点）
 - 把示例型号名称、所有标注「待确认（To be confirmed）」的参数，替换为产品手册上的准确数值
@@ -129,7 +137,7 @@ npm run dev
 
 ### 校验命令
 - `npm run i18n:check`：检查所有语言字典键结构、产品/解决方案内容覆盖，并禁止 HTML 标签
-- `npm run check:dist`：构建后检查 `lang`、hreflang、`/website` 链接前缀、中文页面翻译完整性、
+- `npm run check:dist`：构建后检查 `lang`、hreflang、根路径链接是否指向构建产物、中文页面翻译完整性、
   法律页英文正文标注和未启用语言是否误生成
 
 ## 9. 付费广告、Cookie 同意与转化追踪（新增）
@@ -177,5 +185,5 @@ npm run check:dist  # 检查 _next、thank-you noindex、sitemap 排除
 - Formspree：第三方表单托管服务（静态站常用，用来收表单邮件）
 - slug：页面路由标识
 - Astro：前端静态站点框架
-- GitHub Pages：Github 静态网页托管服务
+- Cloudflare Pages：Cloudflare 静态网页托管服务（连接 Git 仓库自动构建发布）
 - LTS：Node.js 长期支持版本

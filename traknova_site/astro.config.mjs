@@ -2,8 +2,8 @@ import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
 
 export default defineConfig({
-  site: 'https://automan99.github.io',
-  base: '/website',
+  // Cloudflare Pages deploys at the domain root, so no Astro `base` is set.
+  site: 'https://enpfox.com',
   integrations: [
     sitemap({
       filter: (page) => !page.includes('/thank-you/'),
@@ -17,9 +17,9 @@ export default defineConfig({
   output: 'static',
   build: { format: 'directory' },
   redirects: {
-    '/products/ht540-series': '/website/products/rfid-handhelds',
-    '/products/ht550': '/website/products/rfid-handhelds',
-    '/zh/products/ht540-series': '/website/zh/products/rfid-handhelds',
-    '/zh/products/ht550': '/website/zh/products/rfid-handhelds'
+    '/products/ht540-series': '/products/rfid-handhelds',
+    '/products/ht550': '/products/rfid-handhelds',
+    '/zh/products/ht540-series': '/zh/products/rfid-handhelds',
+    '/zh/products/ht550': '/zh/products/rfid-handhelds'
   }
 });

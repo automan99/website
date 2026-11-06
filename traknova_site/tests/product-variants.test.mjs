@@ -31,7 +31,7 @@ test('updates the hash and notifies the language switcher', () => {
   const calls = [];
   const events = [];
   const fakeWindow = {
-    location: { pathname: '/website/products/y100-series/', search: '' },
+    location: { pathname: '/products/y100-series/', search: '' },
     history: { replaceState: (_state, _title, url) => calls.push(url) },
     Event: class {
       constructor(type) {
@@ -43,7 +43,7 @@ test('updates the hash and notifies the language switcher', () => {
 
   updateVariantHash('rfid', fakeWindow);
 
-  assert.equal(calls[0], '/website/products/y100-series/#variant-rfid');
+  assert.equal(calls[0], '/products/y100-series/#variant-rfid');
   assert.deepEqual(events, ['hashchange']);
 });
 
