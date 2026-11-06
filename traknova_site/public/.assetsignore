@@ -1,0 +1,5 @@
+# Static site only: never publish server-side bundles as public assets.
+# Cloudflare refuses to upload a "_worker.js" directory unless it is ignored
+# (or explicitly allowed with an empty .assetsignore).
+_worker.js
+_routes.json
