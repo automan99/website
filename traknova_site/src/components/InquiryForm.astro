@@ -11,8 +11,9 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale);
 const options = dict.inquiry.options;
+const thankYouPath = localizedPath(locale, '/thank-you/');
+const thankYouUrl = Astro.site ? new URL(thankYouPath, Astro.site).href : thankYouPath;
 ---
-<div class="dialog" id="inquiry-dialog"><div class="dialog-panel"><button class="dialog-close" data-dialog-close aria-label={dict.inquiry.close}>×</button><span class="eyebrow">{dict.inquiry.eyebrow}</span><h2>{dict.inquiry.title}</h2><p>{dict.inquiry.intro}</p>
 <form action={site.formspreeEndpoint} method="POST">
   <div class="form-grid">
     <label>{dict.inquiry.fields.fullName} *<input name="name" autocomplete="name" required /></label>
@@ -22,7 +23,6 @@ const options = dict.inquiry.options;
     <label>{dict.inquiry.fields.product} *<select name="product" required><option value="">{options.product.placeholder}</option><option value="rfid-handhelds">{options.product.rfidHandhelds}</option><option value="ht600">{options.product.ht600}</option><option value="y100">{options.product.y100}</option><option value="oem">{options.product.oem}</option><option value="not-sure">{options.product.notSure}</option></select></label>
     <label>{dict.inquiry.fields.application}<select name="application"><option value="">{options.application.placeholder}</option><option value="Warehouse &amp; Logistics">{options.application.logistics}</option><option value="Manufacturing">{options.application.manufacturing}</option><option value="Retail &amp; Commerce">{options.application.retail}</option><option value="Field Service &amp; Assets">{options.application.field}</option><option value="Healthcare / Public Services">{options.application.healthcare}</option><option value="Other">{options.application.other}</option></select></label>
     <label>{dict.inquiry.fields.cooperation}<select name="cooperation"><option value="Standard product">{options.cooperation.standard}</option><option value="Private label">{options.cooperation.privateLabel}</option><option value="Configured product">{options.cooperation.configured}</option><option value="Project development">{options.cooperation.project}</option><option value="Not sure">{options.cooperation.notSure}</option></select></label>
-    <label>{dict.inquiry.fields.timeline}<select name="timeline"><option value="Exploring">{options.timeline.exploring}</option><option value="0–3 months">{options.timeline.m0_3}</option><option value="3–6 months">{options.timeline.m3_6}</option><option value="6–12 months">{options.timeline.m6_12}</option><option value="12+ months">{options.timeline.m12plus}</option></select></label>
     <label>{dict.inquiry.fields.quantity}<select name="quantity"><option value="Not decided">{options.quantity.notDecided}</option><option value="1–50">{options.quantity.q1_50}</option><option value="50–200">{options.quantity.q50_200}</option><option value="200–1,000">{options.quantity.q200_1000}</option><option value="1,000+">{options.quantity.q1000plus}</option></select></label>
     <label class="full">{dict.inquiry.fields.details} *<textarea name="message" required placeholder={dict.inquiry.detailsPlaceholder}></textarea></label>
     <p class="full form-note">{dict.inquiry.privacyPrefix}<a href={localizedPath(locale, '/privacy/')}>{dict.inquiry.privacyLinkLabel}</a>{dict.inquiry.privacySuffix}</p>
@@ -30,4 +30,5 @@ const options = dict.inquiry.options;
   </div>
   <input type="hidden" name="_subject" value={dict.inquiry.subject} />
   <input type="hidden" name="_language" value={locale} />
-</form></div></div>
+  <input type="hidden" name="_next" value={thankYouUrl} />
+</form>

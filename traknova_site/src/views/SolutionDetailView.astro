@@ -2,10 +2,9 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import InquiryDialog from '../components/InquiryDialog.astro';
 import SolutionImage from '../components/SolutionImage.astro';
 import SolutionDeviceCard from '../components/SolutionDeviceCard.astro';
-import { localizedPath, withBase } from '../utils/paths';
+import { localizedPath, withBase, inquiryPath } from '../utils/paths';
 import { getSolutions, type DeviceRef, type Industry } from '../data/solutions';
 import { getProductHref } from '../data/products/catalog';
 import { resolveDeviceRef, type ResolvedDevice } from '../data/solutions/devices';
@@ -115,7 +114,7 @@ const serviceSchema = {
         <h1>{industry.name}</h1>
         <p class="sol-value-line">{industry.valueLine}</p>
         <div class="sol-hero-actions">
-          <button class="button button-accent" data-inquiry-open>{detail.contactCta} ↗</button>
+          <a class="button button-accent" href={inquiryPath(locale)}>{detail.contactCta} ↗</a>
           <button class="button button-glass" data-print-brief>{detail.briefCta} ↓</button>
         </div>
         <div class="sol-hero-chips">
@@ -303,9 +302,9 @@ const serviceSchema = {
           <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
           <p>{copy.cta.body}</p>
         </div>
-        <button class="button button-accent" data-inquiry-open>{detail.contactCta} ↗</button>
+        <a class="button button-accent" href={inquiryPath(locale)}>{detail.contactCta} ↗</a>
       </div>
     </section>
   </main>
-  <Footer locale={locale} /><InquiryDialog locale={locale} />
+  <Footer locale={locale} />
 </BaseLayout>

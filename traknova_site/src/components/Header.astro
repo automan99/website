@@ -1,6 +1,6 @@
 ---
 import { site } from '../data/site';
-import { withBase, localizedPath, getPathInfo } from '../utils/paths';
+import { withBase, localizedPath, getPathInfo, inquiryPath } from '../utils/paths';
 import { DEFAULT_LOCALE, ENABLED_LOCALES, LOCALE_META, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import { getSolutions } from '../data/solutions';
@@ -56,7 +56,7 @@ const navItems = [
       <a href={localizedPath(locale, item.href)} class:list={{ 'is-active': isActive(item.href) }} aria-current={isActive(item.href) ? 'page' : undefined}>{item.label}</a>
     ))}
   </nav>
-  <a class="button button-accent nav-cta" href={localizedPath(locale, '/contact/')}>{dict.header.quoteCta} <span>↗</span></a>
+  <a class="button button-accent nav-cta" href={inquiryPath(locale)}>{dict.header.quoteCta} <span>↗</span></a>
   <button class="menu-toggle" data-menu-toggle aria-label={dict.common.menuToggle}>☰</button>
 </div><nav class="mobile-nav" aria-label={dict.header.mobileNavAria} data-mobile-menu>
   {navItems.map((item) => (

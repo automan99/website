@@ -1,0 +1,93 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import { localizedPath } from '../utils/paths';
+import { getDictionary } from '../i18n';
+import { site } from '../data/site';
+import { CONSENT_STORAGE_KEY, CONSENT_VERSION } from '../scripts/consent.mjs';
+import type { Locale } from '../i18n/config';
+
+interface Props {
+  locale: Locale;
+}
+
+const { locale } = Astro.props;
+const dict = getDictionary(locale);
+const copy = dict.thankYou;
+const tagId = site.googleAds?.tagId?.trim() ?? '';
+const conversionLabel = site.googleAds?.conversionLabel?.trim() ?? '';
+const conversionSendTo = tagId && conversionLabel ? `${tagId}/${conversionLabel}` : '';
+---
+<BaseLayout title={copy.metaTitle} description={copy.metaDescription} locale={locale}>
+  <Fragment slot="head">
+    <meta name="robots" content="noindex,follow" />
+  </Fragment>
+  <Header locale={locale} />
+  <main>
+    <section class="page-hero contact-page-hero">
+      <div class="wrap">
+        <span class="eyebrow">{copy.eyebrow}</span>
+        <h1>{copy.titleLine1}<br /><em>{copy.titleLine2}</em></h1>
+        <p>{copy.body}</p>
+      </div>
+    </section>
+
+    <section class="section">
+      <div class="wrap">
+        <div class="split-intro">
+          <div>
+            <span class="eyebrow">{copy.eyebrow}</span>
+            <h2>{copy.stepsTitle}</h2>
+          </div>
+          <p>{copy.note}</p>
+        </div>
+        <div class="deploy-grid">
+          {copy.steps.map((step) => (
+            <article class="deploy-step"><h3>{step.title}</h3><p>{step.body}</p></article>
+          ))}
+        </div>
+        <div class="mt-36">
+          <a class="button button-accent" href={localizedPath(locale, '/products/')}>{copy.cta} →</a>
+          <a class="button button-outline" href={localizedPath(locale, '/')}>{copy.back} ↗</a>
+        </div>
+      </div>
+    </section>
+  </main>
+  <Footer locale={locale} />
+  {conversionSendTo && (
+    <script
+      is:inline
+      define:vars={{ conversionSendTo, consentKey: CONSENT_STORAGE_KEY, consentVersion: CONSENT_VERSION }}
+    >
+      (function () {
+        var fired = false;
+        var storageKey = 'traknova-conversion-fired:' + conversionSendTo;
+
+        function consentGranted() {
+          try {
+            var stored = JSON.parse(window.localStorage.getItem(consentKey) || 'null');
+            return Boolean(stored && stored.version === consentVersion && stored.advertising === true);
+          } catch (error) {
+            return false;
+          }
+        }
+
+        function fire() {
+          if (fired || !consentGranted() || typeof window.gtag !== 'function') return;
+          try {
+            if (window.sessionStorage.getItem(storageKey)) return;
+            window.sessionStorage.setItem(storageKey, '1');
+          } catch (error) {
+            // Session storage can be unavailable; the in-page flag still prevents duplicates.
+          }
+          fired = true;
+          window.gtag('event', 'conversion', { send_to: conversionSendTo });
+        }
+
+        fire();
+        window.addEventListener('traknova:consent', fire);
+      })();
+    </script>
+  )}
+</BaseLayout>

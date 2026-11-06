@@ -6,6 +6,7 @@ export default defineConfig({
   base: '/website',
   integrations: [
     sitemap({
+      filter: (page) => !page.includes('/thank-you/'),
       // Keep this list in sync with ENABLED_LOCALES in src/i18n/config.ts.
       i18n: {
         defaultLocale: 'en',

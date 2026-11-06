@@ -80,7 +80,8 @@
     "whatsapp": "WhatsApp 销售",
     "facebook": "Facebook",
     "floatingWhatsappAria": "WhatsApp",
-    "floatingEmailAria": "电子邮件"
+    "floatingEmailAria": "电子邮件",
+    "cookieSettings": "Cookie 设置"
   },
   "inquiry": {
     "eyebrow": "联系我们的销售团队",
@@ -95,7 +96,6 @@
       "product": "产品意向",
       "application": "应用 / 行业",
       "cooperation": "合作意向",
-      "timeline": "部署时间表",
       "quantity": "预计数量",
       "details": "项目详情"
     },
@@ -124,13 +124,6 @@
         "project": "项目开发",
         "notSure": "暂不确定"
       },
-      "timeline": {
-        "exploring": "了解阶段",
-        "m0_3": "0–3 个月",
-        "m3_6": "3–6 个月",
-        "m6_12": "6–12 个月",
-        "m12plus": "12 个月以上"
-      },
       "quantity": {
         "notDecided": "未确定",
         "q1_50": "1–50",
@@ -140,11 +133,27 @@
       }
     },
     "detailsPlaceholder": "工作流程、目标市场、所需采集方式，以及任何时间要求。",
-    "privacyPrefix": "我们使用您的信息来回复此询盘。请参阅我们的",
+    "privacyPrefix": "我们仅使用您的信息来回复此询盘。请参阅我们的",
     "privacyLinkLabel": "隐私政策",
     "privacySuffix": "。",
     "submit": "提交询盘",
     "subject": "TRAKNOVA 网站新询盘"
+  },
+  "consent": {
+    "ariaLabel": "Cookie 同意",
+    "title": "您的隐私选择",
+    "body": "本网站可能使用可选 Cookie 衡量广告效果。您可以接受或拒绝。您的选择会保存在此浏览器中，并可随时更改。",
+    "accept": "全部接受",
+    "reject": "拒绝可选",
+    "preferences": "偏好设置",
+    "save": "保存选择",
+    "cancel": "取消",
+    "preferencesTitle": "Cookie 偏好设置",
+    "preferencesBody": "必要存储始终启用。可选广告衡量仅在您接受后启用。",
+    "necessaryTitle": "必要",
+    "necessaryBody": "用于记住您的 Cookie 选择，始终启用。",
+    "advertisingTitle": "广告与衡量",
+    "advertisingBody": "Google Ads 转化衡量。仅在您接受后加载。"
   },
   "home": {
     "metaTitle": "TRAKNOVA | 工业移动计算与自动识别解决方案",
@@ -970,6 +979,32 @@
       "body": "一段简短的工作流程描述就足以开始。其余信息我们会再询问。",
       "button": "发送询盘"
     }
+  },
+  "thankYou": {
+    "metaTitle": "感谢您的询盘 | TRAKNOVA",
+    "metaDescription": "TRAKNOVA 已收到您的询盘。",
+    "eyebrow": "询盘已收到",
+    "titleLine1": "谢谢。",
+    "titleLine2": "我们已收到您的询盘。",
+    "body": "我们会查看您提交的工作流程、目标市场与配置信息，并尽快回复下一步。",
+    "stepsTitle": "接下来会发生什么",
+    "steps": [
+      {
+        "title": "需求评估",
+        "body": "我们会阅读您的工作流程、目标市场与预计数量。"
+      },
+      {
+        "title": "需求澄清",
+        "body": "我们会就来确认真正影响选型的配置问题。"
+      },
+      {
+        "title": "方案建议",
+        "body": "您会收到候选机型、规格信息与资料路径。"
+      }
+    ],
+    "cta": "浏览产品",
+    "back": "返回首页",
+    "note": "如需补充信息，请回复确认邮件或再次联系我们。"
   },
   "oem": {
     "metaTitle": "OEM / ODM 合作 | TRAKNOVA",

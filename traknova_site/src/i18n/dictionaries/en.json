@@ -80,7 +80,8 @@
     "whatsapp": "WhatsApp Sales",
     "facebook": "Facebook",
     "floatingWhatsappAria": "WhatsApp",
-    "floatingEmailAria": "Email"
+    "floatingEmailAria": "Email",
+    "cookieSettings": "Cookie settings"
   },
   "inquiry": {
     "eyebrow": "CONTACT OUR SALES TEAM",
@@ -95,7 +96,6 @@
       "product": "Product Interest",
       "application": "Application / Industry",
       "cooperation": "Cooperation Interest",
-      "timeline": "Deployment Timeline",
       "quantity": "Estimated Quantity",
       "details": "Project Details"
     },
@@ -124,13 +124,6 @@
         "project": "Project development",
         "notSure": "Not sure"
       },
-      "timeline": {
-        "exploring": "Exploring",
-        "m0_3": "0–3 months",
-        "m3_6": "3–6 months",
-        "m6_12": "6–12 months",
-        "m12plus": "12+ months"
-      },
       "quantity": {
         "notDecided": "Not decided",
         "q1_50": "1–50",
@@ -140,11 +133,27 @@
       }
     },
     "detailsPlaceholder": "Workflow, target market, required capture method, and any timing constraints.",
-    "privacyPrefix": "We use your information to respond to this inquiry. See our ",
+    "privacyPrefix": "We use your information only to respond to this inquiry. See our ",
     "privacyLinkLabel": "Privacy Policy",
     "privacySuffix": ".",
     "submit": "Submit Inquiry",
     "subject": "New TRAKNOVA website inquiry"
+  },
+  "consent": {
+    "ariaLabel": "Cookie consent",
+    "title": "Your privacy choices",
+    "body": "This site may use optional cookies to measure advertising performance. You can accept or reject them. Your choice is stored in this browser and can be changed at any time.",
+    "accept": "Accept all",
+    "reject": "Reject optional",
+    "preferences": "Preferences",
+    "save": "Save choices",
+    "cancel": "Cancel",
+    "preferencesTitle": "Cookie preferences",
+    "preferencesBody": "Necessary storage is always on. Optional advertising measurement is only enabled if you accept.",
+    "necessaryTitle": "Necessary",
+    "necessaryBody": "Remembers your cookie choice. Always on.",
+    "advertisingTitle": "Advertising and measurement",
+    "advertisingBody": "Google Ads conversion measurement. Loaded only after you accept."
   },
   "home": {
     "metaTitle": "TRAKNOVA | Industrial Mobility & Auto-ID Solutions",
@@ -874,7 +883,7 @@
       ],
       "privacyPrefix": "We use your information only to respond to this inquiry. See our ",
       "companyLabel": "Company",
-      "companyName": "Shenzhen Yiliya Co., Ltd. (深圳市伊莉亚有限公司)",
+      "companyName": "Shenzhen Yiliya Co., Ltd.",
       "locationLabel": "Location",
       "location": "Shenzhen, China"
     },
@@ -970,6 +979,32 @@
       "body": "A short description of the workflow is enough to start. We will ask for the rest.",
       "button": "Send an Inquiry"
     }
+  },
+  "thankYou": {
+    "metaTitle": "Thank you | TRAKNOVA",
+    "metaDescription": "Your inquiry has been received by TRAKNOVA.",
+    "eyebrow": "INQUIRY RECEIVED",
+    "titleLine1": "Thank you.",
+    "titleLine2": "We have your inquiry.",
+    "body": "Our team will review the workflow, target market and configuration details you shared, and come back with the next step.",
+    "stepsTitle": "What happens next",
+    "steps": [
+      {
+        "title": "Review",
+        "body": "We read the workflow, target market and expected volume."
+      },
+      {
+        "title": "Clarification",
+        "body": "We come back with the configuration questions that matter."
+      },
+      {
+        "title": "Recommendation",
+        "body": "You receive a shortlist, specifications and the documentation path."
+      }
+    ],
+    "cta": "Browse products",
+    "back": "Back to home",
+    "note": "If you need to add information, reply to the confirmation email or contact us again."
   },
   "oem": {
     "metaTitle": "OEM / ODM Partnership | TRAKNOVA",

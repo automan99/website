@@ -2,7 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import InquiryDialog from '../components/InquiryDialog.astro';
+import InquiryForm from '../components/InquiryForm.astro';
 import { site } from '../data/site';
 import { localizedPath } from '../utils/paths';
 import type { Locale } from '../i18n/config';
@@ -28,7 +28,7 @@ const copy = dict.contact;
     </section>
 
     <section class="section">
-      <div class="wrap contact-grid">
+      <div class="wrap contact-grid contact-grid-inquiry">
         <div>
           <span class="eyebrow">{copy.channels.eyebrow}</span>
           <h2>{copy.channels.titleLine1}<br />{copy.channels.titleLine2}</h2>
@@ -43,12 +43,11 @@ const copy = dict.contact;
             <ul class="outcome-list">{copy.channels.items.map((item) => <li>{item}</li>)}</ul>
           </div>
         </div>
-        <div class="contact-card">
+        <div class="contact-card" id="request-a-quote">
           <span class="eyebrow">{copy.inquiryCard.eyebrow}</span>
           <h2>{copy.inquiryCard.title}</h2>
           <p>{copy.inquiryCard.body}</p>
-          <button class="button button-accent" data-inquiry-open>{copy.inquiryCard.button} ↗</button>
-          <p class="note-line">{copy.channels.privacyPrefix}<a href={localizedPath(locale, '/privacy/')}>{dict.inquiry.privacyLinkLabel}</a>{dict.inquiry.privacySuffix}</p>
+          <InquiryForm locale={locale} />
         </div>
       </div>
     </section>
@@ -109,9 +108,9 @@ const copy = dict.contact;
           <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
           <p>{copy.cta.body}</p>
         </div>
-        <button class="button button-accent" data-inquiry-open>{copy.cta.button} ↗</button>
+        <a class="button button-accent" href="#request-a-quote">{copy.cta.button} ↗</a>
       </div>
     </section>
   </main>
-  <Footer locale={locale} /><InquiryDialog locale={locale} />
+  <Footer locale={locale} />
 </BaseLayout>

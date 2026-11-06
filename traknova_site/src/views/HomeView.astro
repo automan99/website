@@ -2,7 +2,6 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import InquiryDialog from '../components/InquiryDialog.astro';
 import ProductCategoryCard from '../components/ProductCategoryCard.astro';
 import { getProductCategories } from '../data/products/catalog';
 import { localizedPath, withBase } from '../utils/paths';
@@ -104,5 +103,5 @@ const heroAlt = locale === 'zh'
 
     <section class="section"><div class="wrap cta-band"><div><span class="eyebrow">{home.cta.eyebrow}</span><h2>{home.cta.titleLine1}<br />{home.cta.titleLine2}</h2><p>{home.cta.body}</p></div><a class="button button-accent" href={localizedPath(locale, '/contact/')}>{home.cta.button} ↗</a></div></section>
   </main>
-  <Footer locale={locale} /><InquiryDialog locale={locale} />
+  <Footer locale={locale} />
 </BaseLayout>

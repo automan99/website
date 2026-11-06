@@ -1,6 +1,6 @@
 ---
 import { site } from '../data/site';
-import { withBase, localizedPath } from '../utils/paths';
+import { withBase, localizedPath, inquiryPath } from '../utils/paths';
 import { DEFAULT_LOCALE, type Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 import { getProductFamilies } from '../data/products/catalog';
@@ -12,6 +12,7 @@ interface Props {
 const { locale = DEFAULT_LOCALE } = Astro.props;
 const dict = getDictionary(locale);
 const families = getProductFamilies(locale);
+const showCookieSettings = site.consent?.enabled !== false;
 ---
 <footer class="footer"><div class="wrap footer-grid">
   <div>
@@ -37,7 +38,7 @@ const families = getProductFamilies(locale);
     <a href={localizedPath(locale, '/about/')}>{dict.footer.columns.companyAbout}</a>
     <a href={localizedPath(locale, '/oem-odm/')}>{dict.footer.columns.companyOem}</a>
     <a href={localizedPath(locale, '/contact/')}>{dict.footer.columns.companyContact}</a>
-    <a href={localizedPath(locale, '/contact/')}>{dict.footer.columns.companyQuote}</a>
+    <a href={inquiryPath(locale)}>{dict.footer.columns.companyQuote}</a>
   </div>
   <div>
     <h4>{dict.footer.columns.contactTitle}</h4>
@@ -46,5 +47,22 @@ const families = getProductFamilies(locale);
     <a href={site.facebook} target="_blank" rel="noreferrer">{dict.footer.columns.contactFacebook}</a>
     <p>{dict.footer.columns.contactNote}</p>
   </div>
-</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. {dict.footer.rights}</span><span><a href={localizedPath(locale, '/privacy/')}>{dict.footer.privacy}</a> · <a href={localizedPath(locale, '/terms/')}>{dict.footer.terms}</a></span></div></footer>
+</div><div class="wrap footer-bottom"><span>© {new Date().getFullYear()} {site.brand}. {dict.footer.rights}</span><span><a href={localizedPath(locale, '/privacy/')}>{dict.footer.privacy}</a> · <a href={localizedPath(locale, '/terms/')}>{dict.footer.terms}</a>{showCookieSettings && <><span aria-hidden="true"> · </span><button type="button" class="footer-cookie-button" data-consent-open>{dict.footer.cookieSettings}</button></>}</span></div></footer>
 <div class="floating-contact"><a aria-label={dict.footer.floatingWhatsappAria} href={`https://wa.me/${site.whatsapp}`} target="_blank" rel="noreferrer">WA</a><a aria-label={dict.footer.floatingEmailAria} href={`mailto:${site.email}`}>✉</a></div>
+<style>
+  .footer-cookie-button {
+    display: inline;
+    padding: 0;
+    border: 0;
+    background: none;
+    color: inherit;
+    font: inherit;
+    cursor: pointer;
+  }
+
+  .footer-cookie-button:hover {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 2px;
+  }
+</style>

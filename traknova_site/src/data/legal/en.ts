@@ -16,7 +16,7 @@ const email: LegalInline = { emailLink: true };
 
 export const privacyDocument: LegalDocument = {
   id: 'privacy',
-  updated: '5 November 2026',
+  updated: '6 November 2026',
   blocks: [
     { type: 'heading', text: '1. Who we are' },
     {
@@ -30,7 +30,7 @@ export const privacyDocument: LegalDocument = {
     { type: 'heading', text: '2. Information we collect' },
     {
       type: 'paragraph',
-      content: [text('When you submit the inquiry form, we collect the information you provide: name, business email, company, country or region, product and application interest, cooperation interest, deployment timeline, estimated quantity and project details. If you contact us by email, WhatsApp or another channel, we receive the information you choose to send.')]
+      content: [text('When you submit the inquiry form, we collect the information you provide: name, business email, company, country or region, product and application interest, cooperation interest, estimated quantity and project details. If you contact us by email, WhatsApp or another channel, we receive the information you choose to send.')]
     },
     {
       type: 'paragraph',
@@ -55,17 +55,29 @@ export const privacyDocument: LegalDocument = {
     { type: 'heading', text: '5. Sharing' },
     {
       type: 'paragraph',
-      content: [text('We use service providers for website hosting and form processing, including Formspree, and may share information with manufacturing, logistics or professional advisers where needed to respond to your request. We do not sell personal information.')]
+      content: [text('We use service providers for website hosting and form processing, including Formspree, and may share information with manufacturing, logistics or professional advisers where needed to respond to your request. Where advertising measurement is enabled, Google may process limited technical information as described in section 7. We do not sell personal information.')]
     },
     { type: 'heading', text: '6. Retention' },
     {
       type: 'paragraph',
       content: [text('We retain inquiry records for as long as needed to respond and maintain the business relationship, and afterwards for the period required by applicable law.')]
     },
-    { type: 'heading', text: '7. Cookies and analytics' },
+    { type: 'heading', text: '7. Cookies, consent and advertising measurement' },
     {
       type: 'paragraph',
-      content: [text('This website does not currently use advertising or analytics cookies. If analytics or other tracking technologies are introduced, this policy will be updated and, where required, consent will be requested.')]
+      content: [text('We store a small cookie-consent preference in your browser local storage so the site can remember whether you accepted or rejected optional cookies. This preference is necessary for the site to respect your choice and is not used to track you across other websites.')]
+    },
+    {
+      type: 'paragraph',
+      content: [text('If advertising measurement is enabled, we use Google Ads conversion tracking to understand whether visitors who click our advertisements submit an inquiry. Google may receive technical information such as your IP address, the page you visited, the browser you use and the fact that an inquiry was submitted. Google may set advertising cookies only after you select “Accept” in the cookie banner. If you reject optional cookies, the Google tag runs in consent-denied mode and does not set advertising cookies; Google may still receive cookieless signals for measurement.')]
+    },
+    {
+      type: 'paragraph',
+      content: [text('You can change your choice at any time using the “Cookie settings” link in the footer. We do not currently use analytics cookies. If we introduce analytics or other tracking technologies, we will update this policy and request consent where required.')]
+    },
+    {
+      type: 'paragraph',
+      content: [text('For more information about how Google uses information from sites and apps that use its services, see https://policies.google.com/technologies/partner-sites.')]
     },
     { type: 'heading', text: '8. International transfers' },
     {
@@ -101,7 +113,7 @@ export const privacyDocument: LegalDocument = {
 
 export const termsDocument: LegalDocument = {
   id: 'terms',
-  updated: '5 November 2026',
+  updated: '6 November 2026',
   blocks: [
     { type: 'heading', text: '1. Website use' },
     {

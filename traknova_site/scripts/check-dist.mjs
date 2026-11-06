@@ -102,10 +102,37 @@ const requiredPages = [
   'zh/solutions/field-service/index.html',
   'zh/privacy/index.html',
   'zh/terms/index.html',
+  'thank-you/index.html',
+  'zh/thank-you/index.html',
   'zh/404/index.html'
 ];
 for (const page of requiredPages) {
   if (!existsSync(join(dist, page))) errors.push(`missing page: ${page}`);
+}
+
+for (const [page, marker] of [
+  ['contact/index.html', 'name="_next"'],
+  ['zh/contact/index.html', 'name="_next"']
+]) {
+  const path = join(dist, page);
+  if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: missing Formspree ${marker} field`);
+  }
+}
+
+for (const [page, marker] of [
+  ['thank-you/index.html', 'noindex'],
+  ['zh/thank-you/index.html', 'noindex']
+]) {
+  const path = join(dist, page);
+  if (existsSync(path) && !readFileSync(path, 'utf8').includes(marker)) {
+    errors.push(`${page}: missing ${marker} robots meta`);
+  }
+}
+
+const thankYouSitemapPath = join(dist, 'sitemap-0.xml');
+if (existsSync(thankYouSitemapPath) && readFileSync(thankYouSitemapPath, 'utf8').includes('/thank-you/')) {
+  errors.push('sitemap-0.xml: thank-you pages should not be indexed');
 }
 
 for (const [page, target] of [

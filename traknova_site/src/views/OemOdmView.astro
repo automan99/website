@@ -2,8 +2,7 @@
 import BaseLayout from '../layouts/BaseLayout.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
-import InquiryDialog from '../components/InquiryDialog.astro';
-import { localizedPath, withBase } from '../utils/paths';
+import { localizedPath, withBase, inquiryPath } from '../utils/paths';
 import type { Locale } from '../i18n/config';
 import { getDictionary } from '../i18n';
 
@@ -34,7 +33,7 @@ const copy = dict.oem;
         <h1>{copy.hero.titleLine1}<br /><em>{copy.hero.titleLine2}</em></h1>
         <p>{copy.hero.body}</p>
         <div class="sol-hero-actions">
-          <button class="button button-accent" data-inquiry-open>{copy.hero.primaryCta} ↗</button>
+          <a class="button button-accent" href={inquiryPath(locale)}>{copy.hero.primaryCta} ↗</a>
           <a class="button button-glass" href={localizedPath(locale, '/products/')}>{copy.hero.secondaryCta} ↗</a>
         </div>
       </div>
@@ -161,9 +160,9 @@ const copy = dict.oem;
           <h2>{copy.cta.titleLine1}<br />{copy.cta.titleLine2}</h2>
           <p>{copy.cta.body}</p>
         </div>
-        <button class="button button-accent" data-inquiry-open>{copy.cta.button} ↗</button>
+        <a class="button button-accent" href={inquiryPath(locale)}>{copy.cta.button} ↗</a>
       </div>
     </section>
   </main>
-  <Footer locale={locale} /><InquiryDialog locale={locale} />
+  <Footer locale={locale} />
 </BaseLayout>
